@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "793a84c6_316ed07e",
+        "filename": "lib/commons/BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-07-11T12:59:56Z",
+      "side": 1,
+      "message": "Forgot to remove this as well?",
+      "revId": "f6269705be2c8bbe0bd553285bb56a8c356d65a2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
