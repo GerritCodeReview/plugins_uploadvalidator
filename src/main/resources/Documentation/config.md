@@ -13,9 +13,15 @@ project info screen.
     blockedFileExtension = zip
     blockedFileExtension = war
     blockedFileExtension = exe
+    requiredFooter = Bug
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
 :	File extension to be blocked.
 
 	Blocked file extensions are *not* inherited by child projects.
+
+plugin.@PLUGIN@.requiredFooter
+:	Footer that is required.
+
+	Required footers are *not* inherited by child projects.
