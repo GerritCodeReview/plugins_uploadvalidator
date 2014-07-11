@@ -22,6 +22,30 @@
       "revId": "5cf6cd71e834bfade1b3ccd82bce042c1b589903",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "793a84c6_71745850",
+        "filename": "BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-07-11T12:41:05Z",
+      "side": 1,
+      "message": "It\u0027s not needed.\n\nDone.",
+      "parentUuid": "39448c56_ef8061eb",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 24
+      },
+      "revId": "5cf6cd71e834bfade1b3ccd82bce042c1b589903",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
