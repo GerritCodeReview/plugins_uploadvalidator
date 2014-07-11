@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.googlesource.gerrit.plugins.uploadvalidator.FileExtensionValidator.KEY_BLOCKED_FILE_EXTENSION;
+import static com.googlesource.gerrit.plugins.uploadvalidator.FooterValidator.KEY_REQUIRED_FOOTER;
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -27,7 +28,6 @@ class Module extends AbstractModule {
   protected void configure() {
     DynamicSet.bind(binder(), CommitValidationListener.class)
         .to(FileExtensionValidator.class);
-
     bind(ProjectConfigEntry.class)
         .annotatedWith(Exports.named(KEY_BLOCKED_FILE_EXTENSION))
         .toInstance(
@@ -35,5 +35,15 @@ class Module extends AbstractModule {
                 ProjectConfigEntry.Type.ARRAY, null, false,
                 "Forbidden file extensions. Pushes of commits that "
                     + "contain files with these extensions will be rejected."));
+
+    DynamicSet.bind(binder(), CommitValidationListener.class)
+        .to(FooterValidator.class);
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(KEY_REQUIRED_FOOTER))
+        .toInstance(
+            new ProjectConfigEntry("Required Footers", null,
+                ProjectConfigEntry.Type.ARRAY, null, false,
+                "Required footers. Pushes of commits that miss any"
+                    + " of the footers will be rejected."));
   }
 }
