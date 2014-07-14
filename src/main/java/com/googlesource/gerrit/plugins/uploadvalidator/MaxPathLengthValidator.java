@@ -14,7 +14,6 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.common.io.Files;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -33,15 +32,15 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class FileExtensionValidator extends PathValidator {
-  public static String KEY_BLOCKED_FILE_EXTENSION = "blockedFileExtension";
+public class MaxPathLengthValidator extends PathValidator {
+  public static String KEY_MAX_PATH_LENGTH = "maxPathLength";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
 
   @Inject
-  FileExtensionValidator(@PluginName String pluginName,
+  MaxPathLengthValidator(@PluginName String pluginName,
       PluginConfigFactory cfgFactory, GitRepositoryManager repoManager) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
@@ -55,32 +54,28 @@ public class FileExtensionValidator extends PathValidator {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfig(
               receiveEvent.project.getNameKey(), pluginName);
-      String[] blockedFileExtensions =
-          cfg.getStringList(KEY_BLOCKED_FILE_EXTENSION);
-      if (blockedFileExtensions.length > 0) {
+      int maxPathLength = cfg.getInt(KEY_MAX_PATH_LENGTH, 0);
+      if (maxPathLength > 0) {
         Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey());
         try {
           List<CommitValidationMessage> messages = new LinkedList<>();
           List<String> files = getFiles(repo, receiveEvent.commit);
           for (String file : files) {
-            String ext = Files.getFileExtension(file);
-            for (int i = 0; i < blockedFileExtensions.length; i++) {
-              if (ext.equalsIgnoreCase(blockedFileExtensions[i])) {
-                messages.add(new CommitValidationMessage("blocked file: " + file, true));
-                break;
-              }
+            if (file.length() > maxPathLength) {
+              messages.add(new CommitValidationMessage("path too long: " + file, true));
             }
           }
           if (!messages.isEmpty()) {
             throw new CommitValidationException(
-                "contains files with blocked file extensions", messages);
+                "contains files with too long paths (max path length: "
+                    + maxPathLength + ")", messages);
           }
         } finally {
           repo.close();
         }
       }
     } catch (NoSuchProjectException | IOException | GitAPIException e) {
-      throw new CommitValidationException("failed to check on file extensions", e);
+      throw new CommitValidationException("failed to check for max file path length", e);
     }
 
     return Collections.emptyList();
