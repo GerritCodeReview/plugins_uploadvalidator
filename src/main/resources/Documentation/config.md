@@ -14,6 +14,7 @@ project info screen.
     blockedFileExtension = war
     blockedFileExtension = exe
     requiredFooter = Bug
+    maxPathLength = 200
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -25,3 +26,11 @@ plugin.@PLUGIN@.requiredFooter
 :	Footer that is required.
 
 	Required footers are *not* inherited by child projects.
+
+plugin.@PLUGIN@.maxPathLength
+:	Maximum allowed path length. '0' means no limit.
+
+	Defaults to '0'.
+
+	The maximum allowed path length is *not* inherited by child
+	projects.
