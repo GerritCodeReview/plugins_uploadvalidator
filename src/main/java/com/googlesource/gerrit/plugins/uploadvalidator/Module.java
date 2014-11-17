@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import static com.googlesource.gerrit.plugins.uploadvalidator.FileExtensionValidator.KEY_BLOCKED_FILE_EXTENSION;
 import static com.googlesource.gerrit.plugins.uploadvalidator.FooterValidator.KEY_REQUIRED_FOOTER;
 import static com.googlesource.gerrit.plugins.uploadvalidator.MaxPathLengthValidator.KEY_MAX_PATH_LENGTH;
+import static com.googlesource.gerrit.plugins.uploadvalidator.CharSetValidator.CHARSET_VALIDATOR;
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -56,5 +57,15 @@ class Module extends AbstractModule {
                 "Maximum path length. Pushes of commits that "
                     + "contain files with longer paths will be rejected. "
                     + "'0' means no limit."));
+
+    DynamicSet.bind(binder(), CommitValidationListener.class)
+        .to(CharSetValidator.class);
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(CHARSET_VALIDATOR))
+        .toInstance(
+            new ProjectConfigEntry("Charset Validation", null,
+                ProjectConfigEntry.Type.ARRAY, null, false,
+                "Validate characters in usernames, branches as UTF8 valid and lowercase "
+                    + "among other things."));
   }
 }
