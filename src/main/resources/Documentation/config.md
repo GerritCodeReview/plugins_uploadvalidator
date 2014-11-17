@@ -17,6 +17,26 @@ project info screen.
     maxPathLength = 200
 ```
 
+plugin.@PLUGIN@.blockedFileExtension.enabled
+:	Enable or disable this validation type.
+
+	Defaults to 'true'.
+
+plugin.@PLUGIN@.requiredFooter.enabled
+:	Enable or disable this validation type.
+
+	Defaults to 'true'.
+
+plugin.@PLUGIN@.maxPathLength.enabled
+:	Enable or disable this validation type.
+
+	Defaults to 'true'.
+
+plugin.@PLUGIN@.charSetValidator.enabled
+:	Enable or disable this validation type.
+
+	Defaults to 'true'.
+
 plugin.@PLUGIN@.blockedFileExtension
 :	File extension to be blocked.
 
