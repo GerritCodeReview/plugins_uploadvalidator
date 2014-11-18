@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "daea87ee_91af3c76",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daea87ee_b1e000df",
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae09f12_8b138d4b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2014-11-18T14:34:34Z",
       "side": 1,
       "message": "nit: unused import",
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_71b5f8c0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ae09f12_8b138d4b",
       "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1ae09f12_abe089de",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daea87ee_91e5fcee",
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "daea87ee_71cbb85e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 4
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "daea87ee_11bc6caa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Now used, now the functionality actually matches the documentation...",
+      "parentUuid": "daea87ee_71cbb85e",
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae09f12_ab25299f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 4
@@ -81,6 +153,30 @@
       "writtenOn": "2014-11-18T14:34:34Z",
       "side": 1,
       "message": "The validation of the branch name seems to be independent of the UTF8 commit check. Would it be cleaner to have them each in an own validator class?",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 7
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_cbdbd52d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "They are all here to avoid just about the same problem, I can split it up if you want me to.",
+      "parentUuid": "1ae09f12_ab25299f",
       "range": {
         "startLine": 70,
         "startChar": 6,
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "daea87ee_f187a8f2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "The original concept was to allow it per project but since it\u0027s basically killed it will not happen. I\u0027m just trying to get a initial version of what we did out there so that it can be used. I\u0027m hoping that someone takes this up and fixes the rest.\n\nCurrently the configuration is a bit botched, i agree, but I actually have no real time to put in to this.",
+      "parentUuid": "1ae09f12_6b19816a",
+      "range": {
+        "startLine": 102,
+        "startChar": 25,
+        "endLine": 102,
+        "endChar": 74
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae09f12_4b16c53a",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 4
@@ -139,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "1ae09f12_8be5cdee",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Ah, it differs from git in that, oki.",
+      "parentUuid": "1ae09f12_4b16c53a",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 30
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "daea87ee_b1f7e09b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 4
@@ -150,6 +294,30 @@
       "writtenOn": "2014-11-18T14:34:34Z",
       "side": 1,
       "message": "Store the returned object in a local variable rather than loading it many times.",
+      "range": {
+        "startLine": 108,
+        "startChar": 25,
+        "endLine": 108,
+        "endChar": 74
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_31bf70a3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Worked around this, i bet that there is a better... more java way to do this...",
+      "parentUuid": "daea87ee_b1f7e09b",
       "range": {
         "startLine": 108,
         "startChar": 25,
@@ -208,6 +376,30 @@
     },
     {
       "key": {
+        "uuid": "daea87ee_b1aa4066",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daea87ee_d10264e3",
+      "range": {
+        "startLine": 109,
+        "startChar": 42,
+        "endLine": 109,
+        "endChar": 49
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae09f12_eb2b3174",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 4
@@ -219,6 +411,30 @@
       "writtenOn": "2014-11-18T14:34:34Z",
       "side": 1,
       "message": "Does this need to be configurable? I think we can simply hard-code this error message.",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 95
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_d1a5c497",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "The point here is that you can point to internal documentation about the errors.",
+      "parentUuid": "1ae09f12_eb2b3174",
       "range": {
         "startLine": 112,
         "startChar": 4,
@@ -254,6 +470,30 @@
     },
     {
       "key": {
+        "uuid": "daea87ee_51b2f4da",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daea87ee_71f298ac",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "daea87ee_51ef94c4",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 4
@@ -265,6 +505,30 @@
       "writtenOn": "2014-11-18T14:34:34Z",
       "side": 1,
       "message": "Use the java.nio.charset.StandardCharsets.UTF_8 constant instead.",
+      "range": {
+        "startLine": 121,
+        "startChar": 40,
+        "endLine": 121,
+        "endChar": 47
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_0b379dd0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daea87ee_51ef94c4",
       "range": {
         "startLine": 121,
         "startChar": 40,
@@ -300,6 +564,30 @@
     },
     {
       "key": {
+        "uuid": "daea87ee_f1a0c889",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daea87ee_31ec10ce",
+      "range": {
+        "startLine": 183,
+        "startChar": 27,
+        "endLine": 183,
+        "endChar": 34
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae09f12_cb3075df",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 4
@@ -311,6 +599,30 @@
       "writtenOn": "2014-11-18T14:34:34Z",
       "side": 1,
       "message": "\"committer\"",
+      "range": {
+        "startLine": 184,
+        "startChar": 27,
+        "endLine": 184,
+        "endChar": 36
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_ebd69105",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:04:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ae09f12_cb3075df",
       "range": {
         "startLine": 184,
         "startChar": 27,
