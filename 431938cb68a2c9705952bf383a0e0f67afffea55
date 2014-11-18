@@ -658,6 +658,30 @@
     },
     {
       "key": {
+        "uuid": "daea87ee_b18120e0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:27:59Z",
+      "side": 1,
+      "message": "This was planned, not implemented \"yet\"... (and with no time and not even working with gerrit anymore (officially) i doubt it will happen from my side...)",
+      "parentUuid": "1ae09f12_6b406130",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 46
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ae09f12_8b2a6d6d",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 4
@@ -681,6 +705,30 @@
     },
     {
       "key": {
+        "uuid": "1ae09f12_4bc80560",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:27:59Z",
+      "side": 1,
+      "message": "It will work, it will do what i want - git understands atleast... ;)\n\nExample:\ngit config -f gitconfig plugin.uploadvalidator.charSetValidator.branchRegex test\n\ncat gitconfig \n[plugin \"uploadvalidator.charSetValidator\"]\n\tbranchRegex \u003d test\n---\n\nI know that it didn\u0027t match the implementation, this has now been fixed.\n\nCompletely missed the project.config but i didn\u0027t want to push the source code without documenting what you can do with it, responding R.T.S.L. is not the best idea \u003d)",
+      "parentUuid": "1ae09f12_8b2a6d6d",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 45
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "daea87ee_11e90cbe",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 4
@@ -692,6 +740,30 @@
       "writtenOn": "2014-11-18T14:34:34Z",
       "side": 1,
       "message": "Below you write this in all uppercase (line 56), use a consistent writing in all places.",
+      "range": {
+        "startLine": 43,
+        "startChar": 40,
+        "endLine": 43,
+        "endChar": 48
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_d18ca419",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T16:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "daea87ee_11e90cbe",
       "range": {
         "startLine": 43,
         "startChar": 40,
