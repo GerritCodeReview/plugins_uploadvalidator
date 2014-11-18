@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "daea87ee_1120ec8f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T10:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a2ac314_942884b0",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 44
+      },
+      "revId": "1d55b0032ab62a201d79d7b0bc487dd58cfd47e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a2ac314_d41efc86",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2014-11-18T10:03:21Z",
       "side": 1,
       "message": "on the previous line",
+      "range": {
+        "startLine": 138,
+        "startChar": 6,
+        "endLine": 138,
+        "endChar": 7
+      },
+      "revId": "1d55b0032ab62a201d79d7b0bc487dd58cfd47e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_cba635cb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T10:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a2ac314_d41efc86",
       "range": {
         "startLine": 138,
         "startChar": 6,
@@ -71,6 +119,53 @@
     },
     {
       "key": {
+        "uuid": "daea87ee_f12b2874",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T10:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a2ac314_34ff30c2",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 1
+      },
+      "revId": "1d55b0032ab62a201d79d7b0bc487dd58cfd47e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_6b962154",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T10:25:45Z",
+      "side": 1,
+      "message": "Missing {} ;)",
+      "range": {
+        "startLine": 153,
+        "startChar": 1,
+        "endLine": 154,
+        "endChar": 23
+      },
+      "revId": "1d55b0032ab62a201d79d7b0bc487dd58cfd47e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a2ac314_f423f8d1",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 2
@@ -82,6 +177,30 @@
       "writtenOn": "2014-11-18T10:03:21Z",
       "side": 1,
       "message": "missing { }",
+      "range": {
+        "startLine": 170,
+        "startChar": 8,
+        "endLine": 171,
+        "endChar": 23
+      },
+      "revId": "1d55b0032ab62a201d79d7b0bc487dd58cfd47e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_d13024df",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T10:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a2ac314_f423f8d1",
       "range": {
         "startLine": 170,
         "startChar": 8,
@@ -117,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "daea87ee_b125a09f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T10:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da87e727_c9b851eb",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 177,
+        "endChar": 3
+      },
+      "revId": "1d55b0032ab62a201d79d7b0bc487dd58cfd47e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da87e727_a9ab1d97",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 2
@@ -140,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "1ae09f12_ab9be97c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T10:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da87e727_a9ab1d97",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 5
+      },
+      "revId": "1d55b0032ab62a201d79d7b0bc487dd58cfd47e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da87e727_e9b515f0",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 2
@@ -151,6 +318,30 @@
       "writtenOn": "2014-11-18T10:03:21Z",
       "side": 1,
       "message": "previous line",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 187,
+        "endChar": 7
+      },
+      "revId": "1d55b0032ab62a201d79d7b0bc487dd58cfd47e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_8ba02dae",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T10:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da87e727_e9b515f0",
       "range": {
         "startLine": 187,
         "startChar": 6,
