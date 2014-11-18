@@ -1,0 +1,394 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "daea87ee_b1e000df",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "nit: unused import",
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_8b138d4b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "nit: unused import",
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_91e5fcee",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "nit: unused import",
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_71cbb85e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "nit: unused member variable",
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_ab25299f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "The validation of the branch name seems to be independent of the UTF8 commit check. Would it be cleaner to have them each in an own validator class?",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 89,
+        "endChar": 7
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_6b19816a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "This usage is bad. cfgFactory.getFromGerritConfig(...) expects a plugin name as parameter and it should not be misused by providing something else.\n\nIf you need a set of configuration parameters for this check, then we should rather have an own configuration file for this plugin and have in it one (sub)section per validator. E.g.:\n\n  uploadvalidator.config:\n\n  [validator \"CharSetValidator\"]\n    branchRegex \u003d ...\n    branchRejectReason \u003d ...\n\nAlso should these configuration parameter be global or configurable per project?",
+      "range": {
+        "startLine": 102,
+        "startChar": 25,
+        "endLine": 102,
+        "endChar": 74
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_4b16c53a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "we always use camelCase for configuration parameter names",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 30
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_b1f7e09b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "Store the returned object in a local variable rather than loading it many times.",
+      "range": {
+        "startLine": 108,
+        "startChar": 25,
+        "endLine": 108,
+        "endChar": 74
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_d10264e3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to be that polite. We also don\u0027t say \u0027sorry\u0027 in case of other errors.",
+      "range": {
+        "startLine": 109,
+        "startChar": 42,
+        "endLine": 109,
+        "endChar": 49
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_91fcdc80",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "\"branch name\"?",
+      "range": {
+        "startLine": 109,
+        "startChar": 54,
+        "endLine": 109,
+        "endChar": 60
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_eb2b3174",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "Does this need to be configurable? I think we can simply hard-code this error message.",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 95
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_71f298ac",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "Should this rather be one enum than two boolean configuration parameters (e.g. the enum could have the following values: \"OFF\", \"FAST\", \"FULL\")?",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_51ef94c4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "Use the java.nio.charset.StandardCharsets.UTF_8 constant instead.",
+      "range": {
+        "startLine": 121,
+        "startChar": 40,
+        "endLine": 121,
+        "endChar": 47
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_31ec10ce",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "authors? Isn\u0027t there excatly 1 author?",
+      "range": {
+        "startLine": 183,
+        "startChar": 27,
+        "endLine": 183,
+        "endChar": 34
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_cb3075df",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "\"committer\"",
+      "range": {
+        "startLine": 184,
+        "startChar": 27,
+        "endLine": 184,
+        "endChar": 36
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_6b406130",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "Here you bind a project level configuration parameter which is stored in the \u0027project.config\u0027 file, but the validator only reads from the global gerrit.config file, hence this configuration parameter is not used?",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 46
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_8b2a6d6d",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "You can only have 3 segments for a git config key: section, subsection and parameter name. \"plugin.uploadvalidator.charSetValidator.branch_regex\u0027 has 4 segements and will not work.\n\nAlso this doesn\u0027t match the implementation.\n\nThe implementation reads the value of \u0027plugin.charSetValidator.branch_regex\u0027 from the \u0027$review_site/etc/gerrit.config\u0027, but this documentation claims it\u0027s read from the \u0027project.config\u0027 file of the project (see lines 4-5 of this file).",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 45
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daea87ee_11e90cbe",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2014-11-18T14:34:34Z",
+      "side": 1,
+      "message": "Below you write this in all uppercase (line 56), use a consistent writing in all places.",
+      "range": {
+        "startLine": 43,
+        "startChar": 40,
+        "endLine": 43,
+        "endChar": 48
+      },
+      "revId": "431938cb68a2c9705952bf383a0e0f67afffea55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
