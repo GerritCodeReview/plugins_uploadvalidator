@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "daea87ee_f1d68805",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T11:46:03Z",
+      "side": 1,
+      "message": "This exception doesn\u0027t exist or can\u0027t be caught here.\n\nThe likely replacement \"RepositoryNotFoundException\" is apparently a subclass of IOException.\n\nI think I\u0027ll change this to IOException only if I can\u0027t find anything else useful.",
+      "range": {
+        "startLine": 90,
+        "startChar": 13,
+        "endLine": 90,
+        "endChar": 35
+      },
+      "revId": "17421b4274d1d9dcceec215f0cb7dd5c0a8f7919",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "daea87ee_513d54b0",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
         "patchSetId": 3
@@ -18,6 +41,53 @@
         "startChar": 33,
         "endLine": 101,
         "endChar": 37
+      },
+      "revId": "17421b4274d1d9dcceec215f0cb7dd5c0a8f7919",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_cb099521",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T11:46:03Z",
+      "side": 1,
+      "message": "This is really odd, this is based on the last in git version. Fixing this C-ism gave me other errors - will add a comment about them below.",
+      "parentUuid": "daea87ee_513d54b0",
+      "range": {
+        "startLine": 101,
+        "startChar": 33,
+        "endLine": 101,
+        "endChar": 37
+      },
+      "revId": "17421b4274d1d9dcceec215f0cb7dd5c0a8f7919",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ae09f12_ab0e4925",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CharSetValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1005102
+      },
+      "writtenOn": "2014-11-18T11:46:03Z",
+      "side": 1,
+      "message": "Does nothing, goes nowhere^tm\n\nMust be a leftover...",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 55
       },
       "revId": "17421b4274d1d9dcceec215f0cb7dd5c0a8f7919",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
