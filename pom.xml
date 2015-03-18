@@ -21,12 +21,12 @@ limitations under the License.
   <groupId>com.googlesource.gerrit.plugins.uploadvalidator</groupId>
   <artifactId>uploadvalidator</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>2.10</version>
   <name>uploadvalidator</name>
 
   <properties>
     <Gerrit-ApiType>plugin</Gerrit-ApiType>
-    <Gerrit-ApiVersion>2.10-SNAPSHOT</Gerrit-ApiVersion>
+    <Gerrit-ApiVersion>${project.version}</Gerrit-ApiVersion>
   </properties>
 
   <build>
