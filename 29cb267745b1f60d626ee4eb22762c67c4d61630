@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59e6bc29_321ad0a0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PathValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2015-06-08T11:08:14Z",
+      "side": 1,
+      "message": "Remove \u0027final\u0027 here?\n\nWe decided not to use \u0027final\u0027 for local variables anymore if not required [1].\n\n[1] https://gerrit-review.googlesource.com/Documentation/dev-contributing.html#_style",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 14
+      },
+      "revId": "29cb267745b1f60d626ee4eb22762c67c4d61630",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
