@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39e908fb_91861c1a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PathValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2015-06-08T22:29:02Z",
+      "side": 1,
+      "message": "Done in PS2",
+      "parentUuid": "39e908fb_1100ec31",
+      "range": {
+        "startLine": 42,
+        "startChar": 11,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "cbaa92a591d9420a84c7e929bbf1b08700a515bc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59e6bc29_1217cc76",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PathValidator.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-08T11:11:25Z",
       "side": 1,
       "message": "remove \u0027final\u0027",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 16
+      },
+      "revId": "cbaa92a591d9420a84c7e929bbf1b08700a515bc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39e908fb_717cd898",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PathValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2015-06-08T22:29:02Z",
+      "side": 1,
+      "message": "Done in PS2",
+      "parentUuid": "59e6bc29_1217cc76",
       "range": {
         "startLine": 53,
         "startChar": 11,
