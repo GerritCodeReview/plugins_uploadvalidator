@@ -22,6 +22,30 @@
       "revId": "29cb267745b1f60d626ee4eb22762c67c4d61630",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39e908fb_b1812006",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PathValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2015-06-08T22:28:00Z",
+      "side": 1,
+      "message": "Oh. Sorry.\nDone in PS2",
+      "parentUuid": "59e6bc29_321ad0a0",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 14
+      },
+      "revId": "29cb267745b1f60d626ee4eb22762c67c4d61630",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
