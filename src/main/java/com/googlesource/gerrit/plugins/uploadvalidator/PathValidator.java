@@ -38,21 +38,24 @@ public abstract class PathValidator implements CommitValidationListener {
     List<String> files = new ArrayList<>();
 
     if (c.getParentCount() > 0) {
-      Git git = new Git(repo);
-      List<DiffEntry> diffEntries =
-          git.diff().setOldTree(getTreeIterator(repo, c.getName() + "^"))
-              .setNewTree(getTreeIterator(repo, c.getName())).call();
+      List<DiffEntry> diffEntries;
+      try (Git git = new Git(repo)) {
+        diffEntries = git.diff()
+            .setOldTree(getTreeIterator(repo, c.getName() + "^"))
+            .setNewTree(getTreeIterator(repo, c.getName())).call();
+      }
       for (DiffEntry e : diffEntries) {
         if (e.getNewPath() != null) {
           files.add(e.getNewPath());
         }
       }
     } else {
-      TreeWalk tw = new TreeWalk(repo);
-      tw.addTree(c.getTree());
-      tw.setRecursive(true);
-      while (tw.next()) {
-        files.add(tw.getPathString());
+      try (TreeWalk tw = new TreeWalk(repo)) {
+        tw.addTree(c.getTree());
+        tw.setRecursive(true);
+        while (tw.next()) {
+          files.add(tw.getPathString());
+        }
       }
     }
 
@@ -62,12 +65,9 @@ public abstract class PathValidator implements CommitValidationListener {
   private AbstractTreeIterator getTreeIterator(Repository repo, String name)
       throws IOException {
     CanonicalTreeParser p = new CanonicalTreeParser();
-    ObjectReader or = repo.newObjectReader();
-    try {
+    try (ObjectReader or = repo.newObjectReader()) {
       p.reset(or, new RevWalk(repo).parseTree(repo.resolve(name)));
       return p;
-    } finally {
-      or.release();
     }
   }
 }
