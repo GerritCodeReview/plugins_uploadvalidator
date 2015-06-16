@@ -7,7 +7,7 @@ gerrit_plugin(
   manifest_entries = [
     'Gerrit-PluginName: uploadvalidator',
     'Gerrit-ApiType: plugin',
-    'Gerrit-ApiVersion: 2.11',
+    'Gerrit-ApiVersion: 2.12-SNAPSHOT',
     'Gerrit-Module: com.googlesource.gerrit.plugins.uploadvalidator.Module',
   ],
 )
