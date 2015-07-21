@@ -56,8 +56,7 @@ public class MaxPathLengthValidator extends PathValidator {
               receiveEvent.project.getNameKey(), pluginName);
       int maxPathLength = cfg.getInt(KEY_MAX_PATH_LENGTH, 0);
       if (maxPathLength > 0) {
-        Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey());
-        try {
+        try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = new LinkedList<>();
           List<String> files = getFiles(repo, receiveEvent.commit);
           for (String file : files) {
@@ -70,8 +69,6 @@ public class MaxPathLengthValidator extends PathValidator {
                 "contains files with too long paths (max path length: "
                     + maxPathLength + ")", messages);
           }
-        } finally {
-          repo.close();
         }
       }
     } catch (NoSuchProjectException | IOException | GitAPIException e) {

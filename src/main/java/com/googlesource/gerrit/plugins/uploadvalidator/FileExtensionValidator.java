@@ -58,8 +58,7 @@ public class FileExtensionValidator extends PathValidator {
       String[] blockedFileExtensions =
           cfg.getStringList(KEY_BLOCKED_FILE_EXTENSION);
       if (blockedFileExtensions.length > 0) {
-        Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey());
-        try {
+        try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = new LinkedList<>();
           List<String> files = getFiles(repo, receiveEvent.commit);
           for (String file : files) {
@@ -75,8 +74,6 @@ public class FileExtensionValidator extends PathValidator {
             throw new CommitValidationException(
                 "contains files with blocked file extensions", messages);
           }
-        } finally {
-          repo.close();
         }
       }
     } catch (NoSuchProjectException | IOException | GitAPIException e) {
