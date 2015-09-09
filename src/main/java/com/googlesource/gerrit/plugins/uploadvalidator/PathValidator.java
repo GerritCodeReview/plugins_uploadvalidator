@@ -67,7 +67,7 @@ public abstract class PathValidator implements CommitValidationListener {
       p.reset(or, new RevWalk(repo).parseTree(repo.resolve(name)));
       return p;
     } finally {
-      or.release();
+      or.close();
     }
   }
 }
