@@ -65,8 +65,9 @@ public abstract class PathValidator implements CommitValidationListener {
   private AbstractTreeIterator getTreeIterator(Repository repo, String name)
       throws IOException {
     CanonicalTreeParser p = new CanonicalTreeParser();
-    try (ObjectReader or = repo.newObjectReader()) {
-      p.reset(or, new RevWalk(repo).parseTree(repo.resolve(name)));
+    try (ObjectReader or = repo.newObjectReader();
+        RevWalk rw = new RevWalk(repo)) {
+      p.reset(or, rw.parseTree(repo.resolve(name)));
       return p;
     }
   }
