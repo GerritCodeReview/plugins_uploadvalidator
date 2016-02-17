@@ -13,6 +13,8 @@ project info screen.
     blockedFileExtension = zip
     blockedFileExtension = war
     blockedFileExtension = exe
+    invalidFilenamePattern = [@:]
+    invalidFilenamePattern = [#%*]
     requiredFooter = Bug
     maxPathLength = 200
 ```
@@ -34,3 +36,13 @@ plugin.@PLUGIN@.maxPathLength
 
 	The maximum allowed path length is *not* inherited by child
 	projects.
+
+plugin.@PLUGIN@.invalidFilenamePattern
+:	Patterns for invalid filenames.
+
+	This check is using `java.util.regex.Pattern` which is described
+	[here][1].
+
+	Defined patterns are *not* inherited by child projects.
+
+[1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
