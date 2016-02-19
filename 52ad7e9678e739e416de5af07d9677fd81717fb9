@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5dd4087d_87d50665",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-19T13:33:30Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "fd585ce7_44224e8c",
+      "range": {
+        "startLine": 70,
+        "startChar": 55,
+        "endLine": 70,
+        "endChar": 62
+      },
+      "revId": "52ad7e9678e739e416de5af07d9677fd81717fb9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d57a8e9_cfb61dba",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5dd4087d_e7da0293",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-19T13:33:30Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "5d57a8e9_cfb61dba",
+      "range": {
+        "startLine": 70,
+        "startChar": 69,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "52ad7e9678e739e416de5af07d9677fd81717fb9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d57a8e9_efbbe1a0",
         "filename": "src/main/resources/Documentation/about.md",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-02-19T13:13:24Z",
       "side": 1,
       "message": "It might be worth restructuring this so that the checks are listed as a bullet list. Then we don\u0027t need to re-wrap the paragraph whenever any new ones are added.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 69
+      },
+      "revId": "52ad7e9678e739e416de5af07d9677fd81717fb9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdd7c47d_8a5a2bcb",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-19T13:33:30Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "5d57a8e9_efbbe1a0",
       "range": {
         "startLine": 3,
         "startChar": 0,
