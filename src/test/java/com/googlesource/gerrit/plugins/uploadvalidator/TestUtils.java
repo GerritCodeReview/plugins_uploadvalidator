@@ -27,7 +27,9 @@ import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class TestUtils {
@@ -42,6 +44,16 @@ public class TestUtils {
   public static RevCommit makeCommit(Repository repo, String message,
       Set<File> files)
           throws IOException, NoFilepatternException, GitAPIException {
+    Map<File, byte[]> tmp = new HashMap<>();
+    for (File f : files) {
+      tmp.put(f, null);
+    }
+    return makeCommit(repo, message, tmp);
+  }
+
+  public static RevCommit makeCommit(Repository repo, String message,
+      Map<File, byte[]> files)
+          throws IOException, NoFilepatternException, GitAPIException {
     try (Git git = new Git(repo)) {
       if (files != null) {
         addFiles(git, files);
@@ -50,12 +62,15 @@ public class TestUtils {
     }
   }
 
-  private static void addFiles(Git git, Set<File> files)
+  private static void addFiles(Git git, Map<File, byte[]> files)
       throws IOException, NoFilepatternException, GitAPIException {
     AddCommand ac = git.add();
-    for (File f : files) {
+    for (File f : files.keySet()) {
       if (!f.exists()) {
         FileUtils.touch(f);
+      }
+      if (files.get(f) != null) {
+        FileUtils.writeByteArrayToFile(f, files.get(f));
       }
       String p = f.getAbsolutePath()
           .replace(git.getRepository().getWorkTree().getAbsolutePath(), "")
