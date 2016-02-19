@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import static com.googlesource.gerrit.plugins.uploadvalidator.FileExtensionValidator.KEY_BLOCKED_FILE_EXTENSION;
 import static com.googlesource.gerrit.plugins.uploadvalidator.FooterValidator.KEY_REQUIRED_FOOTER;
 import static com.googlesource.gerrit.plugins.uploadvalidator.InvalidFilenameValidator.KEY_INVALID_FILENAME_PATTERN;
+import static com.googlesource.gerrit.plugins.uploadvalidator.InvalidLineEndingValidator.CHECK_INVALID_LINE_ENDING;
 import static com.googlesource.gerrit.plugins.uploadvalidator.MaxPathLengthValidator.KEY_MAX_PATH_LENGTH;
 
 import com.google.gerrit.extensions.annotations.Exports;
@@ -58,6 +59,17 @@ class Module extends AbstractModule {
                 "Invalid filenames. Pushes of commits that "
                     + "contain filenames which match one of these patterns "
                     + "will be rejected."));
+
+    DynamicSet.bind(binder(), CommitValidationListener.class)
+        .to(InvalidLineEndingValidator.class);
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(CHECK_INVALID_LINE_ENDING))
+        .toInstance(
+            new ProjectConfigEntry("Invalid Line Ending", "true",
+                ProjectConfigEntry.Type.BOOLEAN, null, false, "Invalid line "
+                    + "endings. Pushes of commits that contain files which "
+                    + "contains carriage return (CR) characters will be "
+                    + "rejected."));
 
     DynamicSet.bind(binder(), CommitValidationListener.class)
         .to(MaxPathLengthValidator.class);
