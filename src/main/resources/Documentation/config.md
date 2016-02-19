@@ -15,6 +15,11 @@ project info screen.
     blockedFileExtension = exe
     invalidFilenamePattern = [@:]
     invalidFilenamePattern = [#%*]
+    rejectWindowsLineEndings = false
+    ignoreFilesWhenCheckLineEndings = jpeg
+    ignoreFilesWhenCheckLineEndings = pdf
+    ignoreFilesWhenCheckLineEndings = exe
+    ignoreFilesWhenCheckLineEndings = iso
     requiredFooter = Bug
     maxPathLength = 200
 ```
@@ -46,3 +51,22 @@ plugin.@PLUGIN@.invalidFilenamePattern
 	Defined patterns are *not* inherited by child projects.
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
+
+plugin.@PLUGIN@.rejectWindowsLineEndings
+:	Reject Windows line endings.
+
+	This check looks for carriage return (CR) characters in pushed
+	files. If the check finds a carriage return (CR) character
+	the push will be rejected.
+
+	The default value is false. This means the check will not be executed.
+
+	This option is *not* inherited by child projects.
+	
+plugin.@PLUGIN@.ignoreFilesWhenCheckLineEndings
+:	Ignore files during Windows line endings check.
+
+	At the moment, there is no ideal solution to detect binary files.
+	Because of that you can define file extensions, to prevent that
+	this check validate this files.
+
