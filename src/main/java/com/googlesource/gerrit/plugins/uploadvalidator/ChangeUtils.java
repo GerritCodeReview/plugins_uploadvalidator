@@ -78,22 +78,28 @@ public class ChangeUtils {
             }
           }
           if (diff) {
-            addContent(content, tw);
+            if (isFile(tw)) {
+              content.put(tw.getPathString(), tw.getObjectId(0));
+            }
           }
         }
       } else {
         while (tw.next()) {
-          addContent(content, tw);
+          if (isFile(tw)) {
+            content.put(tw.getPathString(), tw.getObjectId(0));
+          }
         }
       }
     }
     return content;
   }
 
-  private static void addContent(Map<String, ObjectId> content, TreeWalk tw) {
+  private static boolean isFile(TreeWalk tw) {
     if (FileMode.EXECUTABLE_FILE.equals(tw.getRawMode(0))
         || FileMode.REGULAR_FILE.equals(tw.getRawMode(0))) {
-      content.put(tw.getPathString(), tw.getObjectId(0));
+      return true;
+    } else {
+      return false;
     }
   }
 }
