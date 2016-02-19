@@ -15,6 +15,7 @@ project info screen.
     blockedFileExtension = exe
     invalidFilenamePattern = [@:]
     invalidFilenamePattern = [#%*]
+    rejectWindowsLineEndings = false
     requiredFooter = Bug
     maxPathLength = 200
 ```
@@ -46,3 +47,16 @@ plugin.@PLUGIN@.invalidFilenamePattern
 	Defined patterns are *not* inherited by child projects.
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
+
+
+plugin.@PLUGIN@.rejectWindowsLineEndings
+:	Reject Windows line endings.
+
+	This check looks for carriage return (CR) characters in pushed
+	files. If the check finds a carriage return (CR) character
+	the push will be rejected.
+
+	The default value is false. This means the check will not be executed.
+
+	This option is *not* inherited by child projects.
+
