@@ -19,6 +19,7 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.FooterValidator.KE
 import static com.googlesource.gerrit.plugins.uploadvalidator.InvalidFilenameValidator.KEY_INVALID_FILENAME_PATTERN;
 import static com.googlesource.gerrit.plugins.uploadvalidator.InvalidLineEndingValidator.KEY_CHECK_INVALID_LINE_ENDING;
 import static com.googlesource.gerrit.plugins.uploadvalidator.MaxPathLengthValidator.KEY_MAX_PATH_LENGTH;
+import static com.googlesource.gerrit.plugins.uploadvalidator.SymlinkValidator.KEY_CHECK_SYMLINK;
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -69,6 +70,16 @@ class Module extends AbstractModule {
                 ProjectConfigEntry.Type.BOOLEAN, null, false, "Invalid line "
                     + "endings. Pushes of commits that include files "
                     + "containing carriage return (CR) characters will be "
+                    + "rejected."));
+
+    DynamicSet.bind(binder(), CommitValidationListener.class)
+        .to(SymlinkValidator.class);
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(KEY_CHECK_SYMLINK))
+        .toInstance(
+            new ProjectConfigEntry("Reject Symbolic Links", "false",
+                ProjectConfigEntry.Type.BOOLEAN, null, false, "Symbolic Links. "
+                    + "Pushes of commits that include symbolic links will be "
                     + "rejected."));
 
     DynamicSet.bind(binder(), CommitValidationListener.class)
