@@ -18,6 +18,7 @@ project info screen.
     invalidLineEnding = false
     requiredFooter = Bug
     maxPathLength = 200
+    symlink = false
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -54,6 +55,15 @@ plugin.@PLUGIN@.invalidLineEnding
 
 	This check looks for carriage return (CR) characters in pushed
 	files.
+
+	The default value is false.
+
+	This option is *not* inherited by child projects.
+
+plugin.@PLUGIN@.symlink
+:	Invalid line endings.
+
+	This check looks for symbolic links in pushed files.
 
 	The default value is false.
 
