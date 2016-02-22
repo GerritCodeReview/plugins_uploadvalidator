@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "02fdcdc0_a48322c5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentValidator.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T16:15:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_828b5ad9",
+      "revId": "ae539d111963b710f727392ba4c08b9122359393",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2349568_22984e2d",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
         "patchSetId": 9
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "02fdcdc0_848826e0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T16:15:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_22984e2d",
+      "range": {
+        "startLine": 91,
+        "startChar": 40,
+        "endLine": 91,
+        "endChar": 48
+      },
+      "revId": "ae539d111963b710f727392ba4c08b9122359393",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2349568_429552f4",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
         "patchSetId": 9
@@ -53,6 +95,30 @@
       "writtenOn": "2016-02-22T16:03:05Z",
       "side": 1,
       "message": "windows",
+      "range": {
+        "startLine": 97,
+        "startChar": 30,
+        "endLine": 97,
+        "endChar": 38
+      },
+      "revId": "ae539d111963b710f727392ba4c08b9122359393",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_648e4aec",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T16:15:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_429552f4",
       "range": {
         "startLine": 97,
         "startChar": 30,
