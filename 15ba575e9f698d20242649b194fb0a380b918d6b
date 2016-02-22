@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "02fdcdc0_c4b05ec2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T13:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_e21a66b4",
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02fdcdc0_642f6ad3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2016-02-22T10:46:27Z",
       "side": 1,
       "message": "1. In realistic scenarios a wrong line ending is always found at the end of the line. If we iterate the buffer backward then we are likely to find the error much faster than if we iterate forward.\n\n2. this will iterate over the whole buffer (1024 chars) but it should only iterate over the number of character read in the previous line.",
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_84ba669c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T13:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fdcdc0_642f6ad3",
       "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "c2349568_a200de21",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T13:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_0220aae4",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 17
+      },
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2349568_a2145e87",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
         "patchSetId": 5
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "c2349568_c205e230",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T13:55:10Z",
+      "side": 1,
+      "message": "Using isr with try-with-resource, requires a new try-catch block. Because it\u0027s not possible to initialize isr in the current try-with-resource block.",
+      "parentUuid": "c2349568_a2145e87",
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02fdcdc0_44434e8b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
         "patchSetId": 5
@@ -87,6 +165,30 @@
       "writtenOn": "2016-02-22T10:46:27Z",
       "side": 1,
       "message": "If the config.md is changed (based on my proposal) then change this label too.",
+      "range": {
+        "startLine": 68,
+        "startChar": 36,
+        "endLine": 68,
+        "endChar": 55
+      },
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_24aa9249",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T13:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fdcdc0_44434e8b",
       "range": {
         "startLine": 68,
         "startChar": 36,
@@ -122,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "02fdcdc0_449d8e2d",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T13:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fdcdc0_64464a9d",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 1
+      },
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2349568_82435a8a",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
@@ -133,6 +259,30 @@
       "writtenOn": "2016-02-22T10:46:27Z",
       "side": 1,
       "message": "A CRLF is not an invalid line ending it is just a Windows/DOS line ending which may be considered as unwanted in a project. Can we chose a better name for this option? Maybe \"rejectWindowsLineEndings\" or \"unixLineEndingsOnly\"",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 23
+      },
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_64a08a6b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T13:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_82435a8a",
       "range": {
         "startLine": 52,
         "startChar": 16,
