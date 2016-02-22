@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2349568_c2408282",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "Like in the config.md, make this more explicit. Either \"Allow symbolic links\" or \"Reject symbolic links\".",
+      "range": {
+        "startLine": 68,
+        "startChar": 36,
+        "endLine": 68,
+        "endChar": 59
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_62017652",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "if the open name in config.md is changed then rename this variable too.",
+      "range": {
+        "startLine": 64,
+        "startChar": 14,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_82fefa7d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "\u003e\u003d 1\n\nwith \"\u003e 1\" this handles only merge commits. Normal commits (with one parent) will then be handles in the \"else\" block which walks over ALL files.",
+      "range": {
+        "startLine": 73,
+        "startChar": 51,
+        "endLine": 73,
+        "endChar": 54
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_c4361e3c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "I don\u0027t think that this reset is necessary here.",
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_22fb6e90",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "nit: space before and after \u003d",
+      "range": {
+        "startLine": 82,
+        "startChar": 23,
+        "endLine": 82,
+        "endChar": 26
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_a23bfe21",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "Once this case is reached we can break the loop.",
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_24fbb290",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "optional: this appears a couple of times here and could be extracted into a method",
+      "range": {
+        "startLine": 87,
+        "startChar": 18,
+        "endLine": 87,
+        "endChar": 83
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_42f8f290",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "This is only relevant for merge commits as this code checks if there is an identical entry in any of the parents, in which case this change is not done in this merge commit. To make this case more explicit I would put a check around:\n\n  if (receiveEvent.commit.getParetCount() \u003e 1) {\n    for (...) {\n      ...\n    }\n  }\n\nFor normal commits the ANY_DIFF filter produces correct tree walk.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 1
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_84402681",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "checking the value of a boolean variable should be faster than checking tw.getRawMode(0). Swap the order of checks?",
+      "range": {
+        "startLine": 88,
+        "startChar": 18,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_a406826b",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "Are these leading spaces really necessary for lists in Markdown?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 2
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_c20ba272",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "Maybe name it as \"allowSymlink\" or \"rejectSymlink\"?\n\nThen we know better what the value \"false\" or \"true\" exactly mean.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 11
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_c4117ea9",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "Looks like this line is unrelated to the \"symlink\" check?",
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_a2069e6b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:29:38Z",
+      "side": 1,
+      "message": "I think this has to be described a bit more. The documentation here doesn\u0027t tell under which circumstances a commit is rejected.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 28
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
