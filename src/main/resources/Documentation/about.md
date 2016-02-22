@@ -5,6 +5,7 @@ Project owners can configure:
 - blocked file extensions
 - invalid filenames
 - reject Windows line endings
+- symbolic links
 - required footers
 - maximum allowed path length
 
