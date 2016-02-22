@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2349568_e21a66b4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:46:27Z",
+      "side": 1,
+      "message": "Can we avoid local variable initialization here and rely on Java compiler to report an error if the variable is used as uninitialized?",
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_642f6ad3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:46:27Z",
+      "side": 1,
+      "message": "1. In realistic scenarios a wrong line ending is always found at the end of the line. If we iterate the buffer backward then we are likely to find the error much faster than if we iterate forward.\n\n2. this will iterate over the whole buffer (1024 chars) but it should only iterate over the number of character read in the previous line.",
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_0220aae4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:46:27Z",
+      "side": 1,
+      "message": "I am not sure if it makes sense to continue after a first CR is found. If a file has 5000 lines and all have DOS line endings then we will report 5000 error messages which is really not so useful.\n\nI would either stop on first CR or, if you want to continue, have a (configurable) max number of reported lines per file.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 17
+      },
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_a2145e87",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:46:27Z",
+      "side": 1,
+      "message": "use try-with-resource to make sure isr is closed?",
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_44434e8b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:46:27Z",
+      "side": 1,
+      "message": "If the config.md is changed (based on my proposal) then change this label too.",
+      "range": {
+        "startLine": 68,
+        "startChar": 36,
+        "endLine": 68,
+        "endChar": 55
+      },
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_64464a9d",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:46:27Z",
+      "side": 1,
+      "message": "nit: do we need these leading spaces",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 1
+      },
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_82435a8a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T10:46:27Z",
+      "side": 1,
+      "message": "A CRLF is not an invalid line ending it is just a Windows/DOS line ending which may be considered as unwanted in a project. Can we chose a better name for this option? Maybe \"rejectWindowsLineEndings\" or \"unixLineEndingsOnly\"",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 23
+      },
+      "revId": "15ba575e9f698d20242649b194fb0a380b918d6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
