@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62f3e9ea_0ff8c58f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-02-22T09:17:42Z",
+      "side": 1,
+      "message": "Is this file intended to be part of this commit?",
+      "revId": "be5405bf14c1ef1831ac5d997afd09281ef325cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
