@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02fdcdc0_e4d47ac2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T14:06:46Z",
+      "side": 1,
+      "message": "this is not necessary",
+      "range": {
+        "startLine": 69,
+        "startChar": 46,
+        "endLine": 69,
+        "endChar": 47
+      },
+      "revId": "a105a50e9508e4ef45cdac6547eecb54b071a5e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_a2b53eb0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T14:06:46Z",
+      "side": 1,
+      "message": "Although we didn\u0027t write a contributors guideline for the case of labels, looking at Gerrit\u0027s source code I found that we use the following formatting style:\n\n  NEXT_OBJECT: while (...) {\n    ...\n  }",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "a105a50e9508e4ef45cdac6547eecb54b071a5e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_e2ab4651",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T14:06:46Z",
+      "side": 1,
+      "message": "using \"len\" or \"n\" is preferred for length or number of bytes",
+      "range": {
+        "startLine": 79,
+        "startChar": 20,
+        "endLine": 79,
+        "endChar": 21
+      },
+      "revId": "a105a50e9508e4ef45cdac6547eecb54b071a5e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_02b18ac3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T14:06:46Z",
+      "side": 1,
+      "message": "start the loop from i-1 and use just buffer[x] here",
+      "range": {
+        "startLine": 81,
+        "startChar": 27,
+        "endLine": 81,
+        "endChar": 30
+      },
+      "revId": "a105a50e9508e4ef45cdac6547eecb54b071a5e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_62a0966b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-22T14:06:46Z",
+      "side": 1,
+      "message": "be rejected",
+      "range": {
+        "startLine": 57,
+        "startChar": 15,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "a105a50e9508e4ef45cdac6547eecb54b071a5e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
