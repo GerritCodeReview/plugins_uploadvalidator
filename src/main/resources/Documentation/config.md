@@ -18,6 +18,7 @@ project info screen.
     rejectWindowsLineEndings = false
     requiredFooter = Bug
     maxPathLength = 200
+    rejectSymlink = false
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -60,3 +61,13 @@ plugin.@PLUGIN@.rejectWindowsLineEndings
 
 	This option is *not* inherited by child projects.
 
+
+plugin.@PLUGIN@.rejectSymlink
+:	Reject symbolic links.
+
+	This check looks for symbolic links in pushed files. If the check
+	finds a symbolic link the push will rejected.
+
+	The default value is false. This means the check will not be executed.
+
+	This option is *not* inherited by child projects.
