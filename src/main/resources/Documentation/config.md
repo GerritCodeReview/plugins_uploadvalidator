@@ -17,6 +17,7 @@ project info screen.
     invalidFilenamePattern = [#%*]
     requiredFooter = Bug
     maxPathLength = 200
+    symlink = false
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -46,3 +47,12 @@ plugin.@PLUGIN@.invalidFilenamePattern
 	Defined patterns are *not* inherited by child projects.
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
+
+plugin.@PLUGIN@.symlink
+:	Invalid line endings.
+
+	This check looks for symbolic links in pushed files.
+
+	The default value is false.
+
+	This option is *not* inherited by child projects.
