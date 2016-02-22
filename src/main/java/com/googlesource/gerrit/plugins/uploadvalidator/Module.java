@@ -18,6 +18,7 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.FileExtensionValid
 import static com.googlesource.gerrit.plugins.uploadvalidator.FooterValidator.KEY_REQUIRED_FOOTER;
 import static com.googlesource.gerrit.plugins.uploadvalidator.InvalidFilenameValidator.KEY_INVALID_FILENAME_PATTERN;
 import static com.googlesource.gerrit.plugins.uploadvalidator.MaxPathLengthValidator.KEY_MAX_PATH_LENGTH;
+import static com.googlesource.gerrit.plugins.uploadvalidator.SymlinkValidator.KEY_CHECK_SYMLINK;
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -58,6 +59,16 @@ class Module extends AbstractModule {
                 "Invalid filenames. Pushes of commits that "
                     + "contain filenames which match one of these patterns "
                     + "will be rejected."));
+
+    DynamicSet.bind(binder(), CommitValidationListener.class)
+        .to(SymlinkValidator.class);
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(KEY_CHECK_SYMLINK))
+        .toInstance(
+            new ProjectConfigEntry("Contains Symbolic Links", "false",
+                ProjectConfigEntry.Type.BOOLEAN, null, false, "Symbolic Links. "
+                    + "Pushes of commits that include symbolic links will be "
+                    + "rejected."));
 
     DynamicSet.bind(binder(), CommitValidationListener.class)
         .to(MaxPathLengthValidator.class);
