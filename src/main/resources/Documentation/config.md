@@ -19,6 +19,7 @@ project info screen.
     ignoreFilesWhenCheckLineEndings = [jpeg|pdf|exe|iso]
     requiredFooter = Bug
     maxPathLength = 200
+    rejectSymlink = false
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -67,3 +68,12 @@ plugin.@PLUGIN@.ignoreFilesWhenCheckLineEndings
 	Because of that you can define file extensions, to prevent that
 	this check validate this files.
 
+plugin.@PLUGIN@.rejectSymlink
+:	Reject symbolic links.
+
+	This check looks for symbolic links in pushed files. If the check
+	finds a symbolic link the push will be rejected.
+
+	The default value is false. This means the check will not be executed.
+
+	This option is *not* inherited by child projects.
