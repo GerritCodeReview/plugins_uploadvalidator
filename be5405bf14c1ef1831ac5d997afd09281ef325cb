@@ -16,6 +16,24 @@
       "revId": "be5405bf14c1ef1831ac5d997afd09281ef325cb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_24e292ea",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T09:24:46Z",
+      "side": 1,
+      "message": "No, this was a mistake. I have deleted it.\nShould I rebase this commit? I think the single conflict is one line in about.md",
+      "parentUuid": "62f3e9ea_0ff8c58f",
+      "revId": "be5405bf14c1ef1831ac5d997afd09281ef325cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
