@@ -59,10 +59,38 @@ public class CommitUtils {
    *     and its parents.
    * @throws IOException
    */
-  public static Map<String, ObjectId> getChangedContent(Repository repo, RevCommit c)
-      throws IOException {
-    Map<String, ObjectId> content = new HashMap<>();
+  public static Map<String, ObjectId> getChangedContent(Repository repo,
+      RevCommit c) throws IOException {
+    final Map<String, ObjectId> content = new HashMap<>();
 
+    runOnChangedTreeEntry(repo, c, new TreeWalkVisitor() {
+      @Override
+      public void onVisit(TreeWalk tw) {
+        if (isFile(tw)) {
+          content.put(tw.getPathString(), tw.getObjectId(0));
+        }
+      }
+    });
+    return content;
+  }
+
+  private static boolean isFile(TreeWalk tw) {
+    return FileMode.EXECUTABLE_FILE.equals(tw.getRawMode(0))
+        || FileMode.REGULAR_FILE.equals(tw.getRawMode(0));
+  }
+
+  /**
+   * This method spots all TreeWalk entries which differ between the passed
+   * commit and its parents. If a TreeWalk entry is found this method calls the
+   * onEnterEntry() method of the class TreeWalkListener.
+   *
+   * @param repo The repository
+   * @param c The commit
+   * @param listener A TreeWalkListener with the desired action
+   * @throws IOException
+   */
+  public static void runOnChangedTreeEntry(Repository repo, RevCommit c,
+      TreeWalkVisitor listener) throws IOException {
     try (TreeWalk tw = new TreeWalk(repo)) {
       tw.setRecursive(true);
       tw.setFilter(TreeFilter.ANY_DIFF);
@@ -72,34 +100,26 @@ public class CommitUtils {
           tw.addTree(p.getTree());
         }
         while (tw.next()) {
-          boolean diff = true;
-          if (c.getParentCount() > 1) {
-            for (int p = 1; p <= c.getParentCount(); p++) {
-              if (tw.getObjectId(0).equals(tw.getObjectId(p))) {
-                diff = false;
-                break;
-              }
-            }
-          }
-          if (diff) {
-            if (isFile(tw)) {
-              content.put(tw.getPathString(), tw.getObjectId(0));
-            }
+          if (isDifferentToAllParents(c, tw)) {
+            listener.onVisit(tw);
           }
         }
       } else {
         while (tw.next()) {
-          if (isFile(tw)) {
-            content.put(tw.getPathString(), tw.getObjectId(0));
-          }
+          listener.onVisit(tw);
         }
       }
     }
-    return content;
   }
 
-  private static boolean isFile(TreeWalk tw) {
-    return FileMode.EXECUTABLE_FILE.equals(tw.getRawMode(0))
-        || FileMode.REGULAR_FILE.equals(tw.getRawMode(0));
+  private static boolean isDifferentToAllParents(RevCommit c, TreeWalk tw) {
+    if (c.getParentCount() > 1) {
+      for (int p = 1; p <= c.getParentCount(); p++) {
+        if (tw.getObjectId(0).equals(tw.getObjectId(p))) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 }
