@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2349568_4226b2fd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_c2408282",
+      "range": {
+        "startLine": 68,
+        "startChar": 36,
+        "endLine": 68,
+        "endChar": 59
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2349568_62017652",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-22T10:29:38Z",
       "side": 1,
       "message": "if the open name in config.md is changed then rename this variable too.",
+      "range": {
+        "startLine": 64,
+        "startChar": 14,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_042676fc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_62017652",
       "range": {
         "startLine": 64,
         "startChar": 14,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "02fdcdc0_c484deff",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_82fefa7d",
+      "range": {
+        "startLine": 73,
+        "startChar": 51,
+        "endLine": 73,
+        "endChar": 54
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02fdcdc0_c4361e3c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 3
@@ -82,6 +154,24 @@
       "writtenOn": "2016-02-22T10:29:38Z",
       "side": 1,
       "message": "I don\u0027t think that this reset is necessary here.",
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_a489e215",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fdcdc0_c4361e3c",
       "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "02fdcdc0_848ee619",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_22fb6e90",
+      "range": {
+        "startLine": 82,
+        "startChar": 23,
+        "endLine": 82,
+        "endChar": 26
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2349568_a23bfe21",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 3
@@ -122,6 +236,24 @@
       "writtenOn": "2016-02-22T10:29:38Z",
       "side": 1,
       "message": "Once this case is reached we can break the loop.",
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_227e0eb7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_a23bfe21",
       "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -174,6 +306,54 @@
     },
     {
       "key": {
+        "uuid": "c2349568_2257ee30",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fdcdc0_24fbb290",
+      "range": {
+        "startLine": 87,
+        "startChar": 18,
+        "endLine": 87,
+        "endChar": 83
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2349568_427b12c6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_42f8f290",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 1
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02fdcdc0_84402681",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 3
@@ -185,6 +365,30 @@
       "writtenOn": "2016-02-22T10:29:38Z",
       "side": 1,
       "message": "checking the value of a boolean variable should be faster than checking tw.getRawMode(0). Swap the order of checks?",
+      "range": {
+        "startLine": 88,
+        "startChar": 18,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_445a2e59",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "02fdcdc0_84402681",
       "range": {
         "startLine": 88,
         "startChar": 18,
@@ -220,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "c2349568_c2672223",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fdcdc0_a406826b",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 2
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2349568_c20ba272",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -231,6 +459,30 @@
       "writtenOn": "2016-02-22T10:29:38Z",
       "side": 1,
       "message": "Maybe name it as \"allowSymlink\" or \"rejectSymlink\"?\n\nThen we know better what the value \"false\" or \"true\" exactly mean.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 11
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_a4144287",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "c2349568_c20ba272",
       "range": {
         "startLine": 20,
         "startChar": 4,
@@ -260,6 +512,24 @@
     },
     {
       "key": {
+        "uuid": "02fdcdc0_841946bf",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "Yes, at this point I was a little bit messy :)\nDone",
+      "parentUuid": "02fdcdc0_c4117ea9",
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2349568_a2069e6b",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -271,6 +541,30 @@
       "writtenOn": "2016-02-22T10:29:38Z",
       "side": 1,
       "message": "I think this has to be described a bit more. The documentation here doesn\u0027t tell under which circumstances a commit is rejected.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 28
+      },
+      "revId": "7a2b43d1cf26475abff9d9bdb22dec85fa58459c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_442c6edc",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T12:57:40Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "c2349568_a2069e6b",
       "range": {
         "startLine": 54,
         "startChar": 0,
