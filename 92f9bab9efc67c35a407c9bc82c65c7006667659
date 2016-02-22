@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2349568_82c6fa10",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T14:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fdcdc0_a4ce822a",
+      "range": {
+        "startLine": 85,
+        "startChar": 17,
+        "endLine": 85,
+        "endChar": 19
+      },
+      "revId": "92f9bab9efc67c35a407c9bc82c65c7006667659",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2349568_e2d4a6c2",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-22T14:13:27Z",
       "side": 1,
       "message": "extract this into a method isSymLink(tw.getRawMode(0)):\n\n  private boolean isSymLink(...) {\n    return ...\n  }",
+      "range": {
+        "startLine": 86,
+        "startChar": 19,
+        "endLine": 86,
+        "endChar": 82
+      },
+      "revId": "92f9bab9efc67c35a407c9bc82c65c7006667659",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02fdcdc0_64c9aa21",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-22T14:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2349568_e2d4a6c2",
       "range": {
         "startLine": 86,
         "startChar": 19,
