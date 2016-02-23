@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import static com.googlesource.gerrit.plugins.uploadvalidator.DuplicateFilenameValidator.KEY_ALLOW_DUPLICATE_FILENAMES;
 import static com.googlesource.gerrit.plugins.uploadvalidator.FileExtensionValidator.KEY_BLOCKED_FILE_EXTENSION;
 import static com.googlesource.gerrit.plugins.uploadvalidator.FooterValidator.KEY_REQUIRED_FOOTER;
 import static com.googlesource.gerrit.plugins.uploadvalidator.InvalidFilenameValidator.KEY_INVALID_FILENAME_PATTERN;
@@ -74,6 +75,16 @@ class Module extends AbstractModule {
                     + "endings. Pushes of commits that include files "
                     + "containing carriage return (CR) characters will be "
                     + "rejected."));
+
+    DynamicSet.bind(binder(), CommitValidationListener.class)
+        .to(DuplicateFilenameValidator.class);
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(KEY_ALLOW_DUPLICATE_FILENAMES))
+        .toInstance(
+            new ProjectConfigEntry("Allow Duplicate Filenames", null,
+                ProjectConfigEntry.Type.BOOLEAN, null, false,
+                "Duplicate Filenames. Pushes of commits that "
+                    + "contain duplicate filenames will be rejected."));
 
     DynamicSet.bind(binder(), CommitValidationListener.class)
         .to(SymlinkValidator.class);
