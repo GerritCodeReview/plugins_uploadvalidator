@@ -24,10 +24,39 @@ import org.eclipse.jgit.treewalk.filter.TreeFilter;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 public class CommitUtils {
+  /**
+   * This method spots all deleted files in the passed commit. The paths of the
+   * deleted files will be returned as a Set.
+   *
+   * @param repo The repository
+   * @param c The commit
+   * @return A Set containing the paths of all deleted files in the passed
+   *         commit.
+   * @throws IOException
+   */
+  public static Set<String> getDeletedPaths(Repository repo, RevCommit c)
+      throws IOException {
+    final Set<String> deletedPaths = new HashSet<>();
+
+    visitChangedEntries(repo, c, new TreeWalkVisitor() {
+      @Override
+      public void onVisit(TreeWalk tw) {
+        if (isDeleted(tw)) {
+          deletedPaths.add(tw.getPathString());
+        }
+      }
+    });
+    return deletedPaths;
+  }
+
+  private static boolean isDeleted(TreeWalk tw) {
+    return (tw.getRawMode(0) & FileMode.TYPE_MASK) == FileMode.TYPE_MISSING;
+  }
 
   /**
    * This method spots all files which differ between the passed commit and its

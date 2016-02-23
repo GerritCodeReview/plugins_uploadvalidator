@@ -28,8 +28,10 @@ import org.eclipse.jgit.api.RmCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.errors.MissingObjectException;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
 import java.io.File;
@@ -91,7 +93,16 @@ public class TestUtils {
     rmc.call();
   }
 
-  private static void addFiles(Git git, Map<File, byte[]> files)
+  public static void addEmptyFiles(Git git, Set<File> files)
+      throws NoFilepatternException, IOException, GitAPIException {
+    Map<File, byte[]> map = new HashMap<>();
+    for (File f : files) {
+      map.put(f, null);
+    }
+    addFiles(git, map);
+  }
+
+  public static void addFiles(Git git, Map<File, byte[]> files)
       throws IOException, NoFilepatternException, GitAPIException {
     AddCommand ac = git.add();
     for (File f : files.keySet()) {
@@ -120,5 +131,13 @@ public class TestUtils {
             return pre + input.getMessage();
           }
         });
+  }
+
+  public static void parseHeadersOfParentCommits(Repository repo, RevCommit c)
+      throws MissingObjectException, IOException {
+    try (RevWalk revWalk = new RevWalk(repo)) {
+      for (RevCommit p : c.getParents())
+        revWalk.parseHeaders(p);
+    }
   }
 }
