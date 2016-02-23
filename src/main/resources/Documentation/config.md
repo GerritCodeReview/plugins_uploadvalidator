@@ -30,6 +30,8 @@ project info screen.
     maxPathLength = 200
     rejectSymlink = false
     rejectSubmodule = false
+    rejectDuplicatePathnames = false
+    rejectDuplicatePathnamesLocale = en
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -174,3 +176,34 @@ plugin.@PLUGIN@.blockedContentTypeWhitelist
 	interpreted as a blacklist.
 
 	Defined patterns are *not* inherited by child projects.
+
+plugin.@PLUGIN@.rejectDuplicatePathnames
+:	Reject duplicate pathnames.
+
+	This check looks for duplicate pathnames in the tree of the commit
+	as these can cause problems on Windows. If the check finds duplicate
+	pathnames the push will be rejected.
+
+	This check compares pathnames without caring about case sensitivity.
+
+	The default value is false. This means duplicate pathnames are allowed.
+
+	This option is *not* inherited by child projects.
+
+plugin.@PLUGIN@.rejectDuplicatePathnamesLocale
+:	Reject duplicate pathnames locale.
+
+	When the validator checks for duplicate pathnames it will convert
+	the pathnames to lower case. In some cases this leads to a [problem][5].
+
+	To avoid these kind of problems, this option is used to specify a
+	locale which is used when converting a pathname to lower case.
+
+	Full list of supported locales can be found [here][6].
+
+	The default value is "en" (English).
+
+	This option is *not* inherited by child projects.
+
+[5]: http://bugs.java.com/view_bug.do?bug_id=6208680
+[6]: http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html
