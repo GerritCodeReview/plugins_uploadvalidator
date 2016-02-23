@@ -18,6 +18,10 @@ project info screen.
     blockedKeywordPattern = \\$(Id|Header):[^$]*\\$
     invalidFilenamePattern = \\[|\\]|\\*|#
     invalidFilenamePattern = [%:@]
+    blockedMimeType = application/x-object
+    blockedMimeType = application/*
+    blockedMimeType = ^text/(html|xml)
+    blockedMimeTypeWhitelist = false
     rejectWindowsLineEndings = false
     binaryTypes = text/*
     binaryTypes = ^application/(pdf|xml)
@@ -121,3 +125,27 @@ plugin.@PLUGIN@.blockedKeywordPattern
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
 [2]: https://tika.apache.org/
+
+plugin.@PLUGIN@.blockedMimeType
+:	Blocked mime types.
+
+	This check looks for blocked mime types. If the check finds a
+	blocked mime type the push will be rejected.
+
+	To detect mime types, this check is using the
+	`eu.medsea.mimeutil.MimeUtil2` library.
+
+	Defined patterns are *not* inherited by child projects.
+
+plugin.@PLUGIN@.blockedMimeTypeWhitelist
+:	Blocked mime types whitelist.
+
+	If this option is checked, the entered mime types are interpreted as
+	a whitelist. Otherwise the entered mime types are interpreted as a
+	blacklist and commits that contains one of these mime types will be
+	rejected.
+
+	The default value is false. This means the entered mime types are
+	interpreted as a blacklist.
+
+	Defined patterns are *not* inherited by child projects.

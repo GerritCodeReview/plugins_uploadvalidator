@@ -56,7 +56,7 @@ public class ContentTypeUtil {
     return cfg.getStringList(KEY_BINARY_TYPES);
   }
 
-  private String getContentType(InputStream is, String pathname)
+  public String getContentType(InputStream is, String pathname)
       throws IOException {
     Metadata metadata = new Metadata();
     metadata.set(Metadata.RESOURCE_NAME_KEY, pathname);
@@ -70,7 +70,7 @@ public class ContentTypeUtil {
     }
   }
 
-  boolean doesTypeMatch(String currentType, String[] listOfTypes)
+  public boolean doesTypeMatch(String currentType, String[] listOfTypes)
       throws ExecutionException {
     for (String blockedType : listOfTypes) {
       if (blockedType.startsWith("^")
