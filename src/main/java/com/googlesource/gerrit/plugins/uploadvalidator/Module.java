@@ -19,6 +19,7 @@ import com.google.inject.AbstractModule;
 class Module extends AbstractModule {
   @Override
   protected void configure() {
+    install(DuplicateFilenameValidator.module());
     install(FileExtensionValidator.module());
     install(FooterValidator.module());
     install(InvalidFilenameValidator.module());
