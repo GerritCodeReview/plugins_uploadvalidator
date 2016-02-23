@@ -19,6 +19,7 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.FooterValidator.KE
 import static com.googlesource.gerrit.plugins.uploadvalidator.InvalidFilenameValidator.KEY_INVALID_FILENAME_PATTERN;
 import static com.googlesource.gerrit.plugins.uploadvalidator.InvalidLineEndingValidator.KEY_CHECK_RECJECT_WINDOWS_LINE_ENDINGS;
 import static com.googlesource.gerrit.plugins.uploadvalidator.MaxPathLengthValidator.KEY_MAX_PATH_LENGTH;
+import static com.googlesource.gerrit.plugins.uploadvalidator.SubmoduleValidator.KEY_CHECK_SUBMODULE;
 import static com.googlesource.gerrit.plugins.uploadvalidator.SymlinkValidator.KEY_CHECK_SYMLINK;
 
 import com.google.gerrit.extensions.annotations.Exports;
@@ -81,6 +82,15 @@ class Module extends AbstractModule {
                 ProjectConfigEntry.Type.BOOLEAN, null, false, "Symbolic Links. "
                     + "Pushes of commits that include symbolic links will be "
                     + "rejected."));
+
+    DynamicSet.bind(binder(), CommitValidationListener.class)
+        .to(SubmoduleValidator.class);
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(KEY_CHECK_SUBMODULE))
+        .toInstance(
+            new ProjectConfigEntry("Reject Submodules", "false",
+                ProjectConfigEntry.Type.BOOLEAN, null, false, "Pushes of "
+                    + "commits that include submodules will be rejected."));
 
     DynamicSet.bind(binder(), CommitValidationListener.class)
         .to(MaxPathLengthValidator.class);
