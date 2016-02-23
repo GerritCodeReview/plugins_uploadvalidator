@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02522dad_fc6769f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:00:59Z",
+      "side": 1,
+      "message": "IMHO, the first sentence is not really precise. Reword as:\n\nProject owners can now configure if commits with submodules are rejected.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "4c991d96a25e5fd141649e1e1376eb292687a640",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e24c3916_1b71fbae",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:00:59Z",
+      "side": 1,
+      "message": "start the loop from 1, then p+1 is not needed in the following line",
+      "revId": "4c991d96a25e5fd141649e1e1376eb292687a640",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02522dad_9c5c2527",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:00:59Z",
+      "side": 1,
+      "message": "nit: trailing whitespace\n\nremove",
+      "revId": "4c991d96a25e5fd141649e1e1376eb292687a640",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02522dad_bc61e1e1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:00:59Z",
+      "side": 1,
+      "message": "commits",
+      "range": {
+        "startLine": 80,
+        "startChar": 43,
+        "endLine": 80,
+        "endChar": 48
+      },
+      "revId": "4c991d96a25e5fd141649e1e1376eb292687a640",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
