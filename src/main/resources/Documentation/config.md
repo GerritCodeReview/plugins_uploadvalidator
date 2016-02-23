@@ -26,6 +26,7 @@ project info screen.
     maxPathLength = 200
     rejectSymlink = false
     rejectSubmodule = false
+    allowDuplicateFilenames = false;
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -114,3 +115,16 @@ plugin.@PLUGIN@.blockedKeywordPattern
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
 [2]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher.html#find()
 
+plugin.@PLUGIN@.allowDuplicateFilenames
+:	Allow duplicate filenames.
+
+	This check looks for duplicate filenames in the tree of the commit
+	as these can cause problems on Windows. If the check finds
+	duplicate filenames the push will be rejected.
+	
+	This check compares filenames without caring about case sensitivity.
+
+	The default value is false. This means duplicate filenames are not
+	allowed.
+
+	This option is *not* inherited by child projects.
