@@ -28,6 +28,7 @@ class Module extends AbstractModule {
     install(InvalidFilenameValidator.module());
     install(InvalidLineEndingValidator.module());
     install(MaxPathLengthValidator.module());
+    install(MimeTypeValidator.module());
     install(SubmoduleValidator.module());
     install(SymlinkValidator.module());
   }
