@@ -72,6 +72,9 @@ public class TestUtils {
       if (files.get(f) != null) {
         FileUtils.writeByteArrayToFile(f, files.get(f));
       }
+      if (files.get(f) != null) {
+        FileUtils.writeByteArrayToFile(f, files.get(f));
+      }
       String p = f.getAbsolutePath()
           .replace(git.getRepository().getWorkTree().getAbsolutePath(), "")
           .substring(1);
@@ -82,18 +85,22 @@ public class TestUtils {
 
   public static boolean compareCommitValidationMessage(
       List<CommitValidationMessage> m1, List<CommitValidationMessage> m2) {
-    for (CommitValidationMessage cvm1 : m1) {
-      boolean found = false;
-      for (CommitValidationMessage cvm2 : m2) {
-        if (compareCommitValidationMessage(cvm1, cvm2)) {
-          found = true;
-        }
-      }
-      if (!found) {
+    for (CommitValidationMessage msg : m1) {
+      if (!doesCVMListContain(m2, msg)) {
         return false;
       }
     }
     return true;
+  }
+
+  public static boolean doesCVMListContain(List<CommitValidationMessage> list,
+      CommitValidationMessage msg) {
+    for (CommitValidationMessage cvm : list) {
+      if (compareCommitValidationMessage(cvm, msg)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public static boolean compareCommitValidationMessage(
