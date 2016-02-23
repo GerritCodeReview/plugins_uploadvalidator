@@ -23,6 +23,7 @@ class Module extends AbstractModule {
     install(new PatternCacheModule());
     install(ContentTypeUtil.module());
     install(BlockedKeywordValidator.module());
+    install(DuplicatePathnameValidator.module());
     install(FileExtensionValidator.module());
     install(FooterValidator.module());
     install(InvalidFilenameValidator.module());
