@@ -16,6 +16,9 @@ project info screen.
     blockedKeywordPattern = myp4ssw0rd
     blockedKeywordPattern = foobar
     blockedKeywordPattern = \\$(Id|Header):[^$]*\\$
+    blockedMimeType = application/x-object
+    blockedMimeType = application/msword
+    blockedMimeType = application/pdf
     invalidFilenamePattern = [@:]
     invalidFilenamePattern = [#%*]
     rejectWindowsLineEndings = false
@@ -122,3 +125,14 @@ plugin.@PLUGIN@.allowDuplicateFilenames
 	allowed.
 
 	This option is *not* inherited by child projects.
+
+plugin.@PLUGIN@.blockedMimeType
+:	Blocked mime types.
+
+	This check looks for blocked mime types. If the check finds a
+	blocked mime type the push will be rejected.
+
+	To detect mime types, this check is using the
+	`eu.medsea.mimeutil.MimeUtil2` library.
+
+	Defined patterns are *not* inherited by child projects.
