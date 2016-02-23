@@ -21,10 +21,13 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.AddCommand;
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.RmCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
+import org.eclipse.jgit.errors.MissingObjectException;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
 import java.io.File;
@@ -65,7 +68,31 @@ public class TestUtils {
     }
   }
 
-  private static void addFiles(Git git, Map<File, byte[]> files)
+  private static String generateFilePattern(File f, Git git) {
+    return f.getAbsolutePath()
+        .replace(git.getRepository().getWorkTree().getAbsolutePath(), "")
+        .substring(1);
+  }
+
+  public static void removeFiles(Git git, Set<File> files)
+      throws NoFilepatternException, GitAPIException {
+    RmCommand rmc = git.rm();
+    for (File f : files) {
+      rmc.addFilepattern(generateFilePattern(f, git));
+    }
+    rmc.call();
+  }
+
+  public static void addEmptyFiles(Git git, Set<File> files)
+      throws NoFilepatternException, IOException, GitAPIException {
+    Map<File, byte[]> map = new HashMap<>();
+    for (File f : files) {
+      map.put(f, null);
+    }
+    addFiles(git, map);
+  }
+
+  public static void addFiles(Git git, Map<File, byte[]> files)
       throws IOException, NoFilepatternException, GitAPIException {
     AddCommand ac = git.add();
     for (File f : files.keySet()) {
@@ -75,10 +102,7 @@ public class TestUtils {
       if (files.get(f) != null) {
         FileUtils.writeByteArrayToFile(f, files.get(f));
       }
-      String p = f.getAbsolutePath()
-          .replace(git.getRepository().getWorkTree().getAbsolutePath(), "")
-          .substring(1);
-      ac = ac.addFilepattern(p);
+      ac = ac.addFilepattern(generateFilePattern(f, git));
     }
     ac.call();
   }
@@ -95,5 +119,17 @@ public class TestUtils {
                 input.isError());
           }
         });
+  }
+
+  public static File createEmptyFile(String name, Repository repo) {
+    return new File(repo.getDirectory().getParent(), name);
+  }
+
+  public static void parseHeadersOfParentCommits(Repository repo, RevCommit c)
+      throws MissingObjectException, IOException {
+    try (RevWalk revWalk = new RevWalk(repo)) {
+      for (RevCommit p : c.getParents())
+        revWalk.parseHeaders(p);
+    }
   }
 }
