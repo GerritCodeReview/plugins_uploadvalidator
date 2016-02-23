@@ -13,6 +13,9 @@ project info screen.
     blockedFileExtension = zip
     blockedFileExtension = war
     blockedFileExtension = exe
+    blockedMimeType = application/x-object
+    blockedMimeType = application/msword
+    blockedMimeType = application/pdf
     invalidFilenamePattern = [@:]
     invalidFilenamePattern = [#%*]
     rejectWindowsLineEndings = false
@@ -80,3 +83,14 @@ plugin.@PLUGIN@.rejectSubmodule
 	The default value is false. This means the check will not be executed.
 
 	This option is *not* inherited by child projects.
+
+plugin.@PLUGIN@.blockedMimeType
+:	Blocked mime types.
+
+	This check looks for blocked mime types. If the check finds a
+	blocked mime type the push will be rejected.
+
+	To detect mime types, this check is using the
+	`eu.medsea.mimeutil.MimeUtil2` library.
+
+	Defined patterns are *not* inherited by child projects.
