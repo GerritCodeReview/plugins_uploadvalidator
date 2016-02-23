@@ -23,6 +23,7 @@ project info screen.
     requiredFooter = Bug
     maxPathLength = 200
     rejectSymlink = false
+    rejectSubmodule = false
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -76,6 +77,16 @@ plugin.@PLUGIN@.rejectSymlink
 
 	This check looks for symbolic links in the set of pushed files. If
 	the check finds a symbolic link the push will be rejected.
+
+	The default value is false. This means the check will not be executed.
+
+	This option is *not* inherited by child projects.
+
+plugin.@PLUGIN@.rejectSubmodule
+:	Reject submodules.
+
+	This check looks for submodules in the set of pushed commits. If
+	the check finds a submodule the push will be rejected.
 
 	The default value is false. This means the check will not be executed.
 
