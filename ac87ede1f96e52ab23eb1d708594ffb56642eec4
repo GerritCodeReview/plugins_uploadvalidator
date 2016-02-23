@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e24c3916_9b518b09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:19:35Z",
+      "side": 1,
+      "message": "reword:\n\nCommits containing files with blocked mime types will be rejected.",
+      "range": {
+        "startLine": 9,
+        "startChar": 52,
+        "endLine": 10,
+        "endChar": 28
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02522dad_bc56c1fc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/MimeTypeValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:19:35Z",
+      "side": 1,
+      "message": "why static?\n\nAre we sure that MimeUtil2 instances are thread safe?\nAre these instances expensive to create?",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 16
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02522dad_5c3c5dc7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/MimeTypeValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:19:35Z",
+      "side": 1,
+      "message": "can this be written as:\n\n mimeUtil.registerMimeDetector(MagicMimeMimeDetector.class.getName())\n\n?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 61
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e24c3916_bb56c7fc",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:19:35Z",
+      "side": 1,
+      "message": "this needs to be fixed in the previous change which introduced that trailing whitespace\n\nsame for other cases",
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e24c3916_5b3c63c7",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:19:35Z",
+      "side": 1,
+      "message": "a",
+      "range": {
+        "startLine": 104,
+        "startChar": 61,
+        "endLine": 104,
+        "endChar": 63
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e24c3916_7b391fd6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:19:35Z",
+      "side": 1,
+      "message": "`eu.medsea.mimeutil.MimeUtil2`  library",
+      "range": {
+        "startLine": 107,
+        "startChar": 46,
+        "endLine": 108,
+        "endChar": 31
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
