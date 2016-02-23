@@ -6,6 +6,7 @@ Project owners can configure:
 - invalid filenames
 - blocked keywords
 - allow duplicate filenames in the same folder
+- blocked mime types
 - reject Windows line endings
 - symbolic links
 - reject submodules

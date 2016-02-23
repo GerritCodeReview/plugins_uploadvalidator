@@ -40,5 +40,7 @@ java_test(
     '//gerrit-server:server',
     '//lib/jgit:jgit',
     '//lib:junit',
+    '//lib/guice:guice',
+    '//lib:mime-util',
   ],
 )
