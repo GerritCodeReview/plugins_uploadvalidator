@@ -4,6 +4,7 @@ Project owners can configure:
 
 - blocked file extensions
 - invalid filenames
+- blocked mime types
 - reject Windows line endings
 - symbolic links
 - reject submodules
