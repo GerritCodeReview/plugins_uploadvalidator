@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import com.google.common.base.Charsets;
 import com.google.common.base.Function;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.LoadingCache;
@@ -27,9 +28,12 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.RmCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
+import org.eclipse.jgit.dircache.DirCacheEntry;
+import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevTree;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
 import java.io.File;
@@ -43,6 +47,17 @@ import java.util.regex.Pattern;
 public class TestUtils {
   public static final PluginConfig EMPTY_PLUGIN_CONFIG =
       new PluginConfig("", new Config());
+
+  protected static final byte[] EMPTY_CONTENT = "".getBytes(Charsets.UTF_8);
+
+  private static final Function<CommitValidationMessage, String> TRNSFRM_MSG_FUNC =
+      new Function<CommitValidationMessage, String>() {
+        @Override
+        public String apply(CommitValidationMessage input) {
+          String pre = (input.isError()) ? "ERROR: " : "MSG: ";
+          return pre + input.getMessage();
+        }
+      };
 
   public static final LoadingCache<String, Pattern> PATTERN_CACHE =
     CacheBuilder.newBuilder().build(new PatternCacheModule.Loader());
@@ -110,15 +125,44 @@ public class TestUtils {
     return new File(repo.getDirectory().getParent(), name);
   }
 
+  public static String transformMessage(CommitValidationMessage messages) {
+    return TRNSFRM_MSG_FUNC.apply(messages);
+  }
+
   public static List<String> transformMessages(
       List<CommitValidationMessage> messages) {
-    return Lists.transform(messages,
-        new Function<CommitValidationMessage, String>() {
-          @Override
-          public String apply(CommitValidationMessage input) {
-            String pre = (input.isError()) ? "ERROR: " : "MSG: ";
-            return pre + input.getMessage();
-          }
-        });
+    return Lists.transform(messages, TRNSFRM_MSG_FUNC);
+  }
+
+  public static DirCacheEntry[] createEmptyDirCacheEntries(
+      List<String> filenames, TestRepository<Repository> repo)
+      throws Exception {
+    DirCacheEntry[] entries = new DirCacheEntry[filenames.size()];
+    for (int x = 0; x < filenames.size(); x++) {
+      entries[x] = createDirCacheEntry(filenames.get(x), EMPTY_CONTENT, repo);
+    }
+    return entries;
+
+  }
+
+  public static DirCacheEntry createDirCacheEntry(String pathname,
+      byte[] content, TestRepository<Repository> repo)
+      throws Exception {
+    return repo.file(pathname, repo.blob(content));
+  }
+
+  public static RevCommit makeCommit(DirCacheEntry[] entries,
+      TestRepository<Repository> repo) throws Exception {
+    return makeCommit(entries, repo, (RevCommit[]) null);
+  }
+
+  public static RevCommit makeCommit(DirCacheEntry[] entries,
+      TestRepository<Repository> repo, RevCommit... parents)
+      throws Exception {
+    final RevTree ta = repo.tree(entries);
+    RevCommit c =
+        (parents == null) ? repo.commit(ta) : repo.commit(ta, parents);
+    repo.parseBody(c);
+    return c;
   }
 }
