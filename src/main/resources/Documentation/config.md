@@ -19,7 +19,7 @@ project info screen.
     requiredFooter = Bug
     maxPathLength = 200
     rejectSymlink = false
-    rejectSubmodule = false
+    allowDuplicateFilenames = false;
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -81,5 +81,19 @@ plugin.@PLUGIN@.rejectSubmodule
 	finds a submodule the push will be rejected.
 
 	The default value is false. This means the check will not be executed.
+
+	This option is *not* inherited by child projects.
+	
+plugin.@PLUGIN@.allowDuplicateFilenames
+:	Allow duplicate filenames.
+
+	This check looks for duplicate filenames in the tree of the commit
+	as these can cause problems on Windows. If the check finds
+	duplicate filenames the push will be rejected.
+	
+	This check compares filenames without caring about case sensitivity.
+
+	The default value is false. This means duplicate filenames are not
+	allowed.
 
 	This option is *not* inherited by child projects.
