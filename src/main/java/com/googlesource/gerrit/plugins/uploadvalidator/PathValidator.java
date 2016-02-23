@@ -16,16 +16,10 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.server.git.validators.CommitValidationListener;
 
-import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.diff.DiffEntry;
-import org.eclipse.jgit.lib.ObjectReader;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.revwalk.RevWalk;
-import org.eclipse.jgit.treewalk.AbstractTreeIterator;
-import org.eclipse.jgit.treewalk.CanonicalTreeParser;
 import org.eclipse.jgit.treewalk.TreeWalk;
+import org.eclipse.jgit.treewalk.filter.TreeFilter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,41 +28,37 @@ import java.util.List;
 public abstract class PathValidator implements CommitValidationListener {
 
   protected List<String> getFiles(Repository repo, RevCommit c)
-      throws IOException, GitAPIException {
+      throws IOException {
     List<String> files = new ArrayList<>();
 
-    if (c.getParentCount() > 0) {
-      List<DiffEntry> diffEntries;
-      try (Git git = new Git(repo)) {
-        diffEntries = git.diff()
-            .setOldTree(getTreeIterator(repo, c.getName() + "^"))
-            .setNewTree(getTreeIterator(repo, c.getName())).call();
-      }
-      for (DiffEntry e : diffEntries) {
-        if (e.getNewPath() != null) {
-          files.add(e.getNewPath());
+    try (TreeWalk tw = new TreeWalk(repo)) {
+      tw.setRecursive(true);
+      tw.setFilter(TreeFilter.ANY_DIFF);
+      tw.addTree(c.getTree());
+      if (c.getParentCount() > 0) {
+        for (RevCommit p : c.getParents()) {
+          tw.addTree(p.getTree());
         }
-      }
-    } else {
-      try (TreeWalk tw = new TreeWalk(repo)) {
-        tw.addTree(c.getTree());
-        tw.setRecursive(true);
         while (tw.next()) {
+          boolean diff = true;
+          if (c.getParentCount() > 1) {
+            for (int p = 1; p <= c.getParentCount(); p++) {
+              if (tw.getObjectId(0).equals(tw.getObjectId(p))) {
+                diff = false;
+                break;
+              }
+            }
+          }
+          if (diff) {
+            files.add(tw.getPathString());
+          }
+        }
+      } else {
+        while(tw.next()) {
           files.add(tw.getPathString());
         }
       }
     }
-
     return files;
-  }
-
-  private AbstractTreeIterator getTreeIterator(Repository repo, String name)
-      throws IOException {
-    CanonicalTreeParser p = new CanonicalTreeParser();
-    try (ObjectReader or = repo.newObjectReader();
-        RevWalk rw = new RevWalk(repo)) {
-      p.reset(or, rw.parseTree(repo.resolve(name)));
-      return p;
-    }
   }
 }

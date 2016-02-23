@@ -24,7 +24,6 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
 
-import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Repository;
 
 import java.io.IOException;
@@ -71,7 +70,7 @@ public class MaxPathLengthValidator extends PathValidator {
           }
         }
       }
-    } catch (NoSuchProjectException | IOException | GitAPIException e) {
+    } catch (NoSuchProjectException | IOException e) {
       throw new CommitValidationException("failed to check for max file path length", e);
     }
 
