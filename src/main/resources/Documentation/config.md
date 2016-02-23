@@ -13,6 +13,9 @@ project info screen.
     blockedFileExtension = zip
     blockedFileExtension = war
     blockedFileExtension = exe
+    blockedKeywordPattern = myp4ssw0rd
+    blockedKeywordPattern = foobar
+    blockedKeywordPattern = \\$(Id|Header):[^$]*\\$
     invalidFilenamePattern = [@:]
     invalidFilenamePattern = [#%*]
     rejectWindowsLineEndings = false
@@ -52,8 +55,6 @@ plugin.@PLUGIN@.invalidFilenamePattern
 
 	Defined patterns are *not* inherited by child projects.
 
-[1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
-
 plugin.@PLUGIN@.rejectWindowsLineEndings
 :	Reject Windows line endings.
 
@@ -91,3 +92,19 @@ plugin.@PLUGIN@.rejectSubmodule
 	The default value is false. This means the check will not be executed.
 
 	This option is *not* inherited by child projects.
+
+plugin.@PLUGIN@.blockedKeywordPattern
+:	Patterns for blocked keywords.
+
+	This check looks for blocked keywords in files. If the check finds an
+	blocked keyword the push will be rejected.
+
+	To find a keyword it is possible to pass a regular expressions by
+	blockedKeywordPattern.
+
+	To detect blocked keywords, this check is using
+	`java.util.regex.Pattern` which is described [here][1].
+
+	Defined patterns are *not* inherited by child projects.
+
+[1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html

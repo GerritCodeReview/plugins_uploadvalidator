@@ -20,6 +20,7 @@ class Module extends AbstractModule {
 
   @Override
   protected void configure() {
+    install(BlockedKeywordValidator.module());
     install(FileExtensionValidator.module());
     install(FooterValidator.module());
     install(InvalidFilenameValidator.module());
