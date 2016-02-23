@@ -6,6 +6,7 @@ Project owners can configure:
 - invalid filenames
 - reject Windows line endings
 - symbolic links
+- reject submodules
 - required footers
 - maximum allowed path length
 
