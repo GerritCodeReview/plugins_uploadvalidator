@@ -13,6 +13,8 @@ project info screen.
     blockedFileExtension = zip
     blockedFileExtension = war
     blockedFileExtension = exe
+    blockedKeywordPattern = .*myp4ssw0rd.*
+    blockedKeywordPattern = \\$(Id|Header):[^$]*\\$
     blockedMimeType = application/x-object
     blockedMimeType = application/msword
     blockedMimeType = application/pdf
@@ -50,8 +52,6 @@ plugin.@PLUGIN@.invalidFilenamePattern
 	[here][1].
 
 	Defined patterns are *not* inherited by child projects.
-
-[1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
 
 plugin.@PLUGIN@.rejectWindowsLineEndings
 :	Reject Windows line endings.
@@ -94,3 +94,16 @@ plugin.@PLUGIN@.blockedMimeType
 	`eu.medsea.mimeutil.MimeUtil2` library.
 
 	Defined patterns are *not* inherited by child projects.
+
+plugin.@PLUGIN@.blockedKeywordPattern
+:	Patterns for blocked keywords.
+
+	This check looks for blocked keywords. If the check finds an
+	blocked keyword the push will be rejected.
+
+	To detect blocked keywords, this check is using
+	`java.util.regex.Pattern` which is described [here][1].
+
+	Defined patterns are *not* inherited by child projects.
+
+[1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
