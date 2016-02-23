@@ -27,6 +27,7 @@ project info screen.
     maxPathLength = 200
     rejectSymlink = false
     rejectSubmodule = false
+    rejectDuplicateFilenames = false;
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -108,3 +109,16 @@ plugin.@PLUGIN@.blockedKeywordPattern
 	Defined patterns are *not* inherited by child projects.
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
+
+plugin.@PLUGIN@.rejectDuplicateFilenames
+:	Reject duplicate filenames.
+
+	This check looks for duplicate filenames in the same folder in the
+	tree of the commit as these can cause problems on Windows. If the
+	check finds duplicate filenames the push will be rejected.
+
+	This check compares filenames without caring about case sensitivity.
+
+	The default value is false. This means duplicate filenames are allowed.
+
+	This option is *not* inherited by child projects.

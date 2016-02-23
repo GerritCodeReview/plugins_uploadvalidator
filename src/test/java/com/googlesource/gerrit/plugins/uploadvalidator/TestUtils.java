@@ -21,8 +21,10 @@ import org.eclipse.jgit.api.AddCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
+import org.eclipse.jgit.errors.MissingObjectException;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
 import java.io.File;
@@ -62,7 +64,16 @@ public class TestUtils {
     }
   }
 
-  private static void addFiles(Git git, Map<File, byte[]> files)
+  public static void addFiles(Git git, Set<File> files)
+      throws NoFilepatternException, IOException, GitAPIException {
+    Map<File, byte[]> map = new HashMap<>();
+    for (File f : files) {
+      map.put(f, null);
+    }
+    addFiles(git, map);
+  }
+
+  public static void addFiles(Git git, Map<File, byte[]> files)
       throws IOException, NoFilepatternException, GitAPIException {
     AddCommand ac = git.add();
     for (File f : files.keySet()) {
@@ -82,18 +93,22 @@ public class TestUtils {
 
   public static boolean compareCommitValidationMessage(
       List<CommitValidationMessage> m1, List<CommitValidationMessage> m2) {
-    for (CommitValidationMessage cvm1 : m1) {
-      boolean found = false;
-      for (CommitValidationMessage cvm2 : m2) {
-        if (compareCommitValidationMessage(cvm1, cvm2)) {
-          found = true;
-        }
-      }
-      if (!found) {
+    for (CommitValidationMessage msg : m1) {
+      if (!doesCVMListContain(m2, msg)) {
         return false;
       }
     }
     return true;
+  }
+
+  public static boolean doesCVMListContain(List<CommitValidationMessage> list,
+      CommitValidationMessage msg) {
+    for (CommitValidationMessage cvm : list) {
+      if (compareCommitValidationMessage(cvm, msg)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   public static boolean compareCommitValidationMessage(
@@ -103,6 +118,18 @@ public class TestUtils {
       return true;
     } else {
       return false;
+    }
+  }
+
+  public static File createEmptyFile(String name, Repository repo) {
+    return new File(repo.getDirectory().getParent(), name);
+  }
+
+  public static void parseHeadersOfParentCommits(Repository repo, RevCommit c)
+      throws MissingObjectException, IOException {
+    try (RevWalk revWalk = new RevWalk(repo)) {
+      for(RevCommit p : c.getParents())
+      revWalk.parseHeaders(p);
     }
   }
 }
