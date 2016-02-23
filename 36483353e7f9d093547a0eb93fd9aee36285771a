@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02522dad_3cf87190",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2016-02-23T08:13:16Z",
+      "side": 1,
+      "message": "[optional] write this as\n\n  return (rawMode \u0026 FileMode.TYPE_MASK) \u003d\u003d FileMode.TYPE_SYMLINK;",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 122,
+        "endChar": 5
+      },
+      "revId": "36483353e7f9d093547a0eb93fd9aee36285771a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e24c3916_9b066b6c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2016-02-23T08:13:16Z",
+      "side": 1,
+      "message": "be executed",
+      "range": {
+        "startLine": 70,
+        "startChar": 59,
+        "endLine": 70,
+        "endChar": 67
+      },
+      "revId": "36483353e7f9d093547a0eb93fd9aee36285771a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
