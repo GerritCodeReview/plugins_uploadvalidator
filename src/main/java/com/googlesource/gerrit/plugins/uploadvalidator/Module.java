@@ -20,6 +20,7 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.FooterValidator.KE
 import static com.googlesource.gerrit.plugins.uploadvalidator.InvalidFilenameValidator.KEY_INVALID_FILENAME_PATTERN;
 import static com.googlesource.gerrit.plugins.uploadvalidator.InvalidLineEndingValidator.KEY_CHECK_RECJECT_WINDOWS_LINE_ENDINGS;
 import static com.googlesource.gerrit.plugins.uploadvalidator.MaxPathLengthValidator.KEY_MAX_PATH_LENGTH;
+import static com.googlesource.gerrit.plugins.uploadvalidator.MimeTypeValidator.KEY_BLOCKED_MIME_TYPE;
 import static com.googlesource.gerrit.plugins.uploadvalidator.SubmoduleValidator.KEY_CHECK_SUBMODULE;
 import static com.googlesource.gerrit.plugins.uploadvalidator.SymlinkValidator.KEY_CHECK_SYMLINK;
 
@@ -112,5 +113,15 @@ class Module extends AbstractModule {
                 "Maximum path length. Pushes of commits that "
                     + "contain files with longer paths will be rejected. "
                     + "'0' means no limit."));
+
+    DynamicSet.bind(binder(), CommitValidationListener.class)
+        .to(MimeTypeValidator.class);
+    bind(ProjectConfigEntry.class)
+        .annotatedWith(Exports.named(KEY_BLOCKED_MIME_TYPE))
+        .toInstance(
+            new ProjectConfigEntry("Blocked Mime Type", null,
+                ProjectConfigEntry.Type.ARRAY, null, false,
+                "Pushes of commits that contain files with blocked mime types "
+                    + "will be rejected."));
   }
 }
