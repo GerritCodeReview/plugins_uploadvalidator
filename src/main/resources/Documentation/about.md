@@ -4,6 +4,7 @@ Project owners can configure:
 
 - blocked file extensions
 - invalid filenames
+- invalid mime types
 - allow duplicate filenames
 - reject Windows line endings
 - symbolic links

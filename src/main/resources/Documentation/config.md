@@ -13,6 +13,9 @@ project info screen.
     blockedFileExtension = zip
     blockedFileExtension = war
     blockedFileExtension = exe
+    blockedMimeType = application/x-object
+    blockedMimeType = application/msword
+    blockedMimeType = application/pdf
     invalidFilenamePattern = [@:]
     invalidFilenamePattern = [#%*]
     rejectWindowsLineEndings = false
@@ -50,7 +53,6 @@ plugin.@PLUGIN@.invalidFilenamePattern
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
 
-
 plugin.@PLUGIN@.rejectWindowsLineEndings
 :	Reject Windows line endings.
 
@@ -62,7 +64,6 @@ plugin.@PLUGIN@.rejectWindowsLineEndings
 
 	This option is *not* inherited by child projects.
 
-
 plugin.@PLUGIN@.rejectSymlink
 :	Reject symbolic links.
 
@@ -72,7 +73,6 @@ plugin.@PLUGIN@.rejectSymlink
 	The default value is false. This means the check will not be executed.
 
 	This option is *not* inherited by child projects.
-
 	
 plugin.@PLUGIN@.rejectSubmodule
 :	Reject submodules.
@@ -97,3 +97,14 @@ plugin.@PLUGIN@.allowDuplicateFilenames
 	allowed.
 
 	This option is *not* inherited by child projects.
+
+plugin.@PLUGIN@.blockedMimeType
+:	Blocked mime types.
+
+	This check looks for blocked mime types. If the check finds an
+	blocked mime type the push will be rejected.
+
+	To detect mime types, this check is using the library
+	`eu.medsea.mimeutil.MimeUtil2`.
+
+	Defined patterns are *not* inherited by child projects.
