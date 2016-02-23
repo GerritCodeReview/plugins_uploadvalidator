@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "02522dad_7c3919d6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/MimeTypeValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-02-23T21:28:04Z",
+      "side": 1,
+      "message": "Are configured mime types regular expressions or just plains strings?\nIf they are just strings then compiling a regular expression is likely unnecessary. We could use a HashSet to store all blocked mime types and, in the 84, check if detected mime type is in the blocked set.\n\nOf course, everything lowercased.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 49
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e24c3916_bb56c7fc",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
