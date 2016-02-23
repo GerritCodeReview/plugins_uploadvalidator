@@ -23,6 +23,7 @@ class Module extends AbstractModule {
     install(FooterValidator.module());
     install(InvalidFilenameValidator.module());
     install(InvalidLineEndingValidator.module());
+    install(KeywordValidator.module());
     install(MaxPathLengthValidator.module());
     install(SubmoduleValidator.module());
     install(SymlinkValidator.module());
