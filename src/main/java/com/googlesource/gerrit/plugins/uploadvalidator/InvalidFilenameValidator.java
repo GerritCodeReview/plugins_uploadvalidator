@@ -24,7 +24,6 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
 
-import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Repository;
 
 import java.io.IOException;
@@ -80,7 +79,7 @@ public class InvalidFilenameValidator extends PathValidator {
           }
         }
       }
-    } catch (NoSuchProjectException | IOException | GitAPIException e) {
+    } catch (NoSuchProjectException | IOException e) {
       throw new CommitValidationException(
           "failed to check on invalid file names", e);
     }
