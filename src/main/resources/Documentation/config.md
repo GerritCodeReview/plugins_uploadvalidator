@@ -18,6 +18,10 @@ project info screen.
     blockedKeywordPattern = \\$(Id|Header):[^$]*\\$
     invalidFilenamePattern = \\[|\\]|\\*|#
     invalidFilenamePattern = [%:@]
+    blockedContentType = application/x-object
+    blockedContentType = application/*
+    blockedContentType = ^text/(html|xml)
+    blockedContentTypeWhitelist = false
     rejectWindowsLineEndings = false
     binaryType = application/*
     binaryType = ^application/(pdf|xml)
@@ -135,3 +139,38 @@ plugin.@PLUGIN@.blockedKeywordPattern
 [2]: https://tika.apache.org/
 [3]: https://tika.apache.org/1.12/formats.html#Full_list_of_Supported_Formats
 [4]: #binary_type
+
+plugin.@PLUGIN@.blockedContentType
+:	Blocked content type.
+
+	This check looks for blocked content types. If the check finds a
+	blocked content type the push will be rejected.
+
+	To detect content types [Apache Tika library][2] is used.
+
+	Content type can be specified as a string, wildcard or a regular expression,
+	for example:
+
+	- application/zip
+	- application/*
+	- ^application/(pdf|xml)
+
+	As usual, the '^' prefix is used to denote that the value is a regular
+	expression.
+
+	Full list of supported content types can be found [here][3].
+
+	Defined patterns are *not* inherited by child projects.
+
+plugin.@PLUGIN@.blockedContentTypeWhitelist
+:	Blocked content type whitelist.
+
+	If this option is checked, the entered content types are interpreted as
+	a whitelist. Otherwise the entered content types are interpreted as a
+	blacklist and commits that contains one of these content types will be
+	rejected.
+
+	The default value is false. This means the entered content types are
+	interpreted as a blacklist.
+
+	Defined patterns are *not* inherited by child projects.

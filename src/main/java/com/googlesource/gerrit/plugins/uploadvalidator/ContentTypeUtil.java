@@ -79,7 +79,7 @@ public class ContentTypeUtil {
     }
   }
 
-  private String getContentType(InputStream is, String pathname)
+  public String getContentType(InputStream is, String pathname)
       throws IOException {
     Metadata metadata = new Metadata();
     metadata.set(Metadata.RESOURCE_NAME_KEY, pathname);
