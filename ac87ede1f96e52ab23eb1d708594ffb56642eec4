@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e24c3916_3bf717ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-26T09:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e24c3916_9b518b09",
+      "range": {
+        "startLine": 9,
+        "startChar": 52,
+        "endLine": 10,
+        "endChar": 28
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02522dad_bc56c1fc",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/MimeTypeValidator.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-23T21:19:35Z",
       "side": 1,
       "message": "why static?\n\nAre we sure that MimeUtil2 instances are thread safe?\nAre these instances expensive to create?",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 16
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02522dad_1c1335ed",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/MimeTypeValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-26T09:33:14Z",
+      "side": 1,
+      "message": "Now it\u0027s injected",
+      "parentUuid": "02522dad_bc56c1fc",
       "range": {
         "startLine": 47,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "02522dad_7c16f9dd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/MimeTypeValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-26T09:33:14Z",
+      "side": 1,
+      "message": "Done. I don\u0027t need it anymore, because it\u0027s registered in MimeUtil2Module.",
+      "parentUuid": "02522dad_5c3c5dc7",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 61
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02522dad_7c3919d6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/MimeTypeValidator.java",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-02-23T21:28:04Z",
       "side": 1,
       "message": "Are configured mime types regular expressions or just plains strings?\nIf they are just strings then compiling a regular expression is likely unnecessary. We could use a HashSet to store all blocked mime types and, in the 84, check if detected mime type is in the blocked set.\n\nOf course, everything lowercased.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 49
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02522dad_3c1071dd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/MimeTypeValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-26T09:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02522dad_7c3919d6",
       "range": {
         "startLine": 73,
         "startChar": 0,
@@ -134,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "e24c3916_5bf0e3f4",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-26T09:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e24c3916_5b3c63c7",
+      "range": {
+        "startLine": 104,
+        "startChar": 61,
+        "endLine": 104,
+        "endChar": 63
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e24c3916_7b391fd6",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
@@ -145,6 +265,30 @@
       "writtenOn": "2016-02-23T21:19:35Z",
       "side": 1,
       "message": "`eu.medsea.mimeutil.MimeUtil2`  library",
+      "range": {
+        "startLine": 107,
+        "startChar": 46,
+        "endLine": 108,
+        "endChar": 31
+      },
+      "revId": "ac87ede1f96e52ab23eb1d708594ffb56642eec4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e24c3916_7bed9f17",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-26T09:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e24c3916_7b391fd6",
       "range": {
         "startLine": 107,
         "startChar": 46,
