@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e24c3916_5ed8d137",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-02-26T10:41:45Z",
+      "side": 1,
+      "message": "I don\u0027t understand why here are two empty lines, in my local editor there is only one.",
+      "revId": "364b8d300214970eabeeb79e1a767cfc1cc52668",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
