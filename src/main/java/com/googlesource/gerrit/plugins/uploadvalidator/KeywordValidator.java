@@ -20,6 +20,7 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.validators.CommitValidationException;
+import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
@@ -40,7 +41,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class KeywordValidator extends ContentValidator {
+public class KeywordValidator implements CommitValidationListener {
   public static String KEY_CHECK_BLOCKED_KEYWORD_PATTERN = "blockedKeywordPattern";
   public static String CG_NAME = "blcokedKeywordCaptureGroup";
 
@@ -72,9 +73,10 @@ public class KeywordValidator extends ContentValidator {
         try (Repository repo = repoManager.openRepository(
             receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = new LinkedList<>();
-          Map<ObjectId, String> content = getContent(repo, receiveEvent.commit);
-          for (ObjectId oid : content.keySet()) {
-            ObjectLoader ol = repo.open(oid);
+          Map<String, ObjectId> content = ChangeUtils.getChangedContent(
+              repo, receiveEvent.commit);
+          for (String path : content.keySet()) {
+            ObjectLoader ol = repo.open(content.get(path));
             try (BufferedReader br = new BufferedReader(new InputStreamReader(
                 ol.openStream(), StandardCharsets.UTF_8))) {
               int line = 0;
@@ -91,7 +93,7 @@ public class KeywordValidator extends ContentValidator {
                   found = found.substring(2);
                   messages.add(new CommitValidationMessage(
                       "blocked keyword(s) found in file: "
-                      + content.get(oid) + " (Line: " + line + ")"
+                      + path + " (Line: " + line + ")"
                       +" (found: " + found +")", true));
                 }
               }

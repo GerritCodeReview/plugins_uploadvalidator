@@ -20,6 +20,7 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.validators.CommitValidationException;
+import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
@@ -36,7 +37,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class InvalidLineEndingValidator extends ContentValidator {
+public class InvalidLineEndingValidator implements CommitValidationListener {
   public static String KEY_CHECK_RECJECT_WINDOWS_LINE_ENDINGS =
       "rejectWindowsLineEndings";
 
@@ -66,9 +67,10 @@ public class InvalidLineEndingValidator extends ContentValidator {
         try (Repository repo = repoManager.openRepository(
             receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = new LinkedList<>();
-          Map<ObjectId, String> content = getContent(repo, receiveEvent.commit);
-          for (ObjectId oid : content.keySet()) {
-            ObjectLoader ol = repo.open(oid);
+          Map<String, ObjectId> content = ChangeUtils.getChangedContent(
+              repo, receiveEvent.commit);
+          for (String path : content.keySet()) {
+            ObjectLoader ol = repo.open(content.get(path));
             try (InputStreamReader isr = new InputStreamReader(ol.openStream(),
                 StandardCharsets.UTF_8)) {
               char[] buffer = new char[1024];
@@ -79,7 +81,7 @@ public class InvalidLineEndingValidator extends ContentValidator {
                     if (buffer[x] == '\r') {
                       messages.add(new CommitValidationMessage(
                           "found carriage return (CR) character in file: "
-                              + content.get(oid), true));
+                              + path, true));
                       break NEXT_OBJECT;
                     }
                   }

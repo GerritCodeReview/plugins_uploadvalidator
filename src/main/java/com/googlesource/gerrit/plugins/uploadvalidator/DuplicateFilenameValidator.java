@@ -20,6 +20,7 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.validators.CommitValidationException;
+import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
@@ -35,8 +36,9 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
-public class DuplicateFilenameValidator extends PathValidator {
+public class DuplicateFilenameValidator implements CommitValidationListener {
   public static String KEY_ALLOW_DUPLICATE_FILENAMES = "allowDuplicateFilenames";
 
   private final String pluginName;
@@ -63,7 +65,8 @@ public class DuplicateFilenameValidator extends PathValidator {
         try (Repository repo = repoManager.openRepository(
             receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = new LinkedList<>();
-          List<String> files = getFiles(repo, receiveEvent.commit);
+          Set<String> files = ChangeUtils.getChangedPaths(
+              repo, receiveEvent.commit);
           // check inside of the commit
           Map<String, String> paths = new HashMap<>();
           for (String file : files) {
