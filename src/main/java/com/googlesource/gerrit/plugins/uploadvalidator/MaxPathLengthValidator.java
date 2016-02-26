@@ -20,6 +20,7 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.validators.CommitValidationException;
+import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
@@ -30,8 +31,9 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
-public class MaxPathLengthValidator extends PathValidator {
+public class MaxPathLengthValidator implements CommitValidationListener {
   public static String KEY_MAX_PATH_LENGTH = "maxPathLength";
 
   private final String pluginName;
@@ -57,7 +59,8 @@ public class MaxPathLengthValidator extends PathValidator {
       if (maxPathLength > 0) {
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = new LinkedList<>();
-          List<String> files = getFiles(repo, receiveEvent.commit);
+          Set<String> files = ChangeUtils.getChangedPaths(
+              repo, receiveEvent.commit);
           for (String file : files) {
             if (file.length() > maxPathLength) {
               messages.add(new CommitValidationMessage("path too long: " + file, true));

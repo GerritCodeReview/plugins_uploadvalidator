@@ -14,8 +14,6 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.gerrit.server.git.validators.CommitValidationListener;
-
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
@@ -25,13 +23,41 @@ import org.eclipse.jgit.treewalk.filter.TreeFilter;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
-public abstract class ContentValidator implements CommitValidationListener {
+public class ChangeUtils {
 
-  protected Map<ObjectId, String> getContent(Repository repo, RevCommit c)
+  /**
+   * This method spots all files which differ between the passed commit and its
+   * parents. The paths of the spotted files will be returned as a Set.
+   * @param repo The repository
+   * @param c The commit
+   * @return A Set containing the paths of all files which differ between the
+   * passed commit and its parents.
+   * @throws IOException
+   */
+  public static Set<String> getChangedPaths(Repository repo, RevCommit c) throws IOException {
+    Map<String, ObjectId> content = getChangedContent(repo, c);
+    return new HashSet<>(content.keySet());
+  }
+
+  /**
+   * This method spots all files which differ between the passed commit and its
+   * parents. The spotted files will be returned as a Map. The structure of the
+   * returned map looks like this: </br>
+   * Key: Path to the changed file.</br>
+   * Value: ObjectId of the changed file.</br>
+   * @param repo The repository
+   * @param c The commit
+   * @return A Map containing all files which differ between the passed commit
+   * and its parents.
+   * @throws IOException
+   */
+  public static Map<String, ObjectId> getChangedContent(Repository repo, RevCommit c)
       throws IOException {
-    Map<ObjectId, String> content = new HashMap<>();
+    Map<String, ObjectId> content = new HashMap<>();
 
     try (TreeWalk tw = new TreeWalk(repo)) {
       tw.setRecursive(true);
@@ -56,7 +82,7 @@ public abstract class ContentValidator implements CommitValidationListener {
           }
         }
       } else {
-        while(tw.next()) {
+        while (tw.next()) {
           addContent(content, tw);
         }
       }
@@ -64,10 +90,10 @@ public abstract class ContentValidator implements CommitValidationListener {
     return content;
   }
 
-  private static void addContent(Map<ObjectId, String> content, TreeWalk tw) {
+  private static void addContent(Map<String, ObjectId> content, TreeWalk tw) {
     if (FileMode.EXECUTABLE_FILE.equals(tw.getRawMode(0))
         || FileMode.REGULAR_FILE.equals(tw.getRawMode(0))) {
-      content.put(tw.getObjectId(0), tw.getPathString());
+      content.put(tw.getPathString(), tw.getObjectId(0));
     }
   }
 }

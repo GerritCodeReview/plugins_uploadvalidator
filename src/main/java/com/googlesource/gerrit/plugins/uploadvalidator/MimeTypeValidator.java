@@ -20,6 +20,7 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.validators.CommitValidationException;
+import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
@@ -39,7 +40,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class MimeTypeValidator extends ContentValidator {
+public class MimeTypeValidator implements CommitValidationListener {
   public static String KEY_BLOCKED_MIME_TYPE = "blockedMimeType";
 
   private final String pluginName;
@@ -72,16 +73,17 @@ public class MimeTypeValidator extends ContentValidator {
         try (Repository repo = repoManager.openRepository(
             receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = new LinkedList<>();
-          Map<ObjectId, String> content = getContent(repo, receiveEvent.commit);
-          for (ObjectId oid : content.keySet()) {
-            ObjectLoader ol = repo.open(oid);
+          Map<String, ObjectId> content = ChangeUtils.getChangedContent(
+              repo, receiveEvent.commit);
+          for (String path : content.keySet()) {
+            ObjectLoader ol = repo.open(content.get(path));
             try (ObjectStream os = ol.openStream()) {
               String type = MimeUtil2.getMostSpecificMimeType(
                   mimeUtil.getMimeTypes(os)).toString();
               if (blockedTypes.contains(type.toLowerCase())) {
                 messages.add(new CommitValidationMessage(
                     "found blocked mime type (" + type + ") in file: "
-                        + content.get(oid), true));
+                        + path, true));
               }
             }
           }
