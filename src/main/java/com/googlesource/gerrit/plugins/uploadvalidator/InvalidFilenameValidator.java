@@ -26,6 +26,7 @@ import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
 
 import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,28 +57,17 @@ public class InvalidFilenameValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfig(
               receiveEvent.project.getNameKey(), pluginName);
-      List<Pattern> invalidFilenamePatterns = new ArrayList<>();
-      for (String s : cfg.getStringList(KEY_INVALID_FILENAME_PATTERN)) {
-        invalidFilenamePatterns.add(Pattern.compile(s));
+      String[] patterns = cfg.getStringList(KEY_INVALID_FILENAME_PATTERN);
+      if (patterns.length == 0) {
+        return Collections.emptyList();
       }
-      if (invalidFilenamePatterns.size() > 0) {
-        try (Repository repo = repoManager.openRepository(
-            receiveEvent.project.getNameKey())) {
-          List<CommitValidationMessage> messages = new LinkedList<>();
-          for (String file : CommitUtils.getChangedPaths(
-              repo, receiveEvent.commit)) {
-            for (Pattern p : invalidFilenamePatterns) {
-              if (p.matcher(file).find()) {
-                messages.add(new CommitValidationMessage(
-                    "invalid characters found in filename: " + file, true));
-                break;
-              }
-            }
-          }
-          if (!messages.isEmpty()) {
-            throw new CommitValidationException(
-                "contains files with an invalid filename", messages);
-          }
+      try (Repository repo = repoManager.openRepository(
+          receiveEvent.project.getNameKey())) {
+        List<CommitValidationMessage> messages = performValidation(
+            repo, receiveEvent.commit, patterns);
+        if (!messages.isEmpty()) {
+          throw new CommitValidationException(
+              "contains files with an invalid filename", messages);
         }
       }
     } catch (NoSuchProjectException | IOException e) {
@@ -85,5 +75,24 @@ public class InvalidFilenameValidator implements CommitValidationListener {
           "failed to check on invalid file names", e);
     }
     return Collections.emptyList();
+  }
+
+  List<CommitValidationMessage> performValidation(Repository repo,
+      RevCommit c, String[] patterns) throws IOException {
+    List<Pattern> invalidFilenamePatterns = new ArrayList<>();
+    for (String s : patterns) {
+      invalidFilenamePatterns.add(Pattern.compile(s));
+    }
+    List<CommitValidationMessage> messages = new LinkedList<>();
+    for (String file : CommitUtils.getChangedPaths(repo, c)) {
+      for (Pattern p : invalidFilenamePatterns) {
+        if (p.matcher(file).find()) {
+          messages.add(new CommitValidationMessage(
+              "invalid characters found in filename: " + file, true));
+          break;
+        }
+      }
+    }
+    return messages;
   }
 }
