@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "62684971_a7f22abd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-02-29T11:00:51Z",
+      "side": 1,
+      "message": "I think this is about paths and not about file names.",
+      "range": {
+        "startLine": 7,
+        "startChar": 30,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "963fa32ca19861462bce5943e27dee4dc7bd5c98",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02522dad_7c74b99f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -287,6 +310,29 @@
     },
     {
       "key": {
+        "uuid": "62684971_87eda6dd",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-02-29T11:00:51Z",
+      "side": 1,
+      "message": "Is this about file names or paths",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "963fa32ca19861462bce5943e27dee4dc7bd5c98",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02522dad_1c71f5ae",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -298,6 +344,29 @@
       "writtenOn": "2016-02-23T21:11:14Z",
       "side": 1,
       "message": "nit: trailing whitespace",
+      "revId": "963fa32ca19861462bce5943e27dee4dc7bd5c98",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_26df161f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-02-29T11:00:51Z",
+      "side": 1,
+      "message": "Sure it doesn\u0027t compare paths?",
+      "range": {
+        "startLine": 90,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 47
+      },
       "revId": "963fa32ca19861462bce5943e27dee4dc7bd5c98",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
