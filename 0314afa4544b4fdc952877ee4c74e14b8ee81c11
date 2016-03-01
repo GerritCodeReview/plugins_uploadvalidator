@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "62684971_e7b022c2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-01T10:09:38Z",
+      "side": 1,
+      "message": "This logic is necessary for merge commits, therefore:\n\n  if (c.getParentCount() \u003e 1)\n\nAn object is considered NOT to be changed in a merge commit if it is the same in any of its parents. Therefore the loop exits with:\n\n  diff \u003d false\n\nas soon as we find the same oid in one parent.",
+      "parentUuid": "425fc5cb_66ef4ea2",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 11
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "425fc5cb_06fc5a5c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentValidator.java",
         "patchSetId": 13
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "425fc5cb_e60b3e44",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-01T10:09:38Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "425fc5cb_46f2528f",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 27
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62684971_6718b297",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
         "patchSetId": 13
@@ -128,6 +176,30 @@
       "writtenOn": "2016-03-01T09:12:04Z",
       "side": 1,
       "message": "Please consider just to return messages instead of throwing the exception. It would make the code cleaner, from my point of view.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 11
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_87b5a6b0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-01T10:09:38Z",
+      "side": 1,
+      "message": "Commit validators throw exception in order to reject the commit.\nJust returning messages wouldn\u0027t reject the commit.",
+      "parentUuid": "62684971_471b2e95",
       "range": {
         "startLine": 89,
         "startChar": 0,
