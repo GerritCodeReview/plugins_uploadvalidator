@@ -21,11 +21,11 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.validators.CommitValidationException;
+import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
 
-import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Repository;
 
 import java.io.IOException;
@@ -33,7 +33,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class FileExtensionValidator extends PathValidator {
+public class FileExtensionValidator implements CommitValidationListener {
   public static String KEY_BLOCKED_FILE_EXTENSION = "blockedFileExtension";
 
   private final String pluginName;
@@ -60,8 +60,8 @@ public class FileExtensionValidator extends PathValidator {
       if (blockedFileExtensions.length > 0) {
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = new LinkedList<>();
-          List<String> files = getFiles(repo, receiveEvent.commit);
-          for (String file : files) {
+          for (String file : CommitUtils.getChangedPaths(
+              repo, receiveEvent.commit)) {
             String ext = Files.getFileExtension(file);
             for (int i = 0; i < blockedFileExtensions.length; i++) {
               if (ext.equalsIgnoreCase(blockedFileExtensions[i])) {
@@ -76,10 +76,9 @@ public class FileExtensionValidator extends PathValidator {
           }
         }
       }
-    } catch (NoSuchProjectException | IOException | GitAPIException e) {
+    } catch (NoSuchProjectException | IOException e) {
       throw new CommitValidationException("failed to check on file extensions", e);
     }
-
     return Collections.emptyList();
   }
 }
