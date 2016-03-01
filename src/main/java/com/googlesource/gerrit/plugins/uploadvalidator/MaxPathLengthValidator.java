@@ -14,15 +14,19 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
+import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.validators.CommitValidationException;
 import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
+import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 
 import org.eclipse.jgit.lib.Repository;
@@ -78,5 +82,22 @@ public class MaxPathLengthValidator implements CommitValidationListener {
     }
 
     return Collections.emptyList();
+  }
+
+  public static AbstractModule module() {
+    return new AbstractModule() {
+
+      @Override
+      protected void configure() {
+        DynamicSet.bind(binder(), CommitValidationListener.class)
+            .to(MaxPathLengthValidator.class);
+        bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_MAX_PATH_LENGTH))
+            .toInstance(new ProjectConfigEntry("Max Path Length", 0, false,
+                "Maximum path length. Pushes of commits that "
+                    + "contain files with longer paths will be rejected. "
+                    + "'0' means no limit."));
+      }
+    };
   }
 }
