@@ -16,14 +16,18 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.common.base.Function;
 import com.google.common.collect.FluentIterable;
+import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
+import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.validators.CommitValidationException;
 import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
+import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 
 import org.eclipse.jgit.revwalk.FooterLine;
@@ -35,6 +39,24 @@ import java.util.Locale;
 import java.util.Set;
 
 public class FooterValidator implements CommitValidationListener {
+
+  public static AbstractModule module() {
+    return new AbstractModule() {
+
+      @Override
+      protected void configure() {
+        DynamicSet.bind(binder(), CommitValidationListener.class)
+            .to(FooterValidator.class);
+        bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_REQUIRED_FOOTER))
+            .toInstance(new ProjectConfigEntry("Required Footers", null,
+                ProjectConfigEntry.Type.ARRAY, null, false,
+                "Required footers. Pushes of commits that miss any"
+                    + " of the footers will be rejected."));
+      }
+    };
+  }
+
   public static String KEY_REQUIRED_FOOTER = "requiredFooter";
 
   private final String pluginName;
