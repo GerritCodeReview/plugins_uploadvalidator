@@ -20,11 +20,11 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.validators.CommitValidationException;
+import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
 
-import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Repository;
 
 import java.io.IOException;
@@ -34,7 +34,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class InvalidFilenameValidator extends PathValidator {
+public class InvalidFilenameValidator implements CommitValidationListener {
   public static String KEY_INVALID_FILENAME_PATTERN = "invalidFilenamePattern";
 
   private final String pluginName;
@@ -64,8 +64,8 @@ public class InvalidFilenameValidator extends PathValidator {
         try (Repository repo = repoManager.openRepository(
             receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = new LinkedList<>();
-          List<String> files = getFiles(repo, receiveEvent.commit);
-          for (String file : files) {
+          for (String file : CommitUtils.getChangedPaths(
+              repo, receiveEvent.commit)) {
             for (Pattern p : invalidFilenamePatterns) {
               if (p.matcher(file).find()) {
                 messages.add(new CommitValidationMessage(
@@ -80,11 +80,10 @@ public class InvalidFilenameValidator extends PathValidator {
           }
         }
       }
-    } catch (NoSuchProjectException | IOException | GitAPIException e) {
+    } catch (NoSuchProjectException | IOException e) {
       throw new CommitValidationException(
           "failed to check on invalid file names", e);
     }
-
     return Collections.emptyList();
   }
 }
