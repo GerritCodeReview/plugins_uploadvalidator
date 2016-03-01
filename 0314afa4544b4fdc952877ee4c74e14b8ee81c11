@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "425fc5cb_26f9566d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-01T09:12:04Z",
+      "side": 1,
+      "message": "Sure this has to return a map?\n\n- do you need to have random access at all map entries\n- is an object id uniquely mapable to a path?\n- the subclass seems to use the keys only do you need the values\n\nCould this rather return an iterator over object IDs?\n\nThe addContent method does some filtering, as far as I can tell. Should this be reflected in the method name?",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_66ef4ea2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-01T09:12:04Z",
+      "side": 1,
+      "message": "To me this is magic. I have no idea what it does. Maybe extracting a method would help as the method name could give some hint.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 11
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_06fc5a5c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-01T09:12:04Z",
+      "side": 1,
+      "message": "This seams to add the content only if some condition is fulfilled. You might indicate this with a more expressive method name.",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 32
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_46f2528f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-01T09:12:04Z",
+      "side": 1,
+      "message": "Why not return early if false to keep the nesting shallower?",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 27
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_6718b297",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-01T09:12:04Z",
+      "side": 1,
+      "message": "Please consider to extract a method \u0027checkForCarriageReturn\u0027. This would make the nesting shallower and you could do without the break label.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 17
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_471b2e95",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-01T09:12:04Z",
+      "side": 1,
+      "message": "Please consider just to return messages instead of throwing the exception. It would make the code cleaner, from my point of view.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 11
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
