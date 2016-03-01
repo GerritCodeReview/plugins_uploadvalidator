@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "425fc5cb_461b3295",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-01T10:13:09Z",
+      "side": 1,
+      "message": "\u003e the subclass seems to use the keys only do you need the values\n\nSee the line 82 in the InvalidLineEndingValidator",
+      "parentUuid": "425fc5cb_26f9566d",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "425fc5cb_66ef4ea2",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentValidator.java",
         "patchSetId": 13
