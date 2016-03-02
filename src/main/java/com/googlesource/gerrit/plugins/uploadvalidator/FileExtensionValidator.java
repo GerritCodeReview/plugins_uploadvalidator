@@ -30,6 +30,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 
 import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -69,6 +70,10 @@ public class FileExtensionValidator implements CommitValidationListener {
     this.repoManager = repoManager;
   }
 
+  static boolean doCheckFileExtensions(PluginConfig cfg) {
+    return cfg.getStringList(KEY_BLOCKED_FILE_EXTENSION).length > 0;
+  }
+
   @Override
   public List<CommitValidationMessage> onCommitReceived(
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
@@ -76,30 +81,36 @@ public class FileExtensionValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfig(
               receiveEvent.project.getNameKey(), pluginName);
-      String[] blockedFileExtensions =
-          cfg.getStringList(KEY_BLOCKED_FILE_EXTENSION);
-      if (blockedFileExtensions.length > 0) {
-        try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
-          List<CommitValidationMessage> messages = new LinkedList<>();
-          for (String file : CommitUtils.getChangedPaths(
-              repo, receiveEvent.commit)) {
-            for (String blockedExtension : blockedFileExtensions) {
-              if (file.toLowerCase().endsWith(blockedExtension.toLowerCase())) {
-                messages.add(
-                    new CommitValidationMessage("blocked file: " + file, true));
-                break;
-              }
-            }
-          }
-          if (!messages.isEmpty()) {
-            throw new CommitValidationException(
-                "contains files with blocked file extensions", messages);
-          }
+      if (!doCheckFileExtensions(cfg)) {
+        return Collections.emptyList();
+      }
+      try (Repository repo =
+          repoManager.openRepository(receiveEvent.project.getNameKey())) {
+        List<CommitValidationMessage> messages = performValidation(repo,
+            receiveEvent.commit, cfg.getStringList(KEY_BLOCKED_FILE_EXTENSION));
+        if (!messages.isEmpty()) {
+          throw new CommitValidationException(
+              "contains files with blocked file extensions", messages);
         }
       }
     } catch (NoSuchProjectException | IOException e) {
       throw new CommitValidationException("failed to check on file extensions", e);
     }
     return Collections.emptyList();
+  }
+
+  static List<CommitValidationMessage> performValidation(Repository repo,
+      RevCommit c, String[] blockedFileExtensions) throws IOException {
+    List<CommitValidationMessage> messages = new LinkedList<>();
+    for (String file : CommitUtils.getChangedPaths(repo, c)) {
+      for (String blockedExtension : blockedFileExtensions) {
+        if (file.toLowerCase().endsWith(blockedExtension.toLowerCase())) {
+          messages.add(
+              new CommitValidationMessage("blocked file: " + file, true));
+          break;
+        }
+      }
+    }
+    return messages;
   }
 }
