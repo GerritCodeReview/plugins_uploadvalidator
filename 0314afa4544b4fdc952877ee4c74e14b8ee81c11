@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "425fc5cb_261cf657",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T10:08:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "425fc5cb_06fc5a5c",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 32
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "425fc5cb_46f2528f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
         "patchSetId": 13
@@ -166,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "425fc5cb_c6e5e287",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T10:08:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "425fc5cb_46f2528f",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 27
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62684971_6718b297",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
         "patchSetId": 13
@@ -177,6 +225,30 @@
       "writtenOn": "2016-03-01T09:12:04Z",
       "side": 1,
       "message": "Please consider to extract a method \u0027checkForCarriageReturn\u0027. This would make the nesting shallower and you could do without the break label.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 17
+      },
+      "revId": "0314afa4544b4fdc952877ee4c74e14b8ee81c11",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_873da6a7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T10:08:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62684971_6718b297",
       "range": {
         "startLine": 77,
         "startChar": 0,
