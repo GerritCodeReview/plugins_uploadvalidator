@@ -22,6 +22,30 @@
       "revId": "040c3cb819f88c8948c3ea76a2bb98ca5d2680b2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_a6b7864d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:22:06Z",
+      "side": 1,
+      "message": "Actually, when I look at the validator classes now, they look less readable than before... because they combine the Guice wiring code with their commit validation logic.",
+      "parentUuid": "62684971_074c5616",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "040c3cb819f88c8948c3ea76a2bb98ca5d2680b2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
