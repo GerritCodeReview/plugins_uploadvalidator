@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "62684971_47424ee9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-02T16:19:28Z",
+      "side": 1,
+      "message": "I\u0027d like to suggest that you put these improvements in a predecessor change so that we can better separate these functional changes from the refactoring of moving the functionality to the ChangesUtils class.",
+      "parentUuid": "425fc5cb_664e6e3b",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "9090a842af6445d1fca931dbda24043e1107181f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "425fc5cb_46233290",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidator.java",
         "patchSetId": 3
