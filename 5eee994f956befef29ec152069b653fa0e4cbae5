@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "425fc5cb_46c492b2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidFilenameValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:16:51Z",
+      "side": 1,
+      "message": "1. Why do we now need to implement a second interface? Before this change we only had to implement the CommitValidationListener. Now, there seem to be an assumption that the onCommitReceived has to call performValidation?! \n\n2. nit: line too long",
+      "range": {
+        "startLine": 38,
+        "startChar": 73,
+        "endLine": 38,
+        "endChar": 84
+      },
+      "revId": "5eee994f956befef29ec152069b653fa0e4cbae5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_e73262a8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Validator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:16:51Z",
+      "side": 1,
+      "message": "What is the purpose of this interface in the context of implementing a CommitValidationListener?",
+      "revId": "5eee994f956befef29ec152069b653fa0e4cbae5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_06ce9ad0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorTestCase.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:16:51Z",
+      "side": 1,
+      "message": "this is not used in this class",
+      "revId": "5eee994f956befef29ec152069b653fa0e4cbae5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
