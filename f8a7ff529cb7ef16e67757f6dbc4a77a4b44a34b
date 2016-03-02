@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "62684971_677c3247",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "425fc5cb_863b6a22",
+      "range": {
+        "startLine": 7,
+        "startChar": 40,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "425fc5cb_06fbfa8f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-29T14:03:27Z",
       "side": 1,
       "message": "Please consider to  make this a method \"duplicateFilenamesAreAllowed\" ?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 75
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_c66ac27e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "425fc5cb_06fbfa8f",
       "range": {
         "startLine": 58,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "62684971_27763a67",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62684971_a70b0a73",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 19
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "425fc5cb_66fe6e81",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
         "patchSetId": 11
@@ -82,6 +154,30 @@
       "writtenOn": "2016-02-29T14:03:27Z",
       "side": 1,
       "message": "PLease consider to make this a method instead of placing a comment, e.g. \"checkForDuplicatesWithinThisCommit\"",
+      "range": {
+        "startLine": 67,
+        "startChar": 10,
+        "endLine": 67,
+        "endChar": 39
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_c7cf1ed1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "425fc5cb_66fe6e81",
       "range": {
         "startLine": 67,
         "startChar": 10,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "62684971_e7d4a269",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62684971_c7315e46",
+      "range": {
+        "startLine": 70,
+        "startChar": 38,
+        "endLine": 70,
+        "endChar": 52
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62684971_27f87a90",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
         "patchSetId": 11
@@ -128,6 +248,30 @@
       "writtenOn": "2016-02-29T14:03:27Z",
       "side": 1,
       "message": "Please use an explicit locale here to the turkish locale bug",
+      "range": {
+        "startLine": 73,
+        "startChar": 30,
+        "endLine": 73,
+        "endChar": 48
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_87d926a0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62684971_27f87a90",
       "range": {
         "startLine": 73,
         "startChar": 30,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "62684971_a7deaa83",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62684971_07fbf68f",
+      "range": {
+        "startLine": 75,
+        "startChar": 24,
+        "endLine": 75,
+        "endChar": 42
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "425fc5cb_c6316246",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
         "patchSetId": 11
@@ -174,6 +342,30 @@
       "writtenOn": "2016-02-29T14:03:27Z",
       "side": 1,
       "message": "Would it be possible to check \u0027path\u0027 against the key set of the map \u0027paths\u0027?",
+      "range": {
+        "startLine": 95,
+        "startChar": 20,
+        "endLine": 96,
+        "endChar": 54
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_67c192a1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "It would be possible, but I don\u0027t see the benefit. Because the key set of the map \"paths\" has the same size as the list \"files\". The strings in the key set already lowered, but \"path\" is not lowered, because of that you need in booth cases equalsIgnoreCase()\n\nIn a later patch set the map \"paths\" is extracted into a new method, so it is not possible.",
+      "parentUuid": "425fc5cb_c6316246",
       "range": {
         "startLine": 95,
         "startChar": 20,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "62684971_07ce96d0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62684971_873b6622",
+      "range": {
+        "startLine": 97,
+        "startChar": 24,
+        "endLine": 97,
+        "endChar": 27
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62684971_a740ea80",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
         "patchSetId": 11
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "425fc5cb_467fb23c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62684971_a740ea80",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62684971_8706066c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
         "patchSetId": 11
@@ -243,6 +483,30 @@
       "writtenOn": "2016-02-29T14:03:27Z",
       "side": 1,
       "message": "This is an impressively deep nesting.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 11
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_667c2e47",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Thank you :) But now its eliminated.",
+      "parentUuid": "62684971_8706066c",
       "range": {
         "startLine": 100,
         "startChar": 0,
@@ -318,6 +582,30 @@
     },
     {
       "key": {
+        "uuid": "425fc5cb_06a0da17",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done but moved into DuplicateFilenameValidator.java",
+      "parentUuid": "62684971_0750d64d",
+      "range": {
+        "startLine": 86,
+        "startChar": 40,
+        "endLine": 86,
+        "endChar": 47
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62684971_4746ce9c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
         "patchSetId": 11
@@ -341,6 +629,30 @@
     },
     {
       "key": {
+        "uuid": "425fc5cb_269dd6dc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Module.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "In my opinion this a good description. Short and precise.\n(moved into DuplicateFilenameValidator.java)",
+      "parentUuid": "62684971_4746ce9c",
+      "range": {
+        "startLine": 87,
+        "startChar": 36,
+        "endLine": 87,
+        "endChar": 57
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62684971_c71abeb4",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 11
@@ -352,6 +664,30 @@
       "writtenOn": "2016-02-29T14:03:27Z",
       "side": 1,
       "message": "Please elaborate a bit more on the kind of problems this is check is preventing.",
+      "range": {
+        "startLine": 122,
+        "startChar": 14,
+        "endLine": 122,
+        "endChar": 39
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_0779b655",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T15:19:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62684971_c71abeb4",
       "range": {
         "startLine": 122,
         "startChar": 14,
