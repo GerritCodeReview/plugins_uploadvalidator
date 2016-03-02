@@ -32,6 +32,8 @@ project info screen.
 plugin.@PLUGIN@.blockedFileExtension
 :	File extension to be blocked.
 
+	The values for this check are case insensitive.
+
 	Blocked file extensions are *not* inherited by child projects.
 
 plugin.@PLUGIN@.requiredFooter
