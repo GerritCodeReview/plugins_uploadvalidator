@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "425fc5cb_86d92aa0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:05:17Z",
+      "side": 1,
+      "message": "CommitUtils or GitUtils ?\n\nThis class operates on Git commits, not on Gerrit changes.",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "190054924eab78209f2f3b7ce1c75f71ff34e986",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_c6cf22d1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:05:17Z",
+      "side": 1,
+      "message": "nit: like in Gerrit\u0027s source code use an empty line as a separator before the first @param",
+      "revId": "190054924eab78209f2f3b7ce1c75f71ff34e986",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_47ad6ef8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:05:17Z",
+      "side": 1,
+      "message": "nit: line continuations should be indented 2 indentation levels i.e. 4 spaces.\n\n  @return A set contains ...\n      passed commit ...",
+      "revId": "190054924eab78209f2f3b7ce1c75f71ff34e986",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_87b2865e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:05:17Z",
+      "side": 1,
+      "message": "nit: line too long",
+      "revId": "190054924eab78209f2f3b7ce1c75f71ff34e986",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_e6d49e69",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:05:17Z",
+      "side": 1,
+      "message": "Is this a closing \"br\" tag? Where is the opening one?\n\nBtw, looking at Gerrit\u0027s source code, we use \u003cp\u003e as paragraph separator and also keep it in own line:\n\n  * returned map looks like this:\n  * \u003cp\u003e\n  * ...",
+      "range": {
+        "startLine": 49,
+        "startChar": 34,
+        "endLine": 49,
+        "endChar": 40
+      },
+      "revId": "190054924eab78209f2f3b7ce1c75f71ff34e986",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_67aaf2e3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:05:17Z",
+      "side": 1,
+      "message": "Use list items?\n\n  * \u003cul\u003e\n  * \u003cli\u003e Key: Path to the ...\n  * \u003cli\u003e Value: ObjectId of the ...\n  * \u003c/ul\u003e",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 46
+      },
+      "revId": "190054924eab78209f2f3b7ce1c75f71ff34e986",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_07a7761a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-02T16:05:17Z",
+      "side": 1,
+      "message": "nit: double level indentation for line continuations",
+      "revId": "190054924eab78209f2f3b7ce1c75f71ff34e986",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
