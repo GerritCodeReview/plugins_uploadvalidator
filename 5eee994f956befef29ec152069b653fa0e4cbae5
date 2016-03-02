@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "62684971_c7fb9edb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidFilenameValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T16:53:38Z",
+      "side": 1,
+      "message": "We need this interface for testing.",
+      "parentUuid": "425fc5cb_46c492b2",
+      "range": {
+        "startLine": 38,
+        "startChar": 73,
+        "endLine": 38,
+        "endChar": 84
+      },
+      "revId": "5eee994f956befef29ec152069b653fa0e4cbae5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62684971_e73262a8",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Validator.java",
         "patchSetId": 4
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "425fc5cb_26a4f612",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/Validator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T16:53:38Z",
+      "side": 1,
+      "message": "It\u0027s easier (possible) to write unit test for a CommitValidationListener which implements this interface.",
+      "parentUuid": "62684971_e73262a8",
+      "revId": "5eee994f956befef29ec152069b653fa0e4cbae5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "425fc5cb_06ce9ad0",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorTestCase.java",
         "patchSetId": 4
@@ -53,6 +95,24 @@
       "writtenOn": "2016-03-02T16:16:51Z",
       "side": 1,
       "message": "this is not used in this class",
+      "revId": "5eee994f956befef29ec152069b653fa0e4cbae5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "425fc5cb_c62de246",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorTestCase.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-02T16:53:38Z",
+      "side": 1,
+      "message": "that\u0027 true. I wanted to declare this in the parent, that you don\u0027t have to declare it in each Test.\n\nBut perhaps it\u0027s better when I do the following:\n\nvalidator \u003d initValidator();\n\nprotected abstract Validator initValidator();",
+      "parentUuid": "425fc5cb_06ce9ad0",
       "revId": "5eee994f956befef29ec152069b653fa0e4cbae5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
