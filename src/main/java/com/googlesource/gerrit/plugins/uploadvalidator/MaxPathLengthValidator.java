@@ -30,6 +30,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 
 import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -69,6 +70,10 @@ public class MaxPathLengthValidator implements CommitValidationListener {
     this.repoManager = repoManager;
   }
 
+  static boolean isPathLengthLimited(PluginConfig cfg) {
+    return cfg.getInt(KEY_MAX_PATH_LENGTH, 0) > 0;
+  }
+
   @Override
   public List<CommitValidationMessage> onCommitReceived(
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
@@ -76,27 +81,35 @@ public class MaxPathLengthValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfig(
               receiveEvent.project.getNameKey(), pluginName);
+      if (isPathLengthLimited(cfg)) {
+        return Collections.emptyList();
+      }
       int maxPathLength = cfg.getInt(KEY_MAX_PATH_LENGTH, 0);
-      if (maxPathLength > 0) {
-        try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
-          List<CommitValidationMessage> messages = new LinkedList<>();
-          for (String file : CommitUtils.getChangedPaths(
-              repo, receiveEvent.commit)) {
-            if (file.length() > maxPathLength) {
-              messages.add(new CommitValidationMessage("path too long: " + file, true));
-            }
-          }
-          if (!messages.isEmpty()) {
-            throw new CommitValidationException(
-                "contains files with too long paths (max path length: "
-                    + maxPathLength + ")", messages);
-          }
+      try (Repository repo =
+          repoManager.openRepository(receiveEvent.project.getNameKey())) {
+        List<CommitValidationMessage> messages =
+            performValidation(repo, receiveEvent.commit, maxPathLength);
+        if (!messages.isEmpty()) {
+          throw new CommitValidationException(
+              "contains files with too long paths (max path length: "
+                  + maxPathLength + ")", messages);
         }
       }
     } catch (NoSuchProjectException | IOException e) {
-      throw new CommitValidationException("failed to check for max file path length", e);
+      throw new CommitValidationException(
+          "failed to check for max file path length", e);
     }
-
     return Collections.emptyList();
+  }
+
+  static List<CommitValidationMessage> performValidation(Repository repo,
+      RevCommit c, int maxPathLength) throws IOException {
+    List<CommitValidationMessage> messages = new LinkedList<>();
+    for (String file : CommitUtils.getChangedPaths(repo, c)) {
+      if (file.length() > maxPathLength) {
+        messages.add(new CommitValidationMessage("path too long: " + file, true));
+      }
+    }
+    return messages;
   }
 }
