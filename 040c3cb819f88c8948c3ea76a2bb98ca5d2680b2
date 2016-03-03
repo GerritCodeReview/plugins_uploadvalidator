@@ -46,6 +46,30 @@
       "revId": "040c3cb819f88c8948c3ea76a2bb98ca5d2680b2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_c7b2be31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-03T07:11:21Z",
+      "side": 1,
+      "message": "In my opinion this is useful, because if we have 9 different validators in Module.java, Module.java looks messy.",
+      "parentUuid": "62684971_074c5616",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "040c3cb819f88c8948c3ea76a2bb98ca5d2680b2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
