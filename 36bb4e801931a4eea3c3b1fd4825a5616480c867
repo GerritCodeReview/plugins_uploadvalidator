@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "425fc5cb_e629fe21",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidFilenameValidator.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-03T10:29:12Z",
+      "side": 1,
+      "message": "Use a String[] here because this is the only thing we need from the PluginConfig. This method is made for easier testing anyway...",
+      "range": {
+        "startLine": 80,
+        "startChar": 19,
+        "endLine": 80,
+        "endChar": 35
+      },
+      "revId": "36bb4e801931a4eea3c3b1fd4825a5616480c867",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
