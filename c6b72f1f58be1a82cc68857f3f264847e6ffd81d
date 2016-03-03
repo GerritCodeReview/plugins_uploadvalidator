@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "425fc5cb_66166ede",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/MaxPathLengthValidator.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-03T12:43:39Z",
+      "side": 1,
+      "message": "nit: static before non-static, see [1]\n\nthis should be moved up, same in all other validators in this change\n\n[1] https://gerrit-review.googlesource.com/Documentation/dev-contributing.html#_code_organization",
+      "revId": "c6b72f1f58be1a82cc68857f3f264847e6ffd81d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
