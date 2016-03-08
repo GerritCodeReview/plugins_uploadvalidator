@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7753ad55_1888c512",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T14:16:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "425fc5cb_a6054631",
+      "revId": "5cd45faacf631923042d4f468b6b005c764b1e44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62684971_c7ab9e51",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 14
