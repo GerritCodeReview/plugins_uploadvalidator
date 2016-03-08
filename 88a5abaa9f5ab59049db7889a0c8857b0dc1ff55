@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "7753ad55_d822cde8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-08T13:05:28Z",
+      "side": 1,
+      "message": "Yes, something like that in CommitUtils would be preferred. We need a good name for the callback, maybe: TreeWalkListener?",
+      "parentUuid": "7753ad55_7808e17a",
+      "range": {
+        "startLine": 115,
+        "startChar": 1,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7753ad55_b801d955",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 20
