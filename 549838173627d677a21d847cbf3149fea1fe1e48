@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17ed11ca_cdf84992",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:25:50Z",
+      "side": 1,
+      "message": "checks files",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_edfb858b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:25:50Z",
+      "side": 1,
+      "message": "This validator seems to perform checks on all files in the commit. It would benefit from extracting the logic to loop over all files in the commit an performing a check on them to a helper class.",
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_d84beda0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:25:50Z",
+      "side": 1,
+      "message": "rename this to \u0027pattern\u0027 or \u0027regex\u0027 ?",
+      "range": {
+        "startLine": 91,
+        "startChar": 18,
+        "endLine": 91,
+        "endChar": 19
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_8dfe417d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:25:50Z",
+      "side": 1,
+      "message": "You could pull up most of this logic to a super class.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 35
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_381829ba",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:25:50Z",
+      "side": 1,
+      "message": "Sure you can use UFT_8?",
+      "range": {
+        "startLine": 120,
+        "startChar": 27,
+        "endLine": 120,
+        "endChar": 49
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_181d65aa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:25:50Z",
+      "side": 1,
+      "message": "extract this as a method \u0027checLineForBlockedKeywords\u0027 ?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 11
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_ad017d55",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:25:50Z",
+      "side": 1,
+      "message": "extract a method \u0027checkFileForBlockedKeywords\u0027 ?",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 7
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_98417585",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:25:50Z",
+      "side": 1,
+      "message": "keywords in files",
+      "range": {
+        "startLine": 99,
+        "startChar": 30,
+        "endLine": 99,
+        "endChar": 38
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
