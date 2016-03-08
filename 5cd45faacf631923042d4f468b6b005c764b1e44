@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "425fc5cb_a6054631",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-08T10:37:00Z",
+      "side": 1,
+      "message": "like Adrian suggested in the previous change, returning early in case !rejectSymlink would reduce the level of nesting",
+      "revId": "5cd45faacf631923042d4f468b6b005c764b1e44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
