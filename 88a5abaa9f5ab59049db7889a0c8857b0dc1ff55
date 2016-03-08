@@ -118,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "7753ad55_f82511f3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-08T13:03:15Z",
+      "side": 1,
+      "message": "we will reach here if parentCount \u003e\u003d 1, so it could be also \u003d\u003d1. Here, we want to differentiate between \u003d\u003d1 and \u003e1.",
+      "parentUuid": "7753ad55_b801d955",
+      "range": {
+        "startLine": 126,
+        "startChar": 9,
+        "endLine": 126,
+        "endChar": 39
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7753ad55_d8f80d92",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 20
