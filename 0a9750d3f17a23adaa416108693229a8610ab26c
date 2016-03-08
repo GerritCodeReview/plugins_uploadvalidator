@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17ed11ca_0d1371ae",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidator.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:12:14Z",
+      "side": 1,
+      "message": "I think most of these checks have similar coding which differs only in property keys and some texts. You might want to consider to pull this up into a super class.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 35
+      },
+      "revId": "0a9750d3f17a23adaa416108693229a8610ab26c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_6d08357b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidator.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:12:14Z",
+      "side": 1,
+      "message": "This coding looks quite similar to the performValidation of the symbolic links validator. It appears that you traverse all files in this commit and apply some check. Please consider to extract this logic into a method in CommitUtils that takes some implementation of some FileCheck interface and applies the check on all files traversed.\n\nPlease check if more validators could benefit from this.\n\nAgain this method has very deeply nested blocks and would benefit from extracting some methods. But I\u0027d like to suggest that you do this once moved to CommitUtils.",
+      "revId": "0a9750d3f17a23adaa416108693229a8610ab26c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_4d0d7989",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidatorTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:12:14Z",
+      "side": 1,
+      "message": "If you\u0027d move the logic to perform a check on all files in the commit you could reduce this test to test the concrete check.",
+      "revId": "0a9750d3f17a23adaa416108693229a8610ab26c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
