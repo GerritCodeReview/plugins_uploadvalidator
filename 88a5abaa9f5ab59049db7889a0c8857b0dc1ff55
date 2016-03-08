@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "7753ad55_7808e17a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T12:16:56Z",
+      "side": 1,
+      "message": "No, because we only get changed files as a Set or Map from CommitUtil. But in this case we need the TreeWalk to get information about the RawMode of a tree entry.\n\nPerhaps it make sense to create a new method in CommitUtils which you can pass a callback method.\n\nCommitUtils.runOnChangedTreeEntry(new Callback(){\n\npublic void perform(TreeWalk tw)\n          if (diff \u0026\u0026 isSymLink(tw.getRawMode(0))) {\n            addValidationMessage(messages, tw);\n          }\n});\n\nThis is also related to the submodules check, because the code there is similar.",
+      "parentUuid": "17ed11ca_ede425f8",
+      "range": {
+        "startLine": 115,
+        "startChar": 1,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7753ad55_b801d955",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 20
