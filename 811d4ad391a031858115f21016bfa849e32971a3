@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "17ed11ca_4d929940",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T15:28:49Z",
+      "side": 1,
+      "message": "nice reuse :-)",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 7
+      },
+      "revId": "811d4ad391a031858115f21016bfa849e32971a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17ed11ca_0d889112",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 21
@@ -18,6 +41,75 @@
         "startChar": 9,
         "endLine": 115,
         "endChar": 41
+      },
+      "revId": "811d4ad391a031858115f21016bfa849e32971a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_cd2209e9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T15:28:49Z",
+      "side": 1,
+      "message": "You might want to consider to move this into the \u0027TreeWalkListener\u0027, as well as an addMessage method.",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 72
+      },
+      "revId": "811d4ad391a031858115f21016bfa849e32971a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_ed2545f3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T15:28:49Z",
+      "side": 1,
+      "message": "Move this into the isSymLink method as well as  you might want to encapsulate the knowledge that you need to access the raw type in order to assess whether a tw represents a symbolic link.",
+      "range": {
+        "startLine": 121,
+        "startChar": 24,
+        "endLine": 121,
+        "endChar": 40
+      },
+      "revId": "811d4ad391a031858115f21016bfa849e32971a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_58699df8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/TreeWalkListener.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T15:28:49Z",
+      "side": 1,
+      "message": "Not sure Listener this is an Listener as it doesn\u0027t observe the tree or react on events. I think this is closer to a Visitor (https://en.wikipedia.org/wiki/Visitor_pattern). Differences are that the traversal is not implemented in the tree but by CommitUtils.runOnChangedTreeEntry. Also there is on distinction between different TreeWalk node types.\n\nSo it doesn\u0027t buy to much over a pure Iterator currently. If you\u0027d move the list of messages into this it\u0027d get more valuable.",
+      "range": {
+        "startLine": 19,
+        "startChar": 30,
+        "endLine": 19,
+        "endChar": 38
       },
       "revId": "811d4ad391a031858115f21016bfa849e32971a3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
