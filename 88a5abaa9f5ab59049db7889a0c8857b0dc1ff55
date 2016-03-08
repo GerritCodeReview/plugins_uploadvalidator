@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7753ad55_788d8122",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T14:16:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7753ad55_98fe957d",
+      "range": {
+        "startLine": 113,
+        "startChar": 32,
+        "endLine": 113,
+        "endChar": 49
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17ed11ca_ede425f8",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 20
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "Yes, something like that in CommitUtils would be preferred. We need a good name for the callback, maybe: TreeWalkListener?",
       "parentUuid": "7753ad55_7808e17a",
+      "range": {
+        "startLine": 115,
+        "startChar": 1,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_58923d40",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T14:16:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7753ad55_d822cde8",
       "range": {
         "startLine": 115,
         "startChar": 1,
@@ -189,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "17ed11ca_cd4b29a1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T14:16:09Z",
+      "side": 1,
+      "message": "Done, but this part of code is from now on only available in CommitUtils. So please have a look into CommitUtils.isDifferentToAllParents()",
+      "parentUuid": "7753ad55_d8f80d92",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 13
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7753ad55_f8fb518b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 20
@@ -229,6 +301,24 @@
     },
     {
       "key": {
+        "uuid": "17ed11ca_8d412185",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 20
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T14:16:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7753ad55_b8da792d",
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7753ad55_1836053a",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 20
@@ -252,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "17ed11ca_ed4ee5b2",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 20
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T14:16:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7753ad55_1836053a",
+      "range": {
+        "startLine": 77,
+        "startChar": 37,
+        "endLine": 77,
+        "endChar": 39
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7753ad55_38314942",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidatorTest.java",
         "patchSetId": 20
@@ -263,6 +377,24 @@
       "writtenOn": "2016-03-08T12:03:06Z",
       "side": 1,
       "message": "I think there should also be a test case for symbolically linked folder.",
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_b876f9dc",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidatorTest.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T14:16:09Z",
+      "side": 1,
+      "message": "+1\nDone",
+      "parentUuid": "7753ad55_38314942",
       "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
