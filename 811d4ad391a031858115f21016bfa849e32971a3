@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17ed11ca_0d889112",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-08T15:25:03Z",
+      "side": 1,
+      "message": "this one is not necessary any more",
+      "range": {
+        "startLine": 115,
+        "startChar": 9,
+        "endLine": 115,
+        "endChar": 41
+      },
+      "revId": "811d4ad391a031858115f21016bfa849e32971a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_6d8dd522",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/TreeWalkListener.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-08T15:25:03Z",
+      "side": 1,
+      "message": "onNext ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 23,
+        "endLine": 21,
+        "endChar": 35
+      },
+      "revId": "811d4ad391a031858115f21016bfa849e32971a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
