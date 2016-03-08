@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7753ad55_f857d12a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T16:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17ed11ca_0d889112",
+      "range": {
+        "startLine": 115,
+        "startChar": 9,
+        "endLine": 115,
+        "endChar": 41
+      },
+      "revId": "811d4ad391a031858115f21016bfa849e32971a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17ed11ca_cd2209e9",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 21
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "17ed11ca_ed80a5e7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T16:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17ed11ca_ed2545f3",
+      "range": {
+        "startLine": 121,
+        "startChar": 24,
+        "endLine": 121,
+        "endChar": 40
+      },
+      "revId": "811d4ad391a031858115f21016bfa849e32971a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7753ad55_58699df8",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/TreeWalkListener.java",
         "patchSetId": 21
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "7753ad55_78e741cf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/TreeWalkListener.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T16:31:19Z",
+      "side": 1,
+      "message": "Your right. It\u0027s closer to a Visitor.\n\nWhen I refactor all checks, I will think about moving the list of messages into it.",
+      "parentUuid": "7753ad55_58699df8",
+      "range": {
+        "startLine": 19,
+        "startChar": 30,
+        "endLine": 19,
+        "endChar": 38
+      },
+      "revId": "811d4ad391a031858115f21016bfa849e32971a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17ed11ca_6d8dd522",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/TreeWalkListener.java",
         "patchSetId": 21
@@ -128,6 +200,30 @@
       "writtenOn": "2016-03-08T15:25:03Z",
       "side": 1,
       "message": "onNext ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 23,
+        "endLine": 21,
+        "endChar": 35
+      },
+      "revId": "811d4ad391a031858115f21016bfa849e32971a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_d8548d29",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/TreeWalkListener.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T16:31:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17ed11ca_6d8dd522",
       "range": {
         "startLine": 21,
         "startChar": 23,
