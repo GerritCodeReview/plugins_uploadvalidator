@@ -175,6 +175,30 @@
       "revId": "523242f19c4b377272f28c5a3d335c1c83ac2c22",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_b82b99c8",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-08T12:56:31Z",
+      "side": 1,
+      "message": "Thanks for the hint. I didn\u0027t know that this is not supported out of the box.\n\nBtw, as we use more and more plugins the project\u0027s General prefs page is becoming really large (vertically). I think we also need a better support in Gerrit core for how plugin contributed config parameters are rendered. Having one tab per plugin (and one for the core prefs) could be one possible solution. We can also discuss that in Berlin?",
+      "parentUuid": "7753ad55_98d7b505",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 56
+      },
+      "revId": "523242f19c4b377272f28c5a3d335c1c83ac2c22",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
