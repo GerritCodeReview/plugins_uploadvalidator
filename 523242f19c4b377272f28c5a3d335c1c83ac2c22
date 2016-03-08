@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7753ad55_58a4fdd0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T06:43:31Z",
+      "side": 1,
+      "message": "If you use a regular expression you only need one line in the plugin configuration page, because you can define the file extensions like this [zip|exe|iso]. Otherwise you need one line for each extension, and the plugin configuration page looks more messy.",
+      "parentUuid": "a236c1c5_e90bd571",
+      "range": {
+        "startLine": 133,
+        "startChar": 10,
+        "endLine": 134,
+        "endChar": 73
+      },
+      "revId": "523242f19c4b377272f28c5a3d335c1c83ac2c22",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "172511a9_4d36593b",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 20
@@ -59,6 +83,24 @@
       "writtenOn": "2016-03-07T13:07:16Z",
       "side": 1,
       "message": "A typical approach in Git config style files is to repeat the key many times (instead of supporting multiple values in one line):\n\n  ignoreFilesWhenCheckLineEndings \u003d jpeg\n  ignoreFilesWhenCheckLineEndings \u003d pdf\n  ...\n\nThen we don\u0027t need to support a regex for this simple check.\n\nThis config key should have a more precise name as it is only about file name extension(s). For examples:\n\n  windowsLineEndingsCheckSkipExt \u003d jpeg\n  windowsLineEndingsCheckSkipExt \u003d pdf\n  ...",
+      "revId": "523242f19c4b377272f28c5a3d335c1c83ac2c22",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_2d958d5a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-08T06:43:31Z",
+      "side": 1,
+      "message": "I tried to put everything in one line so you only need on line in the plugin configuration page. Otherwise the plugin configuration page could look messy.",
+      "parentUuid": "172511a9_4d36593b",
       "revId": "523242f19c4b377272f28c5a3d335c1c83ac2c22",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
