@@ -16,6 +16,29 @@
       "revId": "5cd45faacf631923042d4f468b6b005c764b1e44",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62684971_c7ab9e51",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:03:06Z",
+      "side": 1,
+      "message": "All of these checks I have had a look at follow the same pattern:\n\n- obtain some boolean property\n- if true open a repo\n\nThen the actual logic starts.\n\nPlease consider to introduce some abstraction that operates on a given check and open repo. Like an abstract check class with an \u0027apply\u0027 or \u0027execute\u0027 method and some \u0027getMessages\u0027 method. Then the boiler plate coding could be part of the abstract class. Alternatively some interface with a \u0027check\u0027 method that takes repo and returns of messages.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 47
+      },
+      "revId": "5cd45faacf631923042d4f468b6b005c764b1e44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
