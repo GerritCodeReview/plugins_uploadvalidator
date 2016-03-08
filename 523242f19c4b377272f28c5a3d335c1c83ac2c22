@@ -104,6 +104,29 @@
       "revId": "523242f19c4b377272f28c5a3d335c1c83ac2c22",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_6df155b7",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-08T10:12:49Z",
+      "side": 1,
+      "message": "This config style is becoming messy.. too many too long names.\nSince the number of options will continue to grow we should switch\nto the plugin specific config file \"uploadvalidator.config\" and use one section per validator. Example:\n\n  [blockFileExtension]\n    ext \u003d jar\n    ext \u003d zip\n  [windowsLineEndings]\n    reject \u003d true\n    skip \u003d jpeg\n    skip \u003d pdf\n\nHowever, let\u0027s first finish reviewing of this and remaining changes and then, in one change, switch to the new config style.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 56
+      },
+      "revId": "523242f19c4b377272f28c5a3d335c1c83ac2c22",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
