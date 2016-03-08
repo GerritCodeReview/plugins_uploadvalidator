@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "7753ad55_580d1d89",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:03:06Z",
+      "side": 1,
+      "message": "I think this could be private.",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 8
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_98fe957d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:03:06Z",
+      "side": 1,
+      "message": "You have very deep nesting of blocks in this method. Please consider to extract some meaningful methods to improve readability of the code.",
+      "range": {
+        "startLine": 113,
+        "startChar": 32,
+        "endLine": 113,
+        "endChar": 49
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17ed11ca_ede425f8",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
         "patchSetId": 20
@@ -25,6 +71,75 @@
     },
     {
       "key": {
+        "uuid": "7753ad55_b801d955",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:03:06Z",
+      "side": 1,
+      "message": "You could do without this if as the loop won\u0027t loop if parentCount \u003c\u003d 1.",
+      "range": {
+        "startLine": 126,
+        "startChar": 9,
+        "endLine": 126,
+        "endChar": 39
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_d8f80d92",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:03:06Z",
+      "side": 1,
+      "message": "Could this be extracted as a method with a descriptive name?",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 13
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_f8fb518b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:03:06Z",
+      "side": 1,
+      "message": "Could this be extracted as a method with a descriptive name?",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 9
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7753ad55_b8da792d",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 20
@@ -36,6 +151,46 @@
       "writtenOn": "2016-03-08T10:37:00Z",
       "side": 1,
       "message": "Since we missed to fix this in the previous change, please fix it in this change.",
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_1836053a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 20
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:03:06Z",
+      "side": 1,
+      "message": "[optional] in the set of",
+      "range": {
+        "startLine": 77,
+        "startChar": 37,
+        "endLine": 77,
+        "endChar": 39
+      },
+      "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7753ad55_38314942",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SymlinkValidatorTest.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-08T12:03:06Z",
+      "side": 1,
+      "message": "I think there should also be a test case for symbolically linked folder.",
       "revId": "88a5abaa9f5ab59049db7889a0c8857b0dc1ff55",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
