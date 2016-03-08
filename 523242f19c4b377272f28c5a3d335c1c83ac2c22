@@ -199,6 +199,30 @@
       "revId": "523242f19c4b377272f28c5a3d335c1c83ac2c22",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17ed11ca_4d40d980",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2016-03-08T13:05:09Z",
+      "side": 1,
+      "message": "I agree that having tabs for plugin contributed configs is a good idea.\n\nSure we can discuss about this during the hackathon.\n\nWhat plugins can do today, is to add an own Settings page [1] but implementing this page and the REST endpoints is left to the plugin.\n\n[1] https://gerrit-review.googlesource.com/Documentation/dev-plugins.html#user-settings-screen",
+      "parentUuid": "7753ad55_b82b99c8",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 56
+      },
+      "revId": "523242f19c4b377272f28c5a3d335c1c83ac2c22",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
