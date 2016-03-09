@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37c9357a_36e218c0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-09T10:32:15Z",
+      "side": 1,
+      "message": "visitor\n\nnow that the type is renamed, the name needs to be adjusted as well",
+      "range": {
+        "startLine": 93,
+        "startChar": 22,
+        "endLine": 93,
+        "endChar": 30
+      },
+      "revId": "c837a98f0f0e636155b0f915c63059dc181478b7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b79a8576_7292f840",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/TreeWalkVisitor.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-09T10:32:15Z",
+      "side": 1,
+      "message": "why is this not an interface?",
+      "revId": "c837a98f0f0e636155b0f915c63059dc181478b7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
