@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37c9357a_1618bcb9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-09T07:34:06Z",
+      "side": 1,
+      "message": "is used in line 90",
+      "parentUuid": "37c9357a_b641c884",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 42
+      },
+      "revId": "fa2f44b142eb6fada059dda50726672e7ecc7a9d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b79a8576_b241c084",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidator.java",
         "patchSetId": 13
