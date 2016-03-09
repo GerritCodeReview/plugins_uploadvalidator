@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "37c9357a_361db8aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-09T08:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17ed11ca_cdf84992",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17ed11ca_edfb858b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
         "patchSetId": 13
@@ -88,6 +112,30 @@
     },
     {
       "key": {
+        "uuid": "37c9357a_d62564f3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-09T08:28:29Z",
+      "side": 1,
+      "message": "Yes, I already thought about that. But then I have to write a method to override the text for both CommitValidationExceptions. I also have to override a methode like willCheckPerformed() or isCheckActive().\n\nI don\u0027t know if this makes the code smaller. But I think this makes the code more readable. I will think about it when I pushed all checks. Because then it\u0027s easier find out what is needed.",
+      "parentUuid": "17ed11ca_8dfe417d",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 35
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7753ad55_381829ba",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
         "patchSetId": 13
@@ -99,6 +147,30 @@
       "writtenOn": "2016-03-08T12:25:50Z",
       "side": 1,
       "message": "Sure you can use UFT_8?",
+      "range": {
+        "startLine": 120,
+        "startChar": 27,
+        "endLine": 120,
+        "endChar": 49
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37c9357a_962becc8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-09T08:28:29Z",
+      "side": 1,
+      "message": "That\u0027s a good point. How can I detect which charset is used?\nPerhaps this library could help? Do you have any ideas?\n\nhttps://code.google.com/archive/p/juniversalchardet/",
+      "parentUuid": "7753ad55_381829ba",
       "range": {
         "startLine": 120,
         "startChar": 27,
@@ -134,6 +206,30 @@
     },
     {
       "key": {
+        "uuid": "37c9357a_16835cf9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-09T08:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7753ad55_181d65aa",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 11
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17ed11ca_ad017d55",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
         "patchSetId": 13
@@ -157,6 +253,30 @@
     },
     {
       "key": {
+        "uuid": "b79a8576_321dd0aa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/KeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-09T08:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17ed11ca_ad017d55",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 7
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7753ad55_98417585",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 13
@@ -168,6 +288,30 @@
       "writtenOn": "2016-03-08T12:25:50Z",
       "side": 1,
       "message": "keywords in files",
+      "range": {
+        "startLine": 99,
+        "startChar": 30,
+        "endLine": 99,
+        "endChar": 38
+      },
+      "revId": "549838173627d677a21d847cbf3149fea1fe1e48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37c9357a_56123499",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-09T08:28:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7753ad55_98417585",
       "range": {
         "startLine": 99,
         "startChar": 30,
