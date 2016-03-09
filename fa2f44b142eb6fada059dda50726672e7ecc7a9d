@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37c9357a_b641c884",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-09T07:30:19Z",
+      "side": 1,
+      "message": "not used any longer",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 42
+      },
+      "revId": "fa2f44b142eb6fada059dda50726672e7ecc7a9d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b79a8576_b241c084",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1007114
+      },
+      "writtenOn": "2016-03-09T07:30:19Z",
+      "side": 1,
+      "message": "[optional]  You could move this into your TreeWalkVisitor impl.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 3
+      },
+      "revId": "fa2f44b142eb6fada059dda50726672e7ecc7a9d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
