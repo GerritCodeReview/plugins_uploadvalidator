@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f7479d3c_ace1e3bc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/SubmoduleValidator.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-11T14:21:39Z",
+      "side": 1,
+      "message": "Done. I think I forgot strg+shift+f",
+      "parentUuid": "f7479d3c_8cdc2700",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 78
+      },
+      "revId": "5300a4298f27721a84a5ce073c5868b6d40c03fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d742992f_6bf8c168",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 15
