@@ -56,7 +56,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
             .to(InvalidLineEndingValidator.class);
         bind(ProjectConfigEntry.class)
             .annotatedWith(
-                Exports.named(KEY_CHECK_RECJECT_WINDOWS_LINE_ENDINGS))
+                Exports.named(KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS))
             .toInstance(new ProjectConfigEntry("Reject Windows Line Endings",
                 "false", ProjectConfigEntry.Type.BOOLEAN, null, false,
                 "Windows line endings. Pushes of commits that include files "
@@ -74,7 +74,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_CHECK_RECJECT_WINDOWS_LINE_ENDINGS =
+  public static String KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS =
       "rejectWindowsLineEndings";
   public static String KEY_IGNORE_FILES = "ignoreFilesWhenCheckLineEndings";
 
@@ -98,7 +98,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
           cfgFactory.getFromProjectConfig(
               receiveEvent.project.getNameKey(), pluginName);
       boolean lineEndingCheck = cfg.getBoolean(
-          KEY_CHECK_RECJECT_WINDOWS_LINE_ENDINGS, false);
+          KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS, false);
       if (!lineEndingCheck) {
         return Collections.emptyList();
       }
