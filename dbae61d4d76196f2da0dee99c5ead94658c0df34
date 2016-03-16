@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c937619_3d322fed",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-16T18:08:20Z",
+      "side": 1,
+      "message": "why do we need a named group here?",
+      "range": {
+        "startLine": 93,
+        "startChar": 35,
+        "endLine": 93,
+        "endChar": 54
+      },
+      "revId": "dbae61d4d76196f2da0dee99c5ead94658c0df34",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6d0aef_da26a5b1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-16T18:08:20Z",
+      "side": 1,
+      "message": "This kind of check could have beed done on the result of the cfg.getStringList(KEY_CHECK...) and we could return immediately when the size is zero.\n\nThis would also reduce the indentation level for the code after that.",
+      "revId": "dbae61d4d76196f2da0dee99c5ead94658c0df34",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c937619_5de4db8c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-16T18:08:20Z",
+      "side": 1,
+      "message": "NOTE: this will check for blocked keywords in the whole file, not only in the changed lines.\n\nThis may or may not be desired. I am undecided.\nIf some keyword was allowed in the past and is disabled now, then any commit which changes a file containing a NOW blocked keyword will be rejected. Even if it doesn\u0027t touch the line with the NOW blocked keyword.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 78
+      },
+      "revId": "dbae61d4d76196f2da0dee99c5ead94658c0df34",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c937619_7de99761",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-16T18:08:20Z",
+      "side": 1,
+      "message": "Use StringBuilder",
+      "revId": "dbae61d4d76196f2da0dee99c5ead94658c0df34",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c937619_1dee536b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-16T18:08:20Z",
+      "side": 1,
+      "message": "Instead of doing this, a cleaner way would be to collect found keywords in a List and then use gauva Joiner to create a comma separated String:\n\n  List\u003cString\u003e found \u003d new ArrayList\u003c\u003e();\n  ... found.add(matcher.group(CG_NAME);\n\n  Joiner.on(\", \").join(found);",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 33
+      },
+      "revId": "dbae61d4d76196f2da0dee99c5ead94658c0df34",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6d0aef_fa3a89c8",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 15
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-16T18:08:20Z",
+      "side": 1,
+      "message": "1. actually there is no distincion in the configuration and the code. Every configured blokedKeywordPattern is interpreted as a regex. So a \"simple keyword\" is just a special (simple) regex. Proposal: just tell that each blockedKeywordPattern is a regex.\n\n2. write this in a passive form, without \"you can...\"",
+      "range": {
+        "startLine": 102,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 60
+      },
+      "revId": "dbae61d4d76196f2da0dee99c5ead94658c0df34",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc6d0aef_5a3375f3",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 15
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-16T18:08:20Z",
+      "side": 1,
+      "message": "Can this be written in a way that it understandable to a Gerrit admin who is not a Java developer?",
+      "range": {
+        "startLine": 103,
+        "startChar": 1,
+        "endLine": 104,
+        "endChar": 42
+      },
+      "revId": "dbae61d4d76196f2da0dee99c5ead94658c0df34",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
