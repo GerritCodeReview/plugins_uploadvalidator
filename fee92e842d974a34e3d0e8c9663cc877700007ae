@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "5cf32eea_2f4ee9b2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-18T14:48:34Z",
+      "side": 1,
+      "message": "Since Pattern instances are immutable [1] they are thread safe. Yes, we can use an in-memory cache for caching (compiled) patterns.\n\n[1] https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html",
+      "parentUuid": "3cdafa64_4eced37c",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 67
+      },
+      "revId": "fee92e842d974a34e3d0e8c9663cc877700007ae",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ca472ba_f06b40bb",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 17
