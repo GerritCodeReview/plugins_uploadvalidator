@@ -37,6 +37,7 @@ java_test(
   deps = [
     ':uploadvalidator__plugin',
     ':commons-io',
+    '//lib:guava',
     '//gerrit-server:server',
     '@jgit//org.eclipse.jgit:jgit',
     '//lib:junit',
