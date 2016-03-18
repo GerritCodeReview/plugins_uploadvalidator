@@ -38,7 +38,7 @@ java_test(
     ':uploadvalidator__plugin',
     ':commons-io',
     '//gerrit-server:server',
-    '//lib/jgit:jgit',
+    '@jgit//org.eclipse.jgit:jgit',
     '//lib:junit',
   ],
 )
