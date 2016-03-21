@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c1206d7_49d7e106",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-21T18:20:36Z",
+      "side": 1,
+      "message": "1. this doesn\u0027t need to be public.\n\n2. inline it in the line 76:\n\n  install(new CacheModule() {\n    ...\n  });",
+      "revId": "9bd6e7e0261920b807441b9b9753da57e6806f13",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
