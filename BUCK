@@ -34,11 +34,8 @@ java_test(
   srcs = glob(['src/test/java/**/*.java']),
   labels = ['uploadvalidator'],
   source_under_test = [':uploadvalidator__plugin'],
-  deps = [
-    ':uploadvalidator__plugin',
+  deps = GERRIT_PLUGIN_API + GERRIT_TESTS + [
     ':commons-io',
-    '//gerrit-server:server',
-    '//lib/jgit:jgit',
-    '//lib:junit',
+    ':uploadvalidator__plugin',
   ],
 )

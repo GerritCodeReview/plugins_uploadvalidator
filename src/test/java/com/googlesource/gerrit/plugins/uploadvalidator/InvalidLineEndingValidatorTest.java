@@ -17,8 +17,9 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import com.google.common.collect.Sets;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-import com.google.gwt.thirdparty.guava.common.collect.Sets;
+
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
