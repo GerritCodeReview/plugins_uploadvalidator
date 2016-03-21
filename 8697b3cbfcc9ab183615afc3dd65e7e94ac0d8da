@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3cdafa64_5116766b",
+        "filename": "BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-21T09:49:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cdafa64_b1647a23",
+      "range": {
+        "startLine": 1,
+        "startChar": 14,
+        "endLine": 1,
+        "endChar": 46
+      },
+      "revId": "8697b3cbfcc9ab183615afc3dd65e7e94ac0d8da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cdafa64_117d8eb6",
         "filename": "BUCK",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-20T22:39:43Z",
       "side": 1,
       "message": "It was wrong before this change an this attempt to fix it by including directly the dependency to JGit in this rule is wrong as well. Other dependencies are wrong as well:\n\n* \u0027//gerrit-server:server\u0027,\n* \u0027//lib/jgit:jgit\u0027,\n* \u0027//lib:junit\u0027,\n\nInstead, just add these lines (borrowed from the cookbook-plugin):\n\n  deps \u003d GERRIT_PLUGIN_API + GERRIT_TESTS + [\n    \u0027:commons-io\u0027,\n    \u0027:uploadvalidator__plugin\u0027,\n  ],\n\nNote, that commons-io is needed, because it\u0027s not exposed by the plugin API.",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 35
+      },
+      "revId": "8697b3cbfcc9ab183615afc3dd65e7e94ac0d8da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cf32eea_525c3250",
+        "filename": "BUCK",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-21T09:49:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cdafa64_117d8eb6",
       "range": {
         "startLine": 41,
         "startChar": 4,
