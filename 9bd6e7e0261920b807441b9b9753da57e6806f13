@@ -16,6 +16,24 @@
       "revId": "9bd6e7e0261920b807441b9b9753da57e6806f13",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c09d2ae_c8862f08",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-22T07:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c1206d7_49d7e106",
+      "revId": "9bd6e7e0261920b807441b9b9753da57e6806f13",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
