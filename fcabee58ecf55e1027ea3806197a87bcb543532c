@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9c1206d7_695f4547",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-22T14:59:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c09d2ae_28802be6",
+      "range": {
+        "startLine": 60,
+        "startChar": 2,
+        "endLine": 60,
+        "endChar": 8
+      },
+      "revId": "fcabee58ecf55e1027ea3806197a87bcb543532c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c09d2ae_687623e1",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 22
@@ -36,6 +60,24 @@
       "writtenOn": "2016-03-22T09:55:56Z",
       "side": 1,
       "message": "move this to the line 62",
+      "revId": "fcabee58ecf55e1027ea3806197a87bcb543532c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c1206d7_495c8150",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-22T14:59:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c09d2ae_687623e1",
       "revId": "fcabee58ecf55e1027ea3806197a87bcb543532c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "9c1206d7_29594d60",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-22T14:59:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c1206d7_29270dfd",
+      "revId": "fcabee58ecf55e1027ea3806197a87bcb543532c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c09d2ae_48735fef",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
         "patchSetId": 22
@@ -70,6 +130,24 @@
       "writtenOn": "2016-03-22T09:55:56Z",
       "side": 1,
       "message": "It is not really necessary to use a cache for testing and it also doesn\u0027t help.\n\nIf we add more tests the purpose of this cache is lost as JUnit will create a new instance of the BlockedKeywordValidatorTest for each @Test method. This also means an empty cache for every @Test.\n\nI would prefer remove this cache here and simplify the rest of the code.",
+      "revId": "fcabee58ecf55e1027ea3806197a87bcb543532c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c1206d7_09568930",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-22T14:59:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c09d2ae_48735fef",
       "revId": "fcabee58ecf55e1027ea3806197a87bcb543532c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
