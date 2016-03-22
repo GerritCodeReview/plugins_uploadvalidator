@@ -32,13 +32,6 @@ import java.util.List;
 import java.util.Set;
 
 public class InvalidFilenameValidatorTest extends ValidatorTestCase {
-  private InvalidFilenameValidator validator;
-
-  @Override
-  protected void initValidator() {
-    validator = new InvalidFilenameValidator(null, null, null);
-  }
-
   private Set<String> getInvalidFilenames() {
     Set<String> filenames = new HashSet<>();
     filenames.add("test#");
@@ -64,8 +57,8 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
   public void test() throws Exception {
     String[] invalidFilenamePattern = {"[@:]", "[#%*]"};
     RevCommit c = makeCommit();
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, c, invalidFilenamePattern);
+    List<CommitValidationMessage> m = InvalidFilenameValidator
+        .performValidation(repo, c, invalidFilenamePattern);
     List<CommitValidationMessage> expected = new ArrayList<>();
     for (String filenames : getInvalidFilenames()) {
       expected.add(new CommitValidationMessage(

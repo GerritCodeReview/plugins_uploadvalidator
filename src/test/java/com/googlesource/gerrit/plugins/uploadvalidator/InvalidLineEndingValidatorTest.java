@@ -20,7 +20,6 @@ import static org.junit.Assert.assertTrue;
 import com.google.common.collect.Sets;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
-
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.revwalk.RevCommit;
@@ -36,29 +35,17 @@ import java.util.Map;
 import java.util.Set;
 
 public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
-  private InvalidLineEndingValidator validator;
-
-  @Override
-  protected void initValidator() {
-    validator = new InvalidLineEndingValidator(null, null, null);
-  }
-
   private RevCommit makeCommit()
       throws NoFilepatternException, IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     // invalid line endings
-    String content = "Testline1\r\n"
-        + "Testline2\n"
-        + "Testline3\r\n"
-        + "Testline4";
+    String content =
+        "Testline1\r\n" + "Testline2\n" + "Testline3\r\n" + "Testline4";
     files.put(new File(repo.getDirectory().getParent(), "foo.txt"),
         content.getBytes(StandardCharsets.UTF_8));
 
     // valid line endings
-    content = "Testline1\n"
-        + "Testline2\n"
-        + "Testline3\n"
-        + "Testline4";
+    content = "Testline1\n" + "Testline2\n" + "Testline3\n" + "Testline4";
     files.put(new File(repo.getDirectory().getParent(), "bar.txt"),
         content.getBytes(StandardCharsets.UTF_8));
     return TestUtils.makeCommit(repo, "Commit with test files.", files);
@@ -67,12 +54,13 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   @Test
   public void testCarriageReturn() throws Exception {
     RevCommit c = makeCommit();
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, c, Sets.newHashSet(new String[]{""}));
+    List<CommitValidationMessage> m = InvalidLineEndingValidator
+        .performValidation(repo, c, Sets.newHashSet(new String[] {""}));
     assertEquals(1, m.size());
     List<CommitValidationMessage> expected = new ArrayList<>();
-    expected.add(new CommitValidationMessage("found carriage return (CR) "
-        + "character in file: " + "foo.txt", true));
+    expected.add(new CommitValidationMessage(
+        "found carriage return (CR) " + "character in file: " + "foo.txt",
+        true));
     assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
   }
 
@@ -80,25 +68,17 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
       throws NoFilepatternException, IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     // invalid line endings
-    String content = "Testline1\r\n"
-        + "Testline2\n"
-        + "Testline3\r\n"
-        + "Testline4";
+    String content =
+        "Testline1\r\n" + "Testline2\n" + "Testline3\r\n" + "Testline4";
     files.put(new File(repo.getDirectory().getParent(), "foo.jpeg"),
         content.getBytes(StandardCharsets.UTF_8));
 
-    content = "Testline1\r\n"
-        + "Testline2\r\n"
-        + "Testline3\r\n"
-        + "Testline4";
+    content = "Testline1\r\n" + "Testline2\r\n" + "Testline3\r\n" + "Testline4";
     files.put(new File(repo.getDirectory().getParent(), "foo.iso"),
         content.getBytes(StandardCharsets.UTF_8));
 
     // valid line endings
-    content = "Testline1\n"
-        + "Testline2\n"
-        + "Testline3\n"
-        + "Testline4";
+    content = "Testline1\n" + "Testline2\n" + "Testline3\n" + "Testline4";
     files.put(new File(repo.getDirectory().getParent(), "bar.txt"),
         content.getBytes(StandardCharsets.UTF_8));
     return TestUtils.makeCommit(repo, "Commit with test files.", files);
@@ -107,23 +87,25 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   @Test
   public void testCarriageReturnWithBinaries() throws Exception {
     RevCommit c = makeCommitWithPseudoBinaries();
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, c, Sets.newHashSet(new String[]{""}));
+    List<CommitValidationMessage> m = InvalidLineEndingValidator
+        .performValidation(repo, c, Sets.newHashSet(new String[] {""}));
     assertEquals(2, m.size());
     List<CommitValidationMessage> expected = new ArrayList<>();
-    expected.add(new CommitValidationMessage("found carriage return (CR) "
-        + "character in file: " + "foo.jpeg", true));
-    expected.add(new CommitValidationMessage("found carriage return (CR) "
-        + "character in file: " + "foo.iso", true));
+    expected.add(new CommitValidationMessage(
+        "found carriage return (CR) " + "character in file: " + "foo.jpeg",
+        true));
+    expected.add(new CommitValidationMessage(
+        "found carriage return (CR) " + "character in file: " + "foo.iso",
+        true));
     assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
   }
 
   @Test
   public void testCarriageReturnIgnoringBinaries() throws Exception {
     RevCommit c = makeCommitWithPseudoBinaries();
-    Set<String> ignoreFiles = Sets.newHashSet(new String[]{"iso", "jpeg"});
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, c, ignoreFiles);
+    Set<String> ignoreFiles = Sets.newHashSet(new String[] {"iso", "jpeg"});
+    List<CommitValidationMessage> m =
+        InvalidLineEndingValidator.performValidation(repo, c, ignoreFiles);
     assertEquals(0, m.size());
   }
 }

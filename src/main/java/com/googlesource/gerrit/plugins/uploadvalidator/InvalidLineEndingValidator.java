@@ -55,8 +55,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
         DynamicSet.bind(binder(), CommitValidationListener.class)
             .to(InvalidLineEndingValidator.class);
         bind(ProjectConfigEntry.class)
-            .annotatedWith(
-                Exports.named(KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS))
+            .annotatedWith(Exports.named(KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS))
             .toInstance(new ProjectConfigEntry("Reject Windows Line Endings",
                 "false", ProjectConfigEntry.Type.BOOLEAN, null, false,
                 "Windows line endings. Pushes of commits that include files "
@@ -94,19 +93,18 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
   public List<CommitValidationMessage> onCommitReceived(
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
     try {
-      PluginConfig cfg =
-          cfgFactory.getFromProjectConfig(
-              receiveEvent.project.getNameKey(), pluginName);
-      boolean lineEndingCheck = cfg.getBoolean(
-          KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS, false);
+      PluginConfig cfg = cfgFactory
+          .getFromProjectConfig(receiveEvent.project.getNameKey(), pluginName);
+      boolean lineEndingCheck =
+          cfg.getBoolean(KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS, false);
       if (!lineEndingCheck) {
         return Collections.emptyList();
       }
       try (Repository repo =
           repoManager.openRepository(receiveEvent.project.getNameKey())) {
         List<CommitValidationMessage> messages =
-            performValidation(repo, receiveEvent.commit, Sets.newHashSet(
-                cfg.getStringList(KEY_IGNORE_FILES)));
+            performValidation(repo, receiveEvent.commit,
+                Sets.newHashSet(cfg.getStringList(KEY_IGNORE_FILES)));
         if (!messages.isEmpty()) {
           throw new CommitValidationException(
               "contains files with a Windows line ending", messages);
@@ -119,7 +117,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
     return Collections.emptyList();
   }
 
-  List<CommitValidationMessage> performValidation(Repository repo,
+  static List<CommitValidationMessage> performValidation(Repository repo,
       RevCommit c, Set<String> ignoreFiles) throws IOException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
@@ -128,9 +126,9 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
         continue;
       }
       ObjectLoader ol = repo.open(content.get(path));
-      try (InputStreamReader isr = new InputStreamReader(ol.openStream(),
-          StandardCharsets.UTF_8)) {
-        if(doesInputStreanContainCR(isr)) {
+      try (InputStreamReader isr =
+          new InputStreamReader(ol.openStream(), StandardCharsets.UTF_8)) {
+        if (doesInputStreanContainCR(isr)) {
           messages.add(new CommitValidationMessage(
               "found carriage return (CR) character in file: " + path, true));
         }
@@ -139,7 +137,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
     return messages;
   }
 
-  private boolean doesInputStreanContainCR(InputStreamReader isr)
+  private static boolean doesInputStreanContainCR(InputStreamReader isr)
       throws IOException {
     char[] buffer = new char[1024];
     int n;
