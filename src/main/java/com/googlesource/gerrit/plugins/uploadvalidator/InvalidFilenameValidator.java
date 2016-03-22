@@ -99,7 +99,7 @@ public class InvalidFilenameValidator implements CommitValidationListener {
     return Collections.emptyList();
   }
 
-  List<CommitValidationMessage> performValidation(Repository repo,
+  static List<CommitValidationMessage> performValidation(Repository repo,
       RevCommit c, String[] patterns) throws IOException {
     List<Pattern> invalidFilenamePatterns = new ArrayList<>();
     for (String s : patterns) {

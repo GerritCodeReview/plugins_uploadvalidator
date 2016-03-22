@@ -34,13 +34,6 @@ import java.util.List;
 import java.util.Map;
 
 public class SymlinkValidatorTest extends ValidatorTestCase {
-  private SymlinkValidator validator;
-
-  @Override
-  protected void initValidator() {
-    validator = new SymlinkValidator(null, null, null);
-  }
-
   private RevCommit makeCommitWithSymlink()
       throws NoFilepatternException, IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
@@ -58,7 +51,8 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
   @Test
   public void testWithSymlink() throws Exception {
     RevCommit c = makeCommitWithSymlink();
-    List<CommitValidationMessage> m = validator.performValidation(repo, c);
+    List<CommitValidationMessage> m =
+        SymlinkValidator.performValidation(repo, c);
     assertEquals(2, m.size());
     List<CommitValidationMessage> expected = new ArrayList<>();
     expected.add(new CommitValidationMessage("Symbolic links are not allowed: "
@@ -78,7 +72,8 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
   @Test
   public void testWithoutSymlink() throws Exception {
     RevCommit c = makeCommitWithoutSymlink();
-    List<CommitValidationMessage> m = validator.performValidation(repo, c);
+    List<CommitValidationMessage> m =
+        SymlinkValidator.performValidation(repo, c);
     assertEquals(0, m.size());
   }
 }

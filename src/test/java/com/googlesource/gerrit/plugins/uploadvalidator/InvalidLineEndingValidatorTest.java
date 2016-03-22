@@ -36,13 +36,6 @@ import java.util.Map;
 import java.util.Set;
 
 public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
-  private InvalidLineEndingValidator validator;
-
-  @Override
-  protected void initValidator() {
-    validator = new InvalidLineEndingValidator(null, null, null);
-  }
-
   private RevCommit makeCommit()
       throws NoFilepatternException, IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
@@ -67,8 +60,8 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   @Test
   public void testCarriageReturn() throws Exception {
     RevCommit c = makeCommit();
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, c, Sets.newHashSet(new String[]{""}));
+    List<CommitValidationMessage> m = InvalidLineEndingValidator
+        .performValidation(repo, c, Sets.newHashSet(new String[] {""}));
     assertEquals(1, m.size());
     List<CommitValidationMessage> expected = new ArrayList<>();
     expected.add(new CommitValidationMessage("found carriage return (CR) "
@@ -107,8 +100,8 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   @Test
   public void testCarriageReturnWithBinaries() throws Exception {
     RevCommit c = makeCommitWithPseudoBinaries();
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, c, Sets.newHashSet(new String[]{""}));
+    List<CommitValidationMessage> m = InvalidLineEndingValidator
+        .performValidation(repo, c, Sets.newHashSet(new String[] {""}));
     assertEquals(2, m.size());
     List<CommitValidationMessage> expected = new ArrayList<>();
     expected.add(new CommitValidationMessage("found carriage return (CR) "
@@ -122,8 +115,8 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   public void testCarriageReturnIgnoringBinaries() throws Exception {
     RevCommit c = makeCommitWithPseudoBinaries();
     Set<String> ignoreFiles = Sets.newHashSet(new String[]{"iso", "jpeg"});
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, c, ignoreFiles);
+    List<CommitValidationMessage> m =
+        InvalidLineEndingValidator.performValidation(repo, c, ignoreFiles);
     assertEquals(0, m.size());
   }
 }
