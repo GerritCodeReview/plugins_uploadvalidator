@@ -119,7 +119,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
     return Collections.emptyList();
   }
 
-  List<CommitValidationMessage> performValidation(Repository repo,
+  static List<CommitValidationMessage> performValidation(Repository repo,
       RevCommit c, Set<String> ignoreFiles) throws IOException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
@@ -139,7 +139,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
     return messages;
   }
 
-  private boolean doesInputStreanContainCR(InputStreamReader isr)
+  private static boolean doesInputStreanContainCR(InputStreamReader isr)
       throws IOException {
     char[] buffer = new char[1024];
     int n;

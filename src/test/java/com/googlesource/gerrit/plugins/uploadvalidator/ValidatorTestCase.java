@@ -31,7 +31,6 @@ public abstract class ValidatorTestCase {
     repoFolder = File.createTempFile("Git", "");
     repoFolder.delete();
     repo = TestUtils.createNewRepository(repoFolder);
-    initValidator();
   }
 
   @After
@@ -41,6 +40,4 @@ public abstract class ValidatorTestCase {
       FileUtils.deleteDirectory(repoFolder);
     }
   }
-
-  protected abstract void initValidator();
 }
