@@ -34,13 +34,6 @@ import java.util.List;
 import java.util.Map;
 
 public class SubmoduleValidatorTest extends ValidatorTestCase {
-  private SubmoduleValidator validator;
-
-  @Override
-  protected void initValidator() {
-    validator = new SubmoduleValidator(null, null, null);
-  }
-
   private RevCommit makeCommitWithSubmodule()
       throws NoFilepatternException, IOException, GitAPIException {
     try (Git git = new Git(repo)) {
@@ -56,7 +49,8 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
   @Test
   public void testWithSubmodule() throws Exception {
     RevCommit c = makeCommitWithSubmodule();
-    List<CommitValidationMessage> m = validator.performValidation(repo, c);
+    List<CommitValidationMessage> m =
+        SubmoduleValidator.performValidation(repo, c);
     assertEquals(1, m.size());
     List<CommitValidationMessage> expected = new ArrayList<>();
     expected.add(new CommitValidationMessage("submodules are not allowed: "
@@ -74,7 +68,8 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
   @Test
   public void testWithoutSubmodule() throws Exception {
     RevCommit c = makeCommitWithoutSubmodule();
-    List<CommitValidationMessage> m = validator.performValidation(repo, c);
+    List<CommitValidationMessage> m =
+        SubmoduleValidator.performValidation(repo, c);
     assertEquals(0, m.size());
   }
 }

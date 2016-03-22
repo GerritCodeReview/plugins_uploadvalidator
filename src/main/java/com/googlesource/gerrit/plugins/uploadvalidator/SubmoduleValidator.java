@@ -105,8 +105,8 @@ public class SubmoduleValidator implements CommitValidationListener {
     return (tw.getRawMode(0) & FileMode.TYPE_MASK) == FileMode.TYPE_GITLINK;
   }
 
-  List<CommitValidationMessage> performValidation(Repository repo, RevCommit c)
-      throws IOException {
+  static List<CommitValidationMessage> performValidation(Repository repo,
+      RevCommit c) throws IOException {
     final List<CommitValidationMessage> messages = new LinkedList<>();
 
     CommitUtils.visitChangedEntries(repo, c, new TreeWalkVisitor() {
