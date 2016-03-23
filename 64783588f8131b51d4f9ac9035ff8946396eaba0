@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c09d2ae_28214b97",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidFilenameValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-23T11:51:45Z",
+      "side": 1,
+      "message": "This is not directly related to what the commit message says.\nUpdate the commit message to describe the additional things you are doing?",
+      "revId": "64783588f8131b51d4f9ac9035ff8946396eaba0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
