@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c09d2ae_48247fa7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-23T11:49:02Z",
+      "side": 1,
+      "message": "Patterns",
+      "range": {
+        "startLine": 120,
+        "startChar": 50,
+        "endLine": 120,
+        "endChar": 59
+      },
+      "revId": "f56d5550ddf70da2beb5e57e7326ea2afc798f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c09d2ae_682743ae",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-23T11:49:02Z",
+      "side": 1,
+      "message": "This means that we only need the values from that map. Why not pass the blockedKeywordPatterns.values() already from the line 127?",
+      "range": {
+        "startLine": 172,
+        "startChar": 21,
+        "endLine": 172,
+        "endChar": 53
+      },
+      "revId": "f56d5550ddf70da2beb5e57e7326ea2afc798f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c09d2ae_a82c1b92",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-23T11:49:02Z",
+      "side": 1,
+      "message": "put this into the new line to keep the formatting consistent?",
+      "range": {
+        "startLine": 43,
+        "startChar": 49,
+        "endLine": 43,
+        "endChar": 53
+      },
+      "revId": "f56d5550ddf70da2beb5e57e7326ea2afc798f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c09d2ae_883157ea",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-23T11:49:02Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 62,
+        "startChar": 55,
+        "endLine": 62,
+        "endChar": 60
+      },
+      "revId": "f56d5550ddf70da2beb5e57e7326ea2afc798f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
