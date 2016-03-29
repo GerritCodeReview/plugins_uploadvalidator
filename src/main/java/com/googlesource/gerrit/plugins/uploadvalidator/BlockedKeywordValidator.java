@@ -28,7 +28,6 @@ import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.GitRepositoryManager;
-import com.google.gerrit.server.git.TagCache;
 import com.google.gerrit.server.git.validators.CommitValidationException;
 import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
@@ -78,7 +77,6 @@ public class BlockedKeywordValidator implements CommitValidationListener {
           @Override
           protected void configure() {
             cache(CACHE_NAME, String.class, Pattern.class).loader(Loader.class);
-            bind(TagCache.class);
           }
         });
       }
