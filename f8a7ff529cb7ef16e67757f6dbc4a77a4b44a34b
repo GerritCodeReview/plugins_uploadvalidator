@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "913e7148_40dc6e2d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-29T14:30:42Z",
+      "side": 1,
+      "message": "Note that toLowerCase() is also using an explicit locale just that it is the system default locale.\n\nTrying to figure out the consequences of using a fixed locale (for example Locale.ENGLISH) vs system-default Locale (for example Locale.TURKISH):\n\nCase  | Files | toLowerCase(ENGLISH) | toLowerCase(TURKISH) | Result\n1     | I.txt | i.txt                | ı.txt                | Wrongly detects duplicate with ENGLISH\n      | İ.txt | i.txt                | i.txt                | Works properly with TURKISH, no duplicates\n------+-------+----------------------+----------------------+---------------------------------------\n2     | İ.txt | i.txt                | i.txt                | Works properly with both locales\n      | i.txt | i.txt                | i.txt                |\n------+-------+----------------------+----------------------+---------------------------------------\n3     | I.txt | i.txt                | ı.txt                | Works properly with ENGLISH, duplicates found\n      | i.txt | i.txt                | i.txt                | \"Fails\" to detect duplicates with TURKISH\n\nIn the example 1, using the ENGLISH locale would wrongly detect a duplicate.\n\nIn the example 3, using ENGLISH locale would work properly and using the TURKISH\nwould fails to detect a duplicate. However, for a turkish person this is likely not a duplicate.\n\nIMHO we cannot use one fixed locale and assume that it will work properly for all cases\nas the definition of proper may be different in different countries.\n\nProposal: make it configurable which Locale to use when converting file names to lowercase?",
+      "parentUuid": "62684971_c7315e46",
+      "range": {
+        "startLine": 70,
+        "startChar": 38,
+        "endLine": 70,
+        "endChar": 52
+      },
+      "revId": "f8a7ff529cb7ef16e67757f6dbc4a77a4b44a34b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62684971_27f87a90",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
         "patchSetId": 11
