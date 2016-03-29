@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "913e7148_e0e022e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-29T14:30:42Z",
+      "side": 1,
+      "message": "What about duplicated folder names i.e. a/b/c/some-file and a/B/c/some-file",
+      "range": {
+        "startLine": 7,
+        "startChar": 50,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b137f56a_61d5f602",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-29T14:30:42Z",
+      "side": 1,
+      "message": "What do y and z represent in this expression, just the files names inside the (same) folder, or the full path?",
+      "range": {
+        "startLine": 10,
+        "startChar": 58,
+        "endLine": 11,
+        "endChar": 62
+      },
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b137f56a_e107c66c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-29T14:30:42Z",
+      "side": 1,
+      "message": "This is not necessary as y.equalsIgnoreCase(z) is already a boolean expression",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "913e7148_60d5f202",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-29T14:30:42Z",
+      "side": 1,
+      "message": "Note that this will not prevent duplicate file name(s) created as a result of an (auto)merge commit which Gerrit server may create when a change is submitted. Suppose we have two open changes where each one is valid for itself:\n\n  C1(a.txt)\n  C2(A.txt)\n\nIf we submit C1 and then C2, Gerrit will create a merge commit which will contain both a.txt and A.txt and this CommitValidationListener will not be called (at least this is what I see by looking at Gerrit server code).\n\nWe can also implement the MergeValidationListener extension point which is invoked just before a commit is merged into the target branch but I am not sure that MergeValidationListener is invoked for an automatically created merge commit. It looks like we first need to make sure that Gerrit server invoked the MergeValidationListener for an auto-merge commit and then implement the MergeValidationListener here.",
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "913e7148_80d2761a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-29T14:30:42Z",
+      "side": 1,
+      "message": "IMHO: This is too technical to be displayed in the UI. Can this be (re)written in english, for example:\n\n  File names y and z are considered to be duplicates if they are equal, case-insensitive.",
+      "range": {
+        "startLine": 60,
+        "startChar": 32,
+        "endLine": 61,
+        "endChar": 46
+      },
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "913e7148_20dfea24",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-29T14:30:42Z",
+      "side": 1,
+      "message": "Set\n\n\nAt this point we don\u0027t have a commit, just a Set of files, actually a set of file names.",
+      "range": {
+        "startLine": 154,
+        "startChar": 50,
+        "endLine": 154,
+        "endChar": 56
+      },
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
