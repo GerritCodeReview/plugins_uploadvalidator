@@ -18,6 +18,7 @@ import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.eclipse.jgit.treewalk.filter.TreeFilter;
 
@@ -91,12 +92,16 @@ public class CommitUtils {
    */
   public static void visitChangedEntries(Repository repo, RevCommit c,
       TreeWalkVisitor visitor) throws IOException {
-    try (TreeWalk tw = new TreeWalk(repo)) {
+    try (TreeWalk tw = new TreeWalk(repo);
+        RevWalk rw = new RevWalk(repo)) {
       tw.setRecursive(true);
       tw.setFilter(TreeFilter.ANY_DIFF);
       tw.addTree(c.getTree());
       if (c.getParentCount() > 0) {
         for (RevCommit p : c.getParents()) {
+          if(p.getTree() == null) {
+            rw.parseHeaders(p);
+          }
           tw.addTree(p.getTree());
         }
         while (tw.next()) {
