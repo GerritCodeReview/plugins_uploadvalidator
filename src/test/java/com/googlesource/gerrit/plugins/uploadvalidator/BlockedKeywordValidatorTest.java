@@ -49,7 +49,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
   @Test
   public void testLoader() throws Exception {
     LoadingCache<String, Pattern> patternCache =
-        CacheBuilder.newBuilder().build(new BlockedKeywordValidator.Loader());
+        CacheBuilder.newBuilder().build(new PatternCache.Loader());
     for (String pattern : getPatterns().keySet()) {
       assertEquals(getPatterns().get(pattern).pattern(),
           patternCache.get(pattern).pattern());

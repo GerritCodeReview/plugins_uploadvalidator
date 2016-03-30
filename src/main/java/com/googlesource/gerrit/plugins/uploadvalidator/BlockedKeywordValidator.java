@@ -14,15 +14,15 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import static com.googlesource.gerrit.plugins.uploadvalidator.PatternCache.CACHE_NAME;
+
 import com.google.common.base.Joiner;
-import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableMap;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.registration.DynamicSet;
-import com.google.gerrit.server.cache.CacheModule;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.config.ProjectConfigEntry;
@@ -59,7 +59,6 @@ import java.util.regex.Pattern;
 public class BlockedKeywordValidator implements CommitValidationListener {
   private static String KEY_CHECK_BLOCKED_KEYWORD_PATTERN =
       "blockedKeywordPattern";
-  private static final String CACHE_NAME = "blockedKeywordPatterns";
 
   public static AbstractModule module() {
     return new AbstractModule() {
@@ -73,21 +72,8 @@ public class BlockedKeywordValidator implements CommitValidationListener {
                 ProjectConfigEntry.Type.ARRAY, null, false,
                 "Pushes of commits that contain files with blocked keywords "
                     + "will be rejected."));
-        install(new CacheModule() {
-          @Override
-          protected void configure() {
-            cache(CACHE_NAME, String.class, Pattern.class).loader(Loader.class);
-          }
-        });
       }
     };
-  }
-
-  static class Loader extends CacheLoader<String, Pattern> {
-    @Override
-    public Pattern load(String regex) throws Exception {
-      return Pattern.compile(regex);
-    }
   }
 
   private final String pluginName;
