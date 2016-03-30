@@ -1,4 +1,4 @@
-// Copyright (C) 2014 The Android Open Source Project
+// Copyright (C) 2016 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,20 +14,24 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.inject.AbstractModule;
+import com.google.common.cache.CacheLoader;
+import com.google.gerrit.server.cache.CacheModule;
 
-class Module extends AbstractModule {
+import java.util.regex.Pattern;
+
+public class PatternCacheModule extends CacheModule {
+  public static final String CACHE_NAME = "patternCache";
 
   @Override
   protected void configure() {
-    install(new PatternCacheModule());
-    install(BlockedKeywordValidator.module());
-    install(FileExtensionValidator.module());
-    install(FooterValidator.module());
-    install(InvalidFilenameValidator.module());
-    install(InvalidLineEndingValidator.module());
-    install(MaxPathLengthValidator.module());
-    install(SubmoduleValidator.module());
-    install(SymlinkValidator.module());
+    cache(CACHE_NAME, String.class, Pattern.class).loader(Loader.class);
   }
+
+  static class Loader extends CacheLoader<String, Pattern> {
+    @Override
+    public Pattern load(String regex) throws Exception {
+      return Pattern.compile(regex);
+    }
+  }
+
 }
