@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3118652c_75b18809",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/MaxPathLengthValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-30T08:12:34Z",
+      "side": 1,
+      "message": "optional: it could be made more obvious that this is a number which is lesser than the length of the \"foo/bar/test/too/long.java\" and greater or equal than the length of the \"not/too/long.c\" path.\n\nFor example:\n\n  private static final String TOO_LONG \u003d \"foo/bar/test/too/long.java\";\n  private static final String GOOD \u003d \"not/too/long.c\";\n\nand use the arithmetic mean of the two path lengths:\n\n  (TOO_LONG.length() + GOOD.length()) / 2\n\nas the maxPathLength",
+      "range": {
+        "startLine": 34,
+        "startChar": 58,
+        "endLine": 34,
+        "endChar": 60
+      },
+      "revId": "80542d38611b2af65bf87c3b218387972bc007bc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
