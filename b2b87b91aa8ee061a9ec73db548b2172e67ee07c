@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3118652c_b5920077",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-30T15:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "913e7148_e0e022e4",
+      "range": {
+        "startLine": 7,
+        "startChar": 50,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b137f56a_61d5f602",
         "filename": "/COMMIT_MSG",
         "patchSetId": 18
@@ -64,6 +88,54 @@
         "startChar": 21,
         "endLine": 11,
         "endChar": 29
+      },
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3118652c_95970467",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-30T15:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b137f56a_e107c66c",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3118652c_f59c788c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-30T15:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b137f56a_61d5f602",
+      "range": {
+        "startLine": 10,
+        "startChar": 58,
+        "endLine": 11,
+        "endChar": 62
       },
       "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
@@ -111,6 +183,30 @@
     },
     {
       "key": {
+        "uuid": "71065dd1_d7a17cbc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-30T15:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "913e7148_80d2761a",
+      "range": {
+        "startLine": 60,
+        "startChar": 32,
+        "endLine": 61,
+        "endChar": 46
+      },
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "913e7148_20dfea24",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
         "patchSetId": 18
@@ -122,6 +218,30 @@
       "writtenOn": "2016-03-29T14:30:42Z",
       "side": 1,
       "message": "Set\n\n\nAt this point we don\u0027t have a commit, just a Set of files, actually a set of file names.",
+      "range": {
+        "startLine": 154,
+        "startChar": 50,
+        "endLine": 154,
+        "endChar": 56
+      },
+      "revId": "b2b87b91aa8ee061a9ec73db548b2172e67ee07c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71065dd1_f79c808c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicateFilenameValidator.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-30T15:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "913e7148_20dfea24",
       "range": {
         "startLine": 154,
         "startChar": 50,
