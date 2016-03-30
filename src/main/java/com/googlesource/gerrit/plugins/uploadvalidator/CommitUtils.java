@@ -18,6 +18,7 @@ import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.eclipse.jgit.treewalk.filter.TreeFilter;
 
@@ -96,8 +97,22 @@ public class CommitUtils {
       tw.setFilter(TreeFilter.ANY_DIFF);
       tw.addTree(c.getTree());
       if (c.getParentCount() > 0) {
-        for (RevCommit p : c.getParents()) {
-          tw.addTree(p.getTree());
+        @SuppressWarnings("resource")
+        RevWalk rw = null;
+        try {
+          for (RevCommit p : c.getParents()) {
+            if (p.getTree() == null) {
+              if (rw == null) {
+                rw = new RevWalk(repo);
+              }
+              rw.parseHeaders(p);
+            }
+            tw.addTree(p.getTree());
+          }
+        } finally {
+          if (rw != null) {
+            rw.close();
+          }
         }
         while (tw.next()) {
           if (isDifferentToAllParents(c, tw)) {
