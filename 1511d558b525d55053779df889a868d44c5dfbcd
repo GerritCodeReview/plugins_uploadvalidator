@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3118652c_b5b960f3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-30T09:37:39Z",
+      "side": 1,
+      "message": "Both LinkedList and ArrayList are being used in the validators and test code for the same purpose (collecting validation messages) without an obvious reason why one validator would use an ArrayList and another a LinkedList. Can this be unified?",
+      "range": {
+        "startLine": 101,
+        "startChar": 45,
+        "endLine": 101,
+        "endChar": 62
+      },
+      "revId": "1511d558b525d55053779df889a868d44c5dfbcd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3118652c_f5b3d80c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-30T09:37:39Z",
+      "side": 1,
+      "message": "Did we mention in the documentation that the \"blockedFileExtension\" values are case insensitive? If not then this has to be fixed and could be done in this change",
+      "range": {
+        "startLine": 105,
+        "startChar": 16,
+        "endLine": 105,
+        "endChar": 32
+      },
+      "revId": "1511d558b525d55053779df889a868d44c5dfbcd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3118652c_d5b85cec",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-30T09:37:39Z",
+      "side": 1,
+      "message": "Please also add a test which shows that blockedFileExtensions are case-insensitive.",
+      "revId": "1511d558b525d55053779df889a868d44c5dfbcd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71065dd1_97bee4d6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-30T09:37:39Z",
+      "side": 1,
+      "message": "Make this a constant:\n\n  private static final String[] BLOCKED \u003d new String[] {...};",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 3
+      },
+      "revId": "1511d558b525d55053779df889a868d44c5dfbcd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71065dd1_f7b3e00c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-30T09:37:39Z",
+      "side": 1,
+      "message": "BLOCKED.length",
+      "range": {
+        "startLine": 49,
+        "startChar": 17,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "1511d558b525d55053779df889a868d44c5dfbcd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71065dd1_77c87071",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-03-30T09:37:39Z",
+      "side": 1,
+      "message": "Using the Truth framework [1] this would be more readable:\n\n  assertThat(m).containsAllOf(expected);\n\nPlease be aware that CommitValidationMessage doesn\u0027t implement equals method.\n\n[1] http://google.github.io/truth/usage/#built-in-propositions",
+      "revId": "1511d558b525d55053779df889a868d44c5dfbcd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
