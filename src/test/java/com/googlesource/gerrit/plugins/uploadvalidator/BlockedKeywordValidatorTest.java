@@ -17,8 +17,6 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
@@ -45,16 +43,6 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
         .put("\\$(Id|Header):[^$]*\\$",
             Pattern.compile("\\$(Id|Header):[^$]*\\$"))
         .build();
-  }
-
-  @Test
-  public void testLoader() throws Exception {
-    LoadingCache<String, Pattern> patternCache =
-        CacheBuilder.newBuilder().build(new BlockedKeywordValidator.Loader());
-    for (String pattern : getPatterns().keySet()) {
-      assertThat(getPatterns().get(pattern).pattern())
-          .isEqualTo(patternCache.get(pattern).pattern());
-    }
   }
 
   private RevCommit makeCommit()
