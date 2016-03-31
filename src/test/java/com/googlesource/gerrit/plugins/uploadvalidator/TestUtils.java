@@ -14,6 +14,8 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.apache.commons.io.FileUtils;
@@ -28,6 +30,7 @@ import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -80,29 +83,17 @@ public class TestUtils {
     ac.call();
   }
 
-  public static boolean compareCommitValidationMessage(
-      List<CommitValidationMessage> m1, List<CommitValidationMessage> m2) {
-    for (CommitValidationMessage cvm1 : m1) {
-      boolean found = false;
-      for (CommitValidationMessage cvm2 : m2) {
-        if (compareCommitValidationMessage(cvm1, cvm2)) {
-          found = true;
-        }
-      }
-      if (!found) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  public static boolean compareCommitValidationMessage(
-      CommitValidationMessage msg1, CommitValidationMessage msg2) {
-    if (msg1.getMessage().equals(msg2.getMessage())
-        && msg1.isError() == msg2.isError()) {
-      return true;
-    } else {
-      return false;
-    }
+  public static Set<ComparableCommitValidationMessage> transformMessages(
+      List<CommitValidationMessage> messages) {
+    return new HashSet<>(Collections2.transform(messages,
+        new Function<CommitValidationMessage,
+            ComparableCommitValidationMessage>() {
+          @Override
+          public ComparableCommitValidationMessage apply(
+              CommitValidationMessage input) {
+            return new ComparableCommitValidationMessage(input.getMessage(),
+                input.isError());
+          }
+        }));
   }
 }
