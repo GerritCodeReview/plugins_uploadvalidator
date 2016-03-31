@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3118652c_157654db",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PatternCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-31T07:01:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71065dd1_174814a9",
+      "revId": "a387df0d54c7891aa5f2941946a7f4a6eb8090a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3118652c_f5011859",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PatternCache.java",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "3118652c_758348f5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PatternCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-31T07:01:42Z",
+      "side": 1,
+      "message": "I thought it is clever to use a namespace in case that other components also wants to use a pattern cache. But now I think they can share the same so the namespace is not needed.",
+      "parentUuid": "3118652c_f5011859",
+      "range": {
+        "startLine": 9,
+        "startChar": 43,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "a387df0d54c7891aa5f2941946a7f4a6eb8090a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71065dd1_57528c5a",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2016-03-30T15:56:27Z",
       "side": 1,
       "message": "1. now that the cache is moved out of the BlockedKeywordsValidator, this test doesn\u0027t belong here any more\n\n2. If this method wants to test the cache loader then it should only work with the PatternCache.Loader and test its load method. We don\u0027t want to test if guava cache properly invokes its loader... this is something that guava developers should test.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 3
+      },
+      "revId": "a387df0d54c7891aa5f2941946a7f4a6eb8090a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3118652c_3579d0cd",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-31T07:01:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71065dd1_57528c5a",
       "range": {
         "startLine": 50,
         "startChar": 0,
