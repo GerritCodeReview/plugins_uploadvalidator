@@ -14,7 +14,8 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.common.io.Files;
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -33,9 +34,12 @@ import com.google.inject.Inject;
 import org.eclipse.jgit.lib.Repository;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
+import autovalue.shaded.com.google.common.common.collect.Lists;
 
 public class FileExtensionValidator implements CommitValidationListener {
 
@@ -70,6 +74,17 @@ public class FileExtensionValidator implements CommitValidationListener {
     this.repoManager = repoManager;
   }
 
+  private static List<String> getBlockedExtensions(PluginConfig cfg) {
+    return Lists.newArrayList(Collections2.transform(
+        Arrays.asList(cfg.getStringList(KEY_BLOCKED_FILE_EXTENSION)),
+        new Function<String, String>() {
+          @Override
+          public String apply(String input) {
+            return input.toLowerCase();
+          }
+        }));
+  }
+
   @Override
   public List<CommitValidationMessage> onCommitReceived(
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
@@ -84,10 +99,10 @@ public class FileExtensionValidator implements CommitValidationListener {
           List<CommitValidationMessage> messages = new LinkedList<>();
           for (String file : CommitUtils.getChangedPaths(
               repo, receiveEvent.commit)) {
-            String ext = Files.getFileExtension(file);
-            for (int i = 0; i < blockedFileExtensions.length; i++) {
-              if (ext.equalsIgnoreCase(blockedFileExtensions[i])) {
-                messages.add(new CommitValidationMessage("blocked file: " + file, true));
+            for (String blockedExtension : getBlockedExtensions(cfg)) {
+              if (file.toLowerCase().endsWith(blockedExtension)) {
+                messages.add(
+                    new CommitValidationMessage("blocked file: " + file, true));
                 break;
               }
             }

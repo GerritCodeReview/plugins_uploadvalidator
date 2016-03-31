@@ -10,9 +10,9 @@ project info screen.
 ```
   [plugin "@PLUGIN@"]
     blockedFileExtension = jar
-    blockedFileExtension = zip
-    blockedFileExtension = war
-    blockedFileExtension = exe
+    blockedFileExtension = .zip
+    blockedFileExtension = tar.gz
+    blockedFileExtension = .core.tmp
     blockedKeywordPattern = myp4ssw0rd
     blockedKeywordPattern = foobar
     blockedKeywordPattern = \\$(Id|Header):[^$]*\\$
@@ -31,6 +31,10 @@ project info screen.
 
 plugin.@PLUGIN@.blockedFileExtension
 :	File extension to be blocked.
+
+	The values for this check are case insensitive. You can define the
+	blocked file extensions with or without a leading dot. This check
+	only test if the filename ends with one of the defined values.
 
 	Blocked file extensions are *not* inherited by child projects.
 
