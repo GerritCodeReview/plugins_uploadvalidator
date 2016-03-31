@@ -14,8 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
@@ -53,13 +52,13 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommitWithSymlink();
     List<CommitValidationMessage> m =
         SymlinkValidator.performValidation(repo, c);
-    assertEquals(2, m.size());
+    assertThat(m).hasSize(2);
     List<CommitValidationMessage> expected = new ArrayList<>();
-    expected.add(new CommitValidationMessage("Symbolic links are not allowed: "
-        + "foo.txt", true));
-    expected.add(new CommitValidationMessage("Symbolic links are not allowed: "
-        + "symbolicFolder", true));
-    assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
+    expected.add(new ComparableCommitValidationMessage(
+        "Symbolic links are not allowed: foo.txt", true));
+    expected.add(new ComparableCommitValidationMessage(
+        "Symbolic links are not allowed: symbolicFolder", true));
+    assertThat(TestUtils.transformMessages(m)).containsAnyIn(expected);
   }
 
   private RevCommit makeCommitWithoutSymlink()
@@ -74,6 +73,6 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommitWithoutSymlink();
     List<CommitValidationMessage> m =
         SymlinkValidator.performValidation(repo, c);
-    assertEquals(0, m.size());
+    assertThat(m).isEmpty();
   }
 }

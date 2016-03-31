@@ -14,8 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
@@ -51,11 +50,11 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommitWithSubmodule();
     List<CommitValidationMessage> m =
         SubmoduleValidator.performValidation(repo, c);
-    assertEquals(1, m.size());
+    assertThat(m).hasSize(1);
     List<CommitValidationMessage> expected = new ArrayList<>();
-    expected.add(new CommitValidationMessage("submodules are not allowed: "
-        + "modules/library", true));
-    assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
+    expected.add(new ComparableCommitValidationMessage(
+        "submodules are not allowed: modules/library", true));
+    assertThat(TestUtils.transformMessages(m)).containsAnyIn(expected);
   }
 
   private RevCommit makeCommitWithoutSubmodule()
@@ -70,6 +69,6 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommitWithoutSubmodule();
     List<CommitValidationMessage> m =
         SubmoduleValidator.performValidation(repo, c);
-    assertEquals(0, m.size());
+    assertThat(m).isEmpty();
   }
 }
