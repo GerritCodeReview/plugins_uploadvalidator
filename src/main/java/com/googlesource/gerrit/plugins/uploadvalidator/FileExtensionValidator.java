@@ -14,7 +14,6 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.common.io.Files;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -84,10 +83,10 @@ public class FileExtensionValidator implements CommitValidationListener {
           List<CommitValidationMessage> messages = new LinkedList<>();
           for (String file : CommitUtils.getChangedPaths(
               repo, receiveEvent.commit)) {
-            String ext = Files.getFileExtension(file);
-            for (int i = 0; i < blockedFileExtensions.length; i++) {
-              if (ext.equalsIgnoreCase(blockedFileExtensions[i])) {
-                messages.add(new CommitValidationMessage("blocked file: " + file, true));
+            for (String blockedExtension : blockedFileExtensions) {
+              if (file.toLowerCase().endsWith(blockedExtension.toLowerCase())) {
+                messages.add(
+                    new CommitValidationMessage("blocked file: " + file, true));
                 break;
               }
             }
