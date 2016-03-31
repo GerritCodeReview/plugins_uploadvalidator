@@ -16,6 +16,24 @@
       "revId": "8e862bd928cd5b0c6bbf10e262984bf018219ed7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3118652c_b5da0008",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-03-31T07:27:19Z",
+      "side": 1,
+      "message": "I can instantiate the RevWalk after\n\n\"if (c.getParentCount() \u003e 0) {\"\n\nbut I think in the most cases this condition is true.\n\nAnd if I instantiate RevWalk after\n\n\"if(p.getTree() \u003d\u003d null) {\" (I will fix the missing space)\n\nI would instantiate a new RevWalk for each parent.",
+      "parentUuid": "71065dd1_374b98a9",
+      "revId": "8e862bd928cd5b0c6bbf10e262984bf018219ed7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
