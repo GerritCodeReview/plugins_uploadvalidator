@@ -14,8 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.google.common.truth.Truth.assertThat;
 
 import com.google.common.collect.Sets;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
@@ -62,11 +61,11 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommit();
     List<CommitValidationMessage> m = InvalidLineEndingValidator
         .performValidation(repo, c, Sets.newHashSet(new String[] {""}));
-    assertEquals(1, m.size());
-    List<CommitValidationMessage> expected = new ArrayList<>();
-    expected.add(new CommitValidationMessage("found carriage return (CR) "
-        + "character in file: " + "foo.txt", true));
-    assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
+    List<String> expected = new ArrayList<>();
+    expected.add(TestUtils.transformMessage(new CommitValidationMessage(
+        "found carriage return (CR) character in file: foo.txt", true)));
+    assertThat(TestUtils.transformMessages(m))
+        .containsExactlyElementsIn(expected);
   }
 
   private RevCommit makeCommitWithPseudoBinaries()
@@ -102,13 +101,13 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommitWithPseudoBinaries();
     List<CommitValidationMessage> m = InvalidLineEndingValidator
         .performValidation(repo, c, Sets.newHashSet(new String[] {""}));
-    assertEquals(2, m.size());
-    List<CommitValidationMessage> expected = new ArrayList<>();
-    expected.add(new CommitValidationMessage("found carriage return (CR) "
-        + "character in file: " + "foo.jpeg", true));
-    expected.add(new CommitValidationMessage("found carriage return (CR) "
-        + "character in file: " + "foo.iso", true));
-    assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
+    List<String> expected = new ArrayList<>();
+    expected.add(TestUtils.transformMessage(new CommitValidationMessage(
+        "found carriage return (CR) character in file: foo.jpeg", true)));
+    expected.add(TestUtils.transformMessage(new CommitValidationMessage(
+        "found carriage return (CR) character in file: foo.iso", true)));
+    assertThat(TestUtils.transformMessages(m))
+        .containsExactlyElementsIn(expected);
   }
 
   @Test
@@ -117,6 +116,6 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
     Set<String> ignoreFiles = Sets.newHashSet(new String[]{"iso", "jpeg"});
     List<CommitValidationMessage> m =
         InvalidLineEndingValidator.performValidation(repo, c, ignoreFiles);
-    assertEquals(0, m.size());
+    assertThat(m).isEmpty();
   }
 }
