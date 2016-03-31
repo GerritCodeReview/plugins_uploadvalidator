@@ -14,6 +14,8 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import com.google.common.base.Function;
+import com.google.common.collect.Lists;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.apache.commons.io.FileUtils;
@@ -80,29 +82,15 @@ public class TestUtils {
     ac.call();
   }
 
-  public static boolean compareCommitValidationMessage(
-      List<CommitValidationMessage> m1, List<CommitValidationMessage> m2) {
-    for (CommitValidationMessage cvm1 : m1) {
-      boolean found = false;
-      for (CommitValidationMessage cvm2 : m2) {
-        if (compareCommitValidationMessage(cvm1, cvm2)) {
-          found = true;
-        }
-      }
-      if (!found) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  public static boolean compareCommitValidationMessage(
-      CommitValidationMessage msg1, CommitValidationMessage msg2) {
-    if (msg1.getMessage().equals(msg2.getMessage())
-        && msg1.isError() == msg2.isError()) {
-      return true;
-    } else {
-      return false;
-    }
+  public static List<String> transformMessages(
+      List<CommitValidationMessage> messages) {
+    return Lists.transform(messages,
+        new Function<CommitValidationMessage, String>() {
+          @Override
+          public String apply(CommitValidationMessage input) {
+            String pre = (input.isError()) ? "ERROR: " : "MSG: ";
+            return pre + input.getMessage();
+          }
+        });
   }
 }

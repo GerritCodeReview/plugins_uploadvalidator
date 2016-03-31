@@ -14,9 +14,9 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.google.common.truth.Truth.assertThat;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.Git;
@@ -28,7 +28,6 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,11 +50,9 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommitWithSubmodule();
     List<CommitValidationMessage> m =
         SubmoduleValidator.performValidation(repo, c);
-    assertEquals(1, m.size());
-    List<CommitValidationMessage> expected = new ArrayList<>();
-    expected.add(new CommitValidationMessage("submodules are not allowed: "
-        + "modules/library", true));
-    assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
+    assertThat(TestUtils.transformMessages(m))
+        .containsExactlyElementsIn(ImmutableSet.of(
+            "ERROR: submodules are not allowed: modules/library"));
   }
 
   private RevCommit makeCommitWithoutSubmodule()
@@ -70,6 +67,6 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommitWithoutSubmodule();
     List<CommitValidationMessage> m =
         SubmoduleValidator.performValidation(repo, c);
-    assertEquals(0, m.size());
+    assertThat(m).isEmpty();
   }
 }
