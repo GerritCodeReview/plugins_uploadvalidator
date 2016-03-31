@@ -14,8 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
@@ -59,12 +58,12 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommit();
     List<CommitValidationMessage> m = InvalidFilenameValidator
         .performValidation(repo, c, invalidFilenamePattern);
-    List<CommitValidationMessage> expected = new ArrayList<>();
+    List<ComparableCommitValidationMessage> expected = new ArrayList<>();
     for (String filenames : getInvalidFilenames()) {
-      expected.add(new CommitValidationMessage(
+      expected.add(new ComparableCommitValidationMessage(
           "invalid characters found in filename: " + filenames, true));
     }
-    assertEquals(5, m.size());
-    assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
+    assertThat(m).hasSize(5);
+    assertThat(TestUtils.transformMessages(m)).containsAnyIn(expected);
   }
 }

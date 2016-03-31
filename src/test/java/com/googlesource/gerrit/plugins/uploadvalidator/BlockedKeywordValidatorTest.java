@@ -14,8 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.google.common.truth.Truth.assertThat;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.LoadingCache;
@@ -51,8 +50,8 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
     LoadingCache<String, Pattern> patternCache =
         CacheBuilder.newBuilder().build(new BlockedKeywordValidator.Loader());
     for (String pattern : getPatterns().keySet()) {
-      assertEquals(getPatterns().get(pattern).pattern(),
-          patternCache.get(pattern).pattern());
+      assertThat(getPatterns().get(pattern).pattern())
+          .isEqualTo(patternCache.get(pattern).pattern());
     }
   }
 
@@ -87,14 +86,16 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommit();
     List<CommitValidationMessage> m = BlockedKeywordValidator
         .performValidation(repo, c, getPatterns().values());
-    assertEquals(2, m.size());
-    List<CommitValidationMessage> expected = new ArrayList<>();
-    expected
-        .add(new CommitValidationMessage("blocked keyword(s) found in file: "
-            + "foo.txt (Line: 1) (found: myp4ssw0rd, foobar)", true));
-    expected
-        .add(new CommitValidationMessage("blocked keyword(s) found in file: "
-            + "bar.txt (Line: 5) (found: $Id: bla bla bla$)", true));
-    assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
+    assertThat(m).hasSize(2);
+    List<ComparableCommitValidationMessage> expected = new ArrayList<>();
+    expected.add(new ComparableCommitValidationMessage(
+        "blocked keyword(s) found in file: foo.txt (Line: 1) "
+            + "(found: myp4ssw0rd, foobar)",
+        true));
+    expected.add(new ComparableCommitValidationMessage(
+        "blocked keyword(s) found in file: bar.txt (Line: 5) "
+            + "(found: $Id: bla bla bla$)",
+        true));
+    assertThat(TestUtils.transformMessages(m)).containsAnyIn(expected);
   }
 }
