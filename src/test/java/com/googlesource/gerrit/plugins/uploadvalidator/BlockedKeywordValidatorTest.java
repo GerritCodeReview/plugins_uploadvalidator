@@ -72,8 +72,9 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
   @Test
   public void testKeywords() throws Exception {
     RevCommit c = makeCommit();
-    List<CommitValidationMessage> m = BlockedKeywordValidator
-        .performValidation(repo, c, getPatterns().values());
+    List<CommitValidationMessage> m = BlockedKeywordValidator.performValidation(
+        repo, c, getPatterns().values(), TestUtils.getEmptyPluginConfig(),
+        new ContentTypeUtil(TestUtils.getPatternCache()));
     List<String> expected = new ArrayList<>();
     expected.add(TestUtils.transformMessage(new CommitValidationMessage(
         "blocked keyword(s) found in file: foo.txt (Line: 1) "
