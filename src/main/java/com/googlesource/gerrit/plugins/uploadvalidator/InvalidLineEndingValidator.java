@@ -90,6 +90,10 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
     this.repoManager = repoManager;
   }
 
+  static boolean isActive(PluginConfig cfg) {
+    return cfg.getBoolean(KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS, false);
+  }
+
   @Override
   public List<CommitValidationMessage> onCommitReceived(
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
@@ -97,9 +101,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfig(
               receiveEvent.project.getNameKey(), pluginName);
-      boolean lineEndingCheck = cfg.getBoolean(
-          KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS, false);
-      if (!lineEndingCheck) {
+      if (!isActive(cfg)) {
         return Collections.emptyList();
       }
       try (Repository repo =
