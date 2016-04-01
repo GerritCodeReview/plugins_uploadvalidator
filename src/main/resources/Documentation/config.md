@@ -19,10 +19,9 @@ project info screen.
     invalidFilenamePattern = \\[|\\]|\\*|#
     invalidFilenamePattern = [%:@]
     rejectWindowsLineEndings = false
-    ignoreFilesWhenCheckLineEndings = jpeg
-    ignoreFilesWhenCheckLineEndings = pdf
-    ignoreFilesWhenCheckLineEndings = exe
-    ignoreFilesWhenCheckLineEndings = iso
+    binaryType = application/*
+    binaryType = ^application/(pdf|xml)
+    binaryType = application/zip
     requiredFooter = Bug
     maxPathLength = 200
     rejectSymlink = false
@@ -66,16 +65,34 @@ plugin.@PLUGIN@.rejectWindowsLineEndings
 	files. If the check finds a carriage return (CR) character
 	the push will be rejected.
 
+	This check does not run on binary files.
+
 	The default value is false. This means the check will not be executed.
 
 	This option is *not* inherited by child projects.
 
-plugin.@PLUGIN@.ignoreFilesWhenCheckLineEndings
-:	Ignore files during Windows line endings check.
+plugin.@PLUGIN@.binaryType
+:	Binary types.
 
-	At the moment, there is no ideal solution to detect binary files.
-	Because of that you can define file extensions, to prevent that
-	this check validate this files.
+	Some checks should not run on binary files (e. g. InvalidLineEndingCheck).
+	Using this option it is possible to configure which content types are
+	considered binary types.
+
+	To detect content types Apache Tika library [2] is used.
+
+	Content type can be specified as a string, wildcard or a regular expression,
+	for example:
+
+	- application/zip
+	- application/*
+	- ^application/(pdf|xml)
+
+	As usual, the '^' prefix is used to denote that the value is a regular
+	expression.
+
+	Full list of supported content types can be found [here][3].
+
+	This option is *not* inherited by child projects.
 
 plugin.@PLUGIN@.rejectSymlink
 :	Reject symbolic links.
@@ -109,6 +126,10 @@ plugin.@PLUGIN@.blockedKeywordPattern
 	To detect blocked keywords, this check is using
 	`java.util.regex.Pattern` which is described [here][1].
 
+	This check does not run on binary files.
+
 	Defined patterns are *not* inherited by child projects.
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
+[2]: https://tika.apache.org/
+[3]: https://tika.apache.org/1.12/formats.html#Full_list_of_Supported_Formats
