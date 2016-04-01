@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
+import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.apache.commons.io.FileUtils;
@@ -23,6 +24,7 @@ import org.eclipse.jgit.api.AddCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
+import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
@@ -35,6 +37,9 @@ import java.util.Map;
 import java.util.Set;
 
 public class TestUtils {
+  public static final PluginConfig EMPTY_PLUGIN_CONFIG =
+      new PluginConfig("", new Config());
+
   public static Repository createNewRepository(File repoFolder)
       throws IOException {
     Repository repository =

@@ -64,4 +64,10 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
     assertThat(TestUtils.transformMessages(m))
         .containsExactlyElementsIn(expected);
   }
+
+  @Test
+  public void validatorInactiveWhenConfigEmpty() {
+    assertThat(InvalidFilenameValidator.isActive(TestUtils.EMPTY_PLUGIN_CONFIG))
+        .isFalse();
+  }
 }

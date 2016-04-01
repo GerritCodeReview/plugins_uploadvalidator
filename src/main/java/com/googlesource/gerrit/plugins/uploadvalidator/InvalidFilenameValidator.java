@@ -72,6 +72,10 @@ public class InvalidFilenameValidator implements CommitValidationListener {
     this.repoManager = repoManager;
   }
 
+  static boolean isActive(PluginConfig cfg) {
+    return cfg.getStringList(KEY_INVALID_FILENAME_PATTERN).length > 0;
+  }
+
   @Override
   public List<CommitValidationMessage> onCommitReceived(
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
@@ -79,14 +83,14 @@ public class InvalidFilenameValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfig(
               receiveEvent.project.getNameKey(), pluginName);
-      String[] patterns = cfg.getStringList(KEY_INVALID_FILENAME_PATTERN);
-      if (patterns.length == 0) {
+      if (!isActive(cfg)) {
         return Collections.emptyList();
       }
       try (Repository repo = repoManager.openRepository(
           receiveEvent.project.getNameKey())) {
-        List<CommitValidationMessage> messages = performValidation(
-            repo, receiveEvent.commit, patterns);
+        List<CommitValidationMessage> messages =
+            performValidation(repo, receiveEvent.commit,
+                cfg.getStringList(KEY_INVALID_FILENAME_PATTERN));
         if (!messages.isEmpty()) {
           throw new CommitValidationException(
               "contains files with an invalid filename", messages);

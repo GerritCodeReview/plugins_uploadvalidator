@@ -69,4 +69,10 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
         SubmoduleValidator.performValidation(repo, c);
     assertThat(m).isEmpty();
   }
+
+  @Test
+  public void validatorInactiveWhenConfigEmpty() {
+    assertThat(SubmoduleValidator.isActive(TestUtils.EMPTY_PLUGIN_CONFIG))
+        .isFalse();
+  }
 }

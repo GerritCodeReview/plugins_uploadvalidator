@@ -74,4 +74,10 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
         SymlinkValidator.performValidation(repo, c);
     assertThat(m).isEmpty();
   }
+
+  @Test
+  public void validatorInactiveWhenConfigEmpty() {
+    assertThat(SymlinkValidator.isActive(TestUtils.EMPTY_PLUGIN_CONFIG))
+        .isFalse();
+  }
 }
