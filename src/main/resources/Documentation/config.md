@@ -16,8 +16,8 @@ project info screen.
     blockedKeywordPattern = myp4ssw0rd
     blockedKeywordPattern = foobar
     blockedKeywordPattern = \\$(Id|Header):[^$]*\\$
-    invalidFilenamePattern = [@:]
-    invalidFilenamePattern = [#%*]
+    invalidFilenamePattern = \\[|\\]|\\*|#
+    invalidFilenamePattern = [%:@]
     rejectWindowsLineEndings = false
     ignoreFilesWhenCheckLineEndings = jpeg
     ignoreFilesWhenCheckLineEndings = pdf
