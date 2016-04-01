@@ -80,15 +80,18 @@ public class BlockedKeywordValidator implements CommitValidationListener {
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
   private final LoadingCache<String, Pattern> patternCache;
+  private final ContentTypeUtil contentTypeUtil;
 
   @Inject
   BlockedKeywordValidator(@PluginName String pluginName,
+      ContentTypeUtil contentTypeUtil,
       @Named(CACHE_NAME) LoadingCache<String, Pattern> patternCache,
       PluginConfigFactory cfgFactory, GitRepositoryManager repoManager) {
     this.pluginName = pluginName;
     this.patternCache = patternCache;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
+    this.contentTypeUtil = contentTypeUtil;
   }
 
   static boolean isActive(PluginConfig cfg) {
@@ -109,8 +112,9 @@ public class BlockedKeywordValidator implements CommitValidationListener {
               .asList(cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN)));
       try (Repository repo =
           repoManager.openRepository(receiveEvent.project.getNameKey())) {
-        List<CommitValidationMessage> messages = performValidation(repo,
-            receiveEvent.commit, blockedKeywordPatterns.values());
+        List<CommitValidationMessage> messages =
+            performValidation(repo, receiveEvent.commit,
+                blockedKeywordPatterns.values(), cfg, contentTypeUtil);
         if (!messages.isEmpty()) {
           throw new CommitValidationException(
               "includes files containing blocked keywords", messages);
@@ -124,12 +128,16 @@ public class BlockedKeywordValidator implements CommitValidationListener {
   }
 
   static List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c, ImmutableCollection<Pattern> blockedKeywordPartterns)
-          throws IOException {
+      RevCommit c, ImmutableCollection<Pattern> blockedKeywordPartterns,
+      PluginConfig cfg, ContentTypeUtil contentTypeUtil)
+          throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
     for (String path : content.keySet()) {
       ObjectLoader ol = repo.open(content.get(path));
+      if (contentTypeUtil.isBinary(ol, path, cfg)) {
+        continue;
+      }
       checkFileForBlockedKeywords(blockedKeywordPartterns, messages, path, ol);
     }
     return messages;
