@@ -16,12 +16,14 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.SubmoduleAddCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
+import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 
@@ -70,5 +72,11 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
     List<CommitValidationMessage> m =
         SubmoduleValidator.performValidation(repo, c);
     assertThat(m).isEmpty();
+  }
+
+  @Test
+  public void testDefaultValue() {
+    PluginConfig cfg = new PluginConfig("", new Config());
+    assertThat(SubmoduleValidator.doCheckSubmodules(cfg)).isFalse();
   }
 }

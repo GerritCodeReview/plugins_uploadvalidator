@@ -17,11 +17,13 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import static com.google.common.truth.Truth.assertThat;
 
 import com.google.common.collect.Sets;
+import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
+import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 
@@ -117,5 +119,12 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
     List<CommitValidationMessage> m =
         InvalidLineEndingValidator.performValidation(repo, c, ignoreFiles);
     assertThat(m).isEmpty();
+  }
+
+  @Test
+  public void testDefaultValue() {
+    PluginConfig cfg = new PluginConfig("", new Config());
+    assertThat(InvalidLineEndingValidator.doCheckInvalidLineEndings(cfg))
+        .isFalse();
   }
 }

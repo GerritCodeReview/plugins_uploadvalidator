@@ -16,10 +16,12 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
+import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 
@@ -65,5 +67,11 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
     }
     assertThat(m).hasSize(5);
     assertThat(TestUtils.transformMessages(m)).containsAllIn(expected);
+  }
+
+  @Test
+  public void testDefaultValue() {
+    PluginConfig cfg = new PluginConfig("", new Config());
+    assertThat(InvalidFilenameValidator.doCheckInvalidFilenames(cfg)).isFalse();
   }
 }

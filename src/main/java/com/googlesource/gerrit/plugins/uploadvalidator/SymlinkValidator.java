@@ -72,6 +72,10 @@ public class SymlinkValidator implements CommitValidationListener {
     this.repoManager = repoManager;
   }
 
+  static boolean doCheckSymlinks(PluginConfig cfg) {
+    return cfg.getBoolean(KEY_CHECK_SYMLINK, false);
+  }
+
   @Override
   public List<CommitValidationMessage> onCommitReceived(
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
@@ -79,8 +83,7 @@ public class SymlinkValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfig(
               receiveEvent.project.getNameKey(), pluginName);
-      boolean rejectSymlink = cfg.getBoolean(KEY_CHECK_SYMLINK, false);
-      if (!rejectSymlink) {
+      if (!doCheckSymlinks(cfg)) {
         return Collections.emptyList();
       }
       try (Repository repo =
