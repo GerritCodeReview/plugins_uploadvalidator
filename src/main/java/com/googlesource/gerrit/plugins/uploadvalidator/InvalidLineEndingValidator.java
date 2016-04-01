@@ -14,7 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.common.collect.Sets;
+import com.google.common.annotations.VisibleForTesting;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -30,7 +30,6 @@ import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 
-import org.apache.commons.io.FilenameUtils;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
 import org.eclipse.jgit.lib.Repository;
@@ -43,7 +42,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.concurrent.ExecutionException;
 
 public class InvalidLineEndingValidator implements CommitValidationListener {
 
@@ -62,32 +61,27 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
                 "Windows line endings. Pushes of commits that include files "
                     + "containing carriage return (CR) characters will be "
                     + "rejected."));
-        bind(ProjectConfigEntry.class)
-            .annotatedWith(Exports.named(KEY_IGNORE_FILES))
-            .toInstance(new ProjectConfigEntry(
-                "Ignore Files During Windows Line Endings Check", null,
-                ProjectConfigEntry.Type.ARRAY, null, false,
-                "At the moment, there is no ideal solution to detect binary "
-                    + "files. Because of that you can define file extensions, "
-                    + "to prevent that this check validate this files."));
       }
     };
   }
 
   public static String KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS =
       "rejectWindowsLineEndings";
-  public static String KEY_IGNORE_FILES = "ignoreFilesWhenCheckLineEndings";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
+  private final ContentTypeUtil contentTypeUtil;
 
   @Inject
   InvalidLineEndingValidator(@PluginName String pluginName,
-      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager) {
+      ContentTypeUtil contentTypeUtil,
+      PluginConfigFactory cfgFactory,
+      GitRepositoryManager repoManager) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
+    this.contentTypeUtil = contentTypeUtil;
   }
 
   static boolean isActive(PluginConfig cfg) {
@@ -107,32 +101,33 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
       try (Repository repo =
           repoManager.openRepository(receiveEvent.project.getNameKey())) {
         List<CommitValidationMessage> messages =
-            performValidation(repo, receiveEvent.commit, Sets.newHashSet(
-                cfg.getStringList(KEY_IGNORE_FILES)));
+            performValidation(repo, receiveEvent.commit, cfg);
         if (!messages.isEmpty()) {
           throw new CommitValidationException(
               "contains files with a Windows line ending", messages);
         }
       }
-    } catch (NoSuchProjectException | IOException e) {
+    } catch (NoSuchProjectException | IOException | ExecutionException e) {
       throw new CommitValidationException(
           "failed to check on Windows line endings", e);
     }
     return Collections.emptyList();
   }
 
-  static List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c, Set<String> ignoreFiles) throws IOException {
+  @VisibleForTesting
+  List<CommitValidationMessage> performValidation(Repository repo,
+      RevCommit c, PluginConfig cfg)
+          throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
     for (String path : content.keySet()) {
-      if (ignoreFiles.contains(FilenameUtils.getExtension(path))) {
+      ObjectLoader ol = repo.open(content.get(path));
+      if (contentTypeUtil.isBinary(ol, path, cfg)) {
         continue;
       }
-      ObjectLoader ol = repo.open(content.get(path));
-      try (InputStreamReader isr = new InputStreamReader(ol.openStream(),
-          StandardCharsets.UTF_8)) {
-        if(doesInputStreanContainCR(isr)) {
+      try (InputStreamReader isr =
+          new InputStreamReader(ol.openStream(), StandardCharsets.UTF_8)) {
+        if (doesInputStreanContainCR(isr)) {
           messages.add(new CommitValidationMessage(
               "found carriage return (CR) character in file: " + path, true));
         }
