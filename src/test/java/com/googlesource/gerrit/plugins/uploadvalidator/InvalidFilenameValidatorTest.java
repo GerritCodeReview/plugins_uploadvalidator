@@ -66,4 +66,10 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
     assertThat(m).hasSize(5);
     assertThat(TestUtils.transformMessages(m)).containsAllIn(expected);
   }
+
+  @Test
+  public void testDefaultValue() {
+    assertThat(InvalidFilenameValidator
+        .doCheckInvalidFilenames(TestUtils.getEmptyPluginConfig())).isFalse();
+  }
 }

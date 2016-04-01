@@ -71,4 +71,11 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
         SubmoduleValidator.performValidation(repo, c);
     assertThat(m).isEmpty();
   }
+
+  @Test
+  public void testDefaultValue() {
+    assertThat(
+        SubmoduleValidator.doCheckSubmodules(TestUtils.getEmptyPluginConfig()))
+            .isFalse();
+  }
 }

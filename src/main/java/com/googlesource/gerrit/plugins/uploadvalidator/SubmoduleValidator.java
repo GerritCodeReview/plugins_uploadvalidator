@@ -71,14 +71,17 @@ public class SubmoduleValidator implements CommitValidationListener {
     this.repoManager = repoManager;
   }
 
+  static boolean doCheckSubmodules(PluginConfig cfg) {
+    return cfg.getBoolean(KEY_CHECK_SUBMODULE, false);
+  }
+
   @Override
   public List<CommitValidationMessage> onCommitReceived(
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
     try {
       PluginConfig cfg = cfgFactory
           .getFromProjectConfig(receiveEvent.project.getNameKey(), pluginName);
-      boolean rejectSubmodule = cfg.getBoolean(KEY_CHECK_SUBMODULE, false);
-      if (!rejectSubmodule) {
+      if (!doCheckSubmodules(cfg)) {
         return Collections.emptyList();
       }
       try (Repository repo =

@@ -105,21 +105,22 @@ public class BlockedKeywordValidator implements CommitValidationListener {
     this.repoManager = repoManager;
   }
 
+  static boolean doCheckBlockedKeywords(PluginConfig cfg) {
+    return cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN).length > 0;
+  }
+
   @Override
   public List<CommitValidationMessage> onCommitReceived(
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
     try {
       PluginConfig cfg = cfgFactory
           .getFromProjectConfig(receiveEvent.project.getNameKey(), pluginName);
-
-      if (cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN).length == 0) {
+      if (!doCheckBlockedKeywords(cfg)) {
         return Collections.emptyList();
       }
-
       ImmutableMap<String, Pattern> blockedKeywordPatterns =
           patternCache.getAll(Arrays
               .asList(cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN)));
-
       try (Repository repo =
           repoManager.openRepository(receiveEvent.project.getNameKey())) {
         List<CommitValidationMessage> messages = performValidation(repo,
