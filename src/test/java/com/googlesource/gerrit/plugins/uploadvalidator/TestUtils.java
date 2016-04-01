@@ -16,6 +16,8 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.LoadingCache;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
@@ -36,6 +38,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 public class TestUtils {
   public static final PluginConfig EMPTY_PLUGIN_CONFIG =
@@ -114,5 +118,11 @@ public class TestUtils {
             return pre + input.getMessage();
           }
         });
+  }
+
+  public static LoadingCache<String, Pattern> getPatternCache() {
+    return CacheBuilder.newBuilder().maximumSize(10000)
+        .expireAfterWrite(10, TimeUnit.MINUTES)
+        .build(new PatternCacheModule.Loader());
   }
 }
