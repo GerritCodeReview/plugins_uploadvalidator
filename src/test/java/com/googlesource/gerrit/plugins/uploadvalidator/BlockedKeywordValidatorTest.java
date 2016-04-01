@@ -72,8 +72,9 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
   @Test
   public void testKeywords() throws Exception {
     RevCommit c = makeCommit();
-    List<CommitValidationMessage> m = BlockedKeywordValidator
-        .performValidation(repo, c, getPatterns().values());
+    List<CommitValidationMessage> m = BlockedKeywordValidator.performValidation(
+        repo, c, getPatterns().values(), TestUtils.getEmptyPluginConfig(),
+        new ContentTypeUtil(TestUtils.getPatternCache()));
     assertThat(m).hasSize(2);
     List<ComparableCommitValidationMessage> expected = new ArrayList<>();
     expected.add(new ComparableCommitValidationMessage(

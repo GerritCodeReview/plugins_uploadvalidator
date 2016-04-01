@@ -13,6 +13,7 @@ gerrit_plugin(
   ],
   deps = [
     ':commons-io',
+    ':tika-core',
   ],
 )
 
@@ -26,6 +27,13 @@ maven_jar(
   name = 'commons-io',
   id = 'commons-io:commons-io:1.4',
   sha1 = 'a8762d07e76cfde2395257a5da47ba7c1dbd3dce',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'tika-core',
+  id = 'org.apache.tika:tika-core:1.12',
+  sha1 = '5ab95580d22fe1dee79cffbcd98bb509a32da09b',
   license = 'Apache2.0',
 )
 
