@@ -113,4 +113,11 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
         InvalidLineEndingValidator.performValidation(repo, c, ignoreFiles);
     assertThat(m).isEmpty();
   }
+
+  @Test
+  public void testDefaultValue() {
+    assertThat(
+        InvalidLineEndingValidator.isActive(TestUtils.getEmptyPluginConfig()))
+            .isFalse();
+  }
 }
