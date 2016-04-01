@@ -98,4 +98,11 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
     assertThat(TestUtils.transformMessages(m))
         .containsExactlyElementsIn(expected);
   }
+
+  @Test
+  public void testDefaultValue() {
+    assertThat(
+        BlockedKeywordValidator.isActive(TestUtils.getEmptyPluginConfig()))
+            .isFalse();
+  }
 }
