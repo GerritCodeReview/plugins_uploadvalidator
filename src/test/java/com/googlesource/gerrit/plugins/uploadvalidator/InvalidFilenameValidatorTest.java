@@ -38,6 +38,8 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
     filenames.add("test*");
     filenames.add("test:");
     filenames.add("test@");
+    filenames.add("test[");
+    filenames.add("test]");
     return filenames;
   }
 
@@ -54,7 +56,7 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
 
   @Test
   public void test() throws Exception {
-    String[] invalidFilenamePattern = {"[@:]", "[#%*]"};
+    String[] invalidFilenamePattern = {"^.*(\\[|\\]|\\*|#).*$", "^.*(%|:|@).*$"};
     RevCommit c = makeCommit();
     List<CommitValidationMessage> m = InvalidFilenameValidator
         .performValidation(repo, c, invalidFilenamePattern);
