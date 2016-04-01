@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
@@ -63,5 +64,10 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
     }
     assertThat(TestUtils.transformMessages(m))
         .containsExactlyElementsIn(expected);
+  }
+
+  @Test
+  public void validatorInactiveWhenConfigEmpty() {
+    assertThat(InvalidFilenameValidator.isActive(EMPTY_PLUGIN_CONFIG)).isFalse();
   }
 }
