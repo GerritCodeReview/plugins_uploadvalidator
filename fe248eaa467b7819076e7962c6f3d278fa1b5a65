@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "ce83e41b_aaea2f8b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ComparableCommitValidationMessage.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-04-05T12:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee926865_cba5b576",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 17
+      },
+      "revId": "fe248eaa467b7819076e7962c6f3d278fa1b5a65",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce83e41b_ea7ee7b0",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ComparableCommitValidationMessage.java",
         "patchSetId": 4
@@ -59,6 +83,24 @@
     },
     {
       "key": {
+        "uuid": "ce83e41b_caf76376",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ComparableCommitValidationMessage.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-04-05T12:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce83e41b_ea7ee7b0",
+      "revId": "fe248eaa467b7819076e7962c6f3d278fa1b5a65",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce83e41b_4a67f321",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
         "patchSetId": 4
@@ -70,6 +112,30 @@
       "writtenOn": "2016-04-05T11:42:15Z",
       "side": 1,
       "message": "Since messages are a List we can use Lists.transform here.\n\nThe return type can also be changed to List\u003c...\u003e",
+      "range": {
+        "startLine": 88,
+        "startChar": 11,
+        "endLine": 88,
+        "endChar": 23
+      },
+      "revId": "fe248eaa467b7819076e7962c6f3d278fa1b5a65",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee926865_cb9bf52c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-04-05T12:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce83e41b_4a67f321",
       "range": {
         "startLine": 88,
         "startChar": 11,
