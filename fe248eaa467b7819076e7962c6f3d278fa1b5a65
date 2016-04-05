@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee926865_ab986943",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-05T11:42:15Z",
+      "side": 1,
+      "message": "The cookbook plugin references the Truth framework from its BUCK file in order to support running the tests when plugin is built standalone. I think we should do the same here",
+      "revId": "fe248eaa467b7819076e7962c6f3d278fa1b5a65",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee926865_cba5b576",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ComparableCommitValidationMessage.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-05T11:42:15Z",
+      "side": 1,
+      "message": "return obj instanceof CommitValidationMessage\n        \u0026\u0026 ((CommitValidationMessage) obj).isError() \u003d\u003d isError()\n        \u0026\u0026 ((CommitValidationMessage) obj).getMessage().equals(getMessage());",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 17
+      },
+      "revId": "fe248eaa467b7819076e7962c6f3d278fa1b5a65",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce83e41b_ea7ee7b0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ComparableCommitValidationMessage.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-05T11:42:15Z",
+      "side": 1,
+      "message": "This is not really a perfect hashCode implementation but it is good enough for this test. Nevertheless it could be rewritten as:\n\n  return Objects.hash(getMessage(), isError());",
+      "revId": "fe248eaa467b7819076e7962c6f3d278fa1b5a65",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce83e41b_4a67f321",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-05T11:42:15Z",
+      "side": 1,
+      "message": "Since messages are a List we can use Lists.transform here.\n\nThe return type can also be changed to List\u003c...\u003e",
+      "range": {
+        "startLine": 88,
+        "startChar": 11,
+        "endLine": 88,
+        "endChar": 23
+      },
+      "revId": "fe248eaa467b7819076e7962c6f3d278fa1b5a65",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
