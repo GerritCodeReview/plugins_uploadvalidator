@@ -1,5 +1,5 @@
 include_defs('//bucklets/gerrit_plugin.bucklet')
-include_defs('//lib/maven.defs')
+include_defs('//bucklets/maven_jar.bucklet')
 
 gerrit_plugin(
   name = 'uploadvalidator',
