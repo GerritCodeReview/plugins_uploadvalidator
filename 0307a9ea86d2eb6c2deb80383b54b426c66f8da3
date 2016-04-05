@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3118652c_b5cfa02e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-05T11:42:15Z",
+      "side": 1,
+      "message": "http://google.github.io/truth/",
+      "revId": "0307a9ea86d2eb6c2deb80383b54b426c66f8da3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
