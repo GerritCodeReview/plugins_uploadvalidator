@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e8f587d_4fa6edd4",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-04-07T00:40:07Z",
+      "side": 1,
+      "message": "Does this fail if `m` contains anything additional to the content of `expected`?",
+      "range": {
+        "startLine": 99,
+        "startChar": 47,
+        "endLine": 99,
+        "endChar": 60
+      },
+      "revId": "45659c6247c8b6c26b83293a6a5c265a6b05f9c1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e8f587d_6fa3b1c3",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-04-07T00:40:07Z",
+      "side": 1,
+      "message": "Avoid the intermediate ComparableCommitValidationMessage class by changing this to use containsExactlyElementsIn, giving an ImmutableList.of(\"message 1\", \"message 2\", etc) as expected, and making transformMessages also return a simple list of Strings.\n\nAlso, using containsExactlyElementsIn will mean the hasSize assertion is redundant.",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 71
+      },
+      "revId": "45659c6247c8b6c26b83293a6a5c265a6b05f9c1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
