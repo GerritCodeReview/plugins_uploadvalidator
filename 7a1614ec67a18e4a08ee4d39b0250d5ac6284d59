@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee7a6832_4bf6e53e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-07T22:32:24Z",
+      "side": 1,
+      "message": "I don\u0027t think it makes sense to create CommitValidationMessage(X) here and then call transformMessage in order to get the X back. We can just use the string X:\n\n  List\u003cString\u003e expected \u003d ImmutableList.of(\"msg1\", \"msg2\");",
+      "revId": "7a1614ec67a18e4a08ee4d39b0250d5ac6284d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce6be468_ca0ac306",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidFilenameValidatorTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-07T22:32:24Z",
+      "side": 1,
+      "message": "Instead of creating the CommitValidationMessage and convert it to String just use the string directly\n\nSame in all other test classes.",
+      "revId": "7a1614ec67a18e4a08ee4d39b0250d5ac6284d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee7a6832_6bf3a14d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-07T22:32:24Z",
+      "side": 1,
+      "message": "Instead of creating a new instance each time, make it a constant:\n\n  private static final Function\u003cCommitValidationMessage, String\u003e MSG_TO_STR \u003d new Function\u003c..., ...\u003e() {\n    public String apply(...) {\n      return ...\n    }\n  }",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 3
+      },
+      "revId": "7a1614ec67a18e4a08ee4d39b0250d5ac6284d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce6be468_2afd9f14",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-07T22:32:24Z",
+      "side": 1,
+      "message": "Will this method still be needed when we just don\u0027t create CommitValidationMessage instances for expected results?",
+      "revId": "7a1614ec67a18e4a08ee4d39b0250d5ac6284d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee7a6832_0b00dde7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-07T22:32:24Z",
+      "side": 1,
+      "message": "Use the MSG_TO_STR here\n\nHowever, if this will be the only place where this function is used then inline it here.",
+      "revId": "7a1614ec67a18e4a08ee4d39b0250d5ac6284d59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
