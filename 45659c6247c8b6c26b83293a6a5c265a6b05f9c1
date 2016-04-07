@@ -45,6 +45,54 @@
       "revId": "45659c6247c8b6c26b83293a6a5c265a6b05f9c1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee7a6832_8bb4cdf7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-04-07T07:22:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e8f587d_6fa3b1c3",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 71
+      },
+      "revId": "45659c6247c8b6c26b83293a6a5c265a6b05f9c1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce6be468_aab98fee",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-04-07T07:22:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e8f587d_4fa6edd4",
+      "range": {
+        "startLine": 99,
+        "startChar": 47,
+        "endLine": 99,
+        "endChar": 60
+      },
+      "revId": "45659c6247c8b6c26b83293a6a5c265a6b05f9c1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
