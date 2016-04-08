@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e90d4ca_de18a5c0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-08T13:13:55Z",
+      "side": 1,
+      "message": "inline this and msg2 into the ImmutableList.of (line 94).\n\nSame for all other test classes.",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 15
+      },
+      "revId": "5293b753b8fd947a285ef188ef9b9fde6347ff1e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce7cc459_e23f8608",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-08T13:13:55Z",
+      "side": 1,
+      "message": "Considering my proposal in the TestUtil this would become:\n\n\"ERROR: blocked keyword(s) found ...\"\n\nwhich is more pleasant to read than a \"true\" suffix.",
+      "range": {
+        "startLine": 89,
+        "startChar": 18,
+        "endLine": 90,
+        "endChar": 43
+      },
+      "revId": "5293b753b8fd947a285ef188ef9b9fde6347ff1e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e90d4ca_9e1e1dab",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-08T13:13:55Z",
+      "side": 1,
+      "message": "This produces a string like: \"validation messagetrue\" or \"validation messagefalse\" which is not very readable. I would propose to produce a string like: \"ERROR: validation message\" when input.isError() is true and just \"validation message\" when the isError is false. Alternatively we could also produce \"MSG: validation message\" for the false case.",
+      "revId": "5293b753b8fd947a285ef188ef9b9fde6347ff1e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
