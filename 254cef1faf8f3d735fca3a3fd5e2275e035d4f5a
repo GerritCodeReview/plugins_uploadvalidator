@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bc60632_eec87f75",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-11T12:50:57Z",
+      "side": 1,
+      "message": "What this test does is it verifies that the validator is inactive when its configuration is empty. Therefore, I would propose a different naming:\n\n  public void validatorInactiveWhenConfigEmpty() {\n  ...\n  }\n\nSame for all other tests.",
+      "range": {
+        "startLine": 100,
+        "startChar": 14,
+        "endLine": 100,
+        "endChar": 30
+      },
+      "revId": "254cef1faf8f3d735fca3a3fd5e2275e035d4f5a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab7062c4_7973e7e5",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-11T12:50:57Z",
+      "side": 1,
+      "message": "Make it a constant?",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 3
+      },
+      "revId": "254cef1faf8f3d735fca3a3fd5e2275e035d4f5a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
