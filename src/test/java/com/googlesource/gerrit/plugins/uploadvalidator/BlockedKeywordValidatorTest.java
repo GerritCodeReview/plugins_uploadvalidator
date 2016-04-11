@@ -14,12 +14,12 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.google.common.truth.Truth.assertThat;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
@@ -30,10 +30,10 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class BlockedKeywordValidatorTest extends ValidatorTestCase {
@@ -51,8 +51,8 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
     LoadingCache<String, Pattern> patternCache =
         CacheBuilder.newBuilder().build(new BlockedKeywordValidator.Loader());
     for (String pattern : getPatterns().keySet()) {
-      assertEquals(getPatterns().get(pattern).pattern(),
-          patternCache.get(pattern).pattern());
+      assertThat(getPatterns().get(pattern).pattern())
+          .isEqualTo(patternCache.get(pattern).pattern());
     }
   }
 
@@ -68,7 +68,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
         + "$Header$\n"
         + "$Author$\n"
         + "processXFile($File::Find::name, $Config{$type});\n"
-        + "$Id: bla bla bla$\n";
+        + "$Id: foo bar$\n";
     files.put(new File(repo.getDirectory().getParent(), "bar.txt"),
         content.getBytes(StandardCharsets.UTF_8));
 
@@ -87,14 +87,12 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommit();
     List<CommitValidationMessage> m = BlockedKeywordValidator
         .performValidation(repo, c, getPatterns().values());
-    assertEquals(2, m.size());
-    List<CommitValidationMessage> expected = new ArrayList<>();
-    expected
-        .add(new CommitValidationMessage("blocked keyword(s) found in file: "
-            + "foo.txt (Line: 1) (found: myp4ssw0rd, foobar)", true));
-    expected
-        .add(new CommitValidationMessage("blocked keyword(s) found in file: "
-            + "bar.txt (Line: 5) (found: $Id: bla bla bla$)", true));
-    assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
+    Set<String> expected = ImmutableSet.of(
+        "ERROR: blocked keyword(s) found in file: foo.txt (Line: 1)"
+            + " (found: myp4ssw0rd, foobar)",
+        "ERROR: blocked keyword(s) found in file: bar.txt (Line: 5)"
+            + " (found: $Id: foo bar$)");
+    assertThat(TestUtils.transformMessages(m))
+        .containsExactlyElementsIn(expected);
   }
 }

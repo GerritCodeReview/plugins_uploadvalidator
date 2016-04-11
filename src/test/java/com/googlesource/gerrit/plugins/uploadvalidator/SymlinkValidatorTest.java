@@ -14,9 +14,9 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.google.common.truth.Truth.assertThat;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
@@ -28,10 +28,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class SymlinkValidatorTest extends ValidatorTestCase {
   private RevCommit makeCommitWithSymlink()
@@ -53,13 +53,11 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommitWithSymlink();
     List<CommitValidationMessage> m =
         SymlinkValidator.performValidation(repo, c);
-    assertEquals(2, m.size());
-    List<CommitValidationMessage> expected = new ArrayList<>();
-    expected.add(new CommitValidationMessage("Symbolic links are not allowed: "
-        + "foo.txt", true));
-    expected.add(new CommitValidationMessage("Symbolic links are not allowed: "
-        + "symbolicFolder", true));
-    assertTrue(TestUtils.compareCommitValidationMessage(m, expected));
+    Set<String> expected = ImmutableSet.of(
+        "ERROR: Symbolic links are not allowed: foo.txt",
+        "ERROR: Symbolic links are not allowed: symbolicFolder");
+    assertThat(TestUtils.transformMessages(m))
+        .containsExactlyElementsIn(expected);
   }
 
   private RevCommit makeCommitWithoutSymlink()
@@ -74,6 +72,6 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommitWithoutSymlink();
     List<CommitValidationMessage> m =
         SymlinkValidator.performValidation(repo, c);
-    assertEquals(0, m.size());
+    assertThat(m).isEmpty();
   }
 }
