@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abbea28e_69d7a5c6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidator.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-12T09:30:53Z",
+      "side": 1,
+      "message": "convert the blocked extensions to lower case here ...",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 56
+      },
+      "revId": "849f3f5110ae985f1262f1cf212f5990f1500544",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bb55eae_e8107372",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidator.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-12T09:30:53Z",
+      "side": 1,
+      "message": "... and then we don\u0027t have to convert every blocked extension to lower case for each loop iteration",
+      "range": {
+        "startLine": 87,
+        "startChar": 46,
+        "endLine": 87,
+        "endChar": 76
+      },
+      "revId": "849f3f5110ae985f1262f1cf212f5990f1500544",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
