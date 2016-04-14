@@ -14,7 +14,6 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.common.io.Files;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -33,9 +32,11 @@ import com.google.inject.Inject;
 import org.eclipse.jgit.lib.Repository;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
 
 public class FileExtensionValidator implements CommitValidationListener {
 
@@ -70,6 +71,14 @@ public class FileExtensionValidator implements CommitValidationListener {
     this.repoManager = repoManager;
   }
 
+  private static List<String> getBlockedExtensions(PluginConfig cfg) {
+    List<String> blockedExtensions = new ArrayList<>();
+    for (String extension : cfg.getStringList(KEY_BLOCKED_FILE_EXTENSION)) {
+      blockedExtensions.add(extension.toLowerCase());
+    }
+    return blockedExtensions;
+  }
+
   @Override
   public List<CommitValidationMessage> onCommitReceived(
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
@@ -82,12 +91,13 @@ public class FileExtensionValidator implements CommitValidationListener {
       if (blockedFileExtensions.length > 0) {
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = new LinkedList<>();
+          List<String> lowercaseExtensions = getBlockedExtensions(cfg);
           for (String file : CommitUtils.getChangedPaths(
               repo, receiveEvent.commit)) {
-            String ext = Files.getFileExtension(file);
-            for (int i = 0; i < blockedFileExtensions.length; i++) {
-              if (ext.equalsIgnoreCase(blockedFileExtensions[i])) {
-                messages.add(new CommitValidationMessage("blocked file: " + file, true));
+            for (String blockedExtension : lowercaseExtensions) {
+              if (file.toLowerCase().endsWith(blockedExtension)) {
+                messages.add(
+                    new CommitValidationMessage("blocked file: " + file, true));
                 break;
               }
             }
