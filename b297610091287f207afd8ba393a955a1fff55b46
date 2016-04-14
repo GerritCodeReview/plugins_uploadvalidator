@@ -46,6 +46,29 @@
       "revId": "b297610091287f207afd8ba393a955a1fff55b46",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab68629f_f96c9707",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidatorTest.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-14T08:14:48Z",
+      "side": 1,
+      "message": "optional: this could be a List\n\nalso in line 59",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 7
+      },
+      "revId": "b297610091287f207afd8ba393a955a1fff55b46",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
