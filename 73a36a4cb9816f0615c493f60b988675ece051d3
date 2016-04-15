@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab4dc25b_71a6f882",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/MaxPathLengthValidatorTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-15T07:23:50Z",
+      "side": 1,
+      "message": "Use the TOO_LONG constant",
+      "range": {
+        "startLine": 57,
+        "startChar": 47,
+        "endLine": 57,
+        "endChar": 73
+      },
+      "revId": "73a36a4cb9816f0615c493f60b988675ece051d3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
