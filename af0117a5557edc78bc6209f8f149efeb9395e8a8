@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ab4dc25b_51c014fa",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-04-15T08:13:32Z",
+      "side": 1,
+      "message": "1. Done\n2. It starts with ^ to show that this is a regex. But it is not necessary. I change one line to the old style.",
+      "parentUuid": "2820f890_b5df6020",
+      "range": {
+        "startLine": 19,
+        "startChar": 33,
+        "endLine": 19,
+        "endChar": 34
+      },
+      "revId": "af0117a5557edc78bc6209f8f149efeb9395e8a8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2820f890_95dc642c",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidFilenameValidatorTest.java",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-04-15T07:17:10Z",
       "side": 1,
       "message": "... same question here, why now ^.* and .*$",
+      "revId": "af0117a5557edc78bc6209f8f149efeb9395e8a8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab4dc25b_71bd1883",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidFilenameValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-04-15T08:13:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2820f890_95dc642c",
       "revId": "af0117a5557edc78bc6209f8f149efeb9395e8a8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
