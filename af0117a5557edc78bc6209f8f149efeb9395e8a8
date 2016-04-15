@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2820f890_b5df6020",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-15T07:17:10Z",
+      "side": 1,
+      "message": "1. Shouldn\u0027t the backslash(es) be themselves escaped (doubled) like in the line above? I think that JGit\u0027s Config file parser takes one level of escaping for itself during parsing.\n\n2. Both regexes now start with \"^.*\" and end with \".*$\" which wasn\u0027t the case before this change. Is this really necessary?",
+      "range": {
+        "startLine": 19,
+        "startChar": 33,
+        "endLine": 19,
+        "endChar": 34
+      },
+      "revId": "af0117a5557edc78bc6209f8f149efeb9395e8a8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2820f890_95dc642c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidFilenameValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-15T07:17:10Z",
+      "side": 1,
+      "message": "... same question here, why now ^.* and .*$",
+      "revId": "af0117a5557edc78bc6209f8f149efeb9395e8a8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
