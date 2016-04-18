@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab4dc25b_b4204ee4",
+        "filename": "BUCK",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-18T13:32:56Z",
+      "side": 1,
+      "message": "Mention this (new) dependency in the commit message and explain why it is needed",
+      "revId": "9155cfd9a7d6b3133562aaabfdcdcaac182a3678",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab4dc25b_f41ad6b3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-18T13:32:56Z",
+      "side": 1,
+      "message": "nit: static before non-static\n\nAnnotate with @VisibleForTesting",
+      "revId": "9155cfd9a7d6b3133562aaabfdcdcaac182a3678",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2820f890_55d12c48",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-18T13:32:56Z",
+      "side": 1,
+      "message": "nit: public before private",
+      "revId": "9155cfd9a7d6b3133562aaabfdcdcaac182a3678",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab4dc25b_14303a2d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-18T13:32:56Z",
+      "side": 1,
+      "message": "I would change the signature to:\n\n  @VisibleForTesting\n  boolean matchesAny(String s, String[] patterns) {\n    ...\n\nbecause this method really only checks if the given string \"s\" matches any of the given patterns (which can be a regex, a wildcard or a string).",
+      "revId": "9155cfd9a7d6b3133562aaabfdcdcaac182a3678",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2820f890_55ba4c02",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-18T13:32:56Z",
+      "side": 1,
+      "message": "rename to \"p\"",
+      "range": {
+        "startLine": 89,
+        "startChar": 16,
+        "endLine": 89,
+        "endChar": 27
+      },
+      "revId": "9155cfd9a7d6b3133562aaabfdcdcaac182a3678",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab4dc25b_342d3ed8",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-18T13:32:56Z",
+      "side": 1,
+      "message": "How do we specify a content type? Provide some examples for valid content types and a link to the Apache Tika where it documents all supported content types?",
+      "revId": "9155cfd9a7d6b3133562aaabfdcdcaac182a3678",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2820f890_35afd0c4",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-18T13:32:56Z",
+      "side": 1,
+      "message": "Why do we need a maximumSize for testing? Actually for testing it doesn\u0027t really matter if an entry is evicted from the cache so we could just use zero here.",
+      "range": {
+        "startLine": 124,
+        "startChar": 49,
+        "endLine": 124,
+        "endChar": 54
+      },
+      "revId": "9155cfd9a7d6b3133562aaabfdcdcaac182a3678",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2820f890_f5c83895",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-18T13:32:56Z",
+      "side": 1,
+      "message": "This is also not relevant for testing",
+      "revId": "9155cfd9a7d6b3133562aaabfdcdcaac182a3678",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
