@@ -1,0 +1,595 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88dc84fe_10fba45d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "e.g.",
+      "range": {
+        "startLine": 9,
+        "startChar": 43,
+        "endLine": 9,
+        "endChar": 48
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_30002825",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "a config parameter",
+      "range": {
+        "startLine": 10,
+        "startChar": 64,
+        "endLine": 10,
+        "endChar": 70
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_31003025",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "This is almost the same as the subject, remove it.",
+      "range": {
+        "startLine": 13,
+        "startChar": 31,
+        "endLine": 14,
+        "endChar": 19
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_d1144469",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "config parameter",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 14
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_f1114876",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "is removed and a new parameter binaryType is introduced to configure which content types are considered binary.",
+      "range": {
+        "startLine": 16,
+        "startChar": 47,
+        "endLine": 17,
+        "endChar": 21
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_b10bc044",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "content type",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_71af985c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "provided MimeUtil2 library from Gerrit\u0027s plugin-api",
+      "range": {
+        "startLine": 22,
+        "startChar": 38,
+        "endLine": 22,
+        "endChar": 69
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_11b40cac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "Also,",
+      "range": {
+        "startLine": 23,
+        "startChar": 69,
+        "endLine": 23,
+        "endChar": 72
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_f0114076",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "wrongly detects, for example, the content type of project.config as application/octet-stream. Apache Tika properly detects content type of the project.config as text/plain.",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 67
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_f19aa838",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "this is a good chance to apply the new formatting style: one line per parameter\n\ncan also be done in a predecessor change",
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_31b910a3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "if this is instance method then we don\u0027t have to pass the contentTypeUtil around",
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_900eb455",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "nit: this helper method is only used form the isBinary below, move it below the (public) isBinary method",
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_d19d2433",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "matchesAny",
+      "range": {
+        "startLine": 90,
+        "startChar": 10,
+        "endLine": 90,
+        "endChar": 23
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_b00bb844",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "patterns",
+      "range": {
+        "startLine": 90,
+        "startChar": 43,
+        "endLine": 90,
+        "endChar": 54
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_50aa8c4d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "also here apply the new formatting style: one line per parameter",
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_910ebc55",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "binaryType\n\nThis is not really a good example as text/* is usually not a binary type",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_f09aa038",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "this could reference the binaryType below",
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_b1a4207b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "binaryType",
+      "range": {
+        "startLine": 74,
+        "startChar": 16,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_90a7947f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "Let this be the first sentence.",
+      "range": {
+        "startLine": 78,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 73
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_71d8f8f4",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "Using this option it is possible to configure which content types are considered binary types.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 52
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_50d36cdb",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "parameter",
+      "range": {
+        "startLine": 82,
+        "startChar": 27,
+        "endLine": 82,
+        "endChar": 34
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_b0a4187b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "honor",
+      "range": {
+        "startLine": 82,
+        "startChar": 14,
+        "endLine": 82,
+        "endChar": 21
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_31d270d5",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "remove this completely because the documentation for individual validators which don\u0027t run on binary types should refer to this parameter",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 27
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_70d8f0f4",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "Content type can be specified as a string, wildcard or a regular expression, for example:\n\n- application/zip\n- application/*\n- ^application/(pdf|xml)\n\nAs usual, the \"^\" prefix is used to denote that the value is a regular expression.",
+      "range": {
+        "startLine": 89,
+        "startChar": 1,
+        "endLine": 89,
+        "endChar": 41
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_90c0f4fb",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtilTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "testMatchAny",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 31
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88dc84fe_b0bdf884",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtilTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "patterns",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 24
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8d5c8d0_b1bd0085",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T14:40:36Z",
+      "side": 1,
+      "message": "this could be a constant:\n\n\n  public static final LoadingCache\u003cString, Pattern\u003e PATTERN_CACHE \u003d\n    CacheBuilder.newBuilder().build(new PatternCacheModule.Loader());",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 3
+      },
+      "revId": "323ba93d00def603cc632cede0f3aca510354ef1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
