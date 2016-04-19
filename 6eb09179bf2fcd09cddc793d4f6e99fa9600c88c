@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88dc84fe_d0ebdc92",
+        "filename": "lib/gerrit/BUCK",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-19T13:07:41Z",
+      "side": 1,
+      "message": "move this two lines down to keep the order consistent with the previous maven_jar",
+      "revId": "6eb09179bf2fcd09cddc793d4f6e99fa9600c88c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
