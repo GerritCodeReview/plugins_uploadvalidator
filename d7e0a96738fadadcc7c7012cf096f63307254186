@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48d52c29_3625189f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-04-21T07:26:02Z",
+      "side": 1,
+      "message": "this could be better formatted",
+      "range": {
+        "startLine": 96,
+        "startChar": 32,
+        "endLine": 97,
+        "endChar": 11
+      },
+      "revId": "d7e0a96738fadadcc7c7012cf096f63307254186",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
