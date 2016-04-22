@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
+import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -74,8 +75,10 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
   @Test
   public void testKeywords() throws Exception {
     RevCommit c = makeCommit();
-    List<CommitValidationMessage> m = BlockedKeywordValidator
-        .performValidation(repo, c, getPatterns().values());
+    BlockedKeywordValidator validator = new BlockedKeywordValidator(null,
+        new ContentTypeUtil(PATTERN_CACHE), PATTERN_CACHE, null, null);
+    List<CommitValidationMessage> m = validator.performValidation(
+        repo, c, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
     Set<String> expected = ImmutableSet.of(
         "ERROR: blocked keyword(s) found in file: foo.txt (Line: 1)"
             + " (found: myp4ssw0rd, foobar)",
