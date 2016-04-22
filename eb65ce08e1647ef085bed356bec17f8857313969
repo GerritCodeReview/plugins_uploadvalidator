@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28d0f83a_d8bdf1d9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-04-22T12:17:23Z",
+      "side": 1,
+      "message": "static methods first",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 3
+      },
+      "revId": "eb65ce08e1647ef085bed356bec17f8857313969",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48d52c29_d90f3786",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeValidator.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-04-22T12:17:23Z",
+      "side": 1,
+      "message": "Remove static to use contentTypeUtil from instance.\nPass PluginConfig instead of whitelist and blockedTypes",
+      "range": {
+        "startLine": 130,
+        "startChar": 6,
+        "endLine": 130,
+        "endChar": 37
+      },
+      "revId": "eb65ce08e1647ef085bed356bec17f8857313969",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
