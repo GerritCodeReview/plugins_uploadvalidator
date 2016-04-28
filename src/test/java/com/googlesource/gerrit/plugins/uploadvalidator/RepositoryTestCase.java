@@ -22,7 +22,7 @@ import org.junit.Before;
 import java.io.File;
 import java.io.IOException;
 
-public abstract class ValidatorTestCase {
+public class RepositoryTestCase {
   protected File repoFolder;
   protected Repository repo;
 

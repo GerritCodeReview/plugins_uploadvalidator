@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
+public class InvalidLineEndingValidatorTest extends RepositoryTestCase {
   private RevCommit makeCommit()
       throws NoFilepatternException, IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();

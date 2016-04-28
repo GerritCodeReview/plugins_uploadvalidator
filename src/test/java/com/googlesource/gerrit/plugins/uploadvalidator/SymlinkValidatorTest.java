@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class SymlinkValidatorTest extends ValidatorTestCase {
+public class SymlinkValidatorTest extends RepositoryTestCase {
   private RevCommit makeCommitWithSymlink()
       throws NoFilepatternException, IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();

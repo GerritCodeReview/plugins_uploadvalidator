@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SubmoduleValidatorTest extends ValidatorTestCase {
+public class SubmoduleValidatorTest extends RepositoryTestCase {
   private RevCommit makeCommitWithSubmodule()
       throws NoFilepatternException, IOException, GitAPIException {
     try (Git git = new Git(repo)) {

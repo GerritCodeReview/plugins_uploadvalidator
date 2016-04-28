@@ -32,7 +32,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class MaxPathLengthValidatorTest extends ValidatorTestCase {
+public class MaxPathLengthValidatorTest extends RepositoryTestCase {
   private static final String TOO_LONG = "foo/bar/test/too/long.java";
   private static final String GOOD = "not/too/long.c";
 

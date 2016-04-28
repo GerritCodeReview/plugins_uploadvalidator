@@ -19,7 +19,7 @@ import java.util.Set;
 
 import autovalue.shaded.com.google.common.common.collect.Lists;
 
-public class FileExtensionValidatorTest extends ValidatorTestCase {
+public class FileExtensionValidatorTest extends RepositoryTestCase {
   private static final List<String> BLOCKED_EXTENSIONS_LC =
       Lists.newArrayList("jpeg", "pdf", "zip", "exe", "tar.gz");
   private static final List<String> BLOCKED_EXTENSIONS_UC =
