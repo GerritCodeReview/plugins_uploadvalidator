@@ -36,7 +36,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-public class BlockedKeywordValidatorTest extends ValidatorTestCase {
+public class BlockedKeywordValidatorTest extends RepositoryTestCase {
   private static ImmutableMap<String, Pattern> getPatterns() {
     return ImmutableMap.<String, Pattern> builder()
         .put("myp4ssw0rd", Pattern.compile("myp4ssw0rd"))

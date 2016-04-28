@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ContentTypeValidatorTest extends ValidatorTestCase {
+public class ContentTypeValidatorTest extends RepositoryTestCase {
 
   private byte[] getExamplePDF() {
     String pdf = "%PDF-1.4\n"

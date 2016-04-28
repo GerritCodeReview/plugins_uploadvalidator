@@ -30,7 +30,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class InvalidFilenameValidatorTest extends ValidatorTestCase {
+public class InvalidFilenameValidatorTest extends RepositoryTestCase {
   private Set<String> getInvalidFilenames() {
     Set<String> filenames = new HashSet<>();
     filenames.add("test#");

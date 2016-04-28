@@ -28,10 +28,12 @@ import java.util.Map;
 import java.util.Set;
 
 public class CommitUtils {
-
   /**
    * This method spots all files which differ between the passed commit and its
    * parents. The paths of the spotted files will be returned as a Set.
+   *
+   * Deleted files will be ignored, because validation of a deleted file is
+   * not necessary.
    *
    * @param repo The repository
    * @param c The commit
@@ -54,6 +56,10 @@ public class CommitUtils {
    * <li> Key: Path to the changed file.</li>
    * <li> Value: ObjectId of the changed file.</li>
    * <ul>
+   *
+   * Deleted files will be ignored, because validation of a deleted file is
+   * not necessary.
+   *
    * @param repo The repository
    * @param c The commit
    * @return A Map containing all files which differ between the passed commit
