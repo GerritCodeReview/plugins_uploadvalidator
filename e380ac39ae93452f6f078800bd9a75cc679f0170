@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "778e56f1_803756ee",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 25
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2016-05-12T20:25:01Z",
+      "side": 1,
+      "message": "types",
+      "range": {
+        "startLine": 151,
+        "startChar": 9,
+        "endLine": 151,
+        "endChar": 13
+      },
+      "revId": "e380ac39ae93452f6f078800bd9a75cc679f0170",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97874ad1_6149f67e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 25
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2016-05-12T20:25:01Z",
+      "side": 1,
+      "message": "As usual in Gerrit",
+      "range": {
+        "startLine": 158,
+        "startChar": 1,
+        "endLine": 158,
+        "endChar": 9
+      },
+      "revId": "e380ac39ae93452f6f078800bd9a75cc679f0170",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97874ad1_814e7a86",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 25
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2016-05-12T20:25:01Z",
+      "side": 1,
+      "message": "contain",
+      "range": {
+        "startLine": 170,
+        "startChar": 28,
+        "endLine": 170,
+        "endChar": 36
+      },
+      "revId": "e380ac39ae93452f6f078800bd9a75cc679f0170",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "778e56f1_40414e4c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 25
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2016-05-12T20:25:01Z",
+      "side": 1,
+      "message": "This option is ignored if no content type pattern is specified.",
+      "range": {
+        "startLine": 173,
+        "startChar": 1,
+        "endLine": 174,
+        "endChar": 39
+      },
+      "revId": "e380ac39ae93452f6f078800bd9a75cc679f0170",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
