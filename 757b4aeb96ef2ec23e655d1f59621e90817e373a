@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "778e56f1_800196f9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-05-13T08:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "778e56f1_c07a3ea7",
+      "range": {
+        "startLine": 78,
+        "startChar": 23,
+        "endLine": 78,
+        "endChar": 35
+      },
+      "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "778e56f1_6049f27e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
         "patchSetId": 38
@@ -36,6 +60,30 @@
       "writtenOn": "2016-05-12T20:18:09Z",
       "side": 1,
       "message": "caused by comparing pathnames with different locales",
+      "range": {
+        "startLine": 83,
+        "startChar": 35,
+        "endLine": 83,
+        "endChar": 80
+      },
+      "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "778e56f1_20068a10",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-05-13T08:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "778e56f1_6049f27e",
       "range": {
         "startLine": 83,
         "startChar": 35,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "97874ad1_a12ffe91",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-05-13T08:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "778e56f1_804e7686",
+      "range": {
+        "startLine": 136,
+        "startChar": 56,
+        "endLine": 136,
+        "endChar": 64
+      },
+      "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "778e56f1_40486e78",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
         "patchSetId": 38
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "97874ad1_611b366f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-05-13T08:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "778e56f1_40486e78",
+      "range": {
+        "startLine": 184,
+        "startChar": 27,
+        "endLine": 184,
+        "endChar": 29
+      },
+      "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97874ad1_416f12ee",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
         "patchSetId": 38
@@ -105,6 +201,24 @@
       "writtenOn": "2016-05-12T20:18:09Z",
       "side": 1,
       "message": "it looks like if you return here you \n* do not fail as fast as possible (otherwise you would fail on the first duplicate you find in either checkForDuplicatesWithinThisSet() or in checkForDuplicatesAgainstTheWholeTree())\n* and potentially you miss some duplicates checkForDuplicatesAgainstTheWholeTree() may find if you would not return if you already found some duplicates in checkForDuplicatesWithinThisSet()\n\nso what\u0027s the intention ? Fail fast or find all duplicates ?",
+      "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "778e56f1_0036e6d6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-05-13T08:24:53Z",
+      "side": 1,
+      "message": "checkForDuplicatesWithinThisSet() is cheap, so we will find all duplicates within the set of changed files.\n\ncheckForDuplicatesAgainstTheWholeTree() is expensiv, so we only run this check, if we found no duplicates within the set of changed files. But when we check against the whole tree, then we will search for all duplicates.",
+      "parentUuid": "97874ad1_416f12ee",
       "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -180,6 +294,30 @@
     },
     {
       "key": {
+        "uuid": "97874ad1_81019af9",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-05-13T08:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "778e56f1_005a663d",
+      "range": {
+        "startLine": 186,
+        "startChar": 22,
+        "endLine": 186,
+        "endChar": 41
+      },
+      "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "778e56f1_a0561a18",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 38
@@ -191,6 +329,30 @@
       "writtenOn": "2016-05-12T20:18:09Z",
       "side": 1,
       "message": "case insensitive filesystems commonly used e.g. on Windows or Mac",
+      "range": {
+        "startLine": 187,
+        "startChar": 32,
+        "endLine": 187,
+        "endChar": 39
+      },
+      "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "778e56f1_a0329adf",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-05-13T08:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "778e56f1_a0561a18",
       "range": {
         "startLine": 187,
         "startChar": 32,
@@ -226,6 +388,30 @@
     },
     {
       "key": {
+        "uuid": "97874ad1_21068e10",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-05-13T08:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "778e56f1_e05c223c",
+      "range": {
+        "startLine": 190,
+        "startChar": 31,
+        "endLine": 190,
+        "endChar": 68
+      },
+      "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "778e56f1_c0531e27",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 38
@@ -249,6 +435,30 @@
     },
     {
       "key": {
+        "uuid": "97874ad1_410b9215",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-05-13T08:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "778e56f1_c0531e27",
+      "range": {
+        "startLine": 192,
+        "startChar": 40,
+        "endLine": 192,
+        "endChar": 59
+      },
+      "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97874ad1_a17dbea1",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
         "patchSetId": 38
@@ -260,6 +470,30 @@
       "writtenOn": "2016-05-12T20:18:09Z",
       "side": 1,
       "message": "this is hard tor read, maybe better MESSAGE_TRANSFORMER",
+      "range": {
+        "startLine": 53,
+        "startChar": 65,
+        "endLine": 53,
+        "endChar": 81
+      },
+      "revId": "757b4aeb96ef2ec23e655d1f59621e90817e373a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97874ad1_010d8a26",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/TestUtils.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1024297
+      },
+      "writtenOn": "2016-05-13T08:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97874ad1_a17dbea1",
       "range": {
         "startLine": 53,
         "startChar": 65,
