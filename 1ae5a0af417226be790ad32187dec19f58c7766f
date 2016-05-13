@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f25174a9_7c2119ee",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-05-13T11:10:11Z",
+      "side": 1,
+      "message": "changed or changedPaths",
+      "range": {
+        "startLine": 110,
+        "startChar": 16,
+        "endLine": 110,
+        "endChar": 25
+      },
+      "revId": "1ae5a0af417226be790ad32187dec19f58c7766f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d24c7016_7b3a7f24",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-05-13T11:10:11Z",
+      "side": 1,
+      "message": "optional: name it paths or allPaths",
+      "range": {
+        "startLine": 151,
+        "startChar": 16,
+        "endLine": 151,
+        "endChar": 31
+      },
+      "revId": "1ae5a0af417226be790ad32187dec19f58c7766f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f25174a9_3c1b91ba",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-05-13T11:10:11Z",
+      "side": 1,
+      "message": "this check can be skipped as add will not add again if the element already exists in that set",
+      "revId": "1ae5a0af417226be790ad32187dec19f58c7766f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f25174a9_dc7aaddf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-05-13T11:10:11Z",
+      "side": 1,
+      "message": "No need to initialize if the condition in the next line is true",
+      "revId": "1ae5a0af417226be790ad32187dec19f58c7766f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d24c7016_5b3d4319",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-05-13T11:10:11Z",
+      "side": 1,
+      "message": "This interprets the parameter as a regex which means it has to compile it every time. Use guava Splitter:\n\n  tmpFolders \u003d Splitter.on(\u0027/\u0027).split(path);\n\nThe Splitter created by Splitter.on(\u0027/\u0027) could be stored as a static member:\n\n  private static final Splitter splitOnSlash \u003d Splitter.on(\u0027/\u0027);",
+      "range": {
+        "startLine": 177,
+        "startChar": 31,
+        "endLine": 177,
+        "endChar": 41
+      },
+      "revId": "1ae5a0af417226be790ad32187dec19f58c7766f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f25174a9_1c1ed5a9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidator.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-05-13T11:10:11Z",
+      "side": 1,
+      "message": "Could be done with just using String.indexOf(ch[, fromIndex])",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 19
+      },
+      "revId": "1ae5a0af417226be790ad32187dec19f58c7766f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f25174a9_5c245dff",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/DuplicatePathnameValidatorTest.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-05-13T11:10:11Z",
+      "side": 1,
+      "message": "This represents set of changed paths, name it CHANGED_PATHNAMES.\nOr just CHANGED_PATHS?",
+      "range": {
+        "startLine": 104,
+        "startChar": 21,
+        "endLine": 104,
+        "endChar": 35
+      },
+      "revId": "1ae5a0af417226be790ad32187dec19f58c7766f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
