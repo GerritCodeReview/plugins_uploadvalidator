@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "883645c6_e9a3d55d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CaseInsensitiveFilter.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-05-13T11:10:11Z",
+      "side": 1,
+      "message": "nit: space before",
+      "range": {
+        "startLine": 55,
+        "startChar": 6,
+        "endLine": 55,
+        "endChar": 7
+      },
+      "revId": "96715201bbf95e800d8ea1c523d75b2c2d99a250",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
