@@ -22,15 +22,16 @@ class Module extends AbstractModule {
   protected void configure() {
     install(new PatternCacheModule());
     install(ContentTypeUtil.module());
-    install(BlockedKeywordValidator.module());
-    install(DuplicatePathnameValidator.module());
-    install(FileExtensionValidator.module());
+
     install(FooterValidator.module());
-    install(InvalidFilenameValidator.module());
-    install(InvalidLineEndingValidator.module());
     install(MaxPathLengthValidator.module());
-    install(ContentTypeValidator.module());
+    install(FileExtensionValidator.module());
+    install(InvalidFilenameValidator.module());
     install(SubmoduleValidator.module());
     install(SymlinkValidator.module());
+    install(BlockedKeywordValidator.module());
+    install(InvalidLineEndingValidator.module());
+    install(ContentTypeValidator.module());
+    install(DuplicatePathnameValidator.module());
   }
 }
