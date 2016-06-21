@@ -19,6 +19,7 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.PatternCacheModule
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.cache.LoadingCache;
 import com.google.gerrit.extensions.annotations.Exports;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.inject.AbstractModule;
@@ -48,7 +49,7 @@ public class ContentTypeUtil {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_BINARY_TYPES))
             .toInstance(new ProjectConfigEntry("Binary Types", null,
-                ProjectConfigEntry.Type.ARRAY, null, false,
+                ProjectConfigEntryType.ARRAY, null, false,
                 "At the moment, there is no ideal solution to detect binary "
                     + "files. But some checks shouldn't run on binary files "
                     + "(e. g. InvalidLineEndingCheck). Because of that you can "

@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -55,13 +56,13 @@ public class ContentTypeValidator implements CommitValidationListener {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_BLOCKED_CONTENT_TYPE))
             .toInstance(new ProjectConfigEntry("Blocked Content Type", null,
-                ProjectConfigEntry.Type.ARRAY, null, false,
+                ProjectConfigEntryType.ARRAY, null, false,
                 "Pushes of commits that contain files with blocked content "
                     + "types will be rejected."));
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_BLOCKED_CONTENT_TYPE_WHITELIST))
             .toInstance(new ProjectConfigEntry("Blocked Content Type Whitelist",
-                "false", ProjectConfigEntry.Type.BOOLEAN, null, false,
+                "false", ProjectConfigEntryType.BOOLEAN, null, false,
                 "If this option is checked, the entered content types are "
                     + "interpreted as a whitelist. Otherwise commits that "
                     + "contain one of these content types will be rejected."));

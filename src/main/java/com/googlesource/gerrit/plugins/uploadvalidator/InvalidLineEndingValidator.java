@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -57,7 +58,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
             .annotatedWith(
                 Exports.named(KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS))
             .toInstance(new ProjectConfigEntry("Reject Windows Line Endings",
-                "false", ProjectConfigEntry.Type.BOOLEAN, null, false,
+                "false", ProjectConfigEntryType.BOOLEAN, null, false,
                 "Windows line endings. Pushes of commits that include files "
                     + "containing carriage return (CR) characters will be "
                     + "rejected."));

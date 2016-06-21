@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -51,7 +52,7 @@ public class InvalidFilenameValidator implements CommitValidationListener {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_INVALID_FILENAME_PATTERN))
             .toInstance(new ProjectConfigEntry("Invalid Filename Pattern", null,
-                ProjectConfigEntry.Type.ARRAY, null, false,
+                ProjectConfigEntryType.ARRAY, null, false,
                 "Invalid filenames. Pushes of commits that contain filenames "
                     + "which match one of these patterns will be rejected."));
       }

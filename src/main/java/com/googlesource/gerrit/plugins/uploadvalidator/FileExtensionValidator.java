@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -51,7 +52,7 @@ public class FileExtensionValidator implements CommitValidationListener {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_BLOCKED_FILE_EXTENSION))
             .toInstance(new ProjectConfigEntry("Blocked File Extensions", null,
-                ProjectConfigEntry.Type.ARRAY, null, false,
+                ProjectConfigEntryType.ARRAY, null, false,
                 "Forbidden file extensions. Pushes of commits that "
                     + "contain files with these extensions will be rejected."));
       }

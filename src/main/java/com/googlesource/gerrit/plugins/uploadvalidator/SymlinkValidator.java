@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -51,7 +52,7 @@ public class SymlinkValidator implements CommitValidationListener {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_CHECK_SYMLINK))
             .toInstance(new ProjectConfigEntry("Reject Symbolic Links", "false",
-                ProjectConfigEntry.Type.BOOLEAN, null, false,
+                ProjectConfigEntryType.BOOLEAN, null, false,
                 "Symbolic Links. Pushes of commits that include symbolic "
                     + "links will be rejected."));
       }

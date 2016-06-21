@@ -23,6 +23,7 @@ import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableMap;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -70,7 +71,7 @@ public class BlockedKeywordValidator implements CommitValidationListener {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_CHECK_BLOCKED_KEYWORD_PATTERN))
             .toInstance(new ProjectConfigEntry("Blocked Keyword Pattern", null,
-                ProjectConfigEntry.Type.ARRAY, null, false,
+                ProjectConfigEntryType.ARRAY, null, false,
                 "Pushes of commits that contain files with blocked keywords "
                     + "will be rejected."));
       }

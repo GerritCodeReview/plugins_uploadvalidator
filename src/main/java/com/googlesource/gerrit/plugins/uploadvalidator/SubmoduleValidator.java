@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -51,7 +52,7 @@ public class SubmoduleValidator implements CommitValidationListener {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_CHECK_SUBMODULE))
             .toInstance(new ProjectConfigEntry("Reject Submodules", "false",
-                ProjectConfigEntry.Type.BOOLEAN, null, false, "Pushes of "
+                ProjectConfigEntryType.BOOLEAN, null, false, "Pushes of "
                     + "commits that include submodules will be rejected."));
       }
     };

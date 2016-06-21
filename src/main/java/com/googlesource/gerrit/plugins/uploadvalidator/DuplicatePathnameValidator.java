@@ -20,6 +20,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -71,7 +72,7 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_REJECT_DUPLICATE_PATHNAMES))
             .toInstance(new ProjectConfigEntry("Reject Duplicate Pathnames",
-                null, ProjectConfigEntry.Type.BOOLEAN, null, false,
+                null, ProjectConfigEntryType.BOOLEAN, null, false,
                 "Pushes of commits that contain duplicate pathnames, or that "
                     + "contain duplicates of existing pathnames will be "
                     + "rejected. Pathnames y and z are considered to be "
@@ -79,7 +80,7 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_REJECT_DUPLICATE_PATHNAMES_LOCALE))
             .toInstance(new ProjectConfigEntry("Reject Duplicate Pathnames Locale",
-                "en", ProjectConfigEntry.Type.STRING, getAvailableLocales(), false,
+                "en", ProjectConfigEntryType.STRING, getAvailableLocales(), false,
                 "To avoid problems caused by comparing pathnames with different "
                     + "locales it is possible to use a specific locale. The "
                     + "default is English (en)."));

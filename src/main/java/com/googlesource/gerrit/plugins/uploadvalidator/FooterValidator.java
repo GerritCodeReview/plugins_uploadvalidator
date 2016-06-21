@@ -18,6 +18,7 @@ import com.google.common.base.Function;
 import com.google.common.collect.FluentIterable;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -50,7 +51,7 @@ public class FooterValidator implements CommitValidationListener {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_REQUIRED_FOOTER))
             .toInstance(new ProjectConfigEntry("Required Footers", null,
-                ProjectConfigEntry.Type.ARRAY, null, false,
+                ProjectConfigEntryType.ARRAY, null, false,
                 "Required footers. Pushes of commits that miss any"
                     + " of the footers will be rejected."));
       }
