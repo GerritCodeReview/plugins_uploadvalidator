@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import autovalue.shaded.com.google.common.common.collect.Lists;
+import com.google.common.collect.Lists;
 
 public class FileExtensionValidatorTest extends ValidatorTestCase {
   private static final List<String> BLOCKED_EXTENSIONS_LC =
