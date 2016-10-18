@@ -18,6 +18,6 @@ import org.eclipse.jgit.treewalk.TreeWalk;
 
 public interface TreeWalkVisitor {
 
-  public void onVisit(TreeWalk tw);
+  void onVisit(TreeWalk tw);
 
 }

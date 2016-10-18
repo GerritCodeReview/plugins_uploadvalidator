@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class ListVisitedPathsFilter extends TreeFilter {
-  private List<String> visitedPaths = null;
+  private List<String> visitedPaths;
 
   public ListVisitedPathsFilter(List<String> visitedPaths) {
     super();
