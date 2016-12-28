@@ -1,5 +1,8 @@
+@PLUGIN@
+========
+
 Configuration
-=============
+-------------
 
 The configuration of the @PLUGIN@ plugin is done on project level in
 the `project.config` file of the project.
@@ -41,28 +44,21 @@ plugin.@PLUGIN@.blockedFileExtension
 	blocked file extensions with or without a leading dot. This check
 	only test if the filename ends with one of the defined values.
 
-	Blocked file extensions are *not* inherited by child projects.
-
 plugin.@PLUGIN@.requiredFooter
 :	Footer that is required.
 
-	Required footers are *not* inherited by child projects.
+	This is the footer in the commit message.
 
 plugin.@PLUGIN@.maxPathLength
 :	Maximum allowed path length. '0' means no limit.
 
 	Defaults to '0'.
 
-	The maximum allowed path length is *not* inherited by child
-	projects.
-
 plugin.@PLUGIN@.invalidFilenamePattern
 :	Patterns for invalid filenames.
 
 	This check is using `java.util.regex.Pattern` which is described
 	[here][1].
-
-	Defined patterns are *not* inherited by child projects.
 
 plugin.@PLUGIN@.rejectWindowsLineEndings
 :	Reject Windows line endings.
@@ -74,8 +70,6 @@ plugin.@PLUGIN@.rejectWindowsLineEndings
 	This check does not run on [binary files][4]
 
 	The default value is false. This means the check will not be executed.
-
-	This option is *not* inherited by child projects.
 
 <a name="binary_type">
 plugin.@PLUGIN@.binaryType
@@ -99,8 +93,6 @@ plugin.@PLUGIN@.binaryType
 
 	Full list of supported content types can be found [here][3].
 
-	This option is *not* inherited by child projects.
-
 plugin.@PLUGIN@.rejectSymlink
 :	Reject symbolic links.
 
@@ -109,8 +101,6 @@ plugin.@PLUGIN@.rejectSymlink
 
 	The default value is false. This means the check will not be executed.
 
-	This option is *not* inherited by child projects.
-
 plugin.@PLUGIN@.rejectSubmodule
 :	Reject submodules.
 
@@ -118,8 +108,6 @@ plugin.@PLUGIN@.rejectSubmodule
 	the check finds a submodule the push will be rejected.
 
 	The default value is false. This means the check will not be executed.
-
-	This option is *not* inherited by child projects.
 
 plugin.@PLUGIN@.blockedKeywordPattern
 :	Patterns for blocked keywords.
@@ -134,8 +122,6 @@ plugin.@PLUGIN@.blockedKeywordPattern
 	`java.util.regex.Pattern` which is described [here][1].
 
 	This check does not run on [binary files][4]
-
-	Defined patterns are *not* inherited by child projects.
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
 [2]: https://tika.apache.org/
@@ -162,8 +148,6 @@ plugin.@PLUGIN@.blockedContentType
 
 	Full list of supported content types can be found [here][3].
 
-	Defined patterns are *not* inherited by child projects.
-
 plugin.@PLUGIN@.blockedContentTypeWhitelist
 :	Blocked content type whitelist.
 
@@ -178,8 +162,6 @@ plugin.@PLUGIN@.blockedContentTypeWhitelist
 	The default value is false. This means the entered content types are
 	interpreted as a blacklist.
 
-	Defined patterns are *not* inherited by child projects.
-
 plugin.@PLUGIN@.rejectDuplicatePathnames
 :	Reject duplicate pathnames.
 
@@ -190,8 +172,6 @@ plugin.@PLUGIN@.rejectDuplicatePathnames
 
 	The default value is false. This means duplicate pathnames ignoring
 	case are allowed.
-
-	This option is *not* inherited by child projects.
 
 plugin.@PLUGIN@.rejectDuplicatePathnamesLocale
 :	Reject duplicate pathnames locale.
@@ -206,7 +186,23 @@ plugin.@PLUGIN@.rejectDuplicatePathnamesLocale
 
 	The default value is "en" (English).
 
-	This option is *not* inherited by child projects.
-
 [5]: http://bugs.java.com/view_bug.do?bug_id=6208680
 [6]: http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html
+
+
+UI Integration
+--------------
+
+This @PLUGIN@ configuration is read from the project.config, editable from
+the general project settings screen.
+E.g. /admin/projects/myrepo for a project named 'myrepo'
+
+Inheritance
+-----------
+
+The configuration parameters for this plugin are inheritable, meaning that
+child projects can inherit settings from a parent project.
+The mechanism for evaluating the combined parameters follows the standard
+[Project's inheritance rules][7].
+
+[7]: config-project-config.html#file-project_config
