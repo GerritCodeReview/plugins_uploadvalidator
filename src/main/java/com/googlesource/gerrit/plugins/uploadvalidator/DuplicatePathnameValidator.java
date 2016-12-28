@@ -166,7 +166,8 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
     try {
       PluginConfig cfg = cfgFactory
-          .getFromProjectConfig(receiveEvent.project.getNameKey(), pluginName);
+          .getFromProjectConfigWithInheritance(
+              receiveEvent.project.getNameKey(), pluginName);
       if (!isActive(cfg)) {
         return Collections.emptyList();
       }
