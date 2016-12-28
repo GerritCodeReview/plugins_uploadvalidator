@@ -74,7 +74,7 @@ public class FooterValidator implements CommitValidationListener {
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
     try {
       PluginConfig cfg =
-          cfgFactory.getFromProjectConfig(
+          cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       String[] requiredFooters =
           cfg.getStringList(KEY_REQUIRED_FOOTER);

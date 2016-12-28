@@ -79,7 +79,7 @@ public class MaxPathLengthValidator implements CommitValidationListener {
       CommitReceivedEvent receiveEvent) throws CommitValidationException {
     try {
       PluginConfig cfg =
-          cfgFactory.getFromProjectConfig(
+          cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (!isActive(cfg)) {
         return Collections.emptyList();
