@@ -59,7 +59,7 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   public void testCarriageReturn() throws Exception {
     RevCommit c = makeCommit();
     InvalidLineEndingValidator validator = new InvalidLineEndingValidator(null,
-        new ContentTypeUtil(PATTERN_CACHE), null, null);
+        new ContentTypeUtil(PATTERN_CACHE), null, null, null);
     List<CommitValidationMessage> m = validator.performValidation(repo, c,
         EMPTY_PLUGIN_CONFIG);
     assertThat(TestUtils.transformMessages(m))
