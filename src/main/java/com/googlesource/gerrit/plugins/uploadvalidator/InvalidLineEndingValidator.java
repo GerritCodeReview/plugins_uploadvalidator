@@ -73,16 +73,19 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
   private final ContentTypeUtil contentTypeUtil;
+  private final ValidatorConfig validatorConfig;
 
   @Inject
   InvalidLineEndingValidator(@PluginName String pluginName,
       ContentTypeUtil contentTypeUtil,
       PluginConfigFactory cfgFactory,
-      GitRepositoryManager repoManager) {
+      GitRepositoryManager repoManager,
+      ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
     this.contentTypeUtil = contentTypeUtil;
+    this.validatorConfig = validatorConfig;
   }
 
   static boolean isActive(PluginConfig cfg) {
@@ -96,16 +99,16 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (!isActive(cfg)) {
-        return Collections.emptyList();
-      }
-      try (Repository repo =
-          repoManager.openRepository(receiveEvent.project.getNameKey())) {
-        List<CommitValidationMessage> messages =
-            performValidation(repo, receiveEvent.commit, cfg);
-        if (!messages.isEmpty()) {
-          throw new CommitValidationException(
-              "contains files with a Windows line ending", messages);
+      if (isActive(cfg) && validatorConfig.isEnabled(
+          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+        try (Repository repo =
+            repoManager.openRepository(receiveEvent.project.getNameKey())) {
+          List<CommitValidationMessage> messages =
+              performValidation(repo, receiveEvent.commit, cfg);
+          if (!messages.isEmpty()) {
+            throw new CommitValidationException(
+                "contains files with a Windows line ending", messages);
+          }
         }
       }
     } catch (NoSuchProjectException | IOException | ExecutionException e) {
