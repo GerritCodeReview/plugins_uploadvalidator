@@ -61,13 +61,16 @@ public class MaxPathLengthValidator implements CommitValidationListener {
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
+  private final ValidatorConfig validatorConfig;
 
   @Inject
   MaxPathLengthValidator(@PluginName String pluginName,
-      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager) {
+      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager,
+      ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
+    this.validatorConfig = validatorConfig;
   }
 
   static boolean isActive(PluginConfig cfg) {
@@ -81,18 +84,18 @@ public class MaxPathLengthValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (!isActive(cfg)) {
-        return Collections.emptyList();
-      }
-      int maxPathLength = cfg.getInt(KEY_MAX_PATH_LENGTH, 0);
-      try (Repository repo =
-          repoManager.openRepository(receiveEvent.project.getNameKey())) {
-        List<CommitValidationMessage> messages =
-            performValidation(repo, receiveEvent.commit, maxPathLength);
-        if (!messages.isEmpty()) {
-          throw new CommitValidationException(
-              "contains files with too long paths (max path length: "
-                  + maxPathLength + ")", messages);
+      if (isActive(cfg) && validatorConfig.isEnabledForRef(
+          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+        int maxPathLength = cfg.getInt(KEY_MAX_PATH_LENGTH, 0);
+        try (Repository repo =
+            repoManager.openRepository(receiveEvent.project.getNameKey())) {
+          List<CommitValidationMessage> messages =
+              performValidation(repo, receiveEvent.commit, maxPathLength);
+          if (!messages.isEmpty()) {
+            throw new CommitValidationException(
+                "contains files with too long paths (max path length: "
+                    + maxPathLength + ")", messages);
+          }
         }
       }
     } catch (NoSuchProjectException | IOException e) {

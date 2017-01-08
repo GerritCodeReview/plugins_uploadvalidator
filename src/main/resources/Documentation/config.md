@@ -206,3 +206,20 @@ The mechanism for evaluating the combined parameters follows the standard
 [Project's inheritance rules][7].
 
 [7]: config-project-config.html#file-project_config
+
+Branch-specific validations
+---------------------------
+
+By default, the validation will be enabled for all branches. However, it can
+be limited to particular branches by setting `plugin.@PLUGIN@.branch`. The
+branches may be configured using specific ref names, ref patterns, or regular
+expressions. Multiple branches may be specified.
+
+E.g. to limit the validation to the `master` branch and all stable
+branches the following could be configured:
+
+```
+  [plugin "@PLUGIN@"]
+    branch = refs/heads/master
+    branch = ^refs/heads/stable-.*
+```
