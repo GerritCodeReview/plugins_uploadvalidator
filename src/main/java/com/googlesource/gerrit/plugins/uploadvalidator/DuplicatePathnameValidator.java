@@ -145,6 +145,7 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
+  private final ValidatorConfig validatorConfig;
 
   private Locale locale;
 
@@ -155,10 +156,12 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
 
   @Inject
   DuplicatePathnameValidator(@PluginName String pluginName,
-      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager) {
+      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager,
+      ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
+    this.validatorConfig = validatorConfig;
   }
 
   @Override
@@ -168,17 +171,17 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
       PluginConfig cfg = cfgFactory
           .getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (!isActive(cfg)) {
-        return Collections.emptyList();
-      }
-      locale = getLocale(cfg);
-      try (Repository repo =
-          repoManager.openRepository(receiveEvent.project.getNameKey())) {
-        List<CommitValidationMessage> messages =
-            performValidation(repo, receiveEvent.commit);
-        if (!messages.isEmpty()) {
-          throw new CommitValidationException("contains duplicate pathnames",
-              messages);
+      if (isActive(cfg) && validatorConfig.isEnabledForRef(
+          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+        locale = getLocale(cfg);
+        try (Repository repo =
+            repoManager.openRepository(receiveEvent.project.getNameKey())) {
+          List<CommitValidationMessage> messages =
+              performValidation(repo, receiveEvent.commit);
+          if (!messages.isEmpty()) {
+            throw new CommitValidationException("contains duplicate pathnames",
+                messages);
+          }
         }
       }
     } catch (NoSuchProjectException | IOException e) {
