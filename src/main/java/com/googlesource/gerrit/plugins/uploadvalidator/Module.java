@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Scopes;
 
 class Module extends AbstractModule {
 
@@ -33,5 +34,8 @@ class Module extends AbstractModule {
     install(InvalidLineEndingValidator.module());
     install(ContentTypeValidator.module());
     install(DuplicatePathnameValidator.module());
+
+    bind(ConfigFactory.class).to(PluginConfigWithInheritanceFactory.class).in(
+        Scopes.SINGLETON);
   }
 }
