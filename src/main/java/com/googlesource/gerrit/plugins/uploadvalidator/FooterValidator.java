@@ -62,11 +62,14 @@ public class FooterValidator implements CommitValidationListener {
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
+  private final ValidatorConfig validatorConfig;
 
   @Inject
-  FooterValidator(@PluginName String pluginName, PluginConfigFactory cfgFactory) {
+  FooterValidator(@PluginName String pluginName, PluginConfigFactory cfgFactory,
+      ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
+    this.validatorConfig = validatorConfig;
   }
 
   @Override
@@ -78,7 +81,8 @@ public class FooterValidator implements CommitValidationListener {
               receiveEvent.project.getNameKey(), pluginName);
       String[] requiredFooters =
           cfg.getStringList(KEY_REQUIRED_FOOTER);
-      if (requiredFooters.length > 0) {
+      if (requiredFooters.length > 0 && validatorConfig.isEnabledForRef(
+          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
         List<CommitValidationMessage> messages = new LinkedList<>();
         Set<String> footers = FluentIterable.from(receiveEvent.commit.getFooterLines())
             .transform(new Function<FooterLine, String>() {
