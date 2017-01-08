@@ -64,13 +64,16 @@ public class InvalidFilenameValidator implements CommitValidationListener {
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
+  private final ValidatorConfig validatorConfig;
 
   @Inject
   InvalidFilenameValidator(@PluginName String pluginName,
-      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager) {
+      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager,
+      ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
+    this.validatorConfig = validatorConfig;
   }
 
   static boolean isActive(PluginConfig cfg) {
@@ -84,17 +87,17 @@ public class InvalidFilenameValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (!isActive(cfg)) {
-        return Collections.emptyList();
-      }
-      try (Repository repo = repoManager.openRepository(
-          receiveEvent.project.getNameKey())) {
-        List<CommitValidationMessage> messages =
-            performValidation(repo, receiveEvent.commit,
-                cfg.getStringList(KEY_INVALID_FILENAME_PATTERN));
-        if (!messages.isEmpty()) {
-          throw new CommitValidationException(
-              "contains files with an invalid filename", messages);
+      if (isActive(cfg) && validatorConfig.isEnabled(
+          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+        try (Repository repo = repoManager.openRepository(
+            receiveEvent.project.getNameKey())) {
+          List<CommitValidationMessage> messages =
+              performValidation(repo, receiveEvent.commit,
+                  cfg.getStringList(KEY_INVALID_FILENAME_PATTERN));
+          if (!messages.isEmpty()) {
+            throw new CommitValidationException(
+                "contains files with an invalid filename", messages);
+          }
         }
       }
     } catch (NoSuchProjectException | IOException e) {

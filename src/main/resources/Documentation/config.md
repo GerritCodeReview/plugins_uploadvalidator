@@ -224,3 +224,20 @@ Example:
 
 
 Additional information about project inheritance is in the Gerrit documentation.
+
+
+Branch Limiting
+---------------
+By default the validation will be enabled for all branches.  However it can
+be limited to specific branches by setting `plugin.@PLUGIN@.branch`. The
+branches may be configured using explicit ref names, ref patterns, or regular
+expressions. Multiple branches may be specified.
+
+E.g. to limit the validation to the `master` branch and all stable
+branches the following could be configured:
+
+```
+  [plugin "@PLUGIN@"]
+    branch = refs/heads/master
+    branch = ^refs/heads/stable-.*
+```
