@@ -83,18 +83,21 @@ public class BlockedKeywordValidator implements CommitValidationListener {
   private final GitRepositoryManager repoManager;
   private final LoadingCache<String, Pattern> patternCache;
   private final ContentTypeUtil contentTypeUtil;
+  private final ValidatorConfig validatorConfig;
 
   @Inject
   BlockedKeywordValidator(@PluginName String pluginName,
       ContentTypeUtil contentTypeUtil,
       @Named(CACHE_NAME) LoadingCache<String, Pattern> patternCache,
       PluginConfigFactory cfgFactory,
-      GitRepositoryManager repoManager) {
+      GitRepositoryManager repoManager,
+      ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.patternCache = patternCache;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
     this.contentTypeUtil = contentTypeUtil;
+    this.validatorConfig = validatorConfig;
   }
 
   static boolean isActive(PluginConfig cfg) {
@@ -108,20 +111,20 @@ public class BlockedKeywordValidator implements CommitValidationListener {
       PluginConfig cfg = cfgFactory
           .getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (!isActive(cfg)) {
-        return Collections.emptyList();
-      }
-      ImmutableMap<String, Pattern> blockedKeywordPatterns =
-          patternCache.getAll(Arrays
-              .asList(cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN)));
-      try (Repository repo =
-          repoManager.openRepository(receiveEvent.project.getNameKey())) {
-        List<CommitValidationMessage> messages =
-            performValidation(repo, receiveEvent.commit,
-                blockedKeywordPatterns.values(), cfg);
-        if (!messages.isEmpty()) {
-          throw new CommitValidationException(
-              "includes files containing blocked keywords", messages);
+      if (isActive(cfg) && validatorConfig.isEnabledForRef(
+          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+        ImmutableMap<String, Pattern> blockedKeywordPatterns =
+            patternCache.getAll(Arrays
+                .asList(cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN)));
+        try (Repository repo =
+            repoManager.openRepository(receiveEvent.project.getNameKey())) {
+          List<CommitValidationMessage> messages =
+              performValidation(repo, receiveEvent.commit,
+                  blockedKeywordPatterns.values(), cfg);
+          if (!messages.isEmpty()) {
+            throw new CommitValidationException(
+                "includes files containing blocked keywords", messages);
+          }
         }
       }
     } catch (NoSuchProjectException | IOException | ExecutionException e) {
