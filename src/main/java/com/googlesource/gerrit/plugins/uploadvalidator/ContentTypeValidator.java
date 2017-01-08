@@ -92,16 +92,19 @@ public class ContentTypeValidator implements CommitValidationListener {
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
   private final ContentTypeUtil contentTypeUtil;
+  private final ValidatorConfig validatorConfig;
 
   @Inject
   ContentTypeValidator(@PluginName String pluginName,
       ContentTypeUtil contentTypeUtil,
       PluginConfigFactory cfgFactory,
-      GitRepositoryManager repoManager) {
+      GitRepositoryManager repoManager,
+      ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.contentTypeUtil = contentTypeUtil;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
+    this.validatorConfig = validatorConfig;
   }
 
   @Override
@@ -111,17 +114,17 @@ public class ContentTypeValidator implements CommitValidationListener {
       PluginConfig cfg = cfgFactory
           .getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (!isActive(cfg)) {
-        return Collections.emptyList();
-      }
-      try (Repository repo =
-          repoManager.openRepository(receiveEvent.project.getNameKey())) {
-        List<CommitValidationMessage> messages =
-            performValidation(repo, receiveEvent.commit, getBlockedTypes(cfg),
-                isWhitelist(cfg));
-        if (!messages.isEmpty()) {
-          throw new CommitValidationException("contains blocked content type",
-              messages);
+      if (isActive(cfg) && validatorConfig.isEnabledForRef(
+          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+        try (Repository repo =
+            repoManager.openRepository(receiveEvent.project.getNameKey())) {
+          List<CommitValidationMessage> messages =
+              performValidation(repo, receiveEvent.commit, getBlockedTypes(cfg),
+                  isWhitelist(cfg));
+          if (!messages.isEmpty()) {
+            throw new CommitValidationException("contains blocked content type",
+                messages);
+          }
         }
       }
     } catch (NoSuchProjectException | IOException | ExecutionException e) {
