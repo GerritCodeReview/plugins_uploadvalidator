@@ -76,7 +76,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
   public void testKeywords() throws Exception {
     RevCommit c = makeCommit();
     BlockedKeywordValidator validator = new BlockedKeywordValidator(null,
-        new ContentTypeUtil(PATTERN_CACHE), PATTERN_CACHE, null, null);
+        new ContentTypeUtil(PATTERN_CACHE), PATTERN_CACHE, null, null, null);
     List<CommitValidationMessage> m = validator.performValidation(
         repo, c, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
     Set<String> expected = ImmutableSet.of(

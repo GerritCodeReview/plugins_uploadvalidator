@@ -63,13 +63,16 @@ public class SubmoduleValidator implements CommitValidationListener {
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
+  private final ValidatorConfig validatorConfig;
 
   @Inject
   SubmoduleValidator(@PluginName String pluginName,
-      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager) {
+      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager,
+      ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
+    this.validatorConfig = validatorConfig;
   }
 
   static boolean isActive(PluginConfig cfg) {
@@ -83,15 +86,15 @@ public class SubmoduleValidator implements CommitValidationListener {
       PluginConfig cfg = cfgFactory
           .getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (!isActive(cfg)) {
-        return Collections.emptyList();
-      }
-      try (Repository repo =
-          repoManager.openRepository(receiveEvent.project.getNameKey())) {
-        List<CommitValidationMessage> messages =
-            performValidation(repo, receiveEvent.commit);
-        if (!messages.isEmpty()) {
-          throw new CommitValidationException("contains submodules", messages);
+      if (isActive(cfg) && validatorConfig.isEnabledForRef(
+          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+        try (Repository repo =
+            repoManager.openRepository(receiveEvent.project.getNameKey())) {
+          List<CommitValidationMessage> messages =
+              performValidation(repo, receiveEvent.commit);
+          if (!messages.isEmpty()) {
+            throw new CommitValidationException("contains submodules", messages);
+          }
         }
       }
     } catch (NoSuchProjectException | IOException e) {
