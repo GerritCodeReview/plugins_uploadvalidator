@@ -72,7 +72,7 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
   public void init() throws IOException {
     super.init();
     testRepo = new TestRepository<>(repo);
-    validator = new DuplicatePathnameValidator(null, null, null);
+    validator = new DuplicatePathnameValidator(null, null, null, null);
     validator.setLocale(Locale.ENGLISH);
   }
 
