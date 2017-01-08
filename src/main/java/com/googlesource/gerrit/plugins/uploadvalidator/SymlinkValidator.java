@@ -64,13 +64,16 @@ public class SymlinkValidator implements CommitValidationListener {
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
+  private final ValidatorConfig validatorConfig;
 
   @Inject
   SymlinkValidator(@PluginName String pluginName,
-      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager) {
+      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager,
+      ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
+    this.validatorConfig = validatorConfig;
   }
 
   static boolean isActive(PluginConfig cfg) {
@@ -84,16 +87,16 @@ public class SymlinkValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfig(
               receiveEvent.project.getNameKey(), pluginName);
-      if (!isActive(cfg)) {
-        return Collections.emptyList();
-      }
-      try (Repository repo =
-          repoManager.openRepository(receiveEvent.project.getNameKey())) {
-        List<CommitValidationMessage> messages =
-            performValidation(repo, receiveEvent.commit);
-        if (!messages.isEmpty()) {
-          throw new CommitValidationException("contains symbolic links",
-              messages);
+      if (isActive(cfg) && validatorConfig.isEnabled(
+          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+        try (Repository repo =
+            repoManager.openRepository(receiveEvent.project.getNameKey())) {
+          List<CommitValidationMessage> messages =
+              performValidation(repo, receiveEvent.commit);
+          if (!messages.isEmpty()) {
+            throw new CommitValidationException("contains symbolic links",
+                messages);
+          }
         }
       }
     } catch (NoSuchProjectException | IOException e) {
