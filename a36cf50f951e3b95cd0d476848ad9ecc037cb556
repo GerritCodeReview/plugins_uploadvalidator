@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "239f651f_5cb5bdbe",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-11T09:36:37Z",
+      "side": 1,
+      "message": "accessed",
+      "range": {
+        "startLine": 197,
+        "startChar": 3,
+        "endLine": 197,
+        "endChar": 9
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "039c2129_dba1d386",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-11T09:36:37Z",
+      "side": 1,
+      "message": "Not only All-Projects but also for any other project",
+      "range": {
+        "startLine": 197,
+        "startChar": 43,
+        "endLine": 197,
+        "endChar": 55
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "239f651f_7cbaf9b1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-11T09:36:37Z",
+      "side": 1,
+      "message": "Why do we need to write this? Isn\u0027t this just the normal/expected behavior?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 81
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "239f651f_1cbf35a1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-11T09:36:37Z",
+      "side": 1,
+      "message": "This is also the default for inheritable properties.",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 6
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "239f651f_3cc47122",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-11T09:36:37Z",
+      "side": 1,
+      "message": "And this is too the default for inheritable properties.",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 0
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "039c2129_fb9e0f44",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-11T09:36:37Z",
+      "side": 1,
+      "message": "inherited from",
+      "range": {
+        "startLine": 210,
+        "startChar": 31,
+        "endLine": 210,
+        "endChar": 38
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "239f651f_dca8ed64",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-11T09:36:37Z",
+      "side": 1,
+      "message": "This looks more like a full project name than a project hierarchy. Use something like:\n\n  All-Projects \u003c products \u003c widgetA\n\nto express project hierarchy.",
+      "range": {
+        "startLine": 218,
+        "startChar": 43,
+        "endLine": 218,
+        "endChar": 72
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "039c2129_9b9b4b53",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-11T09:36:37Z",
+      "side": 1,
+      "message": "I think you should also highlight project name(s) in this whole document.",
+      "range": {
+        "startLine": 220,
+        "startChar": 16,
+        "endLine": 220,
+        "endChar": 23
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "039c2129_bb988756",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-11T09:36:37Z",
+      "side": 1,
+      "message": "My impression is that this document tries too hard to explain the property inheritance. However, this concept should be already quite clear to Gerrit users as Gerrit already provides inheritable project properties.",
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
