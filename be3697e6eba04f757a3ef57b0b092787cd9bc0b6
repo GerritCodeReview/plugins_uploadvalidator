@@ -45,6 +45,138 @@
       "revId": "be3697e6eba04f757a3ef57b0b092787cd9bc0b6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3ff0d6a_f28408fa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-12T07:26:52Z",
+      "side": 1,
+      "message": "Nit: Every parameter on own line for ctor annotated with @Inject annotation.",
+      "range": {
+        "startLine": 37,
+        "startChar": 56,
+        "endLine": 37,
+        "endChar": 82
+      },
+      "revId": "be3697e6eba04f757a3ef57b0b092787cd9bc0b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a305154c_106c2471",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-12T07:26:52Z",
+      "side": 1,
+      "message": "Just project.",
+      "range": {
+        "startLine": 44,
+        "startChar": 50,
+        "endLine": 44,
+        "endChar": 52
+      },
+      "revId": "be3697e6eba04f757a3ef57b0b092787cd9bc0b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a305154c_3067a890",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-12T07:26:52Z",
+      "side": 1,
+      "message": "This could reflect the actuall check: isEnabledForBranch or ref.",
+      "range": {
+        "startLine": 44,
+        "startChar": 17,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "be3697e6eba04f757a3ef57b0b092787cd9bc0b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3ff0d6a_328e9018",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-12T07:26:52Z",
+      "side": 1,
+      "message": "This looks wrong to me. See comment below.",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 55,
+        "endChar": 7
+      },
+      "revId": "be3697e6eba04f757a3ef57b0b092787cd9bc0b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a305154c_70713049",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-12T07:26:52Z",
+      "side": 1,
+      "message": "In config.md you say, \"By default the validation will be enabled for all branches.\", Here you are mixing two different use cases, no match and no branch restriction. Wouldn\u0027t that mean, that with the current implementation, all check would be rejected, unless branch was explicitly defined, which would be a disruptive change and stop working this plugin for all users?\n\nInstead, you want to differentiate for two situations:\n\n* 1. banches were defined (guessing, this should also respect project inhertiance: if parent project defined stable-.*, and child doesn\u0027t override it, then check on master shouldn\u0027t be enabled) \u003d\u003e match and return the result\n* 2. brancher were not defined \u003d\u003e always true",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 3
+      },
+      "revId": "be3697e6eba04f757a3ef57b0b092787cd9bc0b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3ff0d6a_92777c3b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-12T07:26:52Z",
+      "side": 1,
+      "message": "Nit: one empty line between section header and text.",
+      "revId": "be3697e6eba04f757a3ef57b0b092787cd9bc0b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
