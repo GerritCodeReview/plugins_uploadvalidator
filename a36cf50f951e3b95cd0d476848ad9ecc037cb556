@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e3ff0d6a_5276b442",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-12T06:55:58Z",
+      "side": 1,
+      "message": "Remove this.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "239f651f_5cb5bdbe",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
