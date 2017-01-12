@@ -186,6 +186,23 @@
     },
     {
       "key": {
+        "uuid": "e3ff0d6a_126c2c71",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-12T06:55:36Z",
+      "side": 1,
+      "message": "I agree with Sasa. Just telling this plugin supports project inheritance should be sifficient.\n\nGiven that it\u0027s commonly used feature, i doubt if we really need to describe here one or all permutation examples that basically explains how project inheritace works:\n\n* 1. Property is inhertied (not overwritten in child project) from parent project\n* 2. Property is first defined in child project\n* 3. Property in child project is disabling the property defined in parent project",
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "039c2129_bb988756",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
