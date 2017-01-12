@@ -71,6 +71,52 @@
     },
     {
       "key": {
+        "uuid": "83d8113c_7f762f43",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-12T23:05:54Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 197,
+        "startChar": 3,
+        "endLine": 197,
+        "endChar": 9
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83d8113c_5f716b48",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-12T23:05:54Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 197,
+        "startChar": 43,
+        "endLine": 197,
+        "endChar": 55
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "239f651f_7cbaf9b1",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
@@ -82,6 +128,29 @@
       "writtenOn": "2017-01-11T09:36:37Z",
       "side": 1,
       "message": "Why do we need to write this? Isn\u0027t this just the normal/expected behavior?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 81
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e15de4_5e717548",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-12T23:05:54Z",
+      "side": 1,
+      "message": "Removed.",
       "range": {
         "startLine": 199,
         "startChar": 0,
@@ -117,6 +186,29 @@
     },
     {
       "key": {
+        "uuid": "63e15de4_de84a5fa",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-12T23:05:54Z",
+      "side": 1,
+      "message": "Removed.",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 6
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "239f651f_3cc47122",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
@@ -128,6 +220,29 @@
       "writtenOn": "2017-01-11T09:36:37Z",
       "side": 1,
       "message": "And this is too the default for inheritable properties.",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 0
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e15de4_fe8161e7",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-12T23:05:54Z",
+      "side": 1,
+      "message": "Removed.",
       "range": {
         "startLine": 201,
         "startChar": 0,
@@ -163,6 +278,29 @@
     },
     {
       "key": {
+        "uuid": "83d8113c_9f7a1324",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-12T23:05:54Z",
+      "side": 1,
+      "message": "Simplified all the paragraph.",
+      "range": {
+        "startLine": 210,
+        "startChar": 31,
+        "endLine": 210,
+        "endChar": 38
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "239f651f_dca8ed64",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
@@ -174,6 +312,29 @@
       "writtenOn": "2017-01-11T09:36:37Z",
       "side": 1,
       "message": "This looks more like a full project name than a project hierarchy. Use something like:\n\n  All-Projects \u003c products \u003c widgetA\n\nto express project hierarchy.",
+      "range": {
+        "startLine": 218,
+        "startChar": 43,
+        "endLine": 218,
+        "endChar": 72
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e15de4_7e763143",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-12T23:05:54Z",
+      "side": 1,
+      "message": "All this example is too verbose and repeats concepts already described in other parts of the documentation. Removed all the seciton.",
       "range": {
         "startLine": 218,
         "startChar": 43,
@@ -209,6 +370,29 @@
     },
     {
       "key": {
+        "uuid": "83d8113c_bf77d73a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-12T23:05:54Z",
+      "side": 1,
+      "message": "All example removed.",
+      "range": {
+        "startLine": 220,
+        "startChar": 16,
+        "endLine": 220,
+        "endChar": 23
+      },
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3ff0d6a_126c2c71",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
@@ -226,6 +410,23 @@
     },
     {
       "key": {
+        "uuid": "63e15de4_9e7a1d24",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-12T23:05:54Z",
+      "side": 1,
+      "message": "Agree, just pointed to the other relevant section in the Gerrit documentation about project.config inheritance.",
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "039c2129_bb988756",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
@@ -237,6 +438,23 @@
       "writtenOn": "2017-01-11T09:36:37Z",
       "side": 1,
       "message": "My impression is that this document tries too hard to explain the property inheritance. However, this concept should be already quite clear to Gerrit users as Gerrit already provides inheritable project properties.",
+      "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e15de4_be77d93a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-12T23:05:54Z",
+      "side": 1,
+      "message": "Just replaced with a pointer to the right place.",
       "revId": "a36cf50f951e3b95cd0d476848ad9ecc037cb556",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
