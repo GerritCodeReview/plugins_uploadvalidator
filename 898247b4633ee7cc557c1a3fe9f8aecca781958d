@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83d8113c_ff4b1fbe",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-13T09:10:22Z",
+      "side": 0,
+      "message": "Any particular reason we are changing from early return approach to the enclosing if?\n\n  if (!isActive(cfg) || !validatorConfig.isEnabledForRef()...) {\n    return Collections.emptyList();\n  }\n  // unchanged",
+      "range": {
+        "startLine": 111,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 7
+      },
+      "revId": "898247b4633ee7cc557c1a3fe9f8aecca781958d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
