@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d3551c_207d6ad1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-01-13T01:23:11Z",
+      "side": 1,
+      "message": "So the implementation of inheritance can be done in different ways.  For this implementation the parameters are not combined.\n\nFor example:\n\n\n  --- All-Project ---\n   [plugin \"uploadvalidator\"]\n      blockedFileExtension \u003d jar\n\n\n  --- child project ----\n   [plugin \"uploadvalidator\"]\n      blockedFileExtension \u003d zip\n\n\nThe only file that is blocked is zip, *not* jar.  If you want both blocked then you need to define all blocked file types in the child project, like so:\n\n\n  --- child project ----\n   [plugin \"uploadvalidator\"]\n      blockedFileExtension \u003d jar\n      blockedFileExtension \u003d zip",
+      "range": {
+        "startLine": 205,
+        "startChar": 33,
+        "endLine": 205,
+        "endChar": 41
+      },
+      "revId": "898247b4633ee7cc557c1a3fe9f8aecca781958d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
