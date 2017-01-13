@@ -45,6 +45,29 @@
       "revId": "898247b4633ee7cc557c1a3fe9f8aecca781958d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d3551c_e07aa2d2",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-01-13T08:07:41Z",
+      "side": 1,
+      "message": "I\u0027m a bit confused by the word \"combine\" because i take it to mean that the parameters of child projects are merged with parent.  Is that wrong?\n\n\nWhen I implemented this change I thought the correct thing to do for this specific plugin is to allow child projects to \"override\" parent parameters.   If you feel that combined/merged is the better approach then I\u0027m fine with that as well.  I think in this case the combined approach makes configuration more confusing especially when you have multiple levels of heirarchy.",
+      "range": {
+        "startLine": 205,
+        "startChar": 33,
+        "endLine": 205,
+        "endChar": 41
+      },
+      "revId": "898247b4633ee7cc557c1a3fe9f8aecca781958d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
