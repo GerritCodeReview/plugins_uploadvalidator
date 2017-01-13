@@ -14,35 +14,47 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import static com.googlesource.gerrit.plugins.uploadvalidator.OverrideUploadValidation.OVERRIDE_UPLOAD_VALIDATION;
+
 import com.google.gerrit.common.data.RefConfigSection;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.account.CapabilityControl;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.gerrit.server.project.RefPatternMatcher;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ValidatorConfig {
-  private static final Logger log = LoggerFactory.getLogger(ValidatorConfig.class);
+  private static final Logger log = LoggerFactory
+      .getLogger(ValidatorConfig.class);
 
   private final String pluginName;
   private final ProjectCache projectCache;
   private final PluginConfigFactory pluginCfgFactory;
+  private final Provider<CurrentUser> userProvider;
 
   @Inject
   public ValidatorConfig(@PluginName String pluginName,
-      ProjectCache projectCache,
-      PluginConfigFactory pluginCfgFactory) {
+      ProjectCache projectCache, PluginConfigFactory pluginCfgFactory,
+      Provider<CurrentUser> userProvider) {
     this.pluginName = pluginName;
     this.projectCache = projectCache;
     this.pluginCfgFactory = pluginCfgFactory;
+    this.userProvider = userProvider;
   }
 
   public boolean isEnabledForRef(Project.NameKey projectName, String refName) {
+    if(canOverrideUploadValidation()) {
+      return false;
+    }
+
     ProjectState projectState = projectCache.get(projectName);
     if (projectState == null) {
       log.error("Failed to check if " + pluginName + " is enabled for project "
@@ -57,6 +69,11 @@ public class ValidatorConfig {
     }
 
     return isEnabledForRef(projectState, refName);
+  }
+
+  private boolean canOverrideUploadValidation() {
+    CapabilityControl ctl = userProvider.get().getCapabilities();
+    return ctl.canPerform(pluginName + "-" + OVERRIDE_UPLOAD_VALIDATION);
   }
 
   private boolean isEnabledForRef(ProjectState project, String refName) {
