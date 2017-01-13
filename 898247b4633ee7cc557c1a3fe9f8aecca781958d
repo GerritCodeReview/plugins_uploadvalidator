@@ -68,6 +68,29 @@
       "revId": "898247b4633ee7cc557c1a3fe9f8aecca781958d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e15de4_3e0829a1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-13T08:50:02Z",
+      "side": 1,
+      "message": "The \"combine\" refers to different keys: the same key on the parent can be overridden by the child, not appended.\n\nThis is Gerrit\u0027s standard inheritance mechanism, as linked later on. I believe that the current documentation already explains how it works :-) If not, let\u0027s fix on the right point in Gerrit rather than just trying to explain it again here.",
+      "range": {
+        "startLine": 205,
+        "startChar": 33,
+        "endLine": 205,
+        "endChar": 41
+      },
+      "revId": "898247b4633ee7cc557c1a3fe9f8aecca781958d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
