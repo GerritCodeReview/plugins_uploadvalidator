@@ -15,34 +15,47 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.common.data.RefConfigSection;
+import com.google.gerrit.reviewdb.client.AccountGroup;
+import com.google.gerrit.reviewdb.client.AccountGroup.UUID;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.account.GroupCache;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.project.RefPatternMatcher;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class ValidatorConfig {
-  private static final Logger log = LoggerFactory
-      .getLogger(ValidatorConfig.class);
-
   private final ConfigFactory configFactory;
+  private final Provider<CurrentUser> userProvider;
+  private final GroupCache groupCache;
 
   @Inject
-  public ValidatorConfig(ConfigFactory configFactory) {
+  public ValidatorConfig(ConfigFactory configFactory,
+      Provider<CurrentUser> userProvider,
+      GroupCache groupCache) {
     this.configFactory = configFactory;
+    this.userProvider = userProvider;
+    this.groupCache = groupCache;
   }
 
-  public boolean isEnabledForRef(Project.NameKey projectName, String refName) {
+  public boolean isEnabledForRef(Project.NameKey projectName, String refName,
+      String validatorOp) {
     PluginConfig pluginConfig = configFactory.get(projectName);
-    if (pluginConfig == null) {
-      log.error("Failed to check if validation is enabled for project "
-          + projectName.get() + ": Plugin config not found");
-      return false;
-    }
+    return (pluginConfig != null
+        && isMatchingRefPatterns(pluginConfig, refName)
+        && (!hasCriteria(pluginConfig, "skipGroup") ||
+            !canSkipValidation(pluginConfig, refName,validatorOp)));
+  }
 
+  private boolean isMatchingRefPatterns(PluginConfig pluginConfig,
+      String refName) {
     String[] refPatterns = pluginConfig.getStringList("ref");
+
     if (refPatterns.length == 0) {
       return true; // Default behavior: no branch-specific config
     }
@@ -52,10 +65,61 @@ public class ValidatorConfig {
         return true;
       }
     }
+
     return false;
   }
 
-  private static boolean match(String refName, String refPattern) {
-    return RefPatternMatcher.getMatcher(refPattern).match(refName, null);
+  private boolean canSkipValidation(PluginConfig conf, String refName,
+      String validation) {
+    if (!matchCriteria(conf, "skipValidation", validation, false)
+        || !matchCriteria(conf, "skipRef", refName, true)) {
+      return false;
+    }
+
+    return canSkipOnGroup(conf);
+  }
+
+  private boolean hasCriteria(PluginConfig config, String criteria) {
+    return config.getStringList(criteria).length > 0;
+  }
+
+  private Boolean matchCriteria(PluginConfig config, String criteria,
+      String value, boolean allowRegex) {
+    String[] criteriaValues = config.getStringList(criteria);
+    if (criteriaValues.length == 0) {
+      return true;
+    }
+
+    for (String s : criteriaValues) {
+      if ((allowRegex && match(value, s)) || (!allowRegex && s.equals(value))) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private boolean canSkipOnGroup(PluginConfig conf) {
+    CurrentUser user = userProvider.get();
+    if (!user.isIdentifiedUser()) {
+      return false;
+    }
+
+    Stream<UUID> skipGroups =
+        Arrays.stream(conf.getStringList("skipGroup")).map(this::groupUUID);
+
+    return user.asIdentifiedUser().getEffectiveGroups()
+        .containsAnyOf(skipGroups::iterator);
+  }
+
+  private AccountGroup.UUID groupUUID(String groupNameOrUUID) {
+    Optional<AccountGroup.UUID> uuidFromCache =
+        Optional.ofNullable(
+            groupCache.get(new AccountGroup.NameKey(groupNameOrUUID))).map(
+            group -> group.getGroupUUID());
+    return uuidFromCache.orElse(new AccountGroup.UUID(groupNameOrUUID));
+  }
+
+  private static boolean match(String value, String pattern) {
+    return RefPatternMatcher.getMatcher(pattern).match(value, null);
   }
 }
