@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "63e15de4_dec90532",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-13T08:47:29Z",
+      "side": 1,
+      "message": "I would agree in general that the tree navigation and check of the \"first parent match\" is wrong.\n\nJust let Gerrit do its job with the getFromProjectConfigWithInheritance :-)",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 5
+      },
+      "revId": "e85567d65115e52f2bec95c9f9dac33a06b9bcef",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63e15de4_5ed6d5d7",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 6
@@ -36,6 +59,29 @@
       "writtenOn": "2017-01-13T08:40:03Z",
       "side": 1,
       "message": "Nit: missing blank between if and open paren.",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 7
+      },
+      "revId": "e85567d65115e52f2bec95c9f9dac33a06b9bcef",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83d8113c_1f51a377",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-13T08:47:29Z",
+      "side": 1,
+      "message": "Done",
       "range": {
         "startLine": 66,
         "startChar": 4,
