@@ -223,3 +223,15 @@ branches the following could be configured:
     branch = refs/heads/master
     branch = ^refs/heads/stable-.*
 ```
+
+Permission to override the rules
+--------------------------------
+
+Some users may be allowed to avoid the rules through the assignment of a
+special permission capability "Override Upload Validation".
+
+The override permission can be assigned only through the All-Projects ACLs
+and can be associated to one or multiple groups.
+
+NOTE: Users do not need to be local administrators to be granted the permission
+to override the upload validation rules.
