@@ -22,6 +22,29 @@
       "revId": "898247b4633ee7cc557c1a3fe9f8aecca781958d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e15de4_de9bc551",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-13T07:30:19Z",
+      "side": 1,
+      "message": "Is there any reason for not following the normal Gerrit\u0027s inheritance mechanism? A child project may want to redefine the blocked file extensions and replace the one of its parent: the Gerrit mechanism will then work.",
+      "range": {
+        "startLine": 205,
+        "startChar": 33,
+        "endLine": 205,
+        "endChar": 41
+      },
+      "revId": "898247b4633ee7cc557c1a3fe9f8aecca781958d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
