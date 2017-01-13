@@ -22,6 +22,29 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e15de4_de20251a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-13T09:11:59Z",
+      "side": 1,
+      "message": "To add one more advantage:\n\n* We don\u0027t need to assign \"override upload permission\" to a developer who needs to push one such commit and them remember to immediately revoke that permission",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 40
+      },
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
