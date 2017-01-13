@@ -1,8 +1,5 @@
-@PLUGIN@
-========
-
-Configuration
--------------
+@PLUGIN@ Configuration
+======================
 
 The configuration of the @PLUGIN@ plugin is done on project level in
 the `project.config` file of the project.
@@ -226,4 +223,89 @@ branches the following could be configured:
   [plugin "@PLUGIN@"]
     ref = refs/heads/master
     ref = ^refs/heads/stable-.*
+```
+
+Permission to skip the rules
+----------------------------
+
+Some users may be allowed to skip some of the rules on a per project and
+per repository basis by configuring the appropriate "skip" settings in the
+project.config.
+
+Skip of the rules is controlled by:
+
+plugin.@PLUGIN@.skipGroup
+:	Group names or UUIDs allowed to skip the rules.
+
+	Groups that are allowed to skip the rules.
+
+	Multiple values are supported.
+	Default: nobody is allowed to skip the rules (empty).
+
+	NOTE: When skipGroup isn't defined, all the other skip settings are ignored.
+
+plugin.@PLUGIN@.skipRef
+:	Ref name, pattern or regexp of the branch to skip.
+
+	List of specific ref names, ref patterns, or regular expressions
+	of the branches where Groups defined in skipGroup are allowed to
+	skip the rules.
+
+	Multiple values are supported.
+	Default: skip validation on all branches for commits pushed by a member of
+	a group listed in skipGroup
+
+plugin.@PLUGIN@.skipValidation
+:	Specific validation to be skipped.
+
+	List of specific validation operations allowed to be skipped by
+	the Groups defined in skipGroup on the branches defined in skipRef.
+
+	Validations can be one of the following strings:
+
+	- blockedContentType
+	- blockedFileExtension
+	- blockedKeyword
+	- invalidFilename
+	- maxPathLength
+	- rejectDuplicatePathnames
+	- rejectSubmodule
+	- rejectSymlink
+	- rejectWindowsLineEndings
+	- requiredFooter
+
+	Multiple values are supported.
+	Default: groups defined at skipGroup can skip all the validation rules.
+
+NOTE: Skip of the validations are inherited from parent projects. The definition
+of the skip criteria on All-Projects automatically apply to every project.
+
+The simplest configuration is to allow a specific group (e.g. Administrators)
+to skip all the rules:
+
+```
+   [plugin "@PLUGIN@"]
+     skipGroup = Administrators
+```
+
+A typical configuration would be to enable validation for a set of branches,
+while excluding a few of them.
+```
+   [plugin "@PLUGIN@"]
+       ref = ^refs/heads/stable-.*
+       skipGroup = release-manager
+       skipRef = refs/heads/stable-3.4
+       skipRef = refs/heads/stable-5.6
+```
+
+A more complex configuration is to allow a set of groups from LDAP, the ReleaseManager
+and GerritAdmins, to push any content to any file extension but only for the master branch:
+
+```
+  [plugin "@PLUGIN@"]
+    skipValidation = blockedFileExtension
+    skipValidation = blockedContentType
+    skipGroup = ldap/ReleaseManagers
+    skipGroup = ldap/GerritAdmins
+    skipRef = refs/heads/master
 ```
