@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63e15de4_1e036d87",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-13T09:09:07Z",
+      "side": 1,
+      "message": "We had a different idea on implementing the override logic, just that no one started working on it yet.\n\nThe idea was to use Git notes on a dedicated notes branch, to manage override for particular commits. One note is an override permission for one commit.\n\nAssume the dedicated notes branch is named refs/notes/uploadvalidator/override, a developer needs to push a commit with SHA1\u003dc0ffee.. and that commit doesn\u0027t pass the uploadvalidator validations. In that case a project lead, one who has\npermissions to push to the refs/notes/uploadvalidator/*, creates\na note on the c0ffee SHA1 (in the note content he may write the reason\nfor approving the exception) and pushes that note to Gerrit.\n\nThe uploadvalidator plugin first checks existence of a override note for the received commit. If such a note is present it skips all validations.\n\nThis approach has some advantages:\n* all exceptions are well documented and we also know who created them\n* no need for a new access permission. We use the Push permission on the refs/notes/uploadvalidator/override to control who can approve overrides\n\nWhat do you think?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 40
+      },
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
