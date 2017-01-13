@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83d8113c_9ffdb347",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-13T08:40:03Z",
+      "side": 1,
+      "message": "In my previous comment I explained why is think that the de-coupling of checks for parent and child project is wrong in this context. The use case, that I thing wouldn\u0027t work is:\n\n  --- All-Project ---\n   [plugin \"uploadvalidator\"]\n      branch \u003d ^refs/heads/stable-.*\n\n  --- foo-project ---\n   [plugin \"uploadvalidator\"]\n      # no branch specified\n\nNow, commit is uploaded for project \"foo\" for master branch. I would expect, that the call:\n\n  isEnabledForRef(\"foo\", \"master\")\n\nwould return false. But it would (not tested) return true, because:\n\n* a) there is no matches for stable-* ref pattern in parent project\n* b) there is no overwriting of branch config value in project foo",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 5
+      },
+      "revId": "e85567d65115e52f2bec95c9f9dac33a06b9bcef",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e15de4_5ed6d5d7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-13T08:40:03Z",
+      "side": 1,
+      "message": "Nit: missing blank between if and open paren.",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 7
+      },
+      "revId": "e85567d65115e52f2bec95c9f9dac33a06b9bcef",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
