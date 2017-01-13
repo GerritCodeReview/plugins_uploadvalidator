@@ -223,3 +223,53 @@ branches the following could be configured:
     branch = refs/heads/master
     branch = ^refs/heads/stable-.*
 ```
+
+Permission to skip the rules
+----------------------------
+
+Some users may be allowed to skip some of the rules on a per project and
+per repository basis by configuring the appropriate "skip" settings in the
+project.config.
+
+Skip of the rules is controlled by:
+
+plugin.@PLUGIN@.skipGroup
+:	(multivalue) UUIDs of group of accounts allowed to skip the rules.
+
+List of groups that are allowed to skip the rules.
+
+Default: nobody is allowed to skip the rules (empty).
+
+plugin.@PLUGIN@.skipBranch
+:	(multivalue) Ref name, pattern or regexp of the branch to skip.
+
+List of specific ref names, ref patterns, or regular expressions
+of the branches where groups defined in skipGroup are allowed to
+skip the rules.
+
+Default: groups defined at skipGroup can skip the rules on any branch.
+
+plugin.@PLUGIN@.skipValidation
+:	(multivalue) Specific validation to be skipped.
+
+List of specific validation operations allowed to be skipped by
+the groups defined in skipGroup on the branches defined in skipBranch.
+
+Default: groups defined at skipGroup can skip all the validation rules. 
+
+NOTE: Skip of the validations is inherited by parent projects. The definition
+of the skip criteria on All-Projects automatically apply to every project.
+
+E.g. See below the All-Projects project.config to allow the ReleaseManager
+and GerritAdmins (LDAP groups) to push any content to any file extension
+on all projects for the master branch:
+
+```
+  [plugin "@PLUGIN@"]
+    skipValidation = blockedFileExtension
+    skipValidation = blockedContentType
+    skipGroup = ldap/ReleaseManagers
+    skipGroup = ldap/GerritAdmins
+    skipBranch = refs/heads/master
+```
+
