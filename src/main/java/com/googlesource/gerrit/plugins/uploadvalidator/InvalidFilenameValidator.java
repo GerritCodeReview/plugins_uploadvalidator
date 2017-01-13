@@ -59,7 +59,8 @@ public class InvalidFilenameValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_INVALID_FILENAME_PATTERN = "invalidFilenamePattern";
+  public static String KEY_INVALID_FILENAME = "invalidFilename";
+  public static String KEY_INVALID_FILENAME_PATTERN = KEY_INVALID_FILENAME + "Pattern";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
@@ -87,8 +88,9 @@ public class InvalidFilenameValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (isActive(cfg) && validatorConfig.isEnabledForRef(
-          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+      if (isActive(cfg)
+          && validatorConfig.isEnabledForRef(receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(), KEY_INVALID_FILENAME)) {
         try (Repository repo = repoManager.openRepository(
             receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
