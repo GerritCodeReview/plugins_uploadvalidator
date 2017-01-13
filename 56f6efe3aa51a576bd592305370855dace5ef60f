@@ -45,6 +45,29 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83d8113c_5fb96b89",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-13T09:21:41Z",
+      "side": 1,
+      "message": "I think your idea makes sense and adds a more granular ad-hoc override mechanism.\n\nHowever, I would keep the ability to \"globally unlock\" all the upload permissions for admin purposes. Then simply check if the current user is administrator?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 40
+      },
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
