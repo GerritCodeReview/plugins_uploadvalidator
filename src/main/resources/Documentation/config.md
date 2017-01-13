@@ -223,3 +223,68 @@ branches the following could be configured:
     branch = refs/heads/master
     branch = ^refs/heads/stable-.*
 ```
+
+Permission to skip the rules
+----------------------------
+
+Some users may be allowed to skip some of the rules on a per project and
+per repository basis by configuring the appropriate "skip" settings in the
+project.config.
+
+Skip of the rules is controlled by:
+
+plugin.@PLUGIN@.skipGroup
+:	UUIDs of Group of accounts allowed to skip the rules.
+
+	Groups that are allowed to skip the rules.
+
+	Multiple values are supported.
+	Default: nobody is allowed to skip the rules (empty).
+
+plugin.@PLUGIN@.skipBranch
+:	Ref name, pattern or regexp of the branch to skip.
+
+	List of specific ref names, ref patterns, or regular expressions
+	of the branches where Groups defined in skipGroup are allowed to
+	skip the rules.
+
+	Multiple values are supported.
+	Default: skip validation on all branches.
+
+plugin.@PLUGIN@.skipValidation
+:	Specific validation to be skipped.
+
+	List of specific validation operations allowed to be skipped by
+	the Groups defined in skipGroup on the branches defined in skipBranch.
+
+	Validations can be one of the following strings:
+
+	- blockedContentType
+	- blockedFileExtension
+	- blockedKeyword
+	- invalidFilename
+	- maxPathLength
+	- rejectDuplicatePathnames
+	- rejectSubmodule
+	- rejectSymlink
+	- rejectWindowsLineEndings
+	- requiredFooter
+
+	Multiple values are supported.
+	Default: groups defined at skipGroup can skip all the validation rules.
+
+NOTE: Skip of the validations are inherited by parent projects. The definition
+of the skip criteria on All-Projects automatically apply to every project.
+
+E.g. See below the All-Projects project.config to allow the ReleaseManager
+and GerritAdmins (LDAP Groups) to push any content to any file extension
+on all projects for the master branch:
+
+```
+  [plugin "@PLUGIN@"]
+    skipValidation = blockedFileExtension
+    skipValidation = blockedContentType
+    skipGroup = ldap/ReleaseManagers
+    skipGroup = ldap/GerritAdmins
+    skipBranch = refs/heads/master
+```
