@@ -114,6 +114,29 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e15de4_9e2bfde6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-13T14:04:41Z",
+      "side": 1,
+      "message": "I think this is not possible.\n\nAnother possibility would be to have an ref-pattern exclusion in the per-project plugin\u0027s configuration. The upload validation is skipped for the excluded refs. This way, you could exclude a ref refs/heads/foo from the upload validation, upload the commits to that branch (subject to having Push permission) and then create a merge commit which merges these commits to the target branch?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 40
+      },
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
