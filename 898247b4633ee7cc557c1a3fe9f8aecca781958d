@@ -91,6 +91,29 @@
       "revId": "898247b4633ee7cc557c1a3fe9f8aecca781958d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3cd4d7a_42efd28e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-01-13T17:45:48Z",
+      "side": 1,
+      "message": "Cool, then this change conforms to gerrit convention.  I thought there might be more people, like me, who may be confused and think that child parameters are additional that\u0027s why i tried to clarify that in the docs but I guess it\u0027s probably just unnecessary.",
+      "range": {
+        "startLine": 205,
+        "startChar": 33,
+        "endLine": 205,
+        "endChar": 41
+      },
+      "revId": "898247b4633ee7cc557c1a3fe9f8aecca781958d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
