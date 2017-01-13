@@ -59,8 +59,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class BlockedKeywordValidator implements CommitValidationListener {
+  private static String KEY_CHECK_BLOCKED_KEYWORD = "blockedKeyword";
   private static String KEY_CHECK_BLOCKED_KEYWORD_PATTERN =
-      "blockedKeywordPattern";
+      KEY_CHECK_BLOCKED_KEYWORD + "Pattern";
 
   public static AbstractModule module() {
     return new AbstractModule() {
@@ -111,8 +112,9 @@ public class BlockedKeywordValidator implements CommitValidationListener {
       PluginConfig cfg = cfgFactory
           .getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (isActive(cfg) && validatorConfig.isEnabledForRef(
-          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+      if (isActive(cfg)
+          && validatorConfig.isEnabledForRef(receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(), KEY_CHECK_BLOCKED_KEYWORD)) {
         ImmutableMap<String, Pattern> blockedKeywordPatterns =
             patternCache.getAll(Arrays
                 .asList(cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN)));

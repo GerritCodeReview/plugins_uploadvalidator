@@ -15,64 +15,121 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.common.data.RefConfigSection;
+import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.account.GroupCache;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.project.RefPatternMatcher;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public class ValidatorConfig {
   private static final Logger log = LoggerFactory
       .getLogger(ValidatorConfig.class);
-
   private final ConfigFactory configFactory;
+  private final Provider<CurrentUser> userProvider;
+  private final GroupCache groupCache;
 
   @Inject
-  public ValidatorConfig(ConfigFactory configFactory) {
+  public ValidatorConfig(ConfigFactory configFactory,
+      Provider<CurrentUser> userProvider, GroupCache groupCache) {
     this.configFactory = configFactory;
+    this.userProvider = userProvider;
+    this.groupCache = groupCache;
   }
 
-  public boolean isEnabledForRef(Project.NameKey projectName, String refName) {
-    PluginConfig pluginConfig = configFactory.get(projectName);
-    if (pluginConfig == null) {
-      log.error("Failed to check if validation is enabled for project "
-          + projectName.get() + ": Plugin config not found");
-      return false;
-    }
-    if(!isValidConfig(pluginConfig, projectName)) {
-      return false;
-    }
+  public boolean isEnabledForRef(Project.NameKey projectName, String refName,
+      String validatorOp) {
+    PluginConfig conf = configFactory.get(projectName);
 
-    String[] refPatterns = pluginConfig.getStringList("ref");
-    if (refPatterns.length == 0) {
-      return true; // Default behavior: no branch-specific config
-    }
+    return conf != null
+        && isValidConfig(conf, projectName)
 
-    for (String refPattern : refPatterns) {
-      if (match(refName, refPattern)) {
-        return true;
-      }
-    }
-    return false;
+        && (!hasCriteria(conf, "ref")
+            || canRef(conf, refName))
+
+        && (!hasCriteria(conf, "skipGroup")
+            || !canSkipValidation(conf, validatorOp)
+            || !canSkipRef(conf, refName)
+            || !canSkipGroup(conf));
   }
 
   private boolean isValidConfig(PluginConfig config, Project.NameKey projectName) {
+    return hasValidConfigRef(config, "ref", projectName)
+        && hasValidConfigRef(config, "skipRef", projectName);
+  }
+
+  private boolean hasValidConfigRef(PluginConfig config, String refKey,
+      Project.NameKey projectName) {
     boolean valid = true;
-    for (String refPattern : config.getStringList("ref")) {
+    for (String refPattern : config.getStringList(refKey)) {
       if (!RefConfigSection.isValid(refPattern)) {
         log.error(
-            "Invalid ref name/pattern/regex '{}' in {} project's plugin config",
-            refPattern, projectName.get());
+            "Invalid {} name/pattern/regex '{}' in {} project's plugin config",
+            refKey, refPattern, projectName.get());
         valid = false;
       }
     }
-
     return valid;
   }
 
-  private static boolean match(String refName, String refPattern) {
-    return RefPatternMatcher.getMatcher(refPattern).match(refName, null);
+  private boolean hasCriteria(PluginConfig config, String criteria) {
+    return config.getStringList(criteria).length > 0;
+  }
+
+  private boolean canRef(PluginConfig config, String ref) {
+    return matchCriteria(config, "ref", ref, true);
+  }
+
+  private boolean canSkipValidation(PluginConfig config, String validatorOp) {
+    return matchCriteria(config, "skipValidation", validatorOp, true);
+  }
+
+  private boolean canSkipRef(PluginConfig config, String ref) {
+    return matchCriteria(config, "skipRef", ref, true);
+  }
+
+  private boolean matchCriteria(PluginConfig config, String criteria,
+      String value, boolean allowRegex) {
+    boolean match = true;
+    for (String s : config.getStringList(criteria)) {
+      if ((allowRegex && match(value, s)) || (!allowRegex && s.equals(value))) {
+        return true;
+      }
+      match = false;
+    }
+    return match;
+  }
+
+  private static boolean match(String value, String pattern) {
+    return RefPatternMatcher.getMatcher(pattern).match(value, null);
+  }
+
+  private boolean canSkipGroup(PluginConfig conf) {
+    CurrentUser user = userProvider.get();
+    if (!user.isIdentifiedUser()) {
+      return false;
+    }
+
+    Stream<AccountGroup.UUID> skipGroups =
+        Arrays.stream(conf.getStringList("skipGroup")).map(this::groupUUID);
+    return user.asIdentifiedUser().getEffectiveGroups()
+        .containsAnyOf(skipGroups::iterator);
+  }
+
+  private AccountGroup.UUID groupUUID(String groupNameOrUUID) {
+    AccountGroup group =
+        groupCache.get(new AccountGroup.NameKey(groupNameOrUUID));
+    if (group == null) {
+      return new AccountGroup.UUID(groupNameOrUUID);
+    }
+    return group.getGroupUUID();
   }
 }
