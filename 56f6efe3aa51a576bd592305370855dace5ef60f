@@ -137,6 +137,29 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e15de4_fe224106",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-13T14:10:19Z",
+      "side": 1,
+      "message": "Nope, it wouldn\u0027t work. The aim is really to avoid people pushing certain files to the repo, regardless of the branch.\n\nWhat about then just skip the validation for the administrators? You do need someone (e.g. Gerrit admin) that is able to work on the repo regardless of the upload validation policies defined.\n\nI am fine as well with the ad-hoc solution you proposed but we need both: permanent and ad-hoc.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 40
+      },
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
