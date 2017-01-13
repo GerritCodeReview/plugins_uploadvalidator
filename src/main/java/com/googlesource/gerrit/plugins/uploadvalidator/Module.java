@@ -14,12 +14,20 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import static com.googlesource.gerrit.plugins.uploadvalidator.OverrideUploadValidation.OVERRIDE_UPLOAD_VALIDATION;
+
+import com.google.gerrit.extensions.annotations.Exports;
+import com.google.gerrit.extensions.config.CapabilityDefinition;
 import com.google.inject.AbstractModule;
 
 class Module extends AbstractModule {
 
   @Override
   protected void configure() {
+    bind(CapabilityDefinition.class).annotatedWith(
+        Exports.named(OVERRIDE_UPLOAD_VALIDATION)).to(
+        OverrideUploadValidation.class);
+
     install(new PatternCacheModule());
     install(ContentTypeUtil.module());
 
