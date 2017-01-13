@@ -160,6 +160,29 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83d8113c_7f8c6fd4",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-13T14:30:25Z",
+      "side": 1,
+      "message": "\u003e Nope, it wouldn\u0027t work. The aim is really to avoid people pushing certain files to the repo, regardless of the branch.\n\nI don\u0027t understand that statement. We are discussing how to switch off upload validation for certain users (and thus enable uploading a certain file which otherwise would be rejected by the plugin) and what I proposed is one way of achieving that. What exactly wouldn\u0027t work?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 40
+      },
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
