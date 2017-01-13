@@ -68,6 +68,29 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83d8113c_1fd603a9",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-13T10:45:31Z",
+      "side": 1,
+      "message": "A problem with the global unlock is that it is really global. If a user gets the \"Override Upload Validation\" capability then this applies to *all* projects for that user and this user can then upload changes to unrelated project(s) and skip all upload validation logic.\n\nI think that having a kind of (project,user) or (project,group) level unlock is what you really need? Right now I don\u0027t have a good proposal how to implement it but I will think about it.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 40
+      },
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
