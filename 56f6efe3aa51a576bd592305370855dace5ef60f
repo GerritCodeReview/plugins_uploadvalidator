@@ -183,6 +183,23 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_1699fc59",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-14T22:43:13Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t understand that statement. We are discussing how to switch off upload validation for certain users (and thus enable uploading a certain file which otherwise would be rejected by the plugin) and what I proposed is one way of achieving that. What exactly wouldn\u0027t work?\n\nThe solution you are proposing (one note for a specific commit to override the validation for certain users) is linked to a specific commit only. The situation you have depicted is: \"one dev needs to push a file that would have been blocked by uploadvalidator: the admin by creating one note allows a one-off authorization to override the rules\".\n\nI like the scenario, but it isn\u0027t the one that I want to target for my change.\nI want to *permanently* allow a group of users to override the rules on all projects. E.g. the Gerrit administrators should be able to do whatever, regardless of the uploadvalidator plugin configuration.\n\nYour solution covers the \"ad-hoc\" one-off permission to override, which is different from a permanent authorization to override all rules on all projects.\n\nHope this clarifies.\n\nLuca.",
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
