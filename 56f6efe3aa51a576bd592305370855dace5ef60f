@@ -217,6 +217,23 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_56a65496",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-14T23:02:53Z",
+      "side": 1,
+      "message": "\u003e Luca, have you read my proposal about skipping upload validator checks for a specific branch (or a ref-pattern) in a project and granting the Push permission to those who need to bypass the upload validators?\n\u003e This is different from the one-off permission handled by Git notes and was\n\u003e proposed as an alternative to the \"Override Upload Validation\" \n\nNope, I believe that is the piece of information I\u0027m missing: can you give the link?",
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
