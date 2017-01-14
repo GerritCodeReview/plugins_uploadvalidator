@@ -251,6 +251,23 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d37948_d5b93cbd",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-14T23:26:24Z",
+      "side": 1,
+      "message": "\u003e It is in this discussion thread, my 4th comment counting top to bottom, containing paragraph starting with: \"Another possibility would be to have an ref-pattern exclusion in the per-project plugin\u0027s configuration...\"\n\u003e \n\u003e When I wrote \"subject to having Push permission\" in that comment, then I really meant the Push permission and not a Git note.\n\nI see, but that was a branch exclusion solution: skip validation for certain branches and then do a merge commit. The goal of my change was to allow global override on all branches of all projects to certain groups.\n\nThe branch exclusion would not satisfy my goal :-(\n\nWhat\u0027s wring with my proposal? It isn\u0027t in contrast with yours, it just achieve a different goal :-)",
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
