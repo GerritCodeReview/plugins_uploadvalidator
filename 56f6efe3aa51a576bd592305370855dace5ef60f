@@ -268,6 +268,23 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_16b0dcc7",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-14T23:52:08Z",
+      "side": 1,
+      "message": "If you goal is to \"allow global override on all branches of all projects to certain groups\" then we don\u0027t have to discuss further. In that case there is nothing technically wrong with your proposal.\n\nIMHO, your proposal (the global capability) is a mean and not the goal\nand this is why I tried to discuss it.\n\nThe goal is to be able to skip upload validators *in some cases*. And that  is IMHO more related to skipping upload validation on some project than having certain group of people whose all commits are permanently excluded from upload validation.\n\nAt our Gerrit instance I am an admin and I also participate as a developer in several projects. If, for some reason, I would need to skip upload validation in project A I wouldn\u0027t really like to switch upload validation for my changes in project B.",
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
