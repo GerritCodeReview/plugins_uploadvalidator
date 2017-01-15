@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "43d37948_15b0d4c7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverrideUploadValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-15T17:16:41Z",
+      "side": 1,
+      "message": "True, possibly \"Skip\" is the best one, as \"disable\" would make one thinking that the feature isn\u0027t enabled anymore. Let me see if there\u0027s a way to skipping specific parts of it.",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 37
+      },
+      "revId": "8b06c9b1bfe5c821b6e6aa49dbefce3a5a5ab4af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "43d37948_95c3c41b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverrideUploadValidation.java",
         "patchSetId": 2
@@ -36,6 +59,29 @@
       "writtenOn": "2017-01-15T09:09:32Z",
       "side": 1,
       "message": "Disable the plugin for all checks.",
+      "range": {
+        "startLine": 24,
+        "startChar": 12,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "8b06c9b1bfe5c821b6e6aa49dbefce3a5a5ab4af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_b60c88b5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverrideUploadValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-15T17:16:41Z",
+      "side": 1,
+      "message": "Skip all checks during upload.",
       "range": {
         "startLine": 24,
         "startChar": 12,
