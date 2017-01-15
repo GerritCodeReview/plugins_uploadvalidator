@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63d6bd38_d6e024af",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverrideUploadValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-15T09:09:32Z",
+      "side": 1,
+      "message": "I wonder why the override in the name of this plugin capability? We are skipping/disabling the plugin and not overriding branch or project or any other configuration bits, like disable specific checks.",
+      "range": {
+        "startLine": 19,
+        "startChar": 13,
+        "endLine": 19,
+        "endChar": 37
+      },
+      "revId": "8b06c9b1bfe5c821b6e6aa49dbefce3a5a5ab4af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d37948_95c3c41b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverrideUploadValidation.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-15T09:09:32Z",
+      "side": 1,
+      "message": "Disable the plugin for all checks.",
+      "range": {
+        "startLine": 24,
+        "startChar": 12,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "8b06c9b1bfe5c821b6e6aa49dbefce3a5a5ab4af",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
