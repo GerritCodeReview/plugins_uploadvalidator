@@ -302,6 +302,40 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d37948_f5db1800",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-15T17:16:41Z",
+      "side": 1,
+      "message": "That would work of course, possibly it is really the only clean way to do it at the moment. Let me try that approach and see how it goes ;-)",
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_96118ccf",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-15T17:16:41Z",
+      "side": 1,
+      "message": "\u003e If you goal is to \"allow global override on all branches of all projects to certain groups\" then we don\u0027t have to discuss further. In that case there is nothing technically wrong with your proposal.\n\nThanks, appreciated :-)\n\n\u003e IMHO, your proposal (the global capability) is a mean and not the goal\n\u003e and this is why I tried to discuss it.\n\u003e \n\u003e The goal is to be able to skip upload validators *in some cases*. And that  is IMHO more related to skipping upload validation on some project than having certain group of people whose all commits are permanently excluded from upload validation.\n\nYes, but always with inheritance in mind: I would preserve the ability to have \"globally\" applicable to all projects, e.g. assigning to the All-Projects.\n\n\u003e At our Gerrit instance I am an admin and I also participate as a developer in several projects. If, for some reason, I would need to skip upload validation in project A I wouldn\u0027t really like to switch upload validation for my changes in project B.\n\nYes, that would work in your case to have it on a project-specific basis.\nI still, however, can\u0027t see a clean way to do it with the current extension capabilities in Gerrit :-(",
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
