@@ -285,6 +285,23 @@
       "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d37948_75a94866",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-15T09:09:32Z",
+      "side": 1,
+      "message": "\u003e At our Gerrit instance I am an admin and I also participate as a developer in several projects. If, for some reason, I would need to skip upload validation in project A I wouldn\u0027t really like to switch upload validation for my changes in project B.\n\nI think that the most non intrusive way to achieve that and be able to skip the plugin for certain projects, branches, dierctories (and the combination of those) is to use exception filter match, like in reviewers plugin: [1]. The exception configuration must be defined in its own file and change index must be used.\n\nThen you could say this in uploadValidationExceptions.config:\n\n  [filter \"project:foo branch:bar file:^lib/.*\"]\n    commiter \u003d jane.doe@example.com\n\nThis would also work for groups, obviously:\n\n  [filter \"project:foo branch:bar file:^lib/.*\"]\n    commiter \u003d QAGroup\n\nThen what this change is trying to do would be just a special case of the exception feature:\n\n  [filter \"*\"]\n     commiter \u003d john.doe@example.com\n\nIt would be trivial to extend this approach and make it fine grained by allowing to skip only some specific checks and  not all of them:\n\n  [filter \"project:foo branch:bar file:^lib/.*\"]\n    commiter \u003d QAGroup\n    disable \u003d blockedFileExtension\n\nIn the example above, only one check is disabled for this project, branch and directory and only for the members of QAGroup.\n\n* [1] https://github.com/davido/gerrit-reviewers-plugin/blob/master/src/main/resources/Documentation/config.md",
+      "revId": "56f6efe3aa51a576bd592305370855dace5ef60f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
