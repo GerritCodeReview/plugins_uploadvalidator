@@ -50,6 +50,40 @@
       "revId": "5585789e461492d77b3100911e38a5604e52f532",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d37948_5542cca6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T12:24:04Z",
+      "side": 1,
+      "message": "This shows the limitation(s) of storing plugin config inside the project.config. We would need to invent new keywords like:\n\n  skipGroupForBlockedFileExtention \u003d ldap/GerritAdmins\n\nand this would become very ugly.\n\nIt looks like skipBranch/Group/Validation from project.config would be possible to easily migrate to a new format. If this feature is urgent for Luca then I am fine with it for now.",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_56e77491",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T12:24:04Z",
+      "side": 1,
+      "message": "Refactoring the plugin to use own configuration file is something that probably needs to be done yesterday :-) considering how many options are available.\n\nDifferently from the reviewers.config in the reviewers plugin which is a global configuration under etc/reviewrs.config, the uploadvalidator.config would exist under refs/meta/config:uploadvalidator.config.\n\nThe discussion on the format of the uploadvalidator.config is something that deserves own change and discussion and shouldn\u0027t be done as a side effect of this change, IMO. For example I am not sure that the proposed format is the best one as uploadvalidator.config is already project local and having a project:xxx in the filter seems redundant and confusing. Maybe we need a fully different format where config sections are named after validation checks:\n\n  [blockFileExtension \"branch:foo\"]\n    skip \u003d Administrators\n  [blockedContentType]\n    binaryType \u003d application/zip\n    binaryType \u003d ...\n\netc... However, let\u0027s discuss that new format in its own change.\n\nAnother thing to keep in mind is that when we move a plugin\u0027s own config file then we will have to write\nown GWT UI code for the general preferences page. The auto-generated UI code works only for plugin config which is stored in the project.config, unless I missed something in the newer development.",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
