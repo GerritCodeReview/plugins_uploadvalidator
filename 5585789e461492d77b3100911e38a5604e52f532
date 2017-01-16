@@ -33,6 +33,23 @@
       "revId": "5585789e461492d77b3100911e38a5604e52f532",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_b65a4892",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T07:41:50Z",
+      "side": 1,
+      "message": "Apologies, I misread your comment.\n\nIt is actually possible to define your scenario with the current configuration system: every project has its own project.config with its own uploadvalidator policy associated.\n\nProject: foo (refs/meta/config:project.config)\n\n[plugin \"uploadvalidator\"]\n  skipBranch \u003d refs/heads/foo-stable-42\n  skipGroup \u003d ldap/ReleaseManagers\n  skipValidation \u003d blockedFileExtension\n\nProject: bar (refs/meta/config:project.config)\n\n[plugin \"uploadvalidator\"]\n  skipBranch \u003d refs/heads/bar-stable-42\n  skipGroup \u003d ladp/GerritAdmins\n  skipValidation \u003d blockedContentType\n\nWhat isn\u0027t possible is to block two type of validations for two different groups on two different branches on the *same* project.\n\nDo you have such a use-case?\n(you or Saša)\n\nAgain, the one we have is much simpler and global than that.",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
