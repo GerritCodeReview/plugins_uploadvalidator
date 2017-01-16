@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "63d6bd38_1660dcdd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T22:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 29
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_560ad447",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 5
@@ -36,6 +59,29 @@
       "writtenOn": "2017-01-16T16:58:38Z",
       "side": 1,
       "message": "either rename this is branchName or rename the method to canSkipOnRef. I prefer the latter because the calling method also names this parameter refName.",
+      "range": {
+        "startLine": 84,
+        "startChar": 13,
+        "endLine": 84,
+        "endChar": 20
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43d37948_b537e0fd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T22:44:44Z",
+      "side": 1,
+      "message": "Better renaming the method: done.",
       "range": {
         "startLine": 84,
         "startChar": 13,
@@ -71,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "43d37948_953ce4e2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T22:44:44Z",
+      "side": 1,
+      "message": "True, let me fix this.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 5
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_36ee383e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 5
@@ -94,6 +163,29 @@
     },
     {
       "key": {
+        "uuid": "63d6bd38_f68b2076",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T22:44:44Z",
+      "side": 1,
+      "message": "True, not nice to have a negation in the name. Done.",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 40
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_56f1b41d",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 5
@@ -105,6 +197,29 @@
       "writtenOn": "2017-01-16T16:58:38Z",
       "side": 1,
       "message": "Shall we for consistency with the rest of the code in this class use a for-loop here like in other places?\n\nAssuming the method is named \"isSkippableValidation\",  the lines 107-112 could be written as:\n\n  for (String s : skipValidations) {\n    if (s.equals(validatorOp)) {\n      return true;\n    }\n  }\n  return false;\n\nIt may not be a modern java 8 style but it looks more readable, IMHO.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 48
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43d37948_75526822",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T22:44:44Z",
+      "side": 1,
+      "message": "No problem, done.",
       "range": {
         "startLine": 111,
         "startChar": 0,
@@ -186,6 +301,75 @@
     },
     {
       "key": {
+        "uuid": "63d6bd38_d69024a5",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T22:44:44Z",
+      "side": 1,
+      "message": "I know the group UUIDs are not user-friendly, however, I believe for backend-based group lookups would be much better.\n\nName can be non-unique and, sometimes, not even implemented by the backend.\n\nI am expecting this configuration be used by Gerrit-admins and not exposed to end-users.",
+      "range": {
+        "startLine": 237,
+        "startChar": 15,
+        "endLine": 237,
+        "endChar": 20
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_b685a861",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T22:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 237,
+        "startChar": 15,
+        "endLine": 237,
+        "endChar": 41
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43d37948_554f6c76",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T22:44:44Z",
+      "side": 1,
+      "message": "Not really, other parts of Gerrit Docs specify this statement:\n\"Multiple values are supported.\"",
+      "range": {
+        "startLine": 237,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 14
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_762b90a0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
@@ -203,6 +387,23 @@
     },
     {
       "key": {
+        "uuid": "43d37948_354cf07f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T22:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43d37948_755f0852",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
@@ -214,6 +415,23 @@
       "writtenOn": "2017-01-16T16:58:38Z",
       "side": 1,
       "message": "nit: trailing WS",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_968aac6f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T22:44:44Z",
+      "side": 1,
+      "message": "Done",
       "revId": "5585789e461492d77b3100911e38a5604e52f532",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
