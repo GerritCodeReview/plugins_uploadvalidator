@@ -101,6 +101,23 @@
       "revId": "5585789e461492d77b3100911e38a5604e52f532",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_168fbcbd",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-16T14:10:39Z",
+      "side": 1,
+      "message": "David, Saša, thanks for the feedback. I am definitely in favour in redesigning the configuration with its own config format in a follow-up change.\n\nAt the moment, I would be grateful if you could review the current as-is and then move on :-)\n\nLuca.",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
