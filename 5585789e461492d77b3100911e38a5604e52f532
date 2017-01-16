@@ -2,6 +2,224 @@
   "comments": [
     {
       "key": {
+        "uuid": "63d6bd38_16145c67",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T16:58:38Z",
+      "side": 1,
+      "message": "unrelated variable rename, revert",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 29
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_560ad447",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T16:58:38Z",
+      "side": 1,
+      "message": "either rename this is branchName or rename the method to canSkipOnRef. I prefer the latter because the calling method also names this parameter refName.",
+      "range": {
+        "startLine": 84,
+        "startChar": 13,
+        "endLine": 84,
+        "endChar": 20
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_562894a1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T16:58:38Z",
+      "side": 1,
+      "message": "Based on the documentation it makes no sense to check the skipBranch if the skipGroup list is empty?",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 5
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_36ee383e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T16:58:38Z",
+      "side": 1,
+      "message": "Why name a boolean method starting with \"not\"? If a caller needs a negation of it then it becomes:\n\n  if (!notSkippableValidation(...))\n\nName this method isSkippableValidation and use ! at the calling place if necessary.",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 40
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_56f1b41d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T16:58:38Z",
+      "side": 1,
+      "message": "Shall we for consistency with the rest of the code in this class use a for-loop here like in other places?\n\nAssuming the method is named \"isSkippableValidation\",  the lines 107-112 could be written as:\n\n  for (String s : skipValidations) {\n    if (s.equals(validatorOp)) {\n      return true;\n    }\n  }\n  return false;\n\nIt may not be a modern java 8 style but it looks more readable, IMHO.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 48
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_b62008bd",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T16:58:38Z",
+      "side": 1,
+      "message": "Group",
+      "range": {
+        "startLine": 237,
+        "startChar": 15,
+        "endLine": 237,
+        "endChar": 41
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43d37948_d51dbc94",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T16:58:38Z",
+      "side": 1,
+      "message": "Do you really expect people to write UUIDs here like:\n\n  skipGroup \u003d 44ac6aaa343b36afbfe2259f15e695dc34f7c905\n\nI think this has to be a group name.",
+      "range": {
+        "startLine": 237,
+        "startChar": 15,
+        "endLine": 237,
+        "endChar": 20
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_d61b848f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T16:58:38Z",
+      "side": 1,
+      "message": "Is this a new convention?",
+      "range": {
+        "startLine": 237,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 14
+      },
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d6bd38_762b90a0",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T16:58:38Z",
+      "side": 1,
+      "message": "The list of allowed values for this option needs to be documented?",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43d37948_755f0852",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-16T16:58:38Z",
+      "side": 1,
+      "message": "nit: trailing WS",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_161e9cda",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
