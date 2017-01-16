@@ -84,6 +84,23 @@
       "revId": "5585789e461492d77b3100911e38a5604e52f532",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43d37948_154c54d6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-16T12:34:03Z",
+      "side": 1,
+      "message": "\u003e Another thing to keep in mind is that when we move a plugin\u0027s own config file then we will have to write\nown GWT UI code for the general preferences page. The auto-generated UI code works only for plugin config which is stored in the project.config, unless I missed something in the newer development.\n\nYes, you are absolutely right here.",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
