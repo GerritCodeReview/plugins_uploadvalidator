@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63d6bd38_161e9cda",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-16T06:56:24Z",
+      "side": 1,
+      "message": "As pointed out in my previous comment, the configuration in gerrit.config doesn\u0027t allow you fine grained control on validation disabling.\n\nHow can you achieve in the example above, the differentiation on the disabling of checks for two groups:\n\n* ldap/ReleaseManagers\n* ldap/GerritAdmins\n\nfor two different projects:\n\n* foo\n* bar\n\nfor two different validation kinds:\n\n* blockedFileExtension\n* blockedContentType\n\nfor two different branches:\n\n* foo-stable-42\n* bar-stable-42\n\netc. like two different directories...\n\nThat why you need to move the plugin disabling configuration in its own config file to not have to use [plugin \"@PLUGIN@\"], and to be able to say that:\n\n  [filter \"project:foo branch:foo-stable-42\"]\n    commiter \u003d ldap/ReleaseManagers\n    disable \u003d blockedFileExtension\n\n  [filter \"project:bar branch:bar-stable-42\"]\n    commiter \u003d ldap/GerritAdmins\n    disable \u003d blockedContentType",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
