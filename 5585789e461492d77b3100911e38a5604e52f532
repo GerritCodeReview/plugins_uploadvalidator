@@ -370,6 +370,23 @@
     },
     {
       "key": {
+        "uuid": "43d37948_759a6893",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-17T09:44:49Z",
+      "side": 1,
+      "message": "\u003e I know the group UUIDs are not user-friendly, however, I believe for backend-based group lookups would be much better.\n\nIn project.config we already store just group names (access sections). \n\n\u003e \n\u003e Name can be non-unique and, sometimes, not even implemented by the backend.\n\nA group name is resolved to a UUID by looking up for that group name in the refs/meta/config:groups file. A group name may not be globally unique but is always\nuniquely resolved to an UUID within the context of a project.\n\nMaybe I don\u0027t understand what is the issue here but if group names are good for\naccess sections in the project.config file why are they not good enough for other sections\nin the same file?\n\n\u003e \n\u003e I am expecting this configuration be used by Gerrit-admins and not exposed to end-users.\n\nproject.config (and later uploadvalidator.config) are project local. Therefore, it is not only\nadmins but also project owners who will be dealing with these files.",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_762b90a0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
