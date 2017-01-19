@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "031b415c_03f56ed3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-01-19T22:32:04Z",
+      "side": 1,
+      "message": "fails to build with java 7, can we change to allow backport to stable-2.13?\n\n\n/Users/zaro0508/gerrit/local/gerrit/plugins/uploadvalidator/src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java:125: error: method references are not supported in -source 1.7\n        .containsAnyOf(Arrays.stream(skipGroups).map(UUID::parse)::iterator);\n                                                           ^\n  (use -source 8 or higher to enable method references)\nErrors: 1. Warnings: 0.",
+      "range": {
+        "startLine": 125,
+        "startChar": 53,
+        "endLine": 125,
+        "endChar": 64
+      },
+      "revId": "7cc66d8e703d2886a233e2f3a9c09dc8aafc2e5c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
