@@ -133,6 +133,29 @@
     },
     {
       "key": {
+        "uuid": "2864a22d_342cb069",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T22:50:29Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 37,
+        "startChar": 42,
+        "endLine": 37,
+        "endChar": 63
+      },
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2864a22d_b4dc4055",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 10
@@ -144,6 +167,23 @@
       "writtenOn": "2017-01-20T16:43:48Z",
       "side": 1,
       "message": "Wouldn\u0027t make more sense to swap the order and check for branch matching before checking for kip-configuration?If it\u0027s restricted to one specific branch and we are on different branch, why to bother checking user, groups, and other skip criteria, if I already know that the check is never applied because of branch mismatch?\n\n  [plugin \"uploadvalidator\"]\n  branch \u003d refs/heads/stable-42\n  skipGroup\u003dadmin\n\nSay 10k users are uploading 1k changes per day and 99% of them go to master, why should I perform all the group membership tests if i already know that the checks should be only be done on stable-42?",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_b59a808e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T22:50:29Z",
+      "side": 1,
+      "message": "It all depends on how complex is the branch matching: simple string or regex? But yes, I could check it at the beginning and put into the first conditional.",
       "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -218,6 +258,23 @@
       "writtenOn": "2017-01-20T16:37:47Z",
       "side": 1,
       "message": "Ok, so those are the final bits. Will do them tonights",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2864a22d_d4d3bc40",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FakeConfigFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T22:50:29Z",
+      "side": 1,
+      "message": "Done",
       "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -303,6 +360,23 @@
       "writtenOn": "2017-01-20T16:20:55Z",
       "side": 1,
       "message": "You said you wouldn\u0027t add the tests for branch aware config here, but in the prevous change? Misunderstanding?",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_f5d6b832",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T22:50:29Z",
+      "side": 1,
+      "message": "Yes, this change will just keep the current ones.",
       "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
