@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2864a22d_942664d5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ConfigFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T12:16:39Z",
+      "side": 1,
+      "message": "This was added for the tests?",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_1544145d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigWithInheritanceFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T12:16:39Z",
+      "side": 1,
+      "message": "I guess the only justification of these class is to have a tests with FakeConfig?",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_753908f1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigWithInheritanceFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T12:16:39Z",
+      "side": 1,
+      "message": "The real PluginConfigFactory class, that this class iOS delegating to have another dozen methods that are not used now, but could be added later. And thus this delegation would need to be extended here.",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_f5151868",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FakeConfigFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T12:16:39Z",
+      "side": 1,
+      "message": "2017. Here and in all other added new test files.",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_d530dc0b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T12:16:39Z",
+      "side": 1,
+      "message": "This is great to have tests. I wonder if the tests could be introduced already in previous change: \"Make uploadvalidator branch aware\", that wasn\u0027t merged yet, where branch was added to the configuration section. In this change it could be extended with the exclusion feature.\n\nOne problem with this test, it isn\u0027t complete acceptance test with booting of entire Gerrit, and that\u0027s why the project inheritance is not tested here. I think it is sufficient for now, but that could be easily changed: there is new facility, I added recently, with LightweightPluginDaemonTest base class.",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_353f90da",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T12:16:39Z",
+      "side": 1,
+      "message": "This and all methods below test new feature. Can we add tests for base version as well, with and without branch aware feature (If you prefer to not move theses tests in previous change)?",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
