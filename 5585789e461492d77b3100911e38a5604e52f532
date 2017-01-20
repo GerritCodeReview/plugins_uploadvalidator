@@ -455,6 +455,40 @@
     },
     {
       "key": {
+        "uuid": "2864a22d_54c16c82",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T13:14:47Z",
+      "side": 1,
+      "message": "Ah, interesting :-) However, it is different from the format used in the other parts of the project.config.\n\nWhat would you suggest? Using Group[name/UUID] or the same logic as the other part of the project.config?",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_d5773ca1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T13:14:47Z",
+      "side": 1,
+      "message": "Agreed, the next PS already includes the same logic replicated in the same way.\nUnfortunately cannot reuse the same code because it is private in the ProjectConfig.",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_762b90a0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
