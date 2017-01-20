@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2864a22d_54320c2f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigWithInheritanceFactory.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T12:16:39Z",
+      "side": 1,
+      "message": "What is the advantage to do this directly in ValidatorConfig?",
+      "range": {
+        "startLine": 40,
+        "startChar": 13,
+        "endLine": 41,
+        "endChar": 21
+      },
+      "revId": "b3b2a6c22ec7d1f48feebdafc35d2aa1e1719908",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
