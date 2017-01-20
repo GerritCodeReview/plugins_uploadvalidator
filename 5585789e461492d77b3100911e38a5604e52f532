@@ -421,6 +421,23 @@
     },
     {
       "key": {
+        "uuid": "486b96ff_55732cc2",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-20T12:35:27Z",
+      "side": 1,
+      "message": "Could you same me some time and post a link to the Gerrit core code you are referring to?\n\n\u003e Shall we then just replicate the same logic?\n\nI would say yes. Imagine the confusion for project owners who edit project.config, copy a group name from an access section to the [plugin \"uploadvalidator\"] section and finding out that this doesn\u0027t work. Then asking on the mailing list and us having to explain that they have to find the UUID and use it. What would you think about a product which exposes such inconsistency to its users?",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_762b90a0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
