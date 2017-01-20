@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "2864a22d_b49a808e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BranchAwareValidatorConfigTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T22:33:29Z",
+      "side": 1,
+      "message": "Right, let me fix the test.",
+      "revId": "1a9ae29ad7b372d18b9b2fe299fa44f6785be68e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2864a22d_3487903d",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BranchAwareValidatorConfigTest.java",
         "patchSetId": 10
@@ -36,6 +53,23 @@
       "writtenOn": "2017-01-20T22:02:20Z",
       "side": 1,
       "message": "Please add a negative test. Branch foo is specified, and you pass branch bar, result is not enabled.",
+      "revId": "1a9ae29ad7b372d18b9b2fe299fa44f6785be68e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_3587903d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BranchAwareValidatorConfigTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T22:33:29Z",
+      "side": 1,
+      "message": "Isn\u0027t it already there? branch1 and branch2 are configured, but not branch3.",
       "revId": "1a9ae29ad7b372d18b9b2fe299fa44f6785be68e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
