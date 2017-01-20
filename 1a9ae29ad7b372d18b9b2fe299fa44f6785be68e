@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2864a22d_d478dc6a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BranchAwareValidatorConfigTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T22:02:20Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be true?",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 72
+      },
+      "revId": "1a9ae29ad7b372d18b9b2fe299fa44f6785be68e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2864a22d_3487903d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BranchAwareValidatorConfigTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T22:02:20Z",
+      "side": 1,
+      "message": "Please add a negative test. Branch foo is specified, and you pass branch bar, result is not enabled.",
+      "revId": "1a9ae29ad7b372d18b9b2fe299fa44f6785be68e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
