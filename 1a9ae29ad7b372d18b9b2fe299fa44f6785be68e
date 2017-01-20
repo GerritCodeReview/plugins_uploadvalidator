@@ -73,6 +73,23 @@
       "revId": "1a9ae29ad7b372d18b9b2fe299fa44f6785be68e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_75810824",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BranchAwareValidatorConfigTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T22:37:08Z",
+      "side": 1,
+      "message": "Ah, right.",
+      "revId": "1a9ae29ad7b372d18b9b2fe299fa44f6785be68e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
