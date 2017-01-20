@@ -190,6 +190,23 @@
     },
     {
       "key": {
+        "uuid": "2864a22d_74e3c819",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FakeConfigFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T16:37:47Z",
+      "side": 1,
+      "message": "Ok, so those are the final bits. Will do them tonights",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_d530dc0b",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
         "patchSetId": 10
