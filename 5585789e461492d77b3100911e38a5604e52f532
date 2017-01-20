@@ -557,6 +557,23 @@
     },
     {
       "key": {
+        "uuid": "2864a22d_f4a878c9",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T15:36:13Z",
+      "side": 1,
+      "message": "\u003e However, since project.config is also human-readable and can also\n \u003e be edited and pushed for review, the format should be consistent\n \u003e with the rest of the file. Right?\n\nSure. My comment about the suggestion feature in the UI is more for future extension as current UI is generic and see group as list of strings.",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_762b90a0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
