@@ -404,6 +404,23 @@
     },
     {
       "key": {
+        "uuid": "486b96ff_35d790a7",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T01:34:22Z",
+      "side": 1,
+      "message": "\u003e \u003e Maybe I don\u0027t understand what is the issue here but if group\n \u003e names\n \u003e \u003e are good for\n \u003e \u003e access sections in the project.config file why are they not good\n \u003e \u003e enough for other sections\n \u003e \u003e in the same file?\n \u003e \n \u003e Good point :-) Let\u0027s investigate in Gerrit\u0027s code ...\n\nSo the logic is this one:\n- Group name is found in the groups table \u003d\u003e lookup the UUID and save the UUID\n- Group name NOT found in the groups table \u003d\u003e use the Universal Group Backend to get the Group Reference (UUID, Name)\n\nBear in mind that not all the Group Backends allow the full resolution and completion of the suggest() API. In that case just use it as UUID.\n\nShall we then just replicate the same logic?",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_762b90a0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
