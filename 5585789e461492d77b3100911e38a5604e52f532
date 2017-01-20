@@ -506,6 +506,40 @@
     },
     {
       "key": {
+        "uuid": "2864a22d_b4ae00d5",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T14:55:46Z",
+      "side": 1,
+      "message": "Actually, as a user I shouldn\u0027t bother to figure out what is the correct format. I would expect, that the UI is smart enough to understand, that the type of this input field is group name and offer me suggestion during typing, like it is the case in reviewers plugin, where we have dedicated UI and implemented the suggestion part on our own. Once I satisfied with the suggested name, the underlying code should store in in the \"right\" format for me.",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_95ab04c5",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T14:55:46Z",
+      "side": 1,
+      "message": "\u003e Agreed, the next PS already includes the same logic replicated in\n \u003e the same way.\n \u003e Unfortunately cannot reuse the same code because it is private in\n \u003e the ProjectConfig.\n\nCan\u0027t we try to extract that part of the code to make it accessible for the plugin?",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_762b90a0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
