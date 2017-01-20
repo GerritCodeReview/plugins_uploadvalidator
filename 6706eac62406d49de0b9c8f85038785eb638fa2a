@@ -173,6 +173,23 @@
     },
     {
       "key": {
+        "uuid": "486b96ff_f5fd18bb",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FakeConfigFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T16:20:55Z",
+      "side": 1,
+      "message": "You said you wanted fixed that.",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_d530dc0b",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
         "patchSetId": 10
@@ -235,6 +252,23 @@
       "writtenOn": "2017-01-20T13:11:51Z",
       "side": 1,
       "message": "Yes, but not as part of this change but rather of the previous one.\nTypically it is best to have code + test in the same change for consistency.",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_d5fa9cc0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T16:20:55Z",
+      "side": 1,
+      "message": "You said you wouldn\u0027t add the tests for branch aware config here, but in the prevous change? Misunderstanding?",
       "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
