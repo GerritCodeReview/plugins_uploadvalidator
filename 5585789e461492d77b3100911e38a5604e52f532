@@ -387,6 +387,23 @@
     },
     {
       "key": {
+        "uuid": "2864a22d_f4cb58fe",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T01:06:48Z",
+      "side": 1,
+      "message": "\u003e A group name is resolved to a UUID by looking up for that group\n \u003e name in the refs/meta/config:groups file. A group name may not be\n \u003e globally unique but is always\n \u003e uniquely resolved to an UUID within the context of a project.\n\nNot necessarily: a group could be resolved by an external plugin and then not even exist in the refs/meta/config:groups file.\n\nI know it is not really user-friendly, but I can\u0027t see a simpler way to do it at the moment :-(\n\nAny bright ideas?\n\n \u003e \n \u003e Maybe I don\u0027t understand what is the issue here but if group names\n \u003e are good for\n \u003e access sections in the project.config file why are they not good\n \u003e enough for other sections\n \u003e in the same file?\n\nGood point :-) Let\u0027s investigate in Gerrit\u0027s code ...\n\n \u003e \n \u003e project.config (and later uploadvalidator.config) are project\n \u003e local. Therefore, it is not only\n \u003e admins but also project owners who will be dealing with these\n \u003e files.\n\nFair point, so I would say Gerrit admins + project admins.",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_762b90a0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
