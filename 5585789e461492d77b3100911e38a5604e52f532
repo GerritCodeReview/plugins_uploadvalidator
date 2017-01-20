@@ -574,6 +574,23 @@
     },
     {
       "key": {
+        "uuid": "486b96ff_750aa809",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T15:59:53Z",
+      "side": 1,
+      "message": "Yep.\n\nAre we good to go then?",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_762b90a0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
