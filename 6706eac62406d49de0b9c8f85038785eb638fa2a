@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "486b96ff_7587486a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ConfigFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T13:11:51Z",
+      "side": 1,
+      "message": "Yes, otherwise it wouldn\u0027t be testable :-(",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_1544145d",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigWithInheritanceFactory.java",
         "patchSetId": 10
@@ -30,6 +47,23 @@
       "writtenOn": "2017-01-20T12:16:39Z",
       "side": 1,
       "message": "I guess the only justification of these class is to have a tests with FakeConfig?",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_558ccc8a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigWithInheritanceFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T13:11:51Z",
+      "side": 1,
+      "message": "Yes.",
       "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -59,6 +93,23 @@
     },
     {
       "key": {
+        "uuid": "486b96ff_b580c04f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigWithInheritanceFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T13:11:51Z",
+      "side": 1,
+      "message": "Yes, but we don\u0027t need them now. I don\u0027t typically write code that isn\u0027t needed :-)",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_f5151868",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FakeConfigFactory.java",
         "patchSetId": 10
@@ -82,6 +133,23 @@
     },
     {
       "key": {
+        "uuid": "2864a22d_34b2f049",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FakeConfigFactory.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T13:11:51Z",
+      "side": 1,
+      "message": "Oops, let me update all of them.",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_d530dc0b",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
         "patchSetId": 10
@@ -99,6 +167,23 @@
     },
     {
       "key": {
+        "uuid": "486b96ff_957dc485",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T13:11:51Z",
+      "side": 1,
+      "message": "Yes, this is unit-test of this single functionality.\nIt would be nice to start an acceptance test suite as well in a follow-up change.",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_353f90da",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
         "patchSetId": 10
@@ -110,6 +195,23 @@
       "writtenOn": "2017-01-20T12:16:39Z",
       "side": 1,
       "message": "This and all methods below test new feature. Can we add tests for base version as well, with and without branch aware feature (If you prefer to not move theses tests in previous change)?",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "486b96ff_f57a3889",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-20T13:11:51Z",
+      "side": 1,
+      "message": "Yes, but not as part of this change but rather of the previous one.\nTypically it is best to have code + test in the same change for consistency.",
       "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
