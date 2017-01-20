@@ -540,6 +540,23 @@
     },
     {
       "key": {
+        "uuid": "486b96ff_f5a878c9",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-20T14:59:06Z",
+      "side": 1,
+      "message": "\u003e Once I satisfied with the suggested name, the underlying code should store in in the \"right\" format for me.\n\nThis is OK, I agree.\nHowever, since project.config is also human-readable and can also be edited and pushed for review, the format should be consistent with the rest of the file. Right?",
+      "revId": "5585789e461492d77b3100911e38a5604e52f532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63d6bd38_762b90a0",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
