@@ -110,6 +110,29 @@
     },
     {
       "key": {
+        "uuid": "2864a22d_d4fa9cc0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T16:09:50Z",
+      "side": 1,
+      "message": "Nit: on its own line.",
+      "range": {
+        "startLine": 37,
+        "startChar": 42,
+        "endLine": 37,
+        "endChar": 63
+      },
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_f5151868",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FakeConfigFactory.java",
         "patchSetId": 10
