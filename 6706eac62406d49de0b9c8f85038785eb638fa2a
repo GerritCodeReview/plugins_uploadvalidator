@@ -133,6 +133,23 @@
     },
     {
       "key": {
+        "uuid": "2864a22d_b4dc4055",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-20T16:43:48Z",
+      "side": 1,
+      "message": "Wouldn\u0027t make more sense to swap the order and check for branch matching before checking for kip-configuration?If it\u0027s restricted to one specific branch and we are on different branch, why to bother checking user, groups, and other skip criteria, if I already know that the check is never applied because of branch mismatch?\n\n  [plugin \"uploadvalidator\"]\n  branch \u003d refs/heads/stable-42\n  skipGroup\u003dadmin\n\nSay 10k users are uploading 1k changes per day and 99% of them go to master, why should I perform all the group membership tests if i already know that the checks should be only be done on stable-42?",
+      "revId": "6706eac62406d49de0b9c8f85038785eb638fa2a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_f5151868",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FakeConfigFactory.java",
         "patchSetId": 10
