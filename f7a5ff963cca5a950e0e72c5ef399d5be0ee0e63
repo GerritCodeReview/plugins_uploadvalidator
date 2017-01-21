@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8e9aa6a_a214befa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-01-21T01:47:02Z",
+      "side": 1,
+      "message": "This seems inconsistent with the documentation.  The doc says `skipBranch` can be ref names, ref patterns, or regular expressions however it looks like this method only matches on exact ref name.  Probably should either add those additional matching features or update the docs.",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "031b415c_6699d059",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-01-21T01:47:02Z",
+      "side": 1,
+      "message": "this is sort of confusing, i\u0027m reading it as saying the default is to skip all validation on all branches?  But I guess the default behavior depends on what the user supplies for this param.  Would it make sense to say something like \u0027skip validation for the specified branch(es)\u0027?",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8e9aa6a_42ddf220",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "2017-01-21T01:47:02Z",
+      "side": 1,
+      "message": "[optional] I would suggest adding another example showing how to use this with `branch` param because that can be confusing.  For example:\n\n\nA typical configuration would be to enable validation for a set of branches, while excluding a few of them.\n\n```\n   [plugin \"@PLUGIN@\"]\n       branch \u003d ^refs/heads/stable-.*\n       skipGroup \u003d release-manager\n       skipBranch \u003d refs/heads/stable-3.4\n       skipBranch \u003d refs/heads/stable-5.6\n```",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
