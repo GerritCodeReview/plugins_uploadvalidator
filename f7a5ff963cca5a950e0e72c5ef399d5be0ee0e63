@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "3c2dbc3b_fc8f2769",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T08:42:15Z",
+      "side": 1,
+      "message": "Fair enough, let me align it using regex as well for refs.",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2864a22d_77890a0b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 14
@@ -59,6 +76,29 @@
     },
     {
       "key": {
+        "uuid": "a4f412a1_bf7ca7b8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T08:42:15Z",
+      "side": 1,
+      "message": "It was like that before, but then DavidO pointed out that typically people would restrict only on specific branches that are hit only sporadically. That\u0027s why the branch has now priority over the chain.\n\nCan we discuss and come to a conclusion?\nTo be honest with you, all projects are different and it\u0027s hard to say that the most of the validations would be on group or branch level.\n\nThe answer to \"which is the cheapest check?\" it most of the times \"it depends ...\"",
+      "range": {
+        "startLine": 76,
+        "startChar": 8,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_588ec114",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 14
@@ -70,6 +110,29 @@
       "writtenOn": "2017-01-23T10:20:42Z",
       "side": 1,
       "message": "optional:\n\nThe skipGroup.length \u003d\u003d 0 should have been checked already before calling this method (and before calling any other check) as all other settings have no effect when skipGroup is empty.\n\nIMO, this (private) method should only be called when we really need to check skipping on group which means when skipGroup.length \u003e 0",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 5
+      },
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0b73917_3ab28282",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T08:42:15Z",
+      "side": 1,
+      "message": "Yes, can be split into two different methods:\n- isSkipConfigured\n- canSkipOnGroup\n\nI am unsure about the real runtime performance improvement in that however: you still need to make a method call that is negligible in terms of performance improvement over a Git push operation.",
       "range": {
         "startLine": 101,
         "startChar": 0,
@@ -116,6 +179,23 @@
     },
     {
       "key": {
+        "uuid": "55430a08_3cf0ac7e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T08:42:15Z",
+      "side": 1,
+      "message": "Yes, Saša is right. Let me amend by specifying the membership.",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_388f8514",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 14
@@ -127,6 +207,29 @@
       "writtenOn": "2017-01-23T10:20:42Z",
       "side": 1,
       "message": "by child\n\nor\n\nfrom parent",
+      "range": {
+        "startLine": 275,
+        "startChar": 44,
+        "endLine": 275,
+        "endChar": 53
+      },
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8a5f9fa_246cb45d",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T08:42:15Z",
+      "side": 1,
+      "message": "\"from\" is the correct one.",
       "range": {
         "startLine": 275,
         "startChar": 44,
@@ -156,6 +259,23 @@
     },
     {
       "key": {
+        "uuid": "18e1f21c_fa1e4069",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T08:42:15Z",
+      "side": 1,
+      "message": "Yes, good idea.",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2864a22d_17941627",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 14
@@ -167,6 +287,29 @@
       "writtenOn": "2017-01-23T10:20:42Z",
       "side": 1,
       "message": "List the skipGroup first as, without these, all other skip* are ignored.",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 33
+      },
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f3b0f2a_63c8881e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T08:42:15Z",
+      "side": 1,
+      "message": "I guess the order of the entries in the config are irrelevant isn\u0027t it?\nI wouldn\u0027t like to give the impression that they have to me mentioned *before* the others in the file.",
       "range": {
         "startLine": 293,
         "startChar": 0,
