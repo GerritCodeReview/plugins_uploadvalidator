@@ -162,6 +162,23 @@
     },
     {
       "key": {
+        "uuid": "af0b4f07_e6869501",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T09:47:56Z",
+      "side": 1,
+      "message": "Checking group membership is potentially much more expensive than isSkipConfigured and branch pattern matching, as it might involve sending a query to a group backend (LDAP...).",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "031b415c_6699d059",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 14
@@ -333,6 +350,23 @@
         "endLine": 294,
         "endChar": 33
       },
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed5a4a4a_7e8b9588",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T09:47:56Z",
+      "side": 1,
+      "message": "Yes, the order is technically not important. Still, often we try to keep the order in our configuration file(s) and source code in some systematic and intuitive way.\n\nI do not insist on this proposal, should have marked it as optional.",
       "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
