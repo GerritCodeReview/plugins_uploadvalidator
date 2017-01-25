@@ -124,6 +124,23 @@
       "revId": "1f041f59933e683e3e3dc8fff2bcb23dbc210024",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "174d449c_384fc2f7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T15:16:39Z",
+      "side": 1,
+      "message": "\u003e OK, but then you squash them together before merging it right?\n\u003e So in a nutshell you\u0027re asking me: can you Luca upload a new patch-set? :-)\n\nYes, like we always do when addressing code review comments :-)",
+      "revId": "1f041f59933e683e3e3dc8fff2bcb23dbc210024",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
