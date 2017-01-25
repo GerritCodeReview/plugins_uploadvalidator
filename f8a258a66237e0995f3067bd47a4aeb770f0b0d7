@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83a58b0b_6ab80382",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BranchAwareValidatorConfigTest.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-25T10:04:33Z",
+      "side": 1,
+      "message": "branch was renamed in ref. This wasn\u0027t reflected in this file name and in the content of config in the test methods.",
+      "revId": "f8a258a66237e0995f3067bd47a4aeb770f0b0d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
