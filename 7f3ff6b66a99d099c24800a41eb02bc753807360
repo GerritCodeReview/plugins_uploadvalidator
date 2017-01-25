@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a70a0d2_d74af3da",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T10:50:24Z",
+      "side": 1,
+      "message": "As discussed: swap the order of the lines 50-51 so that we first check skipGroup.length and do regex pattern matching after that.",
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c6ed7c0_6cd2a715",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T10:50:24Z",
+      "side": 1,
+      "message": "Ref\n\nto make it consistent with the refPatterns variable name and the config key name \"ref\".",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 32
+      },
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5b5ddd5_674fb9c1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T10:50:24Z",
+      "side": 1,
+      "message": "At this point, if the skipValidation is false this method can already return false?",
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "088c17fd_db4c60d3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T10:50:24Z",
+      "side": 1,
+      "message": "The empty value is considered as true in all cases (line 78). Do we really need the Optional\u003cBoolean\u003e as the return type here?",
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
