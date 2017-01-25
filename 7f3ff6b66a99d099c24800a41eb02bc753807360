@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "90953391_2840818b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T11:21:32Z",
+      "side": 1,
+      "message": "are you sure about that? If we do not have the skipGroup part, we are not necessarily sure that we can break the chain. See my next PS if that suits you.",
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c6ed7c0_6cd2a715",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 16
@@ -30,6 +47,29 @@
       "writtenOn": "2017-01-25T10:50:24Z",
       "side": 1,
       "message": "Ref\n\nto make it consistent with the refPatterns variable name and the config key name \"ref\".",
+      "range": {
+        "startLine": 55,
+        "startChar": 28,
+        "endLine": 55,
+        "endChar": 32
+      },
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1be72b28_99e867d3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T11:21:32Z",
+      "side": 1,
+      "message": "Done",
       "range": {
         "startLine": 55,
         "startChar": 28,
@@ -59,6 +99,23 @@
     },
     {
       "key": {
+        "uuid": "08bab714_9a18a49c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T11:21:32Z",
+      "side": 1,
+      "message": "Can in-line the call to matchCriteria so that it doesn\u0027t get invoked because of the short-circuit boolean evaluation.",
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "088c17fd_db4c60d3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 16
@@ -70,6 +127,23 @@
       "writtenOn": "2017-01-25T10:50:24Z",
       "side": 1,
       "message": "The empty value is considered as true in all cases (line 78). Do we really need the Optional\u003cBoolean\u003e as the return type here?",
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "884e682c_6778e7af",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T11:21:32Z",
+      "side": 1,
+      "message": "You mean, just get rid of the Optional? We could, it would just make it less readable but I guess we can.",
       "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
