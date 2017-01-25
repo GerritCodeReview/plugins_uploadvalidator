@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33e6e4b7_0a0d949d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T13:56:57Z",
+      "side": 1,
+      "message": "Are we silently ignoring invalid configuration? This isn\u0027t good at all :-( I would rather prefer an explicit warning saying something like:\n\n  WARN Illegal refPattern detected in uploadvalidator config \u0027bla bla bla\u0027\n\nSilently ignoring a matching criteria would just make the people crazy about wondering what\u0027s going on and why policies aren\u0027t respected :-(",
+      "range": {
+        "startLine": 51,
+        "startChar": 10,
+        "endLine": 51,
+        "endChar": 46
+      },
+      "revId": "1f041f59933e683e3e3dc8fff2bcb23dbc210024",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
