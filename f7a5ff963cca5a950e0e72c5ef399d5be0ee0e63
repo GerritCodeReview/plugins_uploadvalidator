@@ -196,6 +196,23 @@
     },
     {
       "key": {
+        "uuid": "48ad6bb7_26e841fa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T09:58:12Z",
+      "side": 1,
+      "message": "Yes, one thing is group membership and a different one is if the groups are configured at all :-)\n\nI have split the check into two methods invoked at different times.",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "486b96ff_588ec114",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 14
