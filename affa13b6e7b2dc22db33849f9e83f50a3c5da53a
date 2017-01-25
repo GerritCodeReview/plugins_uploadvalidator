@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "2b63faa4_7a7cc086",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T23:08:28Z",
+      "side": 1,
+      "message": "Good point, however the current block has an additional \"isValid()\" that I would need to introduce somehow.\n\nNot sure if I will end up adding as much code as before, need to give it a try.",
+      "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3548d18c_9bba991f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 19
@@ -30,6 +47,29 @@
       "writtenOn": "2017-01-25T13:05:55Z",
       "side": 1,
       "message": "Write this as:\n\n  return matchCriteria(conf, \"skipValidation\", validation, false)\n      \u0026\u0026 matchCriteria(conf, \"skipRef\", refName, true)\n      \u0026\u0026 canSkipOnGroup(conf);\n\nThis avoids two negation operators and is easier to read.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9594796_c1f17d68",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T23:08:28Z",
+      "side": 1,
+      "message": "Done",
       "range": {
         "startLine": 74,
         "startChar": 0,
@@ -76,6 +116,52 @@
       "writtenOn": "2017-01-25T13:05:55Z",
       "side": 1,
       "message": "b",
+      "range": {
+        "startLine": 86,
+        "startChar": 10,
+        "endLine": 86,
+        "endChar": 11
+      },
+      "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42233422_152c146d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T23:08:28Z",
+      "side": 1,
+      "message": "Not really, because the two methods would still be 99% identical. Much better to keep the matchCriteria and use it for any type of matching, with regex or not.",
+      "range": {
+        "startLine": 86,
+        "startChar": 18,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06897890_875aff71",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T23:08:28Z",
+      "side": 1,
+      "message": "b?",
       "range": {
         "startLine": 86,
         "startChar": 10,
