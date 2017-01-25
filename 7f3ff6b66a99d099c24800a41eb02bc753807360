@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "77a7cbb5_5af04548",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T23:08:28Z",
+      "side": 1,
+      "message": "ok",
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c6ed7c0_6cd2a715",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 16
@@ -133,6 +150,23 @@
     },
     {
       "key": {
+        "uuid": "0e4d18cd_3b66c2d7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T23:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "088c17fd_db4c60d3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 16
@@ -164,6 +198,46 @@
       "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "824cf197_4cad5876",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T23:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df1ff9e0_0369f568",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T23:08:28Z",
+      "side": 1,
+      "message": "I just got rid of the Optional\u003c\u003e here as well: it is not necessarily needed here.",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 12
+      },
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
