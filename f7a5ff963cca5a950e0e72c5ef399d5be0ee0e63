@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "d6d87bb0_d7b4574d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T09:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2864a22d_77890a0b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 14
@@ -133,6 +150,52 @@
     },
     {
       "key": {
+        "uuid": "5d782e44_b9ab1c08",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T09:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 76,
+        "startChar": 8,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b46dcb6d_e3eb36c2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T09:55:44Z",
+      "side": 1,
+      "message": "WIll move it at next PS.",
+      "range": {
+        "startLine": 76,
+        "startChar": 8,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486b96ff_588ec114",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 14
@@ -196,6 +259,29 @@
     },
     {
       "key": {
+        "uuid": "e1fd3984_012c0844",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T09:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 5
+      },
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "031b415c_6699d059",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 14
@@ -241,6 +327,23 @@
       "writtenOn": "2017-01-25T08:42:15Z",
       "side": 1,
       "message": "Yes, Saša is right. Let me amend by specifying the membership.",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ac067367_de632bba",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T09:55:44Z",
+      "side": 1,
+      "message": "Done",
       "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -293,6 +396,29 @@
     },
     {
       "key": {
+        "uuid": "f35b5c03_e12a1e41",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T09:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 275,
+        "startChar": 44,
+        "endLine": 275,
+        "endChar": 53
+      },
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8e9aa6a_42ddf220",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 14
@@ -321,6 +447,23 @@
       "writtenOn": "2017-01-25T08:42:15Z",
       "side": 1,
       "message": "Yes, good idea.",
+      "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc99630a_35b1dac3",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T09:55:44Z",
+      "side": 1,
+      "message": "Done",
       "revId": "f7a5ff963cca5a950e0e72c5ef399d5be0ee0e63",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
