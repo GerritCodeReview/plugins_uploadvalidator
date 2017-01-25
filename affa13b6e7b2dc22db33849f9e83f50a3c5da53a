@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d09a2171_8a2ec920",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T13:05:55Z",
+      "side": 1,
+      "message": "Why don\u0027t you reuse this method also for matching the skipRef?\nWhy use something called matchCriteria to evaluate matching of \"skipRef\" setting and using isMatchingRefPatters to evaluate the \"ref\" settings?",
+      "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3548d18c_9bba991f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T13:05:55Z",
+      "side": 1,
+      "message": "Write this as:\n\n  return matchCriteria(conf, \"skipValidation\", validation, false)\n      \u0026\u0026 matchCriteria(conf, \"skipRef\", refName, true)\n      \u0026\u0026 canSkipOnGroup(conf);\n\nThis avoids two negation operators and is easier to read.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d590c40c_53cfc37a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T13:05:55Z",
+      "side": 1,
+      "message": "Once the isMatchingRefPatterns is used for \"skipRef\" matching, this method will only be used for the \"skipValidation\" matching. Then the allowRegex parameter can be removed and the method can be named more specifically, for example: isMatchingSkipValidation or something like that.",
+      "range": {
+        "startLine": 86,
+        "startChar": 18,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfd1593b_3a719670",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T13:05:55Z",
+      "side": 1,
+      "message": "b",
+      "range": {
+        "startLine": 86,
+        "startChar": 10,
+        "endLine": 86,
+        "endChar": 11
+      },
+      "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
