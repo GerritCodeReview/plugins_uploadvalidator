@@ -73,6 +73,23 @@
       "revId": "1f041f59933e683e3e3dc8fff2bcb23dbc210024",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "709feb7f_e524cb3b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-25T15:00:32Z",
+      "side": 1,
+      "message": "\"github like fix-up strategy\"? What do you mean?",
+      "revId": "1f041f59933e683e3e3dc8fff2bcb23dbc210024",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
