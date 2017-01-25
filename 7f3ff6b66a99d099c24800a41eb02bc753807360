@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "a053023c_09b03e2a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-25T13:05:55Z",
+      "side": 1,
+      "message": "\u003e are you sure about that?\n\nAh, I mixed the ref and skipRef. Sorry.\n\nLet\u0027s continue discussing in the latest PS.",
+      "revId": "7f3ff6b66a99d099c24800a41eb02bc753807360",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c6ed7c0_6cd2a715",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 16
