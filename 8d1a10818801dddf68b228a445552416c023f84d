@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "08a028d9_6aebd2c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T17:43:11Z",
+      "side": 1,
+      "message": "Optional: Mention that this change implements the in Gerrit tree build mode only.",
+      "revId": "8d1a10818801dddf68b228a445552416c023f84d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13372acb_e074a6b4",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 5
