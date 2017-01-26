@@ -62,6 +62,23 @@
       "revId": "4d3d9fa17db45ad585d968e47880b069d7e1c91f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43476556_cdee79fb",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T16:27:06Z",
+      "side": 1,
+      "message": "I see. Sorry for confusion. The only missing link now, is to add dummy file in Gerit core change, and replace the dummy one with the real one, and well, pray, that its works?",
+      "revId": "4d3d9fa17db45ad585d968e47880b069d7e1c91f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
