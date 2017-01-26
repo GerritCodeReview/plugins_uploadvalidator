@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b50b9d41_20eb73c2",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T21:38:43Z",
+      "side": 1,
+      "message": "bazel test --test_tag_filters\u003d@PLUGIN@ //...",
+      "revId": "6b871ca7b98734376167f6843b89bb67fe6875bd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
