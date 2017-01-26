@@ -217,6 +217,23 @@
       "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f81d559_d468fba3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T14:34:06Z",
+      "side": 1,
+      "message": "Fair enough, will just turn it into a lambda for comparison: I would not duplicate however the matching logic that is:\n\n1. No configuration exist \u003d\u003e return true\n2. Configuration exist \u003d\u003e return true at the first hit\n3. None of the configuration matches \u003d\u003e return false\n\nThe logic is not a simple loop but a 3-steps business logic: I don\u0027t see the value of copy and paste it only because one is full text matching and the other is pattern-based.",
+      "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
