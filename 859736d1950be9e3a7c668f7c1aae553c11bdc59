@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "8c764290_ac052020",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-26T16:37:10Z",
+      "side": 1,
+      "message": "\u003e should I just separate into three different methods so that can be more easily readable?\n\nI believe that this would help in understanding this code.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c349ca69_724fed0c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 20
@@ -76,6 +99,23 @@
       "writtenOn": "2017-01-26T16:30:10Z",
       "side": 1,
       "message": "we do pure string matching on that: would you expect something different? Do you want to introduce an Enum on validation types?\n\nI would avoid to make this change even bigger: IMHO it is best to get this closed and then refactor the validation types into an enum and put proper validation in place for it.",
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e399b33d_c2797103",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-26T16:37:10Z",
+      "side": 1,
+      "message": "OK, fine. This is not critical. Let\u0027s do it in a follow-up change.",
       "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
