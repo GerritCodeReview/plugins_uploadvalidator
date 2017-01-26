@@ -130,6 +130,46 @@
       "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5811457f_f20289cb",
+        "filename": "WORKSPACE",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T09:26:46Z",
+      "side": 1,
+      "message": "\u003e I\u0027m glad that you lead the path and started to remove the stones\n \u003e ... but unfortunately in both ways you encountered blocking issues\n \u003e in Bazel :-(\n\nIn fact I considered them blocking issue first and even added this issue: [1] as backing issue to the Buck removal change first. But. given that there is numbers of workarounds, see the list of them in the issue above, i removed the blocking bit too move forward with Bazel only and leave Buck behind us.\n\n \u003e I believe then that [3] is the only (currently) viable option, isn\u0027t it?\n\nNot really, we have standalone build as well. and concerning [3], we could do a better jobs here, provide much simpler workaround. My idea is 8just haven\u0027t time to implement it):\n\n* 1 Expose plugins/external_plugin_deps.bzl skylark rule in Gerrit tree and add there new method:\n\n  def external_plugin_deps():\n    pass\n\n* 2. Include this file in Gerrit\u0027s own WORKSPACE file:\n\n  load(\"//plugins:external_plugin_deps.bzl\", \"external_plugin_deps\")\n\n* 3. invoke the no op method in Gerrit\u0027s own WORKSPACE file:\n\n  external_plugin_deps()\n\n* 4. in all plugins, that have external dependencies, extract them in the file called external_plugin_deps.bzl in the root directory of the plugin, and include this file from the plugin\u0027s own WORKSPACE. The way the standalone build ill just work.\n\n* 5. Wie in Gerrit tree build is needed, there are two steps:\n* 5.1. Clone the plugin into plugins directory in Gerrit tree\n* 5.2. Copy \u003cplugin-foo/\u003eexternal_plugin_deps.bzl to \u003cgerrit-root\u003e/plugins/external_plugin_deps.bzl\n\nAs example, external_plugin_deps.bzl of this plugin would be:\n\ndef external_plugin_deps():\n  maven_jar(\n      name \u003d \u0027commons_io_commons_io\u0027,\n      artifact \u003d \u0027commons-io:commons-io:1.4\u0027,\n      sha1 \u003d \u0027a8762d07e76cfde2395257a5da47ba7c1dbd3dce\u0027,\n  )\n\n  maven_jar(\n      name \u003d \u0027org_apache_tika_tika_core\u0027,\n      artifact \u003d \u0027org.apache.tika:tika-core:1.12\u0027,\n      sha1 \u003d \u00275ab95580d22fe1dee79cffbcd98bb509a32da09b\u0027,\n  )\n\n* [1] https://bugs.chromium.org/p/gerrit/issues/detail?id\u003d5305",
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d89cf25e_c0c9fa26",
+        "filename": "WORKSPACE",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T09:26:46Z",
+      "side": 1,
+      "message": "Nit: run buildifier on this file too.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 1
+      },
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
