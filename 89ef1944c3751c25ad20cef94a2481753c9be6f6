@@ -218,6 +218,23 @@
     },
     {
       "key": {
+        "uuid": "31314817_42c3ed6a",
+        "filename": "WORKSPACE",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T14:43:32Z",
+      "side": 1,
+      "message": "Nice, And thank for adding a change to Gerrit core. The file is missing there. I would also move load maven_jar in WORKSPACE file to move the reposnisibility on the caller, all note, that its\u0027 not really need to load it at all, while maven_jar is native rule in Bazel!",
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d89cf25e_c0c9fa26",
         "filename": "WORKSPACE",
         "patchSetId": 2
