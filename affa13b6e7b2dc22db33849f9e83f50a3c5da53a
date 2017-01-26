@@ -234,6 +234,23 @@
       "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54a9e754_48ca6f0f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-26T14:43:49Z",
+      "side": 1,
+      "message": "\u003e Fair enough, will just turn it into a lambda for comparison\n\nplease don\u0027t. If we cannot agree on having self-explainable method names like isMatchingRefPatters, isMatchingSkipValidation... then I would just keep the matchCriteria as-is. Having a lambda wouldn\u0027t make it more readable IMHO.",
+      "revId": "affa13b6e7b2dc22db33849f9e83f50a3c5da53a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
