@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "60b3eb52_953b4e85",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T05:27:15Z",
+      "side": 1,
+      "message": "Nit: Indentation is not Bazel conform. There is buildifier utility available. Just run this file through it.",
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "235040d6_dbadbeea",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T05:27:15Z",
+      "side": 1,
+      "message": "Not needed as the gerrit_plugin() already adds it.",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c63ee533_d69a86d3",
         "filename": "WORKSPACE",
         "patchSetId": 2
@@ -13,6 +53,23 @@
       "writtenOn": "2017-01-26T00:23:32Z",
       "side": 1,
       "message": "@DavidO How did you manage to sort out the merging of the Gerrit WORKSPACE with the one provided by the plugin?\n\nThe simplest idea could be just appending to it in the build script ... but honestly s**ks a lot.",
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c16a584c_44d5fb72",
+        "filename": "WORKSPACE",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T05:27:15Z",
+      "side": 1,
+      "message": "Yes you are right, it sucks indeed. I created 2 different issues upstream for exact that problem: [1], [2].\n\nSo the way to go for now, is to provide complete standalone build for now, based on bazlets. The advantage here is, we do not need to add bazlets as a git submodule as it was the the case with bucklets. In addition we are adding a part of WORKSPACE in own file and called it WORKSPACE.in_gerrit_tree: [3]. \n\n* [1] https://github.com/bazelbuild/bazel/issues/2224\n* [2] https://github.com/bazelbuild/bazel/issues/2391\n* [3] https://github.com/davido/gerrit-oauth-provider/blob/master/WORKSPACE.in_gerrit_tree",
       "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
