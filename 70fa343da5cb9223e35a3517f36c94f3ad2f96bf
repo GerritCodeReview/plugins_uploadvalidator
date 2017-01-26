@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "13e76957_b6f95ee2",
+        "filename": "BUILD",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T21:15:54Z",
+      "side": 1,
+      "message": "Sorry, thos was a misunderstanding. What I was trying to say, is that you have to use it below instead of java_tests. And split it in two. Let me fix it.",
+      "revId": "70fa343da5cb9223e35a3517f36c94f3ad2f96bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd5dd363_7f9ea3b0",
         "filename": "BUILD",
         "patchSetId": 9
