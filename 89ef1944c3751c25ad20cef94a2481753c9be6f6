@@ -167,6 +167,40 @@
     },
     {
       "key": {
+        "uuid": "4df41f2a_28e7ec83",
+        "filename": "WORKSPACE",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T10:11:58Z",
+      "side": 1,
+      "message": "\u003e Not really, we have standalone build as well.\n\nmmm ... but the standalone build wouldn\u0027t be the best option for the master branch, because the API aren\u0027t published on Maven.\n\n\u003e and concerning [3], we could do a better jobs here, provide much simpler workaround. My idea is 8just haven\u0027t time to implement it):\n\u003e \n\u003e * 1 Expose plugins/external_plugin_deps.bzl skylark rule in Gerrit tree and add there new method:\n\u003e \n\u003e   def external_plugin_deps():\n\u003e     pass\n\nmmm ... interesting :-)\n\n\u003e \n\u003e * 2. Include this file in Gerrit\u0027s own WORKSPACE file:\n\u003e \n\u003e   load(\"//plugins:external_plugin_deps.bzl\", \"external_plugin_deps\")\n\nHold on, not a single one but one per plugin, correct? We may have multiple plugins in the Gerrit tree for development.\n\n\u003e \n\u003e * 3. invoke the no op method in Gerrit\u0027s own WORKSPACE file:\n\u003e \n\u003e   external_plugin_deps()\n\nYes, I know where you want to go and I like it :-)\n\n\u003e \n\u003e * 4. in all plugins, that have external dependencies, extract them in the file called external_plugin_deps.bzl in the root directory of the plugin, and include this file from the plugin\u0027s own WORKSPACE. The way the standalone build ill just work.\n\nDefinitely like it ... let me work on it.\n\n\u003e \n\u003e * 5. Wie in Gerrit tree build is needed, there are two steps:\n\u003e * 5.1. Clone the plugin into plugins directory in Gerrit tree\n\u003e * 5.2. Copy \u003cplugin-foo/\u003eexternal_plugin_deps.bzl to \u003cgerrit-root\u003e/plugins/external_plugin_deps.bzl\n\u003e \n\u003e As example, external_plugin_deps.bzl of this plugin would be:\n\u003e \n\u003e def external_plugin_deps():\n\u003e   maven_jar(\n\u003e       name \u003d \u0027commons_io_commons_io\u0027,\n\u003e       artifact \u003d \u0027commons-io:commons-io:1.4\u0027,\n\u003e       sha1 \u003d \u0027a8762d07e76cfde2395257a5da47ba7c1dbd3dce\u0027,\n\u003e   )\n\u003e \n\u003e   maven_jar(\n\u003e       name \u003d \u0027org_apache_tika_tika_core\u0027,\n\u003e       artifact \u003d \u0027org.apache.tika:tika-core:1.12\u0027,\n\u003e       sha1 \u003d \u00275ab95580d22fe1dee79cffbcd98bb509a32da09b\u0027,\n\u003e   )\n\u003e \n\u003e * [1] https://bugs.chromium.org/p/gerrit/issues/detail?id\u003d5305\n\nLet me explore this option as well, thanks for sharing it :-)",
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ac9c1f7_92bc06d7",
+        "filename": "WORKSPACE",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T10:11:58Z",
+      "side": 1,
+      "message": "\u003e One problem with the approach above, if you need to build number of plugins with external dependencies in the same time, then you would need to merge multiple external_plugin_deps methods provided by different plugins.\n\nOh yes, that isn\u0027t good at all. What\u0027s worse is that multiple plugins may easily have multiple versions of the same library ... and that would potentially conflict.\n\n\n\u003e Say its-base would also have external dependencies (it hasn\u0027t atm) and of course its-jura has a lot external dependencies. So to compile both plugins, you have to clone them both into plugins, and would have to merge both file in one.\n\nOK, that\u0027s not a big problem because both plugins are part of the same \"suite\". What\u0027s even worse is the scenario I\u0027ve depicted before.\n\n\u003e But then again. What always work is to have standalone build. In the example above. You could publish results of the its-base in context of standalone build into local Maven repository, then pull them from there in its-* projects. That makes the life not easier, surely.\n\nFor a release build would work, but during development would just kill the productivity :-(",
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d89cf25e_c0c9fa26",
         "filename": "WORKSPACE",
         "patchSetId": 2
