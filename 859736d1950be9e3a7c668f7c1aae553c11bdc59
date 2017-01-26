@@ -162,6 +162,46 @@
     },
     {
       "key": {
+        "uuid": "5ab39a03_4d697527",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T16:42:41Z",
+      "side": 1,
+      "message": "What I\u0027ve found hard to see in understanding of that condition, is a subtle fact, that:\n\n  matchCriteria(conf, \"skipRef\", refName, true)\n\nwould return true when this section is missing in the config file. So may be renaming this method to something more clear stating this fact:\n\n  matchCriteriaOrTrueIfMissing\n\nJust my thoughts.",
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0f22830_20f8b210",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T16:42:41Z",
+      "side": 1,
+      "message": "That\u0027s tricky.",
+      "range": {
+        "startLine": 94,
+        "startChar": 6,
+        "endLine": 94,
+        "endChar": 20
+      },
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfbd1d7e_e30b19fe",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 20
