@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c63ee533_d69a86d3",
+        "filename": "WORKSPACE",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T00:23:32Z",
+      "side": 1,
+      "message": "@DavidO How did you manage to sort out the merging of the Gerrit WORKSPACE with the one provided by the plugin?\n\nThe simplest idea could be just appending to it in the build script ... but honestly s**ks a lot.",
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
