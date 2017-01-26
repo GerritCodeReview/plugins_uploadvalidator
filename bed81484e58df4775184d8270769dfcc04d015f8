@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20a02b48_6ba0d0f4",
+        "filename": "BUCK",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T17:43:11Z",
+      "side": 0,
+      "message": "Please, also update build.md. It\u0027s still saying:+\n\n  This plugin is built using Buck.\n  Two build modes are supported: Standalone and in Gerrit tree.\n\nEven though you removed the BUCK build here. Please also mention in the documentation to copy: external_plugin_deps.bzl to plugins directory in gerrit core.\n\n  cp ../uploadvalidator/external_plugin_deps.bzl plugins/",
+      "revId": "bed81484e58df4775184d8270769dfcc04d015f8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
