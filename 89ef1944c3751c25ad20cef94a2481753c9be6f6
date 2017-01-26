@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "42dc2ac8_02b23243",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T07:35:53Z",
+      "side": 1,
+      "message": "Thanks, installing it :-)\nUnfortunately there isn\u0027t a brew formula for it ... need to build from source, which is pitty :-(",
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "235040d6_dbadbeea",
         "filename": "BUILD",
         "patchSetId": 2
@@ -30,6 +47,29 @@
       "writtenOn": "2017-01-26T05:27:15Z",
       "side": 1,
       "message": "Not needed as the gerrit_plugin() already adds it.",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84215ee5_eea89c13",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T07:35:53Z",
+      "side": 1,
+      "message": "Cool !",
       "range": {
         "startLine": 10,
         "startChar": 4,
@@ -70,6 +110,23 @@
       "writtenOn": "2017-01-26T05:27:15Z",
       "side": 1,
       "message": "Yes you are right, it sucks indeed. I created 2 different issues upstream for exact that problem: [1], [2].\n\nSo the way to go for now, is to provide complete standalone build for now, based on bazlets. The advantage here is, we do not need to add bazlets as a git submodule as it was the the case with bucklets. In addition we are adding a part of WORKSPACE in own file and called it WORKSPACE.in_gerrit_tree: [3]. \n\n* [1] https://github.com/bazelbuild/bazel/issues/2224\n* [2] https://github.com/bazelbuild/bazel/issues/2391\n* [3] https://github.com/davido/gerrit-oauth-provider/blob/master/WORKSPACE.in_gerrit_tree",
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a30cad50_2fc4df4f",
+        "filename": "WORKSPACE",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T07:35:53Z",
+      "side": 1,
+      "message": "I\u0027m glad that you lead the path and started to remove the stones ... but unfortunately in both ways you encountered blocking issues in Bazel :-(\n\nI posted a message to the [1] to ask to escalate the priority: currently P3 that means ... how many days / weeks / months / years to go?\n\nWe need an *urgent* solution as all the plugins do need a working build on the master branch. \n\nI believe then that [3] is the only (currently) viable option, isn\u0027t it?",
       "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
