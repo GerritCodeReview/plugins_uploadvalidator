@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10d053f6_4aa86711",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T14:43:32Z",
+      "side": 1,
+      "message": "Would it work if we let it out? The contract is clearly. that the consumer of this file would need to include this line on its own in her own WORKSPACE file.\n\nSo, just remove this line, and add restore the WORKSPACE file in this workspace with this content:\n\nload(\"//tools/bzl:maven_jar.bzl\", \"maven_jar\")\nload(\"//:external_plugin_deps,bel\", external_plugin_deps\")\n\nexternal_plugin_deps()\n\nThis way you already implemented standalone build mode for this plugin. cool what?\n\nOh, well some bazlets stuff is still missing. I could add it later today.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 71
+      },
+      "revId": "4d3d9fa17db45ad585d968e47880b069d7e1c91f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
