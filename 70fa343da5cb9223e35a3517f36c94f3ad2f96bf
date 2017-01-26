@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "e2e5a720_4f1f07b1",
+        "filename": "BUILD",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T21:09:02Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "70fa343da5cb9223e35a3517f36c94f3ad2f96bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd5dd363_7f9ea3b0",
         "filename": "BUILD",
         "patchSetId": 9
@@ -30,6 +47,29 @@
       "writtenOn": "2017-01-26T21:01:33Z",
       "side": 1,
       "message": "This doesn\u0027t work. junit_tests should be used. And then it also doesn\u0027t work, because Bazel can\u0027t mix test with util in the same rule, it must be splitted. I\u0027m working on the fix already.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 9
+      },
+      "revId": "70fa343da5cb9223e35a3517f36c94f3ad2f96bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61ebf123_6f301d2f",
+        "filename": "BUILD",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T21:09:02Z",
+      "side": 1,
+      "message": "Strange because Bazel did not complain :-O",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -65,6 +105,29 @@
     },
     {
       "key": {
+        "uuid": "c140fb1e_abb07aae",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T21:09:02Z",
+      "side": 1,
+      "message": "Cool, let me remove it.",
+      "range": {
+        "startLine": 4,
+        "startChar": 2,
+        "endLine": 8,
+        "endChar": 3
+      },
+      "revId": "70fa343da5cb9223e35a3517f36c94f3ad2f96bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64f6cd49_e47a6ea4",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 9
@@ -76,6 +139,29 @@
       "writtenOn": "2017-01-26T20:54:20Z",
       "side": 1,
       "message": "This name is too verbose. normaly we omit th group and only use artifact id, like it was done in Buck build:\n\n    \u0027:commons-io\u0027,\n    \u0027:tika-core\u0027,",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 39
+      },
+      "revId": "70fa343da5cb9223e35a3517f36c94f3ad2f96bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb29b379_bc2bdb5e",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T21:09:02Z",
+      "side": 1,
+      "message": "This is how Bazel documentation says that should be named :-O\nSee: https://goo.gl/xJv2jF",
       "range": {
         "startLine": 10,
         "startChar": 14,

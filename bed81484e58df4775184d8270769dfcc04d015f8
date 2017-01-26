@@ -73,6 +73,29 @@
       "revId": "bed81484e58df4775184d8270769dfcc04d015f8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f3398dc_18304d82",
+        "filename": "BUCK",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T21:09:02Z",
+      "side": 0,
+      "message": "I know but that\u0027s how Bazel says they have to be called. What should I do?",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 17
+      },
+      "revId": "bed81484e58df4775184d8270769dfcc04d015f8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
