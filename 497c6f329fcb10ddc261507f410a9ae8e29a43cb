@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67c0c4aa_da4a9489",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T21:35:22Z",
+      "side": 1,
+      "message": "This should also mention alternative test filtering, using tags, in case the dev would like to filter number of tags.",
+      "revId": "497c6f329fcb10ddc261507f410a9ae8e29a43cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
