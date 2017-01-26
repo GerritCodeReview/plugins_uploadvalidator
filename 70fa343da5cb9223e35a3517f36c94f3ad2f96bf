@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "79bb2d61_397cc3ab",
+        "filename": "BUILD",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T21:01:33Z",
+      "side": 1,
+      "message": "Not used.",
+      "revId": "70fa343da5cb9223e35a3517f36c94f3ad2f96bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd5dd363_7f9ea3b0",
+        "filename": "BUILD",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T21:01:33Z",
+      "side": 1,
+      "message": "This doesn\u0027t work. junit_tests should be used. And then it also doesn\u0027t work, because Bazel can\u0027t mix test with util in the same rule, it must be splitted. I\u0027m working on the fix already.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 9
+      },
+      "revId": "70fa343da5cb9223e35a3517f36c94f3ad2f96bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b28c3b0_0638c731",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 9
