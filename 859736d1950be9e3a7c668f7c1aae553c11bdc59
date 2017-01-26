@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "417b0d8a_e983f5db",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-26T15:27:54Z",
+      "side": 1,
+      "message": "I didn\u0027t really propose to inline this code here :-(\n\nThe previous version was easier to read. For example:\n\n  isMatchingRefPatterns(...) \u0026\u0026 !canSkipValidation( ...)\n\nIf I look at this code 2 weeks from now I am sure I will need a few minutes to grasp it again.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c349ca69_724fed0c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-26T15:27:54Z",
+      "side": 1,
+      "message": "what about validating the \"skipValidation\" configuration?",
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
