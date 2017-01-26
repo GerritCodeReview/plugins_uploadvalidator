@@ -22,6 +22,29 @@
       "revId": "4d3d9fa17db45ad585d968e47880b069d7e1c91f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45141c96_597a0998",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T16:01:14Z",
+      "side": 1,
+      "message": "\u003e Would it work if we let it out? The contract is clearly. that the\n \u003e consumer of this file would need to include this line on its own in\n \u003e her own WORKSPACE file.\n\nGood question, I believe I tried and didn\u0027t work. Let me try again.\n\n \u003e \n \u003e So, just remove this line, and add restore the WORKSPACE file in\n \u003e this workspace with this content:\n \u003e \n \u003e load(\"//tools/bzl:maven_jar.bzl\", \"maven_jar\")\n \u003e load(\"//:external_plugin_deps,bel\", external_plugin_deps\")\n \u003e external_plugin_deps()\n\nCool, let me add that.\n\n \u003e \n \u003e This way you already implemented standalone build mode for this\n \u003e plugin. cool what?\n\nI wish it was true :-)\n\n \u003e \n \u003e Oh, well some bazlets stuff is still missing. I could add it later\n \u003e today.\n\nExactly + the snapshot build published \"somewhere\"",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 71
+      },
+      "revId": "4d3d9fa17db45ad585d968e47880b069d7e1c91f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
