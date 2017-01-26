@@ -1,58 +1,51 @@
 Build
 =====
 
-This plugin is built using Buck.
-
-Two build modes are supported: Standalone and in Gerrit tree.
-The standalone build mode is recommended, as this mode doesn't require
-the Gerrit tree to exist locally.
-
-
-
-Clone bucklets library:
-
-```
-  git clone https://gerrit.googlesource.com/bucklets
-
-```
-and link it to @PLUGIN@ plugin directory:
-
-```
-  cd @PLUGIN@ && ln -s ../bucklets .
-```
-
-Add link to the .buckversion file:
-
-```
-  cd @PLUGIN@ && ln -s bucklets/buckversion .buckversion
-```
-
-To build the plugin, issue the following command:
-
-
-```
-  buck build plugin
-```
-
-The output is created in
-
-```
-  buck-out/gen/@PLUGIN@.jar
-```
-
+This plugin is built using Bazel.
+Only the Gerrit in-tree build is supported.
 
 Clone or link this plugin to the plugins directory of Gerrit's source
-tree, and issue the command:
+tree.
 
 ```
-  buck build plugins/@PLUGIN@
+  git clone https://gerrit.googlesource.com/gerrit
+  git clone https://gerrit.googlesource.com/plugins/@PLUGIN@
+  cd gerrit/plugins
+  ln -s ../../@PLUGIN@ .
+```
+
+Put the external dependency Bazel build file into the Gerrit /plugins
+directory, replacing the existing empty one.
+
+```
+  cd gerrit/plugins
+  rm external_plugin_deps.bzl
+  ln -s @PLUGIN@/external_plugin_deps.bzl .
+```
+
+From Gerrit source tree issue the command:
+
+```
+  bazel build plugins/@PLUGIN@
 ```
 
 The output is created in
 
 ```
-  buck-out/gen/plugins/@PLUGIN@/@PLUGIN@.jar
+  bazel-genfiles/plugins/@PLUGIN@/@PLUGIN@.jar
 ```
+
+To execute the tests run:
+
+```
+  bazel test plugins/@PLUGIN@:@PLUGIN@_tests
+```
+
+or filtering using the comma separated tags:
+
+````
+  bazel test --test_tag_filters=@PLUGIN@
+````
 
 This project can be imported into the Eclipse IDE:
 
