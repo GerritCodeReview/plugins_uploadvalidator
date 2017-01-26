@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "aafe5772_79dda4f3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T16:30:10Z",
+      "side": 1,
+      "message": "I have separated the conditions in 3 groups:\n1. valid config\n2. ref matching\n3. skip rules that are checked with short-circuit on:\n   a. skipGroup (exist or not)\n   b. skipValidation \n   c. skipRef\n   d. skipOnGroup ownership\n\nshould I just separate into three different methods so that can be more easily readable?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c349ca69_724fed0c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 20
@@ -36,6 +59,23 @@
       "writtenOn": "2017-01-26T15:27:54Z",
       "side": 1,
       "message": "what about validating the \"skipValidation\" configuration?",
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29069469_439dc029",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T16:30:10Z",
+      "side": 1,
+      "message": "we do pure string matching on that: would you expect something different? Do you want to introduce an Enum on validation types?\n\nI would avoid to make this change even bigger: IMHO it is best to get this closed and then refactor the validation types into an enum and put proper validation in place for it.",
       "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
