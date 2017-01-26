@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13372acb_e074a6b4",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T16:25:47Z",
+      "side": 1,
+      "message": "Thi constants could be removed.",
+      "range": {
+        "startLine": 1,
+        "startChar": 45,
+        "endLine": 1,
+        "endChar": 70
+      },
+      "revId": "8d1a10818801dddf68b228a445552416c023f84d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
