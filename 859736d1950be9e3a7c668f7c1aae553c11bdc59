@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "9cd943a2_80c85649",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T16:37:35Z",
+      "side": 1,
+      "message": "I wonder if commenting the current implementation blocks, as in your description above would make this condition easier readable and understandable?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c349ca69_724fed0c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 20
@@ -116,6 +139,23 @@
       "writtenOn": "2017-01-26T16:37:10Z",
       "side": 1,
       "message": "OK, fine. This is not critical. Let\u0027s do it in a follow-up change.",
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "daeab4e2_8f18a6ec",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T16:37:35Z",
+      "side": 1,
+      "message": "I think that any data structure changes is beyond scope of this change. I think what Sasa is asking is to check against valid validation names. But once introduced, and not refactored to enum, as Luca suggesting, it would easy to forget to add yet another check when new validation check are added, so that they would be leaved not checked.",
       "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
