@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2af8c50b_a3f4d028",
+        "filename": "BUILD",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T21:30:22Z",
+      "side": 1,
+      "message": "tags attribute is mising.",
+      "revId": "9c6715ca7f85d0accd62dd4ea53cfae5c54df97b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7865a7f_e0be6d90",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T21:30:22Z",
+      "side": 1,
+      "message": "Test section is missing.",
+      "revId": "9c6715ca7f85d0accd62dd4ea53cfae5c54df97b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
