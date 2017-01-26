@@ -82,6 +82,29 @@
     },
     {
       "key": {
+        "uuid": "474b8105_40a20858",
+        "filename": "BUILD",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T21:14:46Z",
+      "side": 1,
+      "message": "Well, he actually did, when you run the test, not just compiles them:\n\n  $ bazel test plugins/uploadvalidator:uploadvalidator_tests\n  ERROR: /home/davido/projects/gerrit/plugins/uploadvalidator/BUILD:19:1:\n  in java_test rule //plugins/uploadvalidator:uploadvalidator_tests: cannot determine test class.\n\nAnd just changeing it to junit_tests alone, doesn\u0027t fix it either:\n\n  1) initializationError(com.googlesource.gerrit.plugins.uploadvalidator.FakeConfigFactory)\n  java.lang.Exception: Test class should have exactly one public zero-argument constructor",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 9
+      },
+      "revId": "70fa343da5cb9223e35a3517f36c94f3ad2f96bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b28c3b0_0638c731",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 9
