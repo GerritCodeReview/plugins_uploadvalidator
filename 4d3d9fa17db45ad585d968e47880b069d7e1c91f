@@ -45,6 +45,23 @@
       "revId": "4d3d9fa17db45ad585d968e47880b069d7e1c91f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6b6826d_29079a58",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-01-26T16:21:56Z",
+      "side": 1,
+      "message": "\u003e \u003e Would it work if we let it out? The contract is clearly. that the\n\u003e  \u003e consumer of this file would need to include this line on its own in\n\u003e  \u003e her own WORKSPACE file.\n\u003e \n\u003e Good question, I believe I tried and didn\u0027t work. Let me try again.\n\nI remembered well: doesn\u0027t work without it:\n\n  /plugins/external_plugin_deps.bzl:2:3: function \u0027maven_jar\u0027 does not exist.\n\nLet me put it back.",
+      "revId": "4d3d9fa17db45ad585d968e47880b069d7e1c91f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
