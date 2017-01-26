@@ -150,6 +150,23 @@
     },
     {
       "key": {
+        "uuid": "532692e8_0045105e",
+        "filename": "WORKSPACE",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-26T09:33:48Z",
+      "side": 1,
+      "message": "One problem with the approach above, if you need to build number of plugins with external dependencies in the same time, then you would need to merge multiple external_plugin_deps methods provided by different plugins.\n\nSay its-base would also have external dependencies (it hasn\u0027t atm) and of course its-jura has a lot external dependencies. So to compile both plugins, you have to clone them both into plugins, and would have to merge both file in one.\n\nBut then again. What always work is to have standalone build. In the example above. You could publish results of the its-base in context of standalone build into local Maven repository, then pull them from there in its-* projects. That makes the life not easier, surely.",
+      "revId": "89ef1944c3751c25ad20cef94a2481753c9be6f6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d89cf25e_c0c9fa26",
         "filename": "WORKSPACE",
         "patchSetId": 2
