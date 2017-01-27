@@ -95,8 +95,9 @@ public class FileExtensionValidator implements CommitValidationListener {
       PluginConfig cfg = cfgFactory
           .getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (isActive(cfg) && validatorConfig.isEnabledForRef(
-          receiveEvent.getProjectNameKey(), receiveEvent.getRefName())) {
+      if (isActive(cfg)
+          && validatorConfig.isEnabledForRef(receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(), KEY_BLOCKED_FILE_EXTENSION)) {
         try (Repository repo =
             repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = performValidation(repo,
