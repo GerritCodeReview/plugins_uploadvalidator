@@ -179,6 +179,40 @@
     },
     {
       "key": {
+        "uuid": "26caa295_f2352ed9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-27T08:42:19Z",
+      "side": 1,
+      "message": "Well, for me a self-explaining method name would be more intuitive.\nCompare:\n\n  /* 1 */ matchCriteria(conf, \"skipRef\", refName, true);\n  /* 2 */ matchCriteriaOrTrueIfMissing(conf, \"skipRef\", refName, true);\n\nwith:\n\n  /* 3 */ canSkipRef(conf, refName);\n\nThe canSkipRef returns true if the configuration allows skipping that ref\neither by having an empty skipRef list or by having a non-empty list which includes the given refName.",
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b56610_2860b27d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-27T08:42:19Z",
+      "side": 1,
+      "message": "OK, no further data structure changes in this change :-)",
+      "revId": "859736d1950be9e3a7c668f7c1aae553c11bdc59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0f22830_20f8b210",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 20
