@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4716f1af_13417a72",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-27T10:03:24Z",
+      "side": 1,
+      "message": "Now I see that this is not necessary as matchCriteria (called from the canRef) will return true for an empty \"ref\" list.\n\nRemove.",
+      "range": {
+        "startLine": 55,
+        "startChar": 12,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "fc649b4a2458d5bc4daaccb01069260d6222b90f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2d523b3_1f201186",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-27T10:03:24Z",
+      "side": 1,
+      "message": "Keep this one as it is an optimization. We don\u0027t want to evaluate any of the conditions bellow when skipGroup list is empty.",
+      "revId": "fc649b4a2458d5bc4daaccb01069260d6222b90f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8c89fba3_296ba22d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-27T10:03:24Z",
+      "side": 1,
+      "message": "activeForRef?\nThis doesn\u0027t belong to the skip* options and the \"can\" prefix doesn\u0027t match well.",
+      "range": {
+        "startLine": 87,
+        "startChar": 18,
+        "endLine": 87,
+        "endChar": 24
+      },
+      "revId": "fc649b4a2458d5bc4daaccb01069260d6222b90f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cba47d65_d1373079",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-01-27T10:03:24Z",
+      "side": 1,
+      "message": "false\n\nno regex matching for validator ops.",
+      "range": {
+        "startLine": 92,
+        "startChar": 64,
+        "endLine": 92,
+        "endChar": 68
+      },
+      "revId": "fc649b4a2458d5bc4daaccb01069260d6222b90f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
