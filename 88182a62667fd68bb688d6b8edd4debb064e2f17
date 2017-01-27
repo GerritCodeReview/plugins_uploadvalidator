@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6769516c_4ed25ebe",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-01-27T07:18:22Z",
+      "side": 1,
+      "message": "This wasn\u0027t accurate. Fixed in: [1].\n\n* [1] https://gerrit-review.googlesource.com/95452",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 3
+      },
+      "revId": "88182a62667fd68bb688d6b8edd4debb064e2f17",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
