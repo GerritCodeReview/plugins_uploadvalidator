@@ -17,12 +17,14 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.IdentifiedUser;
 
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Test;
 
 public class RefAwareValidatorConfigTest {
   private Project.NameKey projectName = new Project.NameKey("testProject");
+  private IdentifiedUser anyUser = new FakeUserProvider().get();
 
   @Test
   public void isEnabledForAllRefsByDefault() throws Exception {
@@ -31,8 +33,8 @@ public class RefAwareValidatorConfigTest {
             + "blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(projectName, "anyRef", "blockedFileExtension"))
-        .isTrue();
+        config.isEnabledForRef(anyUser, projectName, "anyRef",
+            "blockedFileExtension")).isTrue();
   }
 
   @Test
@@ -43,7 +45,7 @@ public class RefAwareValidatorConfigTest {
             + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(projectName, "refs/heads/anyref",
+        config.isEnabledForRef(anyUser, projectName, "refs/heads/anyref",
             "blockedFileExtension")).isTrue();
   }
 
@@ -55,7 +57,7 @@ public class RefAwareValidatorConfigTest {
             + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(projectName, "refs/heads/anyref",
+        config.isEnabledForRef(anyUser, projectName, "refs/heads/anyref",
             "blockedFileExtension")).isFalse();
   }
 
@@ -67,10 +69,10 @@ public class RefAwareValidatorConfigTest {
             + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(projectName, "refs/heads/anotherref",
+        config.isEnabledForRef(anyUser, projectName, "refs/heads/anotherref",
             "blockedFileExtension")).isFalse();
     assertThat(
-        config.isEnabledForRef(projectName, "refs/heads/mybranch123",
+        config.isEnabledForRef(anyUser, projectName, "refs/heads/mybranch123",
             "blockedFileExtension")).isTrue();
   }
 
@@ -83,13 +85,13 @@ public class RefAwareValidatorConfigTest {
             + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(projectName, "refs/heads/branch1",
+        config.isEnabledForRef(anyUser, projectName, "refs/heads/branch1",
             "blockedFileExtension")).isTrue();
     assertThat(
-        config.isEnabledForRef(projectName, "refs/heads/branch2",
+        config.isEnabledForRef(anyUser, projectName, "refs/heads/branch2",
             "blockedFileExtension")).isTrue();
     assertThat(
-        config.isEnabledForRef(projectName, "refs/heads/branch3",
+        config.isEnabledForRef(anyUser, projectName, "refs/heads/branch3",
             "blockedFileExtension")).isFalse();
   }
 
@@ -97,7 +99,7 @@ public class RefAwareValidatorConfigTest {
       throws ConfigInvalidException {
     ValidatorConfig config =
         new ValidatorConfig(new FakeConfigFactory(projectName, defaultConfig),
-            new FakeUserProvider(), new FakeGroupCacheUUIDByName());
+            new FakeGroupCacheUUIDByName());
     return config;
   }
 }

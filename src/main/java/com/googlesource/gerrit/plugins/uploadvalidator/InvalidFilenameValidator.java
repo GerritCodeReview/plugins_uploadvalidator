@@ -89,8 +89,9 @@ public class InvalidFilenameValidator implements CommitValidationListener {
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(receiveEvent.getProjectNameKey(),
-              receiveEvent.getRefName(), KEY_INVALID_FILENAME)) {
+          && validatorConfig.isEnabledForRef(receiveEvent.user,
+              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+              KEY_INVALID_FILENAME)) {
         try (Repository repo = repoManager.openRepository(
             receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =

@@ -14,13 +14,14 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import static org.easymock.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
 
-import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.inject.Provider;
 
-public class FakeUserProvider implements Provider<CurrentUser> {
+public class FakeUserProvider implements Provider<IdentifiedUser> {
   private final String[] groupUUID;
 
   public FakeUserProvider(String... groupUUID) {
@@ -28,7 +29,7 @@ public class FakeUserProvider implements Provider<CurrentUser> {
   }
 
   @Override
-  public CurrentUser get() {
+  public IdentifiedUser get() {
     return createNew();
   }
 

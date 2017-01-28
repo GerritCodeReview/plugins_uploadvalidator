@@ -115,8 +115,9 @@ public class ContentTypeValidator implements CommitValidationListener {
           .getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(receiveEvent.getProjectNameKey(),
-              receiveEvent.getRefName(), KEY_BLOCKED_CONTENT_TYPE)) {
+          && validatorConfig.isEnabledForRef(receiveEvent.user,
+              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+              KEY_BLOCKED_CONTENT_TYPE)) {
         try (Repository repo =
             repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =

@@ -113,8 +113,9 @@ public class BlockedKeywordValidator implements CommitValidationListener {
           .getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(receiveEvent.getProjectNameKey(),
-              receiveEvent.getRefName(), KEY_CHECK_BLOCKED_KEYWORD)) {
+          && validatorConfig.isEnabledForRef(receiveEvent.user,
+              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+              KEY_CHECK_BLOCKED_KEYWORD)) {
         ImmutableMap<String, Pattern> blockedKeywordPatterns =
             patternCache.getAll(Arrays
                 .asList(cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN)));

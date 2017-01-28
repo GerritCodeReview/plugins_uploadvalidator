@@ -172,8 +172,9 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
           .getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(receiveEvent.getProjectNameKey(),
-              receiveEvent.getRefName(), KEY_REJECT_DUPLICATE_PATHNAMES)) {
+          && validatorConfig.isEnabledForRef(receiveEvent.user,
+              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+              KEY_REJECT_DUPLICATE_PATHNAMES)) {
         locale = getLocale(cfg);
         try (Repository repo =
             repoManager.openRepository(receiveEvent.project.getNameKey())) {

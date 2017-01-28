@@ -17,12 +17,11 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import com.google.gerrit.common.data.RefConfigSection;
 import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.reviewdb.client.Project;
-import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.account.GroupCache;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.project.RefPatternMatcher;
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,19 +33,17 @@ public class ValidatorConfig {
   private static final Logger log = LoggerFactory
       .getLogger(ValidatorConfig.class);
   private final ConfigFactory configFactory;
-  private final Provider<CurrentUser> userProvider;
   private final GroupCache groupCache;
 
   @Inject
   public ValidatorConfig(ConfigFactory configFactory,
-      Provider<CurrentUser> userProvider, GroupCache groupCache) {
+      GroupCache groupCache) {
     this.configFactory = configFactory;
-    this.userProvider = userProvider;
     this.groupCache = groupCache;
   }
 
-  public boolean isEnabledForRef(Project.NameKey projectName, String refName,
-      String validatorOp) {
+  public boolean isEnabledForRef(IdentifiedUser user,
+      Project.NameKey projectName, String refName, String validatorOp) {
     PluginConfig conf = configFactory.get(projectName);
 
     return conf != null
@@ -55,7 +52,7 @@ public class ValidatorConfig {
         && (!hasCriteria(conf, "skipGroup")
             || !canSkipValidation(conf, validatorOp)
             || !canSkipRef(conf, refName)
-            || !canSkipGroup(conf));
+            || !canSkipGroup(conf, user));
   }
 
   private boolean isValidConfig(PluginConfig config, Project.NameKey projectName) {
@@ -109,8 +106,7 @@ public class ValidatorConfig {
     return RefPatternMatcher.getMatcher(pattern).match(value, null);
   }
 
-  private boolean canSkipGroup(PluginConfig conf) {
-    CurrentUser user = userProvider.get();
+  private boolean canSkipGroup(PluginConfig conf, IdentifiedUser user) {
     if (!user.isIdentifiedUser()) {
       return false;
     }
