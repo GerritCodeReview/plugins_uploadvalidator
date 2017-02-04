@@ -38,6 +38,8 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
+import org.eclipse.jgit.diff.Edit;
+import org.eclipse.jgit.diff.EditList;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
 import org.eclipse.jgit.lib.Repository;
@@ -51,6 +53,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -143,25 +146,48 @@ public class BlockedKeywordValidator implements CommitValidationListener {
           throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
+    Map<String, EditList> filesEditList = CommitUtils.getFilesEditList(repo, c);
     for (String path : content.keySet()) {
       ObjectLoader ol = repo.open(content.get(path));
+      EditList editList = filesEditList.get(path);
       if (contentTypeUtil.isBinary(ol, path, cfg)) {
         continue;
       }
-      checkFileForBlockedKeywords(blockedKeywordPartterns, messages, path, ol);
+      checkFileForBlockedKeywords(blockedKeywordPartterns, messages, path, ol,
+          editList);
     }
     return messages;
   }
 
   private static void checkFileForBlockedKeywords(
       ImmutableCollection<Pattern> blockedKeywordPartterns,
-      List<CommitValidationMessage> messages, String path, ObjectLoader ol)
-          throws IOException {
-    try (BufferedReader br = new BufferedReader(
-        new InputStreamReader(ol.openStream(), StandardCharsets.UTF_8))) {
+      List<CommitValidationMessage> messages, String path, ObjectLoader ol,
+      EditList editList) throws IOException {
+    if (editList.isEmpty()) {
+      return;
+    }
+
+    try (BufferedReader br =
+        new BufferedReader(new InputStreamReader(ol.openStream(),
+            StandardCharsets.UTF_8))) {
       int line = 0;
-      for (String l = br.readLine(); l != null; l = br.readLine()) {
+      Edit edit = null;
+      Iterator<Edit> editsIter = editList.iterator();
+      for (String l = br.readLine(); (edit != null || editsIter.hasNext())
+          && l != null; l = br.readLine()) {
+        if (edit == null) {
+          edit = editsIter.next();
+        }
         line++;
+        if (line <= edit.getBeginB()) {
+          continue;
+        }
+
+        if (line > edit.getEndB()) {
+          edit = null;
+          continue;
+        }
+
         checkLineForBlockedKeywords(blockedKeywordPartterns, messages, path,
             line, l);
       }
