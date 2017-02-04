@@ -66,7 +66,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
     content = "Testline1\n"
         + "Testline2\n"
         + "Testline3\n"
-        + "Testline4";
+        + "Testline4\n";
     files.put(new File(repo.getDirectory().getParent(), "foobar.txt"),
         content.getBytes(StandardCharsets.UTF_8));
     return TestUtils.makeCommit(repo, "Commit with test files.", files);
@@ -91,5 +91,44 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
   @Test
   public void validatorInactiveWhenConfigEmpty() {
     assertThat(BlockedKeywordValidator.isActive(EMPTY_PLUGIN_CONFIG)).isFalse();
+  }
+
+  @Test
+  public void testKeywordApplyOnlyToNewContent() throws Exception {
+    makeCommit();
+    RevCommit c = makeAdditionalCommit("myblockedcontent\n");
+    BlockedKeywordValidator validator =
+        new BlockedKeywordValidator("uploadvalidator", new ContentTypeUtil(
+            PATTERN_CACHE), PATTERN_CACHE, null, null, null);
+    ImmutableMap<String, Pattern> validationPattern =
+        ImmutableMap.<String, Pattern> builder()
+            .put("Testline", Pattern.compile("Testline")).build();
+    List<CommitValidationMessage> m =
+        validator.performValidation(repo, c, validationPattern.values(),
+            EMPTY_PLUGIN_CONFIG);
+    assertThat(TestUtils.transformMessages(m)).isEmpty();
+
+    ImmutableMap<String, Pattern> newContentPattern =
+        ImmutableMap.<String, Pattern> builder()
+            .put("Testline", Pattern.compile("myblockedcontent")).build();
+    List<CommitValidationMessage> newContentValidationMessages =
+        validator.performValidation(repo, c, newContentPattern.values(),
+            EMPTY_PLUGIN_CONFIG);
+    assertThat(TestUtils.transformMessages(newContentValidationMessages))
+        .hasSize(1);
+  }
+
+  private RevCommit makeAdditionalCommit(String extraText)
+      throws NoFilepatternException, IOException, GitAPIException {
+    Map<File, byte[]> files = new HashMap<>();
+    String content =
+        "Testline1\n"
+      + "Testline2\n"
+      + "Testline3\n"
+      + "Testline4\n"
+      + extraText;
+    files.put(new File(repo.getDirectory().getParent(), "foobar.txt"),
+        content.getBytes(StandardCharsets.UTF_8));
+    return TestUtils.makeCommit(repo, "Commit with test files.", files);
   }
 }
