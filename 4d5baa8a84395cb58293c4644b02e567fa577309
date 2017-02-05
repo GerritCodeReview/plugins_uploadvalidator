@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15373214_209c28de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "Feb 4, 2017 11:00:44 PM",
+      "side": 1,
+      "message": "link to issue 5353 ?\n\n  https://bugs.chromium.org/p/gerrit/issues/detail?id\u003d5353",
+      "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "982a148a_ee960e12",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "Feb 4, 2017 11:00:44 PM",
+      "side": 1,
+      "message": "CommitUtils.getFilesEditList can return a null for editList, you\u0027ll need to add a check for it here.\n\n  if (editList \u003d\u003d null || editList.isEmpty())",
+      "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
