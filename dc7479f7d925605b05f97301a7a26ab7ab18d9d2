@@ -59,6 +59,23 @@
     },
     {
       "key": {
+        "uuid": "bf26fe19_8ef013e7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1004323
+      },
+      "writtenOn": "Feb 6, 2017 7:17:01 AM",
+      "side": 1,
+      "message": "I don\u0027t get this. From a Map X you are asking for an entry with key X? Are you expecting that the map contains and element where the key is the map itself?",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "761b5d76_ad0ee867",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
         "patchSetId": 2
@@ -161,6 +178,23 @@
       "writtenOn": "Feb 6, 2017 6:29:19 AM",
       "side": 1,
       "message": "nit: use curly braces even for single statements",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aaeca5c_202b469f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1004323
+      },
+      "writtenOn": "Feb 6, 2017 7:17:01 AM",
+      "side": 1,
+      "message": "Add this point you know the repo and the id of the blob. Your task is to return a byte array with the content. Why don\u0027t you just return repo.getObjectDatabase().open(id, ...).getBytes()",
       "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
