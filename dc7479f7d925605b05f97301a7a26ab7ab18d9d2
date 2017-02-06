@@ -1,0 +1,249 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e7d82b1_999b7e72",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "new byte[0]",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5938d79a_ecef8b37",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "Why do you need a second constant for the same value?",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01719b37_14339cc8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "Do we have to hardcode a diff algorithm here in a plugin? I think we should make sure to use the same algorithm which Gerrit core uses to compute diff for the side-to-side (and unified) diff screen.",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "761b5d76_ad0ee867",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "editList could be null, do you want to add null?",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd2c771_485c8db5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "These variable are not needed before the line 209. Move them down.",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25fca6ee_11213004",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "How will an admin know why is uploadvalidator not working as expected if we don\u0027t have this exception in the log?",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96b37734_26d7389a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "not needed",
+      "range": {
+        "startLine": 216,
+        "startChar": 40,
+        "endLine": 216,
+        "endChar": 43
+      },
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87f3557d_dd1b3647",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "nit: use curly braces even for single statements",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bdabb29_c062eec6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "nit: use curly braces even for single statements",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b3e6fbc_f53359cf",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "Do we need another test which asserts that the validator does not look at the deleted lines?",
+      "range": {
+        "startLine": 97,
+        "startChar": 36,
+        "endLine": 97,
+        "endChar": 46
+      },
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f3b121e_76501071",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "We only use the values() from the validationPattern Map.\nThe key(s) doesn\u0027t seem to play any role.\nWhy does it need to be a Map?",
+      "range": {
+        "startLine": 107,
+        "startChar": 45,
+        "endLine": 107,
+        "endChar": 71
+      },
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cdba538_fc53adb6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "The code up to here (lines 103-109) and the code below (111-118) is almost identical, up to the pattern and the expected size. Factor out that code into a private method and make this method more readable:\n\n  testBlocking(c, pattern, 0);\n  testBlocking(c, pattern, 1);",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32b73c2a_1913e60d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 6:29:19 AM",
+      "side": 1,
+      "message": "Shall we check the content of the message too? If exact comparison is too rigid, we could at least check that the validation message contains some (key)words?",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
