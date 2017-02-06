@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "68b593db_84489e67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 6, 2017 5:38:06 AM",
+      "side": 1,
+      "message": "This was also my idea at the moment when we were writing this code, and I agree with you.\n\nHowever, our users wanted it applied to the entire content arguing that if there is a blocked keyword and that file needs to be modified then it is the time to remove all blocked keywords anyway.\n\nI think we must make this configurable.",
+      "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15373214_209c28de",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
