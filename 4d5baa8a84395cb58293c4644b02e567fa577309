@@ -86,6 +86,24 @@
       "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc347e2a_f855450d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1012623
+      },
+      "writtenOn": "Feb 6, 2017 3:37:34 PM",
+      "side": 1,
+      "message": "I\u0027m referring to CommitUtils.getEditList() method.  It looks like that method will set this editList to null for a few different conditions.  I\u0027m seeing it when using binary files.",
+      "parentUuid": "002b020d_6cb33ae6",
+      "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
