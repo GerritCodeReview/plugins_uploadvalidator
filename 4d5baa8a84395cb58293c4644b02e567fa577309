@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "49e26f5c_5d2fed30",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 6, 2017 5:10:24 AM",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15373214_209c28de",
+      "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "982a148a_ee960e12",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 1
