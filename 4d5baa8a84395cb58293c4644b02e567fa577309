@@ -33,6 +33,24 @@
       "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "002b020d_6cb33ae6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 6, 2017 5:09:56 AM",
+      "side": 1,
+      "message": "You mean for renames or deletion?",
+      "parentUuid": "982a148a_ee960e12",
+      "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
