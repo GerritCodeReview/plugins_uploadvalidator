@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f49513f9_7139a979",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 7, 2017 4:52:53 AM",
+      "side": 1,
+      "message": "\u003e What about a config setting like:\n \u003e blockKeywordScope \u003d file | change\n\nOr\n\n  file | diff\n\n?\n\nThere are other validators which would also need the same scope setting (for example the windows-line-endings validator).\nCan we assume that one scope definition will be enough for all validators and name the parameter just \"scope\"?\n\n  scope \u003d file\n\nI guess that no team will want validator A in one scope and validator B in another,\n\n \u003e \n \u003e By default scope would be file (entire file content) to be 100%\n \u003e backward compatible. However, people may want to override this\n \u003e setting at project level and say blockKeywordScope \u003d change, to\n \u003e enable checking only the delta content.",
+      "parentUuid": "b0cb0d64_24f0e83c",
+      "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15373214_209c28de",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
