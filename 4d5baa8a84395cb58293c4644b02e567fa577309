@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "c5a8b0b2_a158ed75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Feb 7, 2017 5:02:21 AM",
+      "side": 1,
+      "message": "What about introduction of dedicated validator and let the existing one  as is, so that we would get 2:\n\n  blockedKeyword\n  blockedKeywordDiff",
+      "parentUuid": "f49513f9_7139a979",
+      "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15373214_209c28de",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
