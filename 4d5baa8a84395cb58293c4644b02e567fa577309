@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "3e3a23cb_eb89fa88",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "Feb 7, 2017 5:12:23 AM",
+      "side": 1,
+      "message": "As said, the scope also applies to N other validators.\nThis would mean having 2*N validators. The code would be shared between them and we would likely end up having 3 classes per validator:\n1. an abstract base class which supports both scopes (via a constructor parameter)\n2. a subclass for the File scope\n3. a subclass for the Diff scope\n\nI am still in favor of one scope per project (assuming that one project wants the same scope for all validators).",
+      "parentUuid": "c5a8b0b2_a158ed75",
+      "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15373214_209c28de",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
