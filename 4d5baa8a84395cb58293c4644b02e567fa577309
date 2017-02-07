@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b0cb0d64_24f0e83c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 7, 2017 4:25:51 AM",
+      "side": 1,
+      "message": "Agreed, and it really varies from project to project. Some of them may have the \"block everything policy\" and others may just want to block the amended content.\n\nWhat about a config setting like:\nblockKeywordScope \u003d file | change\n\nBy default scope would be file (entire file content) to be 100% backward compatible. However, people may want to override this setting at project level and say blockKeywordScope \u003d change, to enable checking only the delta content.",
+      "parentUuid": "68b593db_84489e67",
+      "revId": "4d5baa8a84395cb58293c4644b02e567fa577309",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "15373214_209c28de",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1

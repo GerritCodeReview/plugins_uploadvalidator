@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f9aec4b8_2c46ce08",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 7, 2017 4:25:51 AM",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e7d82b1_999b7e72",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5938d79a_ecef8b37",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "Feb 6, 2017 6:29:19 AM",
       "side": 1,
       "message": "Why do you need a second constant for the same value?",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0637f157_5b9e816c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 7, 2017 4:25:51 AM",
+      "side": 1,
+      "message": "True, possibly a readability overkill here :-)",
+      "parentUuid": "5938d79a_ecef8b37",
       "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "201909c1_267ffb6c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 7, 2017 4:25:51 AM",
+      "side": 1,
+      "message": "Let me check if I can point to the Gerrit one without hardcoding it ...",
+      "parentUuid": "01719b37_14339cc8",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf26fe19_8ef013e7",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
         "patchSetId": 2
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "2e420457_6e8e5db9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 7, 2017 4:25:51 AM",
+      "side": 1,
+      "message": "Oh, good catch. Was meant to be:\n\n```\n   changesMap.get(newPath)\n```",
+      "parentUuid": "bf26fe19_8ef013e7",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "761b5d76_ad0ee867",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
         "patchSetId": 2
@@ -87,6 +165,24 @@
       "writtenOn": "Feb 6, 2017 6:29:19 AM",
       "side": 1,
       "message": "editList could be null, do you want to add null?",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15a438b9_1e6e52b8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 7, 2017 4:25:51 AM",
+      "side": 1,
+      "message": "I would rather prefer empty list that null values passed around.",
+      "parentUuid": "761b5d76_ad0ee867",
       "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -121,6 +217,24 @@
       "writtenOn": "Feb 6, 2017 6:29:19 AM",
       "side": 1,
       "message": "How will an admin know why is uploadvalidator not working as expected if we don\u0027t have this exception in the log?",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c70693e9_4f8c85fb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 7, 2017 4:25:51 AM",
+      "side": 1,
+      "message": "I believe we need to rethrow these exceptions as something is going massively wrong.",
+      "parentUuid": "25fca6ee_11213004",
       "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -195,6 +309,24 @@
       "writtenOn": "Feb 6, 2017 7:17:01 AM",
       "side": 1,
       "message": "Add this point you know the repo and the id of the blob. Your task is to return a byte array with the content. Why don\u0027t you just return repo.getObjectDatabase().open(id, ...).getBytes()",
+      "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ace44ba6_eab304c7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "Feb 7, 2017 4:25:51 AM",
+      "side": 1,
+      "message": "Let me see if can be rewritten as you suggested, whilst keeping the binaryFileThreshold to avoid out of memory ...",
+      "parentUuid": "5aaeca5c_202b469f",
       "revId": "dc7479f7d925605b05f97301a7a26ab7ab18d9d2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
