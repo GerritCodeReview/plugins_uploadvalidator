@@ -49,10 +49,10 @@ public class ValidatorConfig {
     return conf != null
         && isValidConfig(conf, projectName)
         && (activeForRef(conf, refName))
-        && (!hasCriteria(conf, "skipGroup")
-            || !canSkipValidation(conf, validatorOp)
-            || !canSkipRef(conf, refName)
-            || !canSkipGroup(conf, user));
+        && !hasCriteria(conf, "skipGroup")
+        && !canSkipValidation(conf, validatorOp)
+        && !canSkipRef(conf, refName)
+        && !canSkipGroup(conf, user);
   }
 
   private boolean isValidConfig(PluginConfig config, Project.NameKey projectName) {
