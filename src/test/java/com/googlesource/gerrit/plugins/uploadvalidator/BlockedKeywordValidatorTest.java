@@ -67,7 +67,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
         + "Testline4";
     files.put(new File(repo.getDirectory().getParent(), "foobar.txt"),
         content.getBytes(StandardCharsets.UTF_8));
-    return TestUtils.makeCommit(repo, "Commit with test files.", files);
+    return TestUtils.makeCommit(repo, "Commit foobar with test files.", files);
   }
 
   @Test
@@ -78,10 +78,12 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
     List<CommitValidationMessage> m = validator.performValidation(
         repo, c, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
     Set<String> expected = ImmutableSet.of(
-        "ERROR: blocked keyword(s) found in file: foo.txt (Line: 1)"
+        "ERROR: blocked keyword(s) found in: foo.txt (Line: 1)"
             + " (found: myp4ssw0rd, foobar)",
-        "ERROR: blocked keyword(s) found in file: bar.txt (Line: 5)"
-            + " (found: $Id: foo bar$)");
+        "ERROR: blocked keyword(s) found in: bar.txt (Line: 5)"
+            + " (found: $Id: foo bar$)",
+        "ERROR: blocked keyword(s) found in: commit message (Line: 1)"
+            + " (found: foobar)");
     assertThat(TestUtils.transformMessages(m))
         .containsExactlyElementsIn(expected);
   }
