@@ -15,12 +15,16 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.common.data.RefConfigSection;
+import com.google.gerrit.extensions.annotations.Exports;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.account.GroupCache;
 import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.gerrit.server.project.RefPatternMatcher;
+import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 
 import org.slf4j.Logger;
@@ -33,8 +37,28 @@ import java.util.stream.Stream;
 public class ValidatorConfig {
   private static final Logger log = LoggerFactory
       .getLogger(ValidatorConfig.class);
+  private static final String KEY_PROJECT = "project";
+  private static final String KEY_REF = "ref";
   private final ConfigFactory configFactory;
   private final GroupCache groupCache;
+
+  public static AbstractModule module() {
+    return new AbstractModule() {
+      @Override
+      protected void configure() {
+        bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_PROJECT))
+            .toInstance(new ProjectConfigEntry("Projects", null,
+                ProjectConfigEntryType.ARRAY, null, false,
+                "Only projects that match this regex will be validated."));
+        bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_REF))
+            .toInstance(new ProjectConfigEntry("Refs", null,
+                ProjectConfigEntryType.ARRAY, null, false,
+                "Only refs that match this regex will be validated."));
+      }
+    };
+  }
 
   @Inject
   public ValidatorConfig(ConfigFactory configFactory,
@@ -51,6 +75,7 @@ public class ValidatorConfig {
         && isValidConfig(conf, projectName)
         && (activeForRef(conf, refName))
         && (activeForEmail(conf, user.getAccount().getPreferredEmail()))
+        && (activeForProject(conf, projectName.get()))
         && (!hasCriteria(conf, "skipGroup")
             || !canSkipValidation(conf, validatorOp)
             || !canSkipRef(conf, refName)
@@ -78,6 +103,10 @@ public class ValidatorConfig {
 
   private boolean hasCriteria(PluginConfig config, String criteria) {
     return config.getStringList(criteria).length > 0;
+  }
+
+  private boolean activeForProject(PluginConfig config, String project) {
+    return matchCriteria(config, "project", project, true, false);
   }
 
   private boolean activeForRef(PluginConfig config, String ref) {

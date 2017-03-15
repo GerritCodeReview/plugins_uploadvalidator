@@ -241,6 +241,22 @@ the following could be configured:
     email = .*@example.com$
 ```
 
+Project-specific validations
+---------------------------
+
+By default, the validation will be enabled for all projects. However, it can
+be limited to particular projects by setting `plugin.@PLUGIN@.project`. The
+projects may be configured using specific project names, project patterns, or
+regular expressions. Multiple projects may be specified.
+
+E.g. to limit the validation to all projects that match `^platform/.*` the
+following could be configured:
+
+```
+  [plugin "@PLUGIN@"]
+    project = ^platform/.*
+```
+
 Permission to skip the rules
 ----------------------------
 
