@@ -142,6 +142,8 @@ public class BlockedKeywordValidator implements CommitValidationListener {
       ImmutableCollection<Pattern> blockedKeywordPartterns, PluginConfig cfg)
           throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
+    checkCommitMessageForBlockedKeywords(blockedKeywordPartterns, messages,
+        c.getFullMessage());
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
     for (String path : content.keySet()) {
       ObjectLoader ol = repo.open(content.get(path));
@@ -151,6 +153,17 @@ public class BlockedKeywordValidator implements CommitValidationListener {
       checkFileForBlockedKeywords(blockedKeywordPartterns, messages, path, ol);
     }
     return messages;
+  }
+
+  private static void checkCommitMessageForBlockedKeywords(
+      ImmutableCollection<Pattern> blockedKeywordPatterns,
+      List<CommitValidationMessage> messages, String commitMessage) {
+    int line = 0;
+    for (String l : commitMessage.split("[\r\n]+")) {
+      line++;
+      checkLineForBlockedKeywords(blockedKeywordPatterns, messages,
+          "commit message", line, l);
+    }
   }
 
   private static void checkFileForBlockedKeywords(
@@ -181,7 +194,7 @@ public class BlockedKeywordValidator implements CommitValidationListener {
     }
     if (!found.isEmpty()) {
       messages.add(new CommitValidationMessage(MessageFormat.format(
-          "blocked keyword(s) found in file: {0} (Line: {1}) (found: {2})",
+          "blocked keyword(s) found in: {0} (Line: {1}) (found: {2})",
           path, lineNumber, Joiner.on(", ").join(found)), true));
     }
   }
