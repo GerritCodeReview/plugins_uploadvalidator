@@ -25,6 +25,7 @@ import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
+import com.google.gerrit.reviewdb.client.Patch;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.config.ProjectConfigEntry;
@@ -73,8 +74,8 @@ public class BlockedKeywordValidator implements CommitValidationListener {
             .annotatedWith(Exports.named(KEY_CHECK_BLOCKED_KEYWORD_PATTERN))
             .toInstance(new ProjectConfigEntry("Blocked Keyword Pattern", null,
                 ProjectConfigEntryType.ARRAY, null, false,
-                "Pushes of commits that contain files with blocked keywords "
-                    + "will be rejected."));
+                "Pushes of commits that contain files or commit messages with "
+                + "blocked keywords will be rejected."));
       }
     };
   }
@@ -142,6 +143,8 @@ public class BlockedKeywordValidator implements CommitValidationListener {
       ImmutableCollection<Pattern> blockedKeywordPartterns, PluginConfig cfg)
           throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
+    checkCommitMessageForBlockedKeywords(blockedKeywordPartterns, messages,
+        c.getFullMessage());
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
     for (String path : content.keySet()) {
       ObjectLoader ol = repo.open(content.get(path));
@@ -151,6 +154,17 @@ public class BlockedKeywordValidator implements CommitValidationListener {
       checkFileForBlockedKeywords(blockedKeywordPartterns, messages, path, ol);
     }
     return messages;
+  }
+
+  private static void checkCommitMessageForBlockedKeywords(
+      ImmutableCollection<Pattern> blockedKeywordPatterns,
+      List<CommitValidationMessage> messages, String commitMessage) {
+    int line = 0;
+    for (String l : commitMessage.split("[\r\n]+")) {
+      line++;
+      checkLineForBlockedKeywords(blockedKeywordPatterns, messages,
+          Patch.COMMIT_MSG, line, l);
+    }
   }
 
   private static void checkFileForBlockedKeywords(
@@ -181,7 +195,7 @@ public class BlockedKeywordValidator implements CommitValidationListener {
     }
     if (!found.isEmpty()) {
       messages.add(new CommitValidationMessage(MessageFormat.format(
-          "blocked keyword(s) found in file: {0} (Line: {1}) (found: {2})",
+          "blocked keyword(s) found in: {0} (Line: {1}) (found: {2})",
           path, lineNumber, Joiner.on(", ").join(found)), true));
     }
   }
