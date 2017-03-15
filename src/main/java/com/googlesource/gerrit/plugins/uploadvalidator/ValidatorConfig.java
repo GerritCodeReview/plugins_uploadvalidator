@@ -27,6 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class ValidatorConfig {
@@ -49,6 +50,7 @@ public class ValidatorConfig {
     return conf != null
         && isValidConfig(conf, projectName)
         && (activeForRef(conf, refName))
+        && (activeForEmail(conf, user.getAccount().getPreferredEmail()))
         && (!hasCriteria(conf, "skipGroup")
             || !canSkipValidation(conf, validatorOp)
             || !canSkipRef(conf, refName)
@@ -79,22 +81,27 @@ public class ValidatorConfig {
   }
 
   private boolean activeForRef(PluginConfig config, String ref) {
-    return matchCriteria(config, "ref", ref, true);
+    return matchCriteria(config, "ref", ref, true, true);
+  }
+
+  private boolean activeForEmail(PluginConfig config, String email) {
+    return matchCriteria(config, "email", email, true, false);
   }
 
   private boolean canSkipValidation(PluginConfig config, String validatorOp) {
-    return matchCriteria(config, "skipValidation", validatorOp, false);
+    return matchCriteria(config, "skipValidation", validatorOp, false, false);
   }
 
   private boolean canSkipRef(PluginConfig config, String ref) {
-    return matchCriteria(config, "skipRef", ref, true);
+    return matchCriteria(config, "skipRef", ref, true, true);
   }
 
   private boolean matchCriteria(PluginConfig config, String criteria,
-      String value, boolean allowRegex) {
+      String value, boolean allowRegex, boolean refMatcher) {
     boolean match = true;
     for (String s : config.getStringList(criteria)) {
-      if ((allowRegex && match(value, s)) || (!allowRegex && s.equals(value))) {
+      if ((allowRegex && match(value, s, refMatcher)) ||
+          (!allowRegex && s.equals(value))) {
         return true;
       }
       match = false;
@@ -102,8 +109,13 @@ public class ValidatorConfig {
     return match;
   }
 
-  private static boolean match(String value, String pattern) {
-    return RefPatternMatcher.getMatcher(pattern).match(value, null);
+  private static boolean match(String value, String pattern,
+      boolean refMatcher) {
+    if (refMatcher) {
+      return RefPatternMatcher.getMatcher(pattern).match(value, null);
+    } else {
+      return Pattern.matches(pattern, value);
+    }
   }
 
   private boolean canSkipGroup(PluginConfig conf, IdentifiedUser user) {

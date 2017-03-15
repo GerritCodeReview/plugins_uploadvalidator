@@ -18,10 +18,14 @@ import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.replay;
 
+import com.google.gerrit.common.TimeUtil;
+import com.google.gerrit.reviewdb.client.Account;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.inject.Provider;
 
 public class FakeUserProvider implements Provider<IdentifiedUser> {
+  public static String FAKE_EMAIL = "fake@example.com";
+
   private final String[] groupUUID;
 
   public FakeUserProvider(String... groupUUID) {
@@ -30,13 +34,20 @@ public class FakeUserProvider implements Provider<IdentifiedUser> {
 
   @Override
   public IdentifiedUser get() {
-    return createNew();
+    return createNew(FAKE_EMAIL);
   }
 
-  private IdentifiedUser createNew() {
+  public IdentifiedUser get(String email) {
+    return createNew(email);
+  }
+
+  private IdentifiedUser createNew(String email) {
     IdentifiedUser user = createMock(IdentifiedUser.class);
+    Account account = new Account(new Account.Id(1), TimeUtil.nowTs());
+    account.setPreferredEmail(email);
     expect(user.isIdentifiedUser()).andReturn(true);
     expect(user.asIdentifiedUser()).andReturn(user);
+    expect(user.getAccount()).andStubReturn(account);
     expect(user.getEffectiveGroups()).andReturn(
         new FakeGroupMembership(groupUUID));
     replay(user);

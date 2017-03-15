@@ -225,6 +225,22 @@ branches the following could be configured:
     ref = ^refs/heads/stable-.*
 ```
 
+Email-specific validations
+---------------------------
+
+By default, the validation will be enabled for all users. However, it can
+be limited to users with particular emails by setting `plugin.@PLUGIN@.email`.
+The emails may be configured using specific emails, patterns, or regular
+expressions. Multiple emails may be specified.
+
+E.g. to limit the validation to all projects that match `.*@example.com$` the
+following could be configured:
+
+```
+  [plugin "@PLUGIN@"]
+    project = .*@example.com$
+```
+
 Permission to skip the rules
 ----------------------------
 
