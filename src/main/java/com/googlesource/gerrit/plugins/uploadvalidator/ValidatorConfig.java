@@ -15,25 +15,50 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.common.data.RefConfigSection;
+import com.google.gerrit.extensions.annotations.Exports;
+import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.account.GroupCache;
 import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.gerrit.server.project.RefPatternMatcher;
+import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class ValidatorConfig {
   private static final Logger log = LoggerFactory
       .getLogger(ValidatorConfig.class);
+  private static final String KEY_PROJECT = "project";
+  private static final String KEY_REF = "ref";
   private final ConfigFactory configFactory;
   private final GroupCache groupCache;
+
+  public static AbstractModule module() {
+    return new AbstractModule() {
+      @Override
+      protected void configure() {
+        bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_PROJECT))
+            .toInstance(new ProjectConfigEntry("Projects", null,
+                ProjectConfigEntryType.ARRAY, null, false,
+                "Only projects that match this regex will be validated."));
+        bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_REF))
+            .toInstance(new ProjectConfigEntry("Refs", null,
+                ProjectConfigEntryType.ARRAY, null, false,
+                "Only refs that match this regex will be validated."));
+      }
+    };
+  }
 
   @Inject
   public ValidatorConfig(ConfigFactory configFactory,
@@ -49,6 +74,7 @@ public class ValidatorConfig {
     return conf != null
         && isValidConfig(conf, projectName)
         && (activeForRef(conf, refName))
+        && (activeForProject(conf, projectName.get()))
         && (!hasCriteria(conf, "skipGroup")
             || !canSkipValidation(conf, validatorOp)
             || !canSkipRef(conf, refName)
@@ -78,23 +104,28 @@ public class ValidatorConfig {
     return config.getStringList(criteria).length > 0;
   }
 
+  private boolean activeForProject(PluginConfig config, String project) {
+    return matchCriteria(config, "project", project, true, false);
+  }
+
   private boolean activeForRef(PluginConfig config, String ref) {
-    return matchCriteria(config, "ref", ref, true);
+    return matchCriteria(config, "ref", ref, true, true);
   }
 
   private boolean canSkipValidation(PluginConfig config, String validatorOp) {
-    return matchCriteria(config, "skipValidation", validatorOp, false);
+    return matchCriteria(config, "skipValidation", validatorOp, false, false);
   }
 
   private boolean canSkipRef(PluginConfig config, String ref) {
-    return matchCriteria(config, "skipRef", ref, true);
+    return matchCriteria(config, "skipRef", ref, true, true);
   }
 
   private boolean matchCriteria(PluginConfig config, String criteria,
-      String value, boolean allowRegex) {
+      String value, boolean allowRegex, boolean refMatcher) {
     boolean match = true;
     for (String s : config.getStringList(criteria)) {
-      if ((allowRegex && match(value, s)) || (!allowRegex && s.equals(value))) {
+      if ((allowRegex && match(value, s, refMatcher)) ||
+          (!allowRegex && s.equals(value))) {
         return true;
       }
       match = false;
@@ -102,8 +133,13 @@ public class ValidatorConfig {
     return match;
   }
 
-  private static boolean match(String value, String pattern) {
-    return RefPatternMatcher.getMatcher(pattern).match(value, null);
+  private static boolean match(String value, String pattern,
+      boolean refMatcher) {
+    if (refMatcher) {
+      return RefPatternMatcher.getMatcher(pattern).match(value, null);
+    } else {
+      return Pattern.matches(pattern, value);
+    }
   }
 
   private boolean canSkipGroup(PluginConfig conf, IdentifiedUser user) {
