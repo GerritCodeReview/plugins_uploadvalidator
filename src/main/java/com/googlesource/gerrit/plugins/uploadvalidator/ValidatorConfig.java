@@ -49,6 +49,7 @@ public class ValidatorConfig {
     return conf != null
         && isValidConfig(conf, projectName)
         && (activeForRef(conf, refName))
+        && (activeForProject(conf, projectName.get()))
         && (!hasCriteria(conf, "skipGroup")
             || !canSkipValidation(conf, validatorOp)
             || !canSkipRef(conf, refName)
@@ -76,6 +77,10 @@ public class ValidatorConfig {
 
   private boolean hasCriteria(PluginConfig config, String criteria) {
     return config.getStringList(criteria).length > 0;
+  }
+
+  private boolean activeForProject(PluginConfig config, String project) {
+    return matchCriteria(config, "project", project, true);
   }
 
   private boolean activeForRef(PluginConfig config, String ref) {
