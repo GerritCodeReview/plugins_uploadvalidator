@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14cc15bc_620a5b5e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-16T11:49:45Z",
+      "side": 1,
+      "message": "This was to be removed, as the test wanted to check the ref-specific skip logic.",
+      "range": {
+        "startLine": 117,
+        "startChar": 39,
+        "endLine": 118,
+        "endChar": 35
+      },
+      "revId": "afb69c372ab2355072520f29fee87bd3ef7dac46",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "944e8299_5e7868a0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-16T11:49:45Z",
+      "side": 1,
+      "message": "This is the wrong fix. The test wanted to check the specific ref logic, not the group ownership.",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 51
+      },
+      "revId": "afb69c372ab2355072520f29fee87bd3ef7dac46",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
