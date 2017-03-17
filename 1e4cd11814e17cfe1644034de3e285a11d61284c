@@ -16,6 +16,24 @@
       "revId": "1e4cd11814e17cfe1644034de3e285a11d61284c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b1ac778_f9834f7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-03-17T17:42:55Z",
+      "side": 1,
+      "message": "If they can see the plugin configuration, they\u0027d also be able to see \"project \u003d .*regexhere.*\", won\u0027t they?\n\nIt seems similar in concept to \"ref \u003d .*insertregexhere.*\". That would only apply to a subset of branches, so a project owner who isn\u0027t aware it\u0027s disabled for his or her ref may change the plugin configuration and then be confused why nothing works.\n\nIt seems like it would be the responsibility of the person changes it to be aware of all the options that might affect their change (i.e. ref, project, all the skip options, etc.)",
+      "parentUuid": "fbe8b702_0aa21093",
+      "revId": "1e4cd11814e17cfe1644034de3e285a11d61284c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
