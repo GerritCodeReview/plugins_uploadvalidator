@@ -52,6 +52,24 @@
       "revId": "1e4cd11814e17cfe1644034de3e285a11d61284c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dc37847_57281d24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-03-17T22:19:27Z",
+      "side": 1,
+      "message": "...I see what you mean.\n\nIf project B inherits from project A, and we disable plugin for B, the config still shows up on the UI, but any actions taken on that config are useless.\n\nIdeally I\u0027d like to disable the config (or at least surface a warning if they try to update it) in that case but I can\u0027t figure out if or how that\u0027s possible...",
+      "parentUuid": "9c5d9e9c_6ce5cb0c",
+      "revId": "1e4cd11814e17cfe1644034de3e285a11d61284c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
