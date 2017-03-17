@@ -69,6 +69,30 @@
       "revId": "afb69c372ab2355072520f29fee87bd3ef7dac46",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0052a6d7_0aed03c1",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2017-03-17T09:18:16Z",
+      "side": 1,
+      "message": "Luca, can you suggest how to fix it instead?",
+      "parentUuid": "944e8299_5e7868a0",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 51
+      },
+      "revId": "afb69c372ab2355072520f29fee87bd3ef7dac46",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
