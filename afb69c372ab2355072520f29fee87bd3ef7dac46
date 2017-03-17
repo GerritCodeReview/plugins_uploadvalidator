@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "637c14b1_da2faddb",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-03-17T21:22:18Z",
+      "side": 1,
+      "message": "https://gerrit.googlesource.com/plugins/uploadvalidator/+/refs/heads/master/src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java#52\nis where it makes it so that none of the skips are run unless skipGroup is defined.\n\nIf the fix to the test isn\u0027t correct, should I be modifying the code to do the right thing?",
+      "parentUuid": "00bafd0f_79d444cc",
+      "range": {
+        "startLine": 117,
+        "startChar": 39,
+        "endLine": 118,
+        "endChar": 35
+      },
+      "revId": "afb69c372ab2355072520f29fee87bd3ef7dac46",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "944e8299_5e7868a0",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
         "patchSetId": 2
