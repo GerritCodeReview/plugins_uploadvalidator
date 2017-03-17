@@ -58,7 +58,7 @@ public class SubmoduleValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_CHECK_SUBMODULE = "rejectSubmodule";
+  public static final String KEY_CHECK_SUBMODULE = "rejectSubmodule";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;

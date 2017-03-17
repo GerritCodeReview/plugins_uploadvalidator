@@ -59,7 +59,8 @@ public class FileExtensionValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_BLOCKED_FILE_EXTENSION = "blockedFileExtension";
+  public static final String KEY_BLOCKED_FILE_EXTENSION =
+      "blockedFileExtension";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;

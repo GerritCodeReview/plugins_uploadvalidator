@@ -66,7 +66,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS =
+  public static final String KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS =
       "rejectWindowsLineEndings";
 
   private final String pluginName;

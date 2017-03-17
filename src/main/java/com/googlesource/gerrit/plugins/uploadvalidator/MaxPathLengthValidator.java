@@ -56,7 +56,7 @@ public class MaxPathLengthValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_MAX_PATH_LENGTH = "maxPathLength";
+  public static final String KEY_MAX_PATH_LENGTH = "maxPathLength";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;

@@ -21,7 +21,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 
@@ -36,7 +35,7 @@ import java.util.Set;
 
 public class SymlinkValidatorTest extends ValidatorTestCase {
   private RevCommit makeCommitWithSymlink()
-      throws NoFilepatternException, IOException, GitAPIException {
+      throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     File link = new File(repo.getDirectory().getParent(), "foo.txt");
     Files.createSymbolicLink(link.toPath(), Paths.get("bar.txt"));
@@ -62,7 +61,7 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
   }
 
   private RevCommit makeCommitWithoutSymlink()
-      throws NoFilepatternException, IOException, GitAPIException {
+      throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     files.put(new File(repo.getDirectory().getParent(), "foo.txt"), null);
     return TestUtils.makeCommit(repo, "Commit with empty test files.", files);

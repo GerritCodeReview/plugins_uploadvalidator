@@ -58,7 +58,7 @@ public class FooterValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_REQUIRED_FOOTER = "requiredFooter";
+  public static final String KEY_REQUIRED_FOOTER = "requiredFooter";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;

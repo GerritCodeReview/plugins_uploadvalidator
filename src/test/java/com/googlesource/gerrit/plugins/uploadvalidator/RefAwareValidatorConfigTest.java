@@ -23,8 +23,9 @@ import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Test;
 
 public class RefAwareValidatorConfigTest {
-  private Project.NameKey projectName = new Project.NameKey("testProject");
-  private IdentifiedUser anyUser = new FakeUserProvider().get();
+  private final Project.NameKey projectName =
+      new Project.NameKey("testProject");
+  private final IdentifiedUser anyUser = new FakeUserProvider().get();
 
   @Test
   public void isEnabledForAllRefsByDefault() throws Exception {

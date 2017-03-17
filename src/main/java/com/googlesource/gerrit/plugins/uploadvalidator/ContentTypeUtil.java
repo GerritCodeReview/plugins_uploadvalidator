@@ -38,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
 public class ContentTypeUtil {
-  private static String KEY_BINARY_TYPES = "binaryTypes";
+  private static final String KEY_BINARY_TYPES = "binaryTypes";
 
   public static AbstractModule module() {
     return new AbstractModule() {

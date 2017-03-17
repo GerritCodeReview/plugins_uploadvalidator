@@ -59,8 +59,9 @@ public class InvalidFilenameValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_INVALID_FILENAME = "invalidFilename";
-  public static String KEY_INVALID_FILENAME_PATTERN = KEY_INVALID_FILENAME + "Pattern";
+  public static final String KEY_INVALID_FILENAME = "invalidFilename";
+  public static final String KEY_INVALID_FILENAME_PATTERN =
+      KEY_INVALID_FILENAME + "Pattern";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
