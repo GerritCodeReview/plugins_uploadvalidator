@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "74393125_80720870",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-17T22:20:55Z",
+      "side": 1,
+      "message": "Hey Stephen, accept my apology: I believe my review was done too much in a hurry. You are perfectly right, skipGroup has to be there otherwise all the other skip* settings are ignored *AND* the user needs to belong to that group.",
+      "parentUuid": "637c14b1_da2faddb",
+      "range": {
+        "startLine": 117,
+        "startChar": 39,
+        "endLine": 118,
+        "endChar": 35
+      },
+      "revId": "afb69c372ab2355072520f29fee87bd3ef7dac46",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "944e8299_5e7868a0",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
         "patchSetId": 2
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "Luca, can you suggest how to fix it instead?",
       "parentUuid": "944e8299_5e7868a0",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 51
+      },
+      "revId": "afb69c372ab2355072520f29fee87bd3ef7dac46",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7986b56_30e7c1e7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-03-17T22:20:55Z",
+      "side": 1,
+      "message": "I was wrong, the test was broken and the fix is correct.",
+      "parentUuid": "0052a6d7_0aed03c1",
       "range": {
         "startLine": 126,
         "startChar": 12,
