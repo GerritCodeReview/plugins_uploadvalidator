@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbe8b702_0aa21093",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2017-03-17T09:28:45Z",
+      "side": 1,
+      "message": "Hmm, I think this may lead to some confusion.\nThe plugin exposes it\u0027s configuration parameters on the project screen in the UI and project owners can change the configuration there.\nIf you disable the plugin for some projects by setting this in a parent project. The plugin configuration parameters will still be exposed on projects for which the plugin is disabled, wouldn\u0027t they? So a project owner who is not aware that the plugin was disabled for his project, may change the plugin configuration and then be confused why nothing works.",
+      "revId": "1e4cd11814e17cfe1644034de3e285a11d61284c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
