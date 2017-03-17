@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "2ef7ed1d_74d30a5c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-03-17T22:22:15Z",
+      "side": 1,
+      "message": "No apologies necessary, I was definitely super confused when I ran across that the first time, before I read the documentation more closely. Thanks for the review!",
+      "parentUuid": "74393125_80720870",
+      "range": {
+        "startLine": 117,
+        "startChar": 39,
+        "endLine": 118,
+        "endChar": 35
+      },
+      "revId": "afb69c372ab2355072520f29fee87bd3ef7dac46",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "944e8299_5e7868a0",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
         "patchSetId": 2
