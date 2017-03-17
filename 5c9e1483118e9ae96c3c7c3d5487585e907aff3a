@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0b72bec_9788d507",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2017-03-17T09:07:17Z",
+      "side": 1,
+      "message": "Use com.google.gerrit.reviewdb.client.Patch.COMMIT_MSG instead, this is the path the Gerrit uses internally to represent the commit message.",
+      "range": {
+        "startLine": 165,
+        "startChar": 10,
+        "endLine": 165,
+        "endChar": 26
+      },
+      "revId": "5c9e1483118e9ae96c3c7c3d5487585e907aff3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
