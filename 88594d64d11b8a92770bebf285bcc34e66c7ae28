@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "66ca155f_7e4ae4ec",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-03-17T17:30:06Z",
+      "side": 1,
+      "message": "Fixed. That was careless of me.",
+      "parentUuid": "3ab1d90a_edff102c",
+      "range": {
+        "startLine": 236,
+        "startChar": 36,
+        "endLine": 236,
+        "endChar": 44
+      },
+      "revId": "88594d64d11b8a92770bebf285bcc34e66c7ae28",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c56eb0ae_f878ac19",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-17T09:17:03Z",
       "side": 1,
       "message": "email?",
+      "range": {
+        "startLine": 241,
+        "startChar": 4,
+        "endLine": 241,
+        "endChar": 11
+      },
+      "revId": "88594d64d11b8a92770bebf285bcc34e66c7ae28",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57764311_a720a273",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-03-17T17:30:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c56eb0ae_f878ac19",
       "range": {
         "startLine": 241,
         "startChar": 4,
