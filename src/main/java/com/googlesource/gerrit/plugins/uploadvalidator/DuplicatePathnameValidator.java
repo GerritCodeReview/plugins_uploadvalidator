@@ -88,9 +88,9 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_REJECT_DUPLICATE_PATHNAMES =
+  public static final String KEY_REJECT_DUPLICATE_PATHNAMES =
       "rejectDuplicatePathnames";
-  public static String KEY_REJECT_DUPLICATE_PATHNAMES_LOCALE =
+  public static final String KEY_REJECT_DUPLICATE_PATHNAMES_LOCALE =
       "rejectDuplicatePathnamesLocale";
 
   @VisibleForTesting

@@ -23,8 +23,9 @@ import com.google.gerrit.server.IdentifiedUser;
 import org.junit.Test;
 
 public class SkipValidationTest {
-  private Project.NameKey projectName = new Project.NameKey("testProject");
-  private IdentifiedUser anyUser = new FakeUserProvider().get();
+  private final Project.NameKey projectName =
+      new Project.NameKey("testProject");
+  private final IdentifiedUser anyUser = new FakeUserProvider().get();
 
   @Test
   public void dontSkipByDefault() throws Exception {

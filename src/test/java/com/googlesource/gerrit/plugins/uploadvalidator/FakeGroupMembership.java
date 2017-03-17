@@ -17,7 +17,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import com.google.gerrit.reviewdb.client.AccountGroup.UUID;
 import com.google.gerrit.server.account.GroupMembership;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -27,7 +27,7 @@ public class FakeGroupMembership implements GroupMembership {
   private final Set<String> memberOfGroup = new HashSet<>();
 
   public FakeGroupMembership(String... memberOfGroup) {
-    this.memberOfGroup.addAll(Arrays.asList(memberOfGroup));
+    Collections.addAll(this.memberOfGroup, memberOfGroup);
   }
 
   @Override

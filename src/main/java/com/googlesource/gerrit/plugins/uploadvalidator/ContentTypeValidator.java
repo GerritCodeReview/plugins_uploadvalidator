@@ -70,8 +70,8 @@ public class ContentTypeValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_BLOCKED_CONTENT_TYPE = "blockedContentType";
-  public static String KEY_BLOCKED_CONTENT_TYPE_WHITELIST =
+  public static final String KEY_BLOCKED_CONTENT_TYPE = "blockedContentType";
+  public static final String KEY_BLOCKED_CONTENT_TYPE_WHITELIST =
       "blockedContentTypeWhitelist";
 
   @VisibleForTesting
@@ -147,8 +147,8 @@ public class ContentTypeValidator implements CommitValidationListener {
         String contentType = contentTypeUtil.getContentType(os, path);
         if ((contentTypeUtil.matchesAny(contentType, blockedTypes)
             && !whitelist)
-            || !contentTypeUtil.matchesAny(contentType, blockedTypes)
-                && whitelist) {
+            || (!contentTypeUtil.matchesAny(contentType, blockedTypes)
+                && whitelist)) {
           messages.add(new CommitValidationMessage(
               "found blocked content type (" + contentType + ") in file: "
                   + path, true));

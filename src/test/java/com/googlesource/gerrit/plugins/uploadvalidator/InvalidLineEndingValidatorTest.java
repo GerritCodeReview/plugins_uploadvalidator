@@ -22,7 +22,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 
@@ -34,8 +33,7 @@ import java.util.List;
 import java.util.Map;
 
 public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
-  private RevCommit makeCommit()
-      throws NoFilepatternException, IOException, GitAPIException {
+  private RevCommit makeCommit() throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     // invalid line endings
     String content = "Testline1\r\n"
@@ -62,9 +60,8 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
         new ContentTypeUtil(PATTERN_CACHE), null, null, null);
     List<CommitValidationMessage> m = validator.performValidation(repo, c,
         EMPTY_PLUGIN_CONFIG);
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(ImmutableSet.of(
-            "ERROR: found carriage return (CR) character in file: foo.txt"));
+    assertThat(TestUtils.transformMessages(m)).containsExactly(
+        "ERROR: found carriage return (CR) character in file: foo.txt");
   }
 
   @Test

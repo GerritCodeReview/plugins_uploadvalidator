@@ -21,7 +21,6 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +34,7 @@ import java.util.Map;
 
 public class ContentTypeValidatorTest extends ValidatorTestCase {
 
-  private static byte[] TEST_PDF = ("%PDF-1.4\n"
+  private static final byte[] TEST_PDF = ("%PDF-1.4\n"
         + "1 0 obj << /Type /Catalog /Outlines 2 0 R /Pages 3 0 R >>\n"
         + "endobj 2 0 obj << /Type /Outlines /Count 0 >>\n"
         + "endobj 3 0 obj << /Type /Pages /Kids [4 0 R] /Count 1\n"
@@ -90,8 +89,7 @@ public class ContentTypeValidatorTest extends ValidatorTestCase {
     assertThat(ContentTypeValidator.isWhitelist(EMPTY_PLUGIN_CONFIG)).isFalse();
   }
 
-  private RevCommit makeCommit()
-      throws NoFilepatternException, IOException, GitAPIException {
+  private RevCommit makeCommit() throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
 
     String content = "<?xml version=\"1.0\"?><a><b>c</b></a>";

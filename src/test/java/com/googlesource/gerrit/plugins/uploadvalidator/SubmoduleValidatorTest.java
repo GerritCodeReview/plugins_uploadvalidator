@@ -23,7 +23,6 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.SubmoduleAddCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 
@@ -35,7 +34,7 @@ import java.util.Map;
 
 public class SubmoduleValidatorTest extends ValidatorTestCase {
   private RevCommit makeCommitWithSubmodule()
-      throws NoFilepatternException, IOException, GitAPIException {
+      throws IOException, GitAPIException {
     try (Git git = new Git(repo)) {
       SubmoduleAddCommand addCommand = git.submoduleAdd();
       addCommand.setURI(repo.getDirectory().getCanonicalPath());
@@ -52,12 +51,11 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
     List<CommitValidationMessage> m =
         SubmoduleValidator.performValidation(repo, c);
     assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(ImmutableSet.of(
-            "ERROR: submodules are not allowed: modules/library"));
+        .containsExactly("ERROR: submodules are not allowed: modules/library");
   }
 
   private RevCommit makeCommitWithoutSubmodule()
-      throws NoFilepatternException, IOException, GitAPIException {
+      throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     files.put(new File(repo.getDirectory().getParent(), "foo.txt"), null);
     return TestUtils.makeCommit(repo, "Commit with empty test files.", files);

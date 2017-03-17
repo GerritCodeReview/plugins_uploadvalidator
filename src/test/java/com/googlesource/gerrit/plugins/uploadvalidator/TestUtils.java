@@ -27,7 +27,6 @@ import org.eclipse.jgit.api.AddCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.RmCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.dircache.DirCacheEntry;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.Config;
@@ -71,8 +70,7 @@ public class TestUtils {
   }
 
   public static RevCommit makeCommit(Repository repo, String message,
-      Set<File> files)
-          throws IOException, NoFilepatternException, GitAPIException {
+      Set<File> files) throws IOException, GitAPIException {
     Map<File, byte[]> tmp = new HashMap<>();
     for (File f : files) {
       tmp.put(f, null);
@@ -81,8 +79,7 @@ public class TestUtils {
   }
 
   public static RevCommit makeCommit(Repository repo, String message,
-      Map<File, byte[]> files)
-          throws IOException, NoFilepatternException, GitAPIException {
+      Map<File, byte[]> files) throws IOException, GitAPIException {
     try (Git git = new Git(repo)) {
       if (files != null) {
         addFiles(git, files);
@@ -98,7 +95,7 @@ public class TestUtils {
   }
 
   public static void removeFiles(Git git, Set<File> files)
-      throws NoFilepatternException, GitAPIException {
+      throws GitAPIException {
     RmCommand rmc = git.rm();
     for (File f : files) {
       rmc.addFilepattern(generateFilePattern(f, git));
@@ -107,7 +104,7 @@ public class TestUtils {
   }
 
   private static void addFiles(Git git, Map<File, byte[]> files)
-      throws IOException, NoFilepatternException, GitAPIException {
+      throws IOException, GitAPIException {
     AddCommand ac = git.add();
     for (File f : files.keySet()) {
       if (!f.exists()) {

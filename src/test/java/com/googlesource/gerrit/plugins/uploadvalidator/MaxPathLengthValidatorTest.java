@@ -22,7 +22,6 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 
@@ -40,8 +39,7 @@ public class MaxPathLengthValidatorTest extends ValidatorTestCase {
     return (TOO_LONG.length() + GOOD.length()) / 2;
   }
 
-  private RevCommit makeCommit()
-      throws NoFilepatternException, IOException, GitAPIException {
+  private RevCommit makeCommit() throws IOException, GitAPIException {
     Set<File> files = new HashSet<>();
     files.add(TestUtils.createEmptyFile(TOO_LONG, repo));
     files.add(TestUtils.createEmptyFile(GOOD, repo));

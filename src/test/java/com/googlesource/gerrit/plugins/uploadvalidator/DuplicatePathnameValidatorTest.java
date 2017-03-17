@@ -43,14 +43,16 @@ import java.util.Locale;
 import java.util.Set;
 
 public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
-  private static final List<String> INITIAL_PATHNAMES = ImmutableList.of(
-      "a" , "ab",
-      "f1/a", "f1/ab",
-      "f2/a", "f2/ab", "f2/sF1/a", "f2/sF1/ab");
+  private static final ImmutableList<String> INITIAL_PATHNAMES =
+      ImmutableList.of(
+          "a" , "ab",
+          "f1/a", "f1/ab",
+          "f2/a", "f2/ab", "f2/sF1/a", "f2/sF1/ab");
+
+  private final List<String> vistedPaths = Lists.newArrayList();
+  private final List<CommitValidationMessage> messages = Lists.newArrayList();
 
   private TestRepository<Repository> testRepo;
-  private List<String> vistedPaths = Lists.newArrayList();
-  private List<CommitValidationMessage> messages = Lists.newArrayList();
   private Set<String> changedPaths;
   private DuplicatePathnameValidator validator;
 
@@ -82,8 +84,8 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
     runCheck(INITIAL_PATHNAMES, changedPaths, messages, vistedPaths);
     assertThat(transformMessages(messages))
         .containsExactly(transformMessage(conflict("f1/A", "f1/a")));
-    assertThat(vistedPaths).containsExactlyElementsIn(ImmutableList.of("a",
-        "ab", "f1", "f1/a", "f1/ab", "f2"));
+    assertThat(vistedPaths).containsExactly(
+        "a", "ab", "f1", "f1/a", "f1/ab", "f2");
   }
 
   @Test
@@ -92,8 +94,7 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
     runCheck(INITIAL_PATHNAMES, changedPaths, messages, vistedPaths);
     assertThat(transformMessages(messages))
         .containsExactly(transformMessage(conflict("F1", "f1")));
-    assertThat(vistedPaths).containsExactlyElementsIn(
-        ImmutableList.of("a", "ab", "f1", "f2"));
+    assertThat(vistedPaths).containsExactly("a", "ab", "f1", "f2");
   }
 
   @Test
@@ -103,8 +104,8 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
     assertThat(transformMessages(messages)).containsExactly(
         transformMessage(conflict("F1", "f1")),
         transformMessage(conflict("f2/sf1", "f2/sF1")));
-    assertThat(vistedPaths).containsExactlyElementsIn(
-        ImmutableList.of("a", "ab", "f1", "f2", "f2/a", "f2/ab", "f2/sF1"));
+    assertThat(vistedPaths).containsExactly(
+        "a", "ab", "f1", "f2", "f2/a", "f2/ab", "f2/sF1");
   }
 
   @Test
@@ -115,9 +116,8 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
         transformMessage(conflict("AB", "ab")),
         transformMessage(conflict("f1/A", "f1/a")),
         transformMessage(conflict("f2/Ab", "f2/ab")));
-    assertThat(vistedPaths).containsExactlyElementsIn(
-        ImmutableList.of("a", "ab", "f1", "f1/a", "f1/ab",
-            "f2", "f2/a", "f2/ab", "f2/sF1"));
+    assertThat(vistedPaths).containsExactly(
+        "a", "ab", "f1", "f1/a", "f1/ab", "f2", "f2/a", "f2/ab", "f2/sF1");
   }
 
   @Test
@@ -125,8 +125,8 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
     changedPaths = Sets.newHashSet("a", "ab", "f1/ab");
     runCheck(INITIAL_PATHNAMES, changedPaths, messages, vistedPaths);
     assertThat(messages).isEmpty();
-    assertThat(vistedPaths).containsExactlyElementsIn(ImmutableList.of("a",
-        "ab", "f1", "f1/a", "f1/ab", "f2"));
+    assertThat(vistedPaths).containsExactly(
+        "a", "ab", "f1", "f1/a", "f1/ab", "f2");
   }
 
   @Test

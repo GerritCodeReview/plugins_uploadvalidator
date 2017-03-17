@@ -20,7 +20,6 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 
@@ -31,7 +30,7 @@ import java.util.List;
 import java.util.Set;
 
 public class InvalidFilenameValidatorTest extends ValidatorTestCase {
-  private Set<String> getInvalidFilenames() {
+  private static Set<String> getInvalidFilenames() {
     Set<String> filenames = new HashSet<>();
     filenames.add("test#");
     filenames.add("test%");
@@ -43,8 +42,7 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
     return filenames;
   }
 
-  private RevCommit makeCommit()
-      throws NoFilepatternException, IOException, GitAPIException {
+  private RevCommit makeCommit() throws IOException, GitAPIException {
     Set<File> files = new HashSet<>();
     for (String filenames : getInvalidFilenames()) {
       files.add(new File(repo.getDirectory().getParent(), filenames));

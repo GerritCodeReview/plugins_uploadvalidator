@@ -59,7 +59,7 @@ public class SymlinkValidator implements CommitValidationListener {
     };
   }
 
-  public static String KEY_CHECK_SYMLINK = "rejectSymlink";
+  public static final String KEY_CHECK_SYMLINK = "rejectSymlink";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;

@@ -59,8 +59,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class BlockedKeywordValidator implements CommitValidationListener {
-  private static String KEY_CHECK_BLOCKED_KEYWORD = "blockedKeyword";
-  private static String KEY_CHECK_BLOCKED_KEYWORD_PATTERN =
+  private static final String KEY_CHECK_BLOCKED_KEYWORD = "blockedKeyword";
+  private static final String KEY_CHECK_BLOCKED_KEYWORD_PATTERN =
       KEY_CHECK_BLOCKED_KEYWORD + "Pattern";
 
   public static AbstractModule module() {
