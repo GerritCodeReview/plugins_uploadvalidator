@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a9079c43_3ac6c2a8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2017-03-17T09:08:07Z",
+      "side": 1,
+      "message": "or commit message",
+      "range": {
+        "startLine": 76,
+        "startChar": 48,
+        "endLine": 76,
+        "endChar": 53
+      },
+      "revId": "5c9e1483118e9ae96c3c7c3d5487585e907aff3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0b72bec_9788d507",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 2
