@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0437a0d0_391d1781",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2017-03-20T07:37:13Z",
+      "side": 1,
+      "message": "From my point of view this is sufficient for now, since you have all information available in the UI now.",
+      "revId": "fdea4670d111bea121701938e5586790bda5b2a3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
