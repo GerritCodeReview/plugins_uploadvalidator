@@ -123,7 +123,8 @@ public class SkipValidationTest {
             new FakeGroupCacheUUIDByName());
 
     assertThat(
-        validatorConfig.isEnabledForRef(anyUser, projectName,
+        validatorConfig.isEnabledForRef(
+            new FakeUserProvider("testGroup").get(), projectName,
             "refs/heads/myref", "testOp")).isFalse();
   }
 
