@@ -24,7 +24,7 @@ import com.google.gerrit.server.IdentifiedUser;
 import com.google.inject.Provider;
 
 public class FakeUserProvider implements Provider<IdentifiedUser> {
-  public static String FAKE_EMAIL = "fake@example.com";
+  public static final String FAKE_EMAIL = "fake@example.com";
 
   private final String[] groupUUID;
 

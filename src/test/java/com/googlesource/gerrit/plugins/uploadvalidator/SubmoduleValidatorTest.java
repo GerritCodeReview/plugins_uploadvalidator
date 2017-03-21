@@ -17,7 +17,6 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 
-import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.Git;
