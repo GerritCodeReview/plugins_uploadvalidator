@@ -17,7 +17,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 
-class Module extends AbstractModule {
+public class Module extends AbstractModule {
 
   @Override
   protected void configure() {
