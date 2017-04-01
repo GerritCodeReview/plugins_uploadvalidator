@@ -23,6 +23,7 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.SubmoduleAddCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -32,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SubmoduleValidatorTest extends ValidatorTestCase {
-  private RevCommit makeCommitWithSubmodule()
+  private RevCommit makeCommitWithSubmodule(RevWalk rw)
       throws IOException, GitAPIException {
     try (Git git = new Git(repo)) {
       SubmoduleAddCommand addCommand = git.submoduleAdd();
@@ -40,32 +41,36 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
       addCommand.setPath("modules/library");
       addCommand.call().close();
       git.add().addFilepattern(".").call();
-      return git.commit().setMessage("Commit with submodule.").call();
+      return rw.parseCommit(git.commit().setMessage("Commit with submodule.").call());
     }
   }
 
   @Test
   public void testWithSubmodule() throws Exception {
-    RevCommit c = makeCommitWithSubmodule();
-    List<CommitValidationMessage> m =
-        SubmoduleValidator.performValidation(repo, c);
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactly("ERROR: submodules are not allowed: modules/library");
+    try (RevWalk rw = new RevWalk(repo)) {
+      RevCommit c = makeCommitWithSubmodule(rw);
+      List<CommitValidationMessage> m =
+          SubmoduleValidator.performValidation(repo, c, rw);
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactly("ERROR: submodules are not allowed: modules/library");
+    }
   }
 
-  private RevCommit makeCommitWithoutSubmodule()
+  private RevCommit makeCommitWithoutSubmodule(RevWalk rw)
       throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     files.put(new File(repo.getDirectory().getParent(), "foo.txt"), null);
-    return TestUtils.makeCommit(repo, "Commit with empty test files.", files);
+    return TestUtils.makeCommit(rw, repo, "Commit with empty test files.", files);
   }
 
   @Test
   public void testWithoutSubmodule() throws Exception {
-    RevCommit c = makeCommitWithoutSubmodule();
-    List<CommitValidationMessage> m =
-        SubmoduleValidator.performValidation(repo, c);
-    assertThat(m).isEmpty();
+    try (RevWalk rw = new RevWalk(repo)) {
+      RevCommit c = makeCommitWithoutSubmodule(rw);
+      List<CommitValidationMessage> m =
+          SubmoduleValidator.performValidation(repo, c, rw);
+      assertThat(m).isEmpty();
+    }
   }
 
   @Test

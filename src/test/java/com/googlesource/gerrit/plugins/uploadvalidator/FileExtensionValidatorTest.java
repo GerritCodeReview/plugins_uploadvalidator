@@ -23,6 +23,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -38,7 +39,7 @@ public class FileExtensionValidatorTest extends ValidatorTestCase {
   private static final List<String> BLOCKED_EXTENSIONS_UC =
       Lists.newArrayList("JPEG", "PDF", "ZIP", "EXE", "TAR.GZ");
 
-  private RevCommit makeCommit(List<String> blockedExtensions)
+  private RevCommit makeCommit(RevWalk rw, List<String> blockedExtensions)
       throws NoFilepatternException, IOException, GitAPIException {
     Set<File> files = new HashSet<>();
     for (String extension : blockedExtensions) {
@@ -49,33 +50,37 @@ public class FileExtensionValidatorTest extends ValidatorTestCase {
     files.add(new File(repo.getDirectory().getParent(), "foo.core.tmp"));
     files.add(new File(repo.getDirectory().getParent(), "foo.c"));
     files.add(new File(repo.getDirectory().getParent(), "foo.txt"));
-    return TestUtils.makeCommit(repo, "Commit with empty test files.", files);
+    return TestUtils.makeCommit(rw, repo, "Commit with empty test files.", files);
   }
 
   @Test
   public void testBlockedExtensions() throws Exception {
-    RevCommit c = makeCommit(BLOCKED_EXTENSIONS_LC);
-    List<CommitValidationMessage> m = FileExtensionValidator
-        .performValidation(repo, c, BLOCKED_EXTENSIONS_LC);
-    List<String> expected = new ArrayList<>();
-    for (String extension : BLOCKED_EXTENSIONS_LC) {
-      expected.add("ERROR: blocked file: foo." + extension);
+    try (RevWalk rw = new RevWalk(repo)) {
+      RevCommit c = makeCommit(rw, BLOCKED_EXTENSIONS_LC);
+      List<CommitValidationMessage> m = FileExtensionValidator
+          .performValidation(repo, c, rw, BLOCKED_EXTENSIONS_LC);
+      List<String> expected = new ArrayList<>();
+      for (String extension : BLOCKED_EXTENSIONS_LC) {
+        expected.add("ERROR: blocked file: foo." + extension);
+      }
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactlyElementsIn(expected);
     }
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
   }
 
   @Test
   public void testBlockedExtensionsCaseInsensitive() throws Exception {
-    RevCommit c = makeCommit(BLOCKED_EXTENSIONS_UC);
-    List<CommitValidationMessage> m = FileExtensionValidator
-        .performValidation(repo, c, BLOCKED_EXTENSIONS_LC);
-    List<String> expected = new ArrayList<>();
-    for (String extension : BLOCKED_EXTENSIONS_UC) {
-      expected.add("ERROR: blocked file: foo." + extension);
+    try (RevWalk rw = new RevWalk(repo)) {
+      RevCommit c = makeCommit(rw, BLOCKED_EXTENSIONS_UC);
+      List<CommitValidationMessage> m = FileExtensionValidator
+          .performValidation(repo, c, new RevWalk(repo), BLOCKED_EXTENSIONS_LC);
+      List<String> expected = new ArrayList<>();
+      for (String extension : BLOCKED_EXTENSIONS_UC) {
+        expected.add("ERROR: blocked file: foo." + extension);
+      }
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactlyElementsIn(expected);
     }
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
   }
 
   @Test

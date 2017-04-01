@@ -33,6 +33,7 @@ import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTree;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
 import java.io.File;
@@ -69,22 +70,22 @@ public class TestUtils {
     return repository;
   }
 
-  public static RevCommit makeCommit(Repository repo, String message,
+  public static RevCommit makeCommit(RevWalk rw, Repository repo, String message,
       Set<File> files) throws IOException, GitAPIException {
     Map<File, byte[]> tmp = new HashMap<>();
     for (File f : files) {
       tmp.put(f, null);
     }
-    return makeCommit(repo, message, tmp);
+    return makeCommit(rw, repo, message, tmp);
   }
 
-  public static RevCommit makeCommit(Repository repo, String message,
+  public static RevCommit makeCommit(RevWalk rw, Repository repo, String message,
       Map<File, byte[]> files) throws IOException, GitAPIException {
     try (Git git = new Git(repo)) {
       if (files != null) {
         addFiles(git, files);
       }
-      return git.commit().setMessage(message).call();
+      return rw.parseCommit(git.commit().setMessage(message).call());
     }
   }
 
@@ -148,18 +149,18 @@ public class TestUtils {
     return repo.file(pathname, repo.blob(content));
   }
 
-  public static RevCommit makeCommit(DirCacheEntry[] entries,
+  public static RevCommit makeCommit(RevWalk rw, DirCacheEntry[] entries,
       TestRepository<Repository> repo) throws Exception {
-    return makeCommit(entries, repo, (RevCommit[]) null);
+    return makeCommit(rw, entries, repo, (RevCommit[]) null);
   }
 
-  public static RevCommit makeCommit(DirCacheEntry[] entries,
+  public static RevCommit makeCommit(RevWalk rw, DirCacheEntry[] entries,
       TestRepository<Repository> repo, RevCommit... parents)
       throws Exception {
     final RevTree ta = repo.tree(entries);
     RevCommit c =
         (parents == null) ? repo.commit(ta) : repo.commit(ta, parents);
     repo.parseBody(c);
-    return c;
+    return rw.parseCommit(c);
   }
 }

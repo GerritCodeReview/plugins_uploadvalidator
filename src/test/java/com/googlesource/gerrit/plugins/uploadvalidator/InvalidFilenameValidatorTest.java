@@ -21,6 +21,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -42,28 +43,30 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
     return filenames;
   }
 
-  private RevCommit makeCommit() throws IOException, GitAPIException {
+  private RevCommit makeCommit(RevWalk rw) throws IOException, GitAPIException {
     Set<File> files = new HashSet<>();
     for (String filenames : getInvalidFilenames()) {
       files.add(new File(repo.getDirectory().getParent(), filenames));
     }
     // valid filename
     files.add(new File(repo.getDirectory().getParent(), "test"));
-    return TestUtils.makeCommit(repo, "Commit with empty test files.", files);
+    return TestUtils.makeCommit(rw, repo, "Commit with empty test files.", files);
   }
 
   @Test
   public void test() throws Exception {
     String[] invalidFilenamePattern = {"\\[|\\]|\\*|#", "[%:@]"};
-    RevCommit c = makeCommit();
-    List<CommitValidationMessage> m = InvalidFilenameValidator
-        .performValidation(repo, c, invalidFilenamePattern);
-    Set<String> expected = new HashSet<>();
-    for (String filenames : getInvalidFilenames()) {
-      expected.add("ERROR: invalid characters found in filename: " + filenames);
+    try (RevWalk rw = new RevWalk(repo)) {
+      RevCommit c = makeCommit(rw);
+      List<CommitValidationMessage> m = InvalidFilenameValidator
+          .performValidation(repo, c, rw, invalidFilenamePattern);
+      Set<String> expected = new HashSet<>();
+      for (String filenames : getInvalidFilenames()) {
+        expected.add("ERROR: invalid characters found in filename: " + filenames);
+      }
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactlyElementsIn(expected);
     }
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
   }
 
   @Test
