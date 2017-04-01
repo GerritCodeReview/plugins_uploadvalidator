@@ -33,6 +33,7 @@ import com.google.inject.Inject;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.TreeWalk;
 
 import java.io.IOException;
@@ -94,7 +95,7 @@ public class SymlinkValidator implements CommitValidationListener {
         try (Repository repo =
             repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
-              performValidation(repo, receiveEvent.commit);
+              performValidation(repo, receiveEvent.commit, receiveEvent.revWalk);
           if (!messages.isEmpty()) {
             throw new CommitValidationException("contains symbolic links",
                 messages);
@@ -120,10 +121,10 @@ public class SymlinkValidator implements CommitValidationListener {
   }
 
   static List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c) throws IOException {
+      RevCommit c, RevWalk revWalk) throws IOException {
     final List<CommitValidationMessage> messages = new LinkedList<>();
 
-    CommitUtils.visitChangedEntries(repo, c, new TreeWalkVisitor() {
+    CommitUtils.visitChangedEntries(repo, c, revWalk, new TreeWalkVisitor() {
       @Override
       public void onVisit(TreeWalk tw) {
         if (isSymLink(tw)) {

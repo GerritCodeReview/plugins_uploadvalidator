@@ -25,6 +25,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -46,7 +47,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
         .build();
   }
 
-  private RevCommit makeCommit() throws IOException, GitAPIException {
+  private RevCommit makeCommit(RevWalk rw) throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     // invalid files
     String content = "http://foo.bar.tld/?pw=myp4ssw0rdTefoobarstline2\n";
@@ -68,25 +69,27 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
         + "Testline4";
     files.put(new File(repo.getDirectory().getParent(), "foobar.txt"),
         content.getBytes(StandardCharsets.UTF_8));
-    return TestUtils.makeCommit(repo, "Commit foobar with test files.", files);
+    return TestUtils.makeCommit(rw, repo, "Commit foobar with test files.", files);
   }
 
   @Test
   public void testKeywords() throws Exception {
-    RevCommit c = makeCommit();
-    BlockedKeywordValidator validator = new BlockedKeywordValidator(null,
-        new ContentTypeUtil(PATTERN_CACHE), PATTERN_CACHE, null, null, null);
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, c, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
-    Set<String> expected = ImmutableSet.of(
-        "ERROR: blocked keyword(s) found in: foo.txt (Line: 1)"
-            + " (found: myp4ssw0rd, foobar)",
-        "ERROR: blocked keyword(s) found in: bar.txt (Line: 5)"
-            + " (found: $Id: foo bar$)",
-        "ERROR: blocked keyword(s) found in: " + Patch.COMMIT_MSG
-            + " (Line: 1) (found: foobar)");
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
+    try (RevWalk rw = new RevWalk(repo)) {
+      RevCommit c = makeCommit(rw);
+      BlockedKeywordValidator validator = new BlockedKeywordValidator(null,
+          new ContentTypeUtil(PATTERN_CACHE), PATTERN_CACHE, null, null, null);
+      List<CommitValidationMessage> m = validator.performValidation(
+          repo, c, rw, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
+      Set<String> expected = ImmutableSet.of(
+          "ERROR: blocked keyword(s) found in: foo.txt (Line: 1)"
+              + " (found: myp4ssw0rd, foobar)",
+          "ERROR: blocked keyword(s) found in: bar.txt (Line: 5)"
+              + " (found: $Id: foo bar$)",
+          "ERROR: blocked keyword(s) found in: " + Patch.COMMIT_MSG
+              + " (Line: 1) (found: foobar)");
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactlyElementsIn(expected);
+    }
   }
 
   @Test
