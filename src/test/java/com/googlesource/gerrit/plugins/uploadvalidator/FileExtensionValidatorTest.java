@@ -23,6 +23,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -56,7 +57,7 @@ public class FileExtensionValidatorTest extends ValidatorTestCase {
   public void testBlockedExtensions() throws Exception {
     RevCommit c = makeCommit(BLOCKED_EXTENSIONS_LC);
     List<CommitValidationMessage> m = FileExtensionValidator
-        .performValidation(repo, c, BLOCKED_EXTENSIONS_LC);
+        .performValidation(repo, c, new RevWalk(repo), BLOCKED_EXTENSIONS_LC);
     List<String> expected = new ArrayList<>();
     for (String extension : BLOCKED_EXTENSIONS_LC) {
       expected.add("ERROR: blocked file: foo." + extension);
@@ -69,7 +70,7 @@ public class FileExtensionValidatorTest extends ValidatorTestCase {
   public void testBlockedExtensionsCaseInsensitive() throws Exception {
     RevCommit c = makeCommit(BLOCKED_EXTENSIONS_UC);
     List<CommitValidationMessage> m = FileExtensionValidator
-        .performValidation(repo, c, BLOCKED_EXTENSIONS_LC);
+        .performValidation(repo, c, new RevWalk(repo), BLOCKED_EXTENSIONS_LC);
     List<String> expected = new ArrayList<>();
     for (String extension : BLOCKED_EXTENSIONS_UC) {
       expected.add("ERROR: blocked file: foo." + extension);
