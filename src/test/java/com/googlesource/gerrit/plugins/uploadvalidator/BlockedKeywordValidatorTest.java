@@ -25,6 +25,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -76,17 +77,19 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommit();
     BlockedKeywordValidator validator = new BlockedKeywordValidator(null,
         new ContentTypeUtil(PATTERN_CACHE), PATTERN_CACHE, null, null, null);
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, c, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
-    Set<String> expected = ImmutableSet.of(
-        "ERROR: blocked keyword(s) found in: foo.txt (Line: 1)"
-            + " (found: myp4ssw0rd, foobar)",
-        "ERROR: blocked keyword(s) found in: bar.txt (Line: 5)"
-            + " (found: $Id: foo bar$)",
-        "ERROR: blocked keyword(s) found in: " + Patch.COMMIT_MSG
-            + " (Line: 1) (found: foobar)");
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
+    try (Revwalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m = validator.performValidation(
+          repo, c, rw, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
+      Set<String> expected = ImmutableSet.of(
+          "ERROR: blocked keyword(s) found in: foo.txt (Line: 1)"
+              + " (found: myp4ssw0rd, foobar)",
+          "ERROR: blocked keyword(s) found in: bar.txt (Line: 5)"
+              + " (found: $Id: foo bar$)",
+          "ERROR: blocked keyword(s) found in: " + Patch.COMMIT_MSG
+              + " (Line: 1) (found: foobar)");
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactlyElementsIn(expected);
+    }
   }
 
   @Test

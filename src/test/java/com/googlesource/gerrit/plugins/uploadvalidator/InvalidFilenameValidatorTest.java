@@ -21,6 +21,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -56,14 +57,16 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
   public void test() throws Exception {
     String[] invalidFilenamePattern = {"\\[|\\]|\\*|#", "[%:@]"};
     RevCommit c = makeCommit();
-    List<CommitValidationMessage> m = InvalidFilenameValidator
-        .performValidation(repo, c, invalidFilenamePattern);
-    Set<String> expected = new HashSet<>();
-    for (String filenames : getInvalidFilenames()) {
-      expected.add("ERROR: invalid characters found in filename: " + filenames);
+    try (Revwalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m = InvalidFilenameValidator
+          .performValidation(repo, c, rw, invalidFilenamePattern);
+      Set<String> expected = new HashSet<>();
+      for (String filenames : getInvalidFilenames()) {
+        expected.add("ERROR: invalid characters found in filename: " + filenames);
+      }
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactlyElementsIn(expected);
     }
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
   }
 
   @Test

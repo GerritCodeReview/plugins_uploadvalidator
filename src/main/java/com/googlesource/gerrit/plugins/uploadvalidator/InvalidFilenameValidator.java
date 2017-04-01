@@ -32,6 +32,7 @@ import com.google.inject.Inject;
 
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -96,7 +97,7 @@ public class InvalidFilenameValidator implements CommitValidationListener {
         try (Repository repo = repoManager.openRepository(
             receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
-              performValidation(repo, receiveEvent.commit,
+              performValidation(repo, receiveEvent.commit, receiveEvent.revWalk,
                   cfg.getStringList(KEY_INVALID_FILENAME_PATTERN));
           if (!messages.isEmpty()) {
             throw new CommitValidationException(
@@ -112,13 +113,13 @@ public class InvalidFilenameValidator implements CommitValidationListener {
   }
 
   static List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c, String[] patterns) throws IOException {
+      RevCommit c, RevWalk revWalk, String[] patterns) throws IOException {
     List<Pattern> invalidFilenamePatterns = new ArrayList<>();
     for (String s : patterns) {
       invalidFilenamePatterns.add(Pattern.compile(s));
     }
     List<CommitValidationMessage> messages = new LinkedList<>();
-    for (String file : CommitUtils.getChangedPaths(repo, c)) {
+    for (String file : CommitUtils.getChangedPaths(repo, c, revWalk)) {
       for (Pattern p : invalidFilenamePatterns) {
         if (p.matcher(file).find()) {
           messages.add(new CommitValidationMessage(

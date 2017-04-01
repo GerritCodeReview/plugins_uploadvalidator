@@ -22,6 +22,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -65,22 +66,26 @@ public class ContentTypeValidatorTest extends ValidatorTestCase {
     String[] patterns =
         new String[] {"application/pdf", "application/xml", "text/html"};
 
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, makeCommit(), patterns, false);
-    assertThat(TestUtils.transformMessages(m)).containsExactly(
-        "ERROR: found blocked content type (application/pdf) in file: foo.pdf",
-        "ERROR: found blocked content type (application/xml) in file: foo.xml",
-        "ERROR: found blocked content type (text/html) in file: foo.html");
+    try (Revwalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m = validator.performValidation(
+          repo, makeCommit(), rw, patterns, false);
+      assertThat(TestUtils.transformMessages(m)).containsExactly(
+          "ERROR: found blocked content type (application/pdf) in file: foo.pdf",
+          "ERROR: found blocked content type (application/xml) in file: foo.xml",
+          "ERROR: found blocked content type (text/html) in file: foo.html");
+    }
   }
 
   @Test
   public void testWhitelist() throws Exception {
     String[] patterns = new String[] {"application/pdf", "application/xml"};
 
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, makeCommit(), patterns, true);
-    assertThat(TestUtils.transformMessages(m)).containsExactly(
-        "ERROR: found blocked content type (text/html) in file: foo.html");
+    try (Revwalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m = validator.performValidation(
+          repo, makeCommit(), rw, patterns, true);
+      assertThat(TestUtils.transformMessages(m)).containsExactly(
+          "ERROR: found blocked content type (text/html) in file: foo.html");
+    }
   }
 
   @Test
