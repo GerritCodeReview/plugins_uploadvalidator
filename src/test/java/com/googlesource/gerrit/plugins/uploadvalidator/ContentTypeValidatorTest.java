@@ -22,6 +22,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -65,22 +66,26 @@ public class ContentTypeValidatorTest extends ValidatorTestCase {
     String[] patterns =
         new String[] {"application/pdf", "application/xml", "text/html"};
 
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, makeCommit(), patterns, false);
-    assertThat(TestUtils.transformMessages(m)).containsExactly(
-        "ERROR: found blocked content type (application/pdf) in file: foo.pdf",
-        "ERROR: found blocked content type (application/xml) in file: foo.xml",
-        "ERROR: found blocked content type (text/html) in file: foo.html");
+    try (RevWalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m = validator.performValidation(
+          repo, makeCommit(rw), rw, patterns, false);
+      assertThat(TestUtils.transformMessages(m)).containsExactly(
+          "ERROR: found blocked content type (application/pdf) in file: foo.pdf",
+          "ERROR: found blocked content type (application/xml) in file: foo.xml",
+          "ERROR: found blocked content type (text/html) in file: foo.html");
+    }
   }
 
   @Test
   public void testWhitelist() throws Exception {
     String[] patterns = new String[] {"application/pdf", "application/xml"};
 
-    List<CommitValidationMessage> m = validator.performValidation(
-        repo, makeCommit(), patterns, true);
-    assertThat(TestUtils.transformMessages(m)).containsExactly(
-        "ERROR: found blocked content type (text/html) in file: foo.html");
+    try (RevWalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m = validator.performValidation(
+          repo, makeCommit(rw), rw, patterns, true);
+      assertThat(TestUtils.transformMessages(m)).containsExactly(
+          "ERROR: found blocked content type (text/html) in file: foo.html");
+    }
   }
 
   @Test
@@ -89,7 +94,7 @@ public class ContentTypeValidatorTest extends ValidatorTestCase {
     assertThat(ContentTypeValidator.isWhitelist(EMPTY_PLUGIN_CONFIG)).isFalse();
   }
 
-  private RevCommit makeCommit() throws IOException, GitAPIException {
+  private RevCommit makeCommit(RevWalk rw) throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
 
     String content = "<?xml version=\"1.0\"?><a><b>c</b></a>";
@@ -101,6 +106,6 @@ public class ContentTypeValidatorTest extends ValidatorTestCase {
         content.getBytes(StandardCharsets.UTF_8));
 
     files.put(TestUtils.createEmptyFile("foo.pdf", repo), TEST_PDF);
-    return TestUtils.makeCommit(repo, "Commit with test files.", files);
+    return TestUtils.makeCommit(rw, repo, "Commit with test files.", files);
   }
 }

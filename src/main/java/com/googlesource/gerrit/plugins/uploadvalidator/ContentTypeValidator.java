@@ -36,6 +36,7 @@ import org.eclipse.jgit.lib.ObjectLoader;
 import org.eclipse.jgit.lib.ObjectStream;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -121,7 +122,7 @@ public class ContentTypeValidator implements CommitValidationListener {
         try (Repository repo =
             repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
-              performValidation(repo, receiveEvent.commit, getBlockedTypes(cfg),
+              performValidation(repo, receiveEvent.commit, receiveEvent.revWalk, getBlockedTypes(cfg),
                   isWhitelist(cfg));
           if (!messages.isEmpty()) {
             throw new CommitValidationException("contains blocked content type",
@@ -137,10 +138,10 @@ public class ContentTypeValidator implements CommitValidationListener {
 
   @VisibleForTesting
   List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c, String[] blockedTypes, boolean whitelist)
+      RevCommit c, RevWalk revWalk, String[] blockedTypes, boolean whitelist)
       throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
-    Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
+    Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
     for (String path : content.keySet()) {
       ObjectLoader ol = repo.open(content.get(path));
       try (ObjectStream os = ol.openStream()) {
