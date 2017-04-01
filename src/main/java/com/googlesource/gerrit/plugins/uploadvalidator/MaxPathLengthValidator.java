@@ -31,6 +31,7 @@ import com.google.inject.Inject;
 
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -92,7 +93,7 @@ public class MaxPathLengthValidator implements CommitValidationListener {
         try (Repository repo =
             repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
-              performValidation(repo, receiveEvent.commit, maxPathLength);
+              performValidation(repo, receiveEvent.commit, receiveEvent.revWalk, maxPathLength);
           if (!messages.isEmpty()) {
             throw new CommitValidationException(
                 "contains files with too long paths (max path length: "
@@ -108,9 +109,9 @@ public class MaxPathLengthValidator implements CommitValidationListener {
   }
 
   static List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c, int maxPathLength) throws IOException {
+      RevCommit c, RevWalk revWalk, int maxPathLength) throws IOException {
     List<CommitValidationMessage> messages = new LinkedList<>();
-    for (String file : CommitUtils.getChangedPaths(repo, c)) {
+    for (String file : CommitUtils.getChangedPaths(repo, c, revWalk)) {
       if (file.length() > maxPathLength) {
         messages.add(new CommitValidationMessage("path too long: " + file, true));
       }

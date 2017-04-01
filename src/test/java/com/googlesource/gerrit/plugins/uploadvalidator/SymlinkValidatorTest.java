@@ -22,6 +22,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -52,7 +53,7 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
   public void testWithSymlink() throws Exception {
     RevCommit c = makeCommitWithSymlink();
     List<CommitValidationMessage> m =
-        SymlinkValidator.performValidation(repo, c);
+        SymlinkValidator.performValidation(repo, c, new RevWalk(repo));
     Set<String> expected = ImmutableSet.of(
         "ERROR: Symbolic links are not allowed: foo.txt",
         "ERROR: Symbolic links are not allowed: symbolicFolder");
@@ -71,7 +72,7 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
   public void testWithoutSymlink() throws Exception {
     RevCommit c = makeCommitWithoutSymlink();
     List<CommitValidationMessage> m =
-        SymlinkValidator.performValidation(repo, c);
+        SymlinkValidator.performValidation(repo, c, new RevWalk(repo));
     assertThat(m).isEmpty();
   }
 
