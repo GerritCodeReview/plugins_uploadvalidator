@@ -23,6 +23,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -49,12 +50,15 @@ public class MaxPathLengthValidatorTest extends ValidatorTestCase {
   @Test
   public void testAddTooLongPath() throws Exception {
     RevCommit c = makeCommit();
-    List<CommitValidationMessage> m =
-        MaxPathLengthValidator.performValidation(repo, c, getMaxPathLength());
-    Set<String> expected =
-        ImmutableSet.of("ERROR: path too long: " + TOO_LONG);
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
+    try (RevWalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m =
+          MaxPathLengthValidator.performValidation(repo, rw.parseCommit(c), rw,
+              getMaxPathLength());
+      Set<String> expected =
+          ImmutableSet.of("ERROR: path too long: " + TOO_LONG);
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactlyElementsIn(expected);
+    }
   }
 
   @Test
@@ -66,9 +70,11 @@ public class MaxPathLengthValidatorTest extends ValidatorTestCase {
       TestUtils.removeFiles(git, files);
       c = git.commit().setMessage("Delete file which is too long").call();
     }
-    List<CommitValidationMessage> m = MaxPathLengthValidator
-        .performValidation(repo, c, getMaxPathLength());
-    assertThat(m).isEmpty();
+    try (RevWalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m = MaxPathLengthValidator
+          .performValidation(repo, rw.parseCommit(c), rw, getMaxPathLength());
+      assertThat(m).isEmpty();
+    }
   }
 
   @Test
