@@ -22,6 +22,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -57,10 +58,12 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommit();
     InvalidLineEndingValidator validator = new InvalidLineEndingValidator(null,
         new ContentTypeUtil(PATTERN_CACHE), null, null, null);
-    List<CommitValidationMessage> m = validator.performValidation(repo, c,
-        EMPTY_PLUGIN_CONFIG);
-    assertThat(TestUtils.transformMessages(m)).containsExactly(
-        "ERROR: found carriage return (CR) character in file: foo.txt");
+    try (RevWalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m = validator.performValidation(repo, rw.parseCommit(c),
+          rw, EMPTY_PLUGIN_CONFIG);
+      assertThat(TestUtils.transformMessages(m)).containsExactly(
+          "ERROR: found carriage return (CR) character in file: foo.txt");
+    }
   }
 
   @Test

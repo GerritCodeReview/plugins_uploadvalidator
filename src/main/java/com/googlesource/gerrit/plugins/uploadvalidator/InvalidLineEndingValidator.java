@@ -35,6 +35,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -106,7 +107,7 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
         try (Repository repo =
             repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
-              performValidation(repo, receiveEvent.commit, cfg);
+              performValidation(repo, receiveEvent.commit, receiveEvent.revWalk, cfg);
           if (!messages.isEmpty()) {
             throw new CommitValidationException(
                 "contains files with a Windows line ending", messages);
@@ -121,10 +122,10 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
   }
 
   @VisibleForTesting
-  List<CommitValidationMessage> performValidation(Repository repo, RevCommit c,
+  List<CommitValidationMessage> performValidation(Repository repo, RevCommit c, RevWalk revWalk,
       PluginConfig cfg) throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
-    Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
+    Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
     for (String path : content.keySet()) {
       ObjectLoader ol = repo.open(content.get(path));
       if (contentTypeUtil.isBinary(ol, path, cfg)) {

@@ -22,6 +22,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -51,13 +52,15 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
   @Test
   public void testWithSymlink() throws Exception {
     RevCommit c = makeCommitWithSymlink();
-    List<CommitValidationMessage> m =
-        SymlinkValidator.performValidation(repo, c);
-    Set<String> expected = ImmutableSet.of(
-        "ERROR: Symbolic links are not allowed: foo.txt",
-        "ERROR: Symbolic links are not allowed: symbolicFolder");
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
+    try (RevWalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m =
+          SymlinkValidator.performValidation(repo, rw.parseCommit(c), rw);
+      Set<String> expected = ImmutableSet.of(
+          "ERROR: Symbolic links are not allowed: foo.txt",
+          "ERROR: Symbolic links are not allowed: symbolicFolder");
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactlyElementsIn(expected);
+    }
   }
 
   private RevCommit makeCommitWithoutSymlink()
@@ -70,9 +73,11 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
   @Test
   public void testWithoutSymlink() throws Exception {
     RevCommit c = makeCommitWithoutSymlink();
-    List<CommitValidationMessage> m =
-        SymlinkValidator.performValidation(repo, c);
-    assertThat(m).isEmpty();
+    try (RevWalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m =
+          SymlinkValidator.performValidation(repo, rw.parseCommit(c), rw);
+      assertThat(m).isEmpty();
+    }
   }
 
   @Test

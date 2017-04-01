@@ -23,6 +23,7 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.SubmoduleAddCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -47,10 +48,12 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
   @Test
   public void testWithSubmodule() throws Exception {
     RevCommit c = makeCommitWithSubmodule();
-    List<CommitValidationMessage> m =
-        SubmoduleValidator.performValidation(repo, c);
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactly("ERROR: submodules are not allowed: modules/library");
+    try (RevWalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m =
+          SubmoduleValidator.performValidation(repo, rw.parseCommit(c), rw);
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactly("ERROR: submodules are not allowed: modules/library");
+    }
   }
 
   private RevCommit makeCommitWithoutSubmodule()
@@ -63,9 +66,11 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
   @Test
   public void testWithoutSubmodule() throws Exception {
     RevCommit c = makeCommitWithoutSubmodule();
-    List<CommitValidationMessage> m =
-        SubmoduleValidator.performValidation(repo, c);
-    assertThat(m).isEmpty();
+    try (RevWalk rw = new RevWalk(repo)) {
+      List<CommitValidationMessage> m =
+          SubmoduleValidator.performValidation(repo, rw.parseCommit(c), rw);
+      assertThat(m).isEmpty();
+    }
   }
 
   @Test
