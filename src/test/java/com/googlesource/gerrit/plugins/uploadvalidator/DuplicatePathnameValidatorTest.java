@@ -33,6 +33,7 @@ import org.eclipse.jgit.dircache.DirCacheEntry;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.junit.Before;
 import org.junit.Test;
@@ -138,7 +139,8 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
     filenames.add("f2/sF1/aB");
     RevCommit c =
         makeCommit(createEmptyDirCacheEntries(filenames, testRepo), testRepo);
-    List<CommitValidationMessage> m = validator.performValidation(repo, c);
+    List<CommitValidationMessage> m = validator.performValidation(repo, c,
+        new RevWalk(repo));
     assertThat(m).hasSize(4);
     // During checking inside of the commit it's unknown which file is checked
     // first, because of that, both capabilities must be checked.
@@ -172,7 +174,8 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
           EMPTY_CONTENT, testRepo);
     }
     RevCommit c1 = makeCommit(entries, testRepo, c);
-    List<CommitValidationMessage> m = validator.performValidation(repo, c1);
+    List<CommitValidationMessage> m = validator.performValidation(repo, c1,
+        new RevWalk(repo));
     assertThat(m).isEmpty();
   }
 

@@ -38,6 +38,7 @@ import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.treewalk.TreeWalk;
+import org.eclipse.jgit.revwalk.RevWalk;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -179,7 +180,7 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
         try (Repository repo =
             repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
-              performValidation(repo, receiveEvent.commit);
+              performValidation(repo, receiveEvent.commit, receiveEvent.revWalk);
           if (!messages.isEmpty()) {
             throw new CommitValidationException("contains duplicate pathnames",
                 messages);
@@ -194,11 +195,11 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
   }
 
   @VisibleForTesting
-  List<CommitValidationMessage> performValidation(Repository repo, RevCommit c)
+  List<CommitValidationMessage> performValidation(Repository repo, RevCommit c, RevWalk revWalk)
       throws IOException {
     List<CommitValidationMessage> messages = new LinkedList<>();
 
-    Set<String> pathnames = CommitUtils.getChangedPaths(repo, c);
+    Set<String> pathnames = CommitUtils.getChangedPaths(repo, c, revWalk);
     checkForDuplicatesInSet(pathnames, messages);
     if (!messages.isEmpty() || c.getParentCount() == 0) {
       return messages;

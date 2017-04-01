@@ -32,6 +32,7 @@ import com.google.inject.Inject;
 
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -103,7 +104,7 @@ public class FileExtensionValidator implements CommitValidationListener {
         try (Repository repo =
             repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages = performValidation(repo,
-              receiveEvent.commit, getBlockedExtensions(cfg));
+              receiveEvent.commit, receiveEvent.revWalk, getBlockedExtensions(cfg));
           if (!messages.isEmpty()) {
             throw new CommitValidationException(
                 "contains files with blocked file extensions", messages);
@@ -117,9 +118,9 @@ public class FileExtensionValidator implements CommitValidationListener {
   }
 
   static List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c, List<String> blockedFileExtensions) throws IOException {
+      RevCommit c, RevWalk revWalk, List<String> blockedFileExtensions) throws IOException {
     List<CommitValidationMessage> messages = new LinkedList<>();
-    for (String file : CommitUtils.getChangedPaths(repo, c)) {
+    for (String file : CommitUtils.getChangedPaths(repo, c, revWalk)) {
       for (String blockedExtension : blockedFileExtensions) {
         if (file.toLowerCase().endsWith(blockedExtension.toLowerCase())) {
           messages.add(new CommitValidationMessage("blocked file: " + file, true));

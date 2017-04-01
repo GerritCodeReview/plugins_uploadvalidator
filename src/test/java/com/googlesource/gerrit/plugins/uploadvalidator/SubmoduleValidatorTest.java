@@ -23,6 +23,7 @@ import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.SubmoduleAddCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 import java.io.File;
@@ -48,7 +49,7 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
   public void testWithSubmodule() throws Exception {
     RevCommit c = makeCommitWithSubmodule();
     List<CommitValidationMessage> m =
-        SubmoduleValidator.performValidation(repo, c);
+        SubmoduleValidator.performValidation(repo, c, new RevWalk(repo));
     assertThat(TestUtils.transformMessages(m))
         .containsExactly("ERROR: submodules are not allowed: modules/library");
   }
@@ -64,7 +65,7 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
   public void testWithoutSubmodule() throws Exception {
     RevCommit c = makeCommitWithoutSubmodule();
     List<CommitValidationMessage> m =
-        SubmoduleValidator.performValidation(repo, c);
+        SubmoduleValidator.performValidation(repo, c, new RevWalk(repo));
     assertThat(m).isEmpty();
   }
 
