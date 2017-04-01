@@ -43,6 +43,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -123,29 +124,38 @@ public class BlockedKeywordValidator implements CommitValidationListener {
         try (Repository repo =
             repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
-              performValidation(repo, receiveEvent.commit,
-                  blockedKeywordPatterns.values(), cfg);
+              performValidation(
+                  repo,
+                  receiveEvent.commit,
+                  receiveEvent.revWalk,
+                  blockedKeywordPatterns.values(),
+                  cfg);
           if (!messages.isEmpty()) {
             throw new CommitValidationException(
                 "includes files containing blocked keywords", messages);
           }
         }
       }
-    } catch (NoSuchProjectException | IOException | ExecutionException e) {
-      throw new CommitValidationException("failed to check on blocked keywords",
-          e);
+    } catch (NoSuchProjectException e) {
+      throw new CommitValidationException(
+          "Upload validator failed to find project: " + receiveEvent.project.getName(), e);
+    } catch (IOException | ExecutionException e) {
+      throw new CommitValidationException("Upload validator errored while validating", e);
     }
     return Collections.emptyList();
   }
 
   @VisibleForTesting
-  List<CommitValidationMessage> performValidation(Repository repo, RevCommit c,
-      ImmutableCollection<Pattern> blockedKeywordPartterns, PluginConfig cfg)
-          throws IOException, ExecutionException {
+  List<CommitValidationMessage> performValidation(
+      Repository repo,
+      RevCommit c,
+      RevWalk revWalk,
+      ImmutableCollection<Pattern> blockedKeywordPartterns,
+      PluginConfig cfg)
+      throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
-    checkCommitMessageForBlockedKeywords(blockedKeywordPartterns, messages,
-        c.getFullMessage());
-    Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
+    checkCommitMessageForBlockedKeywords(blockedKeywordPartterns, messages, c.getFullMessage());
+    Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
     for (String path : content.keySet()) {
       ObjectLoader ol = repo.open(content.get(path));
       if (contentTypeUtil.isBinary(ol, path, cfg)) {

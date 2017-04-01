@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+/** Utility class for checking whether commits are different. */
 public class CommitUtils {
 
   /**
@@ -39,9 +40,9 @@ public class CommitUtils {
    *     passed commit and its parents.
    * @throws IOException
    */
-  public static Set<String> getChangedPaths(Repository repo, RevCommit c)
+  public static Set<String> getChangedPaths(Repository repo, RevCommit c, RevWalk revWalk)
       throws IOException {
-    Map<String, ObjectId> content = getChangedContent(repo, c);
+    Map<String, ObjectId> content = getChangedContent(repo, c, revWalk);
     return content.keySet();
   }
 
@@ -61,10 +62,10 @@ public class CommitUtils {
    * @throws IOException
    */
   public static Map<String, ObjectId> getChangedContent(Repository repo,
-      RevCommit c) throws IOException {
+      RevCommit c, RevWalk revWalk) throws IOException {
     final Map<String, ObjectId> content = new HashMap<>();
 
-    visitChangedEntries(repo, c, new TreeWalkVisitor() {
+    visitChangedEntries(repo, c, revWalk, new TreeWalkVisitor() {
       @Override
       public void onVisit(TreeWalk tw) {
         if (isFile(tw)) {
@@ -90,29 +91,18 @@ public class CommitUtils {
    * @param visitor A TreeWalkVisitor with the desired action
    * @throws IOException
    */
-  public static void visitChangedEntries(Repository repo, RevCommit c,
-      TreeWalkVisitor visitor) throws IOException {
-    try (TreeWalk tw = new TreeWalk(repo)) {
+  public static void visitChangedEntries(
+      Repository repo, RevCommit c, RevWalk revWalk, TreeWalkVisitor visitor) throws IOException {
+    try (TreeWalk tw = new TreeWalk(revWalk.getObjectReader())) {
       tw.setRecursive(true);
       tw.setFilter(TreeFilter.ANY_DIFF);
-      tw.addTree(c.getTree());
+      tw.addTree(revWalk.parseTree(c.getTree()));
       if (c.getParentCount() > 0) {
-        @SuppressWarnings("resource")
-        RevWalk rw = null;
-        try {
-          for (RevCommit p : c.getParents()) {
-            if (p.getTree() == null) {
-              if (rw == null) {
-                rw = new RevWalk(repo);
-              }
-              rw.parseHeaders(p);
-            }
-            tw.addTree(p.getTree());
+        for (RevCommit p : c.getParents()) {
+          if (p.getTree() == null) {
+            revWalk.parseHeaders(p);
           }
-        } finally {
-          if (rw != null) {
-            rw.close();
-          }
+          tw.addTree(p.getTree());
         }
         while (tw.next()) {
           if (isDifferentToAllParents(c, tw)) {
