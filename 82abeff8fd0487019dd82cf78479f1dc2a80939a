@@ -16,6 +16,24 @@
       "revId": "82abeff8fd0487019dd82cf78479f1dc2a80939a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07fb1ab2_6974e380",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-04T18:30:12Z",
+      "side": 1,
+      "message": "Unrelated formatting changes removed. Didn\u0027t realize that so many of these were made. Sorry.",
+      "parentUuid": "173356de_36e4fe35",
+      "revId": "82abeff8fd0487019dd82cf78479f1dc2a80939a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
