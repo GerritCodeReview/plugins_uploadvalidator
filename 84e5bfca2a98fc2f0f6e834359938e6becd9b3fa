@@ -93,6 +93,30 @@
       "revId": "84e5bfca2a98fc2f0f6e834359938e6becd9b3fa",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e44c8a7_3f63bd11",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-05T08:12:52Z",
+      "side": 1,
+      "message": "I think just passing the RevWalk in makes sense. That way callers don\u0027t have to explicitly do their own rw.parseCommit(c)",
+      "parentUuid": "b160d3d2_903159fb",
+      "range": {
+        "startLine": 77,
+        "startChar": 18,
+        "endLine": 77,
+        "endChar": 28
+      },
+      "revId": "84e5bfca2a98fc2f0f6e834359938e6becd9b3fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
