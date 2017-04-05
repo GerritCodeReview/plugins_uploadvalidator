@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "49e34618_756a26df",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-05T07:35:43Z",
+      "side": 1,
+      "message": "If you like the old message more I can change it back. It\u0027s possible that my opinions are colored by the fact that when I installed the plugin, people were encountering this due to errors completely unrelated to actually blocking keywords.\n\nPeople were attempting to cherry-pick and getting an IOException due to the commit not being visible, which had nothing to do with checking blocked keywords.",
+      "parentUuid": "aa885a15_ca7ecb1b",
+      "revId": "84e5bfca2a98fc2f0f6e834359938e6becd9b3fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b160d3d2_903159fb",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
         "patchSetId": 7
