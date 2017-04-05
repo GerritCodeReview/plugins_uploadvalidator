@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "bdda2970_abd665f5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2017-04-05T07:49:45Z",
+      "side": 1,
+      "message": "OK, makes sense to me, but then this should rather be a separate change and other error messages should be fixed as well?",
+      "parentUuid": "49e34618_756a26df",
+      "revId": "84e5bfca2a98fc2f0f6e834359938e6becd9b3fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b160d3d2_903159fb",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
         "patchSetId": 7
