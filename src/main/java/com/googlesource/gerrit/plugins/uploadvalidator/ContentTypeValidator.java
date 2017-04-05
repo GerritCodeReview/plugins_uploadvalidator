@@ -52,28 +52,36 @@ public class ContentTypeValidator implements CommitValidationListener {
 
       @Override
       protected void configure() {
-        DynamicSet.bind(binder(), CommitValidationListener.class)
-            .to(ContentTypeValidator.class);
+        DynamicSet.bind(binder(), CommitValidationListener.class).to(ContentTypeValidator.class);
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_BLOCKED_CONTENT_TYPE))
-            .toInstance(new ProjectConfigEntry("Blocked Content Type", null,
-                ProjectConfigEntryType.ARRAY, null, false,
-                "Pushes of commits that contain files with blocked content "
-                    + "types will be rejected."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Blocked Content Type",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Pushes of commits that contain files with blocked content "
+                        + "types will be rejected."));
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_BLOCKED_CONTENT_TYPE_WHITELIST))
-            .toInstance(new ProjectConfigEntry("Blocked Content Type Whitelist",
-                "false", ProjectConfigEntryType.BOOLEAN, null, false,
-                "If this option is checked, the entered content types are "
-                    + "interpreted as a whitelist. Otherwise commits that "
-                    + "contain one of these content types will be rejected."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Blocked Content Type Whitelist",
+                    "false",
+                    ProjectConfigEntryType.BOOLEAN,
+                    null,
+                    false,
+                    "If this option is checked, the entered content types are "
+                        + "interpreted as a whitelist. Otherwise commits that "
+                        + "contain one of these content types will be rejected."));
       }
     };
   }
 
   public static final String KEY_BLOCKED_CONTENT_TYPE = "blockedContentType";
-  public static final String KEY_BLOCKED_CONTENT_TYPE_WHITELIST =
-      "blockedContentTypeWhitelist";
+  public static final String KEY_BLOCKED_CONTENT_TYPE_WHITELIST = "blockedContentTypeWhitelist";
 
   @VisibleForTesting
   static boolean isWhitelist(PluginConfig cfg) {
@@ -96,7 +104,8 @@ public class ContentTypeValidator implements CommitValidationListener {
   private final ValidatorConfig validatorConfig;
 
   @Inject
-  ContentTypeValidator(@PluginName String pluginName,
+  ContentTypeValidator(
+      @PluginName String pluginName,
       ContentTypeUtil contentTypeUtil,
       PluginConfigFactory cfgFactory,
       GitRepositoryManager repoManager,
@@ -109,24 +118,28 @@ public class ContentTypeValidator implements CommitValidationListener {
   }
 
   @Override
-  public List<CommitValidationMessage> onCommitReceived(
-      CommitReceivedEvent receiveEvent) throws CommitValidationException {
+  public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
+      throws CommitValidationException {
     try {
-      PluginConfig cfg = cfgFactory
-          .getFromProjectConfigWithInheritance(
+      PluginConfig cfg =
+          cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(receiveEvent.user,
-              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+          && validatorConfig.isEnabledForRef(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
               KEY_BLOCKED_CONTENT_TYPE)) {
-        try (Repository repo =
-            repoManager.openRepository(receiveEvent.project.getNameKey())) {
+        try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
-              performValidation(repo, receiveEvent.commit, receiveEvent.revWalk, getBlockedTypes(cfg),
+              performValidation(
+                  repo,
+                  receiveEvent.commit,
+                  receiveEvent.revWalk,
+                  getBlockedTypes(cfg),
                   isWhitelist(cfg));
           if (!messages.isEmpty()) {
-            throw new CommitValidationException("contains blocked content type",
-                messages);
+            throw new CommitValidationException("contains blocked content type", messages);
           }
         }
       }
@@ -137,8 +150,8 @@ public class ContentTypeValidator implements CommitValidationListener {
   }
 
   @VisibleForTesting
-  List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c, RevWalk revWalk, String[] blockedTypes, boolean whitelist)
+  List<CommitValidationMessage> performValidation(
+      Repository repo, RevCommit c, RevWalk revWalk, String[] blockedTypes, boolean whitelist)
       throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
@@ -146,13 +159,11 @@ public class ContentTypeValidator implements CommitValidationListener {
       ObjectLoader ol = repo.open(content.get(path));
       try (ObjectStream os = ol.openStream()) {
         String contentType = contentTypeUtil.getContentType(os, path);
-        if ((contentTypeUtil.matchesAny(contentType, blockedTypes)
-            && !whitelist)
-            || (!contentTypeUtil.matchesAny(contentType, blockedTypes)
-                && whitelist)) {
-          messages.add(new CommitValidationMessage(
-              "found blocked content type (" + contentType + ") in file: "
-                  + path, true));
+        if ((contentTypeUtil.matchesAny(contentType, blockedTypes) && !whitelist)
+            || (!contentTypeUtil.matchesAny(contentType, blockedTypes) && whitelist)) {
+          messages.add(
+              new CommitValidationMessage(
+                  "found blocked content type (" + contentType + ") in file: " + path, true));
         }
       }
     }

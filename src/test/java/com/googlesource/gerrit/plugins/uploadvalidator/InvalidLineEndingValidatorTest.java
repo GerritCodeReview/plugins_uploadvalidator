@@ -36,19 +36,15 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   private RevCommit makeCommit(RevWalk rw) throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     // invalid line endings
-    String content = "Testline1\r\n"
-        + "Testline2\n"
-        + "Testline3\r\n"
-        + "Testline4";
-    files.put(new File(repo.getDirectory().getParent(), "foo.txt"),
+    String content = "Testline1\r\n" + "Testline2\n" + "Testline3\r\n" + "Testline4";
+    files.put(
+        new File(repo.getDirectory().getParent(), "foo.txt"),
         content.getBytes(StandardCharsets.UTF_8));
 
     // valid line endings
-    content = "Testline1\n"
-        + "Testline2\n"
-        + "Testline3\n"
-        + "Testline4";
-    files.put(new File(repo.getDirectory().getParent(), "bar.txt"),
+    content = "Testline1\n" + "Testline2\n" + "Testline3\n" + "Testline4";
+    files.put(
+        new File(repo.getDirectory().getParent(), "bar.txt"),
         content.getBytes(StandardCharsets.UTF_8));
     return TestUtils.makeCommit(rw, repo, "Commit with test files.", files);
   }
@@ -57,12 +53,13 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   public void testCarriageReturn() throws Exception {
     try (RevWalk rw = new RevWalk(repo)) {
       RevCommit c = makeCommit(rw);
-      InvalidLineEndingValidator validator = new InvalidLineEndingValidator(null,
-          new ContentTypeUtil(PATTERN_CACHE), null, null, null);
-      List<CommitValidationMessage> m = validator.performValidation(repo, c,
-          rw, EMPTY_PLUGIN_CONFIG);
-      assertThat(TestUtils.transformMessages(m)).containsExactly(
-          "ERROR: found carriage return (CR) character in file: foo.txt");
+      InvalidLineEndingValidator validator =
+          new InvalidLineEndingValidator(
+              null, new ContentTypeUtil(PATTERN_CACHE), null, null, null);
+      List<CommitValidationMessage> m =
+          validator.performValidation(repo, c, rw, EMPTY_PLUGIN_CONFIG);
+      assertThat(TestUtils.transformMessages(m))
+          .containsExactly("ERROR: found carriage return (CR) character in file: foo.txt");
     }
   }
 

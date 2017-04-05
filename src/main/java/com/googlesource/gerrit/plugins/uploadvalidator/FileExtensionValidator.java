@@ -48,14 +48,18 @@ public class FileExtensionValidator implements CommitValidationListener {
 
       @Override
       public void configure() {
-        DynamicSet.bind(binder(), CommitValidationListener.class)
-            .to(FileExtensionValidator.class);
+        DynamicSet.bind(binder(), CommitValidationListener.class).to(FileExtensionValidator.class);
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_BLOCKED_FILE_EXTENSION))
-            .toInstance(new ProjectConfigEntry("Blocked File Extensions", null,
-                ProjectConfigEntryType.ARRAY, null, false,
-                "Forbidden file extensions. Pushes of commits that "
-                    + "contain files with these extensions will be rejected."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Blocked File Extensions",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Forbidden file extensions. Pushes of commits that "
+                        + "contain files with these extensions will be rejected."));
       }
     };
   }

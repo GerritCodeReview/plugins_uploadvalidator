@@ -52,17 +52,21 @@ public class InvalidFilenameValidator implements CommitValidationListener {
             .to(InvalidFilenameValidator.class);
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_INVALID_FILENAME_PATTERN))
-            .toInstance(new ProjectConfigEntry("Invalid Filename Pattern", null,
-                ProjectConfigEntryType.ARRAY, null, false,
-                "Invalid filenames. Pushes of commits that contain filenames "
-                    + "which match one of these patterns will be rejected."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Invalid Filename Pattern",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Invalid filenames. Pushes of commits that contain filenames "
+                        + "which match one of these patterns will be rejected."));
       }
     };
   }
 
   public static final String KEY_INVALID_FILENAME = "invalidFilename";
-  public static final String KEY_INVALID_FILENAME_PATTERN =
-      KEY_INVALID_FILENAME + "Pattern";
+  public static final String KEY_INVALID_FILENAME_PATTERN = KEY_INVALID_FILENAME + "Pattern";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
@@ -70,8 +74,10 @@ public class InvalidFilenameValidator implements CommitValidationListener {
   private final ValidatorConfig validatorConfig;
 
   @Inject
-  InvalidFilenameValidator(@PluginName String pluginName,
-      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager,
+  InvalidFilenameValidator(
+      @PluginName String pluginName,
+      PluginConfigFactory cfgFactory,
+      GitRepositoryManager repoManager,
       ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
@@ -84,20 +90,24 @@ public class InvalidFilenameValidator implements CommitValidationListener {
   }
 
   @Override
-  public List<CommitValidationMessage> onCommitReceived(
-      CommitReceivedEvent receiveEvent) throws CommitValidationException {
+  public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
+      throws CommitValidationException {
     try {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(receiveEvent.user,
-              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+          && validatorConfig.isEnabledForRef(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
               KEY_INVALID_FILENAME)) {
-        try (Repository repo = repoManager.openRepository(
-            receiveEvent.project.getNameKey())) {
+        try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
-              performValidation(repo, receiveEvent.commit, receiveEvent.revWalk,
+              performValidation(
+                  repo,
+                  receiveEvent.commit,
+                  receiveEvent.revWalk,
                   cfg.getStringList(KEY_INVALID_FILENAME_PATTERN));
           if (!messages.isEmpty()) {
             throw new CommitValidationException(
@@ -106,14 +116,13 @@ public class InvalidFilenameValidator implements CommitValidationListener {
         }
       }
     } catch (NoSuchProjectException | IOException e) {
-      throw new CommitValidationException(
-          "failed to check on invalid file names", e);
+      throw new CommitValidationException("failed to check on invalid file names", e);
     }
     return Collections.emptyList();
   }
 
-  static List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c, RevWalk revWalk, String[] patterns) throws IOException {
+  static List<CommitValidationMessage> performValidation(
+      Repository repo, RevCommit c, RevWalk revWalk, String[] patterns) throws IOException {
     List<Pattern> invalidFilenamePatterns = new ArrayList<>();
     for (String s : patterns) {
       invalidFilenamePatterns.add(Pattern.compile(s));
@@ -122,8 +131,8 @@ public class InvalidFilenameValidator implements CommitValidationListener {
     for (String file : CommitUtils.getChangedPaths(repo, c, revWalk)) {
       for (Pattern p : invalidFilenamePatterns) {
         if (p.matcher(file).find()) {
-          messages.add(new CommitValidationMessage(
-              "invalid characters found in filename: " + file, true));
+          messages.add(
+              new CommitValidationMessage("invalid characters found in filename: " + file, true));
           break;
         }
       }

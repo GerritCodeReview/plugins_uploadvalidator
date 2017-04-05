@@ -57,14 +57,13 @@ public class FileExtensionValidatorTest extends ValidatorTestCase {
   public void testBlockedExtensions() throws Exception {
     try (RevWalk rw = new RevWalk(repo)) {
       RevCommit c = makeCommit(rw, BLOCKED_EXTENSIONS_LC);
-      List<CommitValidationMessage> m = FileExtensionValidator
-          .performValidation(repo, c, rw, BLOCKED_EXTENSIONS_LC);
+      List<CommitValidationMessage> m =
+          FileExtensionValidator.performValidation(repo, c, rw, BLOCKED_EXTENSIONS_LC);
       List<String> expected = new ArrayList<>();
       for (String extension : BLOCKED_EXTENSIONS_LC) {
         expected.add("ERROR: blocked file: foo." + extension);
       }
-      assertThat(TestUtils.transformMessages(m))
-          .containsExactlyElementsIn(expected);
+      assertThat(TestUtils.transformMessages(m)).containsExactlyElementsIn(expected);
     }
   }
 
@@ -72,14 +71,13 @@ public class FileExtensionValidatorTest extends ValidatorTestCase {
   public void testBlockedExtensionsCaseInsensitive() throws Exception {
     try (RevWalk rw = new RevWalk(repo)) {
       RevCommit c = makeCommit(rw, BLOCKED_EXTENSIONS_UC);
-      List<CommitValidationMessage> m = FileExtensionValidator
-          .performValidation(repo, c, rw, BLOCKED_EXTENSIONS_LC);
+      List<CommitValidationMessage> m =
+          FileExtensionValidator.performValidation(repo, c, rw, BLOCKED_EXTENSIONS_LC);
       List<String> expected = new ArrayList<>();
       for (String extension : BLOCKED_EXTENSIONS_UC) {
         expected.add("ERROR: blocked file: foo." + extension);
       }
-      assertThat(TestUtils.transformMessages(m))
-          .containsExactlyElementsIn(expected);
+      assertThat(TestUtils.transformMessages(m)).containsExactlyElementsIn(expected);
     }
   }
 

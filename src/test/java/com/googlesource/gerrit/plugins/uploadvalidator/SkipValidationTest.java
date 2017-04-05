@@ -23,19 +23,15 @@ import com.google.gerrit.server.IdentifiedUser;
 import org.junit.Test;
 
 public class SkipValidationTest {
-  private final Project.NameKey projectName =
-      new Project.NameKey("testProject");
+  private final Project.NameKey projectName = new Project.NameKey("testProject");
   private final IdentifiedUser anyUser = new FakeUserProvider().get();
 
   @Test
   public void dontSkipByDefault() throws Exception {
     ValidatorConfig validatorConfig =
-        new ValidatorConfig(new FakeConfigFactory(projectName, ""),
-            new FakeGroupCacheUUIDByName());
+        new ValidatorConfig(new FakeConfigFactory(projectName, ""), new FakeGroupCacheUUIDByName());
 
-    assertThat(
-        validatorConfig
-            .isEnabledForRef(anyUser, projectName, "anyRef", "anyOp")).isTrue();
+    assertThat(validatorConfig.isEnabledForRef(anyUser, projectName, "anyRef", "anyOp")).isTrue();
   }
 
   @Test
@@ -47,32 +43,36 @@ public class SkipValidationTest {
             + "skipGroup=anotherGroup";
 
     ValidatorConfig validatorConfig =
-        new ValidatorConfig(new FakeConfigFactory(projectName, config),
-            new FakeGroupCacheUUIDByName());
+        new ValidatorConfig(
+            new FakeConfigFactory(projectName, config), new FakeGroupCacheUUIDByName());
 
     assertThat(
-        validatorConfig.isEnabledForRef(new FakeUserProvider("testGroup",
-            "yetAnotherGroup").get(), projectName, "anyRef", "testOp"))
+            validatorConfig.isEnabledForRef(
+                new FakeUserProvider("testGroup", "yetAnotherGroup").get(),
+                projectName,
+                "anyRef",
+                "testOp"))
         .isFalse();
   }
 
   @Test
   public void skipWhenUserBelongsToGroupName() throws Exception {
     String config =
-        "[plugin \"uploadvalidator\"]\n"
-            + "skipValidation=testOp\n"
-            + "skipGroup=testGroupName\n";
+        "[plugin \"uploadvalidator\"]\n" + "skipValidation=testOp\n" + "skipGroup=testGroupName\n";
 
     ValidatorConfig validatorConfig =
-        new ValidatorConfig(new FakeConfigFactory(projectName, config),
-            new FakeGroupCacheUUIDByName(new AccountGroup(
-                new AccountGroup.NameKey("testGroupName"), new AccountGroup.Id(
-                    1), new AccountGroup.UUID("testGroupId"))));
+        new ValidatorConfig(
+            new FakeConfigFactory(projectName, config),
+            new FakeGroupCacheUUIDByName(
+                new AccountGroup(
+                    new AccountGroup.NameKey("testGroupName"),
+                    new AccountGroup.Id(1),
+                    new AccountGroup.UUID("testGroupId"))));
 
     assertThat(
-        validatorConfig.isEnabledForRef(
-            new FakeUserProvider("testGroupId").get(), projectName, "anyRef",
-            "testOp")).isFalse();
+            validatorConfig.isEnabledForRef(
+                new FakeUserProvider("testGroupId").get(), projectName, "anyRef", "testOp"))
+        .isFalse();
   }
 
   @Test
@@ -84,13 +84,13 @@ public class SkipValidationTest {
             + "skipGroup=anotherGroup";
 
     ValidatorConfig validatorConfig =
-        new ValidatorConfig(new FakeConfigFactory(projectName, config),
-            new FakeGroupCacheUUIDByName());
+        new ValidatorConfig(
+            new FakeConfigFactory(projectName, config), new FakeGroupCacheUUIDByName());
 
     assertThat(
-        validatorConfig.isEnabledForRef(
-            new FakeUserProvider("yetAnotherGroup").get(), projectName,
-            "anyRef", "testOp")).isTrue();
+            validatorConfig.isEnabledForRef(
+                new FakeUserProvider("yetAnotherGroup").get(), projectName, "anyRef", "testOp"))
+        .isTrue();
   }
 
   @Test
@@ -102,12 +102,11 @@ public class SkipValidationTest {
             + "skipGroup=anotherGroup";
 
     ValidatorConfig validatorConfig =
-        new ValidatorConfig(new FakeConfigFactory(projectName, config),
-            new FakeGroupCacheUUIDByName());
+        new ValidatorConfig(
+            new FakeConfigFactory(projectName, config), new FakeGroupCacheUUIDByName());
 
-    assertThat(
-        validatorConfig.isEnabledForRef(anyUser, projectName, "anyRef",
-            "anotherOp")).isTrue();
+    assertThat(validatorConfig.isEnabledForRef(anyUser, projectName, "anyRef", "anotherOp"))
+        .isTrue();
   }
 
   @Test
@@ -119,13 +118,13 @@ public class SkipValidationTest {
             + "skipGroup=testGroup";
 
     ValidatorConfig validatorConfig =
-        new ValidatorConfig(new FakeConfigFactory(projectName, config),
-            new FakeGroupCacheUUIDByName());
+        new ValidatorConfig(
+            new FakeConfigFactory(projectName, config), new FakeGroupCacheUUIDByName());
 
     assertThat(
-        validatorConfig.isEnabledForRef(
-            new FakeUserProvider("testGroup").get(), projectName,
-            "refs/heads/myref", "testOp")).isFalse();
+            validatorConfig.isEnabledForRef(
+                new FakeUserProvider("testGroup").get(), projectName, "refs/heads/myref", "testOp"))
+        .isFalse();
   }
 
   @Test
@@ -137,11 +136,12 @@ public class SkipValidationTest {
             + "skipGroup=testGroup";
 
     ValidatorConfig validatorConfig =
-        new ValidatorConfig(new FakeConfigFactory(projectName, config),
-            new FakeGroupCacheUUIDByName());
+        new ValidatorConfig(
+            new FakeConfigFactory(projectName, config), new FakeGroupCacheUUIDByName());
 
     assertThat(
-        validatorConfig.isEnabledForRef(anyUser, projectName,
-            "refs/heads/anotherRef", "testOp")).isTrue();
+            validatorConfig.isEnabledForRef(
+                anyUser, projectName, "refs/heads/anotherRef", "testOp"))
+        .isTrue();
   }
 }

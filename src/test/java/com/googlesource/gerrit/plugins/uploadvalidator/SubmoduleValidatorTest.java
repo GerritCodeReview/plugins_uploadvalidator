@@ -33,8 +33,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SubmoduleValidatorTest extends ValidatorTestCase {
-  private RevCommit makeCommitWithSubmodule(RevWalk rw)
-      throws IOException, GitAPIException {
+  private RevCommit makeCommitWithSubmodule(RevWalk rw) throws IOException, GitAPIException {
     try (Git git = new Git(repo)) {
       SubmoduleAddCommand addCommand = git.submoduleAdd();
       addCommand.setURI(repo.getDirectory().getCanonicalPath());
@@ -49,15 +48,13 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
   public void testWithSubmodule() throws Exception {
     try (RevWalk rw = new RevWalk(repo)) {
       RevCommit c = makeCommitWithSubmodule(rw);
-      List<CommitValidationMessage> m =
-          SubmoduleValidator.performValidation(repo, c, rw);
+      List<CommitValidationMessage> m = SubmoduleValidator.performValidation(repo, c, rw);
       assertThat(TestUtils.transformMessages(m))
           .containsExactly("ERROR: submodules are not allowed: modules/library");
     }
   }
 
-  private RevCommit makeCommitWithoutSubmodule(RevWalk rw)
-      throws IOException, GitAPIException {
+  private RevCommit makeCommitWithoutSubmodule(RevWalk rw) throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     files.put(new File(repo.getDirectory().getParent(), "foo.txt"), null);
     return TestUtils.makeCommit(rw, repo, "Commit with empty test files.", files);
@@ -67,8 +64,7 @@ public class SubmoduleValidatorTest extends ValidatorTestCase {
   public void testWithoutSubmodule() throws Exception {
     try (RevWalk rw = new RevWalk(repo)) {
       RevCommit c = makeCommitWithoutSubmodule(rw);
-      List<CommitValidationMessage> m =
-          SubmoduleValidator.performValidation(repo, c, rw);
+      List<CommitValidationMessage> m = SubmoduleValidator.performValidation(repo, c, rw);
       assertThat(m).isEmpty();
     }
   }

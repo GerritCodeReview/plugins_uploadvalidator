@@ -43,12 +43,12 @@ public class FakeGroupMembership implements GroupMembership {
   @Override
   public Set<UUID> intersection(Iterable<UUID> groupIds) {
     return StreamSupport.stream(groupIds.spliterator(), false)
-        .filter(this::contains).collect(Collectors.toSet());
+        .filter(this::contains)
+        .collect(Collectors.toSet());
   }
 
   @Override
   public Set<UUID> getKnownGroups() {
     return new HashSet<>();
   }
-
 }

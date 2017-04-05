@@ -58,14 +58,13 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
     String[] invalidFilenamePattern = {"\\[|\\]|\\*|#", "[%:@]"};
     try (RevWalk rw = new RevWalk(repo)) {
       RevCommit c = makeCommit(rw);
-      List<CommitValidationMessage> m = InvalidFilenameValidator
-          .performValidation(repo, c, rw, invalidFilenamePattern);
+      List<CommitValidationMessage> m =
+          InvalidFilenameValidator.performValidation(repo, c, rw, invalidFilenamePattern);
       Set<String> expected = new HashSet<>();
       for (String filenames : getInvalidFilenames()) {
         expected.add("ERROR: invalid characters found in filename: " + filenames);
       }
-      assertThat(TestUtils.transformMessages(m))
-          .containsExactlyElementsIn(expected);
+      assertThat(TestUtils.transformMessages(m)).containsExactlyElementsIn(expected);
     }
   }
 

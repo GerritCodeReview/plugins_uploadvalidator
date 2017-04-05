@@ -48,13 +48,17 @@ public class SubmoduleValidator implements CommitValidationListener {
 
       @Override
       protected void configure() {
-        DynamicSet.bind(binder(), CommitValidationListener.class)
-            .to(SubmoduleValidator.class);
+        DynamicSet.bind(binder(), CommitValidationListener.class).to(SubmoduleValidator.class);
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_CHECK_SUBMODULE))
-            .toInstance(new ProjectConfigEntry("Reject Submodules", "false",
-                ProjectConfigEntryType.BOOLEAN, null, false, "Pushes of "
-                    + "commits that include submodules will be rejected."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Reject Submodules",
+                    "false",
+                    ProjectConfigEntryType.BOOLEAN,
+                    null,
+                    false,
+                    "Pushes of " + "commits that include submodules will be rejected."));
       }
     };
   }
@@ -67,8 +71,10 @@ public class SubmoduleValidator implements CommitValidationListener {
   private final ValidatorConfig validatorConfig;
 
   @Inject
-  SubmoduleValidator(@PluginName String pluginName,
-      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager,
+  SubmoduleValidator(
+      @PluginName String pluginName,
+      PluginConfigFactory cfgFactory,
+      GitRepositoryManager repoManager,
       ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
@@ -81,18 +87,19 @@ public class SubmoduleValidator implements CommitValidationListener {
   }
 
   @Override
-  public List<CommitValidationMessage> onCommitReceived(
-      CommitReceivedEvent receiveEvent) throws CommitValidationException {
+  public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
+      throws CommitValidationException {
     try {
-      PluginConfig cfg = cfgFactory
-          .getFromProjectConfigWithInheritance(
+      PluginConfig cfg =
+          cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(receiveEvent.user,
-              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+          && validatorConfig.isEnabledForRef(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
               KEY_CHECK_SUBMODULE)) {
-        try (Repository repo =
-            repoManager.openRepository(receiveEvent.project.getNameKey())) {
+        try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
               performValidation(repo, receiveEvent.commit, receiveEvent.revWalk);
           if (!messages.isEmpty()) {
@@ -106,28 +113,31 @@ public class SubmoduleValidator implements CommitValidationListener {
     return Collections.emptyList();
   }
 
-  private static void addValidationMessage(
-      List<CommitValidationMessage> messages, TreeWalk tw) {
-    messages.add(new CommitValidationMessage(
-        "submodules are not allowed: " + tw.getPathString(), true));
+  private static void addValidationMessage(List<CommitValidationMessage> messages, TreeWalk tw) {
+    messages.add(
+        new CommitValidationMessage("submodules are not allowed: " + tw.getPathString(), true));
   }
 
   private static boolean isSubmodule(TreeWalk tw) {
     return (tw.getRawMode(0) & FileMode.TYPE_MASK) == FileMode.TYPE_GITLINK;
   }
 
-  static List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c, RevWalk revWalk) throws IOException {
+  static List<CommitValidationMessage> performValidation(
+      Repository repo, RevCommit c, RevWalk revWalk) throws IOException {
     final List<CommitValidationMessage> messages = new LinkedList<>();
 
-    CommitUtils.visitChangedEntries(repo, c, revWalk, new TreeWalkVisitor() {
-      @Override
-      public void onVisit(TreeWalk tw) {
-        if (isSubmodule(tw)) {
-          addValidationMessage(messages, tw);
-        }
-      }
-    });
+    CommitUtils.visitChangedEntries(
+        repo,
+        c,
+        revWalk,
+        new TreeWalkVisitor() {
+          @Override
+          public void onVisit(TreeWalk tw) {
+            if (isSubmodule(tw)) {
+              addValidationMessage(messages, tw);
+            }
+          }
+        });
     return messages;
   }
 }

@@ -45,10 +45,7 @@ import java.util.Set;
 
 public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
   private static final ImmutableList<String> INITIAL_PATHNAMES =
-      ImmutableList.of(
-          "a" , "ab",
-          "f1/a", "f1/ab",
-          "f2/a", "f2/ab", "f2/sF1/a", "f2/sF1/ab");
+      ImmutableList.of("a", "ab", "f1/a", "f1/ab", "f2/a", "f2/ab", "f2/sF1/a", "f2/sF1/ab");
 
   private final List<String> vistedPaths = Lists.newArrayList();
   private final List<CommitValidationMessage> messages = Lists.newArrayList();
@@ -57,11 +54,17 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
   private Set<String> changedPaths;
   private DuplicatePathnameValidator validator;
 
-  private void runCheck(List<String> existingTreePaths, Set<String> testPaths,
-    List<CommitValidationMessage> messages, List<String> visitedPaths)
-        throws Exception {
-    RevCommit c = makeCommit(
-        testRepo.getRevWalk(), createEmptyDirCacheEntries(existingTreePaths, testRepo), testRepo);
+  private void runCheck(
+      List<String> existingTreePaths,
+      Set<String> testPaths,
+      List<CommitValidationMessage> messages,
+      List<String> visitedPaths)
+      throws Exception {
+    RevCommit c =
+        makeCommit(
+            testRepo.getRevWalk(),
+            createEmptyDirCacheEntries(existingTreePaths, testRepo),
+            testRepo);
     try (TreeWalk tw = new TreeWalk(repo)) {
       tw.setRecursive(false);
       tw.addTree(c.getTree());
@@ -85,16 +88,14 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
     runCheck(INITIAL_PATHNAMES, changedPaths, messages, vistedPaths);
     assertThat(transformMessages(messages))
         .containsExactly(transformMessage(conflict("f1/A", "f1/a")));
-    assertThat(vistedPaths).containsExactly(
-        "a", "ab", "f1", "f1/a", "f1/ab", "f2");
+    assertThat(vistedPaths).containsExactly("a", "ab", "f1", "f1/a", "f1/ab", "f2");
   }
 
   @Test
   public void testFindConflictingSubtree() throws Exception {
     changedPaths = Sets.newHashSet("F1/a");
     runCheck(INITIAL_PATHNAMES, changedPaths, messages, vistedPaths);
-    assertThat(transformMessages(messages))
-        .containsExactly(transformMessage(conflict("F1", "f1")));
+    assertThat(transformMessages(messages)).containsExactly(transformMessage(conflict("F1", "f1")));
     assertThat(vistedPaths).containsExactly("a", "ab", "f1", "f2");
   }
 
@@ -102,23 +103,23 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
   public void testFindConflictingSubtree2() throws Exception {
     changedPaths = Sets.newHashSet("f2/sf1", "F1/a");
     runCheck(INITIAL_PATHNAMES, changedPaths, messages, vistedPaths);
-    assertThat(transformMessages(messages)).containsExactly(
-        transformMessage(conflict("F1", "f1")),
-        transformMessage(conflict("f2/sf1", "f2/sF1")));
-    assertThat(vistedPaths).containsExactly(
-        "a", "ab", "f1", "f2", "f2/a", "f2/ab", "f2/sF1");
+    assertThat(transformMessages(messages))
+        .containsExactly(
+            transformMessage(conflict("F1", "f1")), transformMessage(conflict("f2/sf1", "f2/sF1")));
+    assertThat(vistedPaths).containsExactly("a", "ab", "f1", "f2", "f2/a", "f2/ab", "f2/sF1");
   }
 
   @Test
   public void testFindDuplicates() throws Exception {
     changedPaths = Sets.newHashSet("AB", "f1/A", "f2/Ab");
     runCheck(INITIAL_PATHNAMES, changedPaths, messages, vistedPaths);
-    assertThat(transformMessages(messages)).containsExactly(
-        transformMessage(conflict("AB", "ab")),
-        transformMessage(conflict("f1/A", "f1/a")),
-        transformMessage(conflict("f2/Ab", "f2/ab")));
-    assertThat(vistedPaths).containsExactly(
-        "a", "ab", "f1", "f1/a", "f1/ab", "f2", "f2/a", "f2/ab", "f2/sF1");
+    assertThat(transformMessages(messages))
+        .containsExactly(
+            transformMessage(conflict("AB", "ab")),
+            transformMessage(conflict("f1/A", "f1/a")),
+            transformMessage(conflict("f2/Ab", "f2/ab")));
+    assertThat(vistedPaths)
+        .containsExactly("a", "ab", "f1", "f1/a", "f1/ab", "f2", "f2/a", "f2/ab", "f2/sF1");
   }
 
   @Test
@@ -126,8 +127,7 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
     changedPaths = Sets.newHashSet("a", "ab", "f1/ab");
     runCheck(INITIAL_PATHNAMES, changedPaths, messages, vistedPaths);
     assertThat(messages).isEmpty();
-    assertThat(vistedPaths).containsExactly(
-        "a", "ab", "f1", "f1/a", "f1/ab", "f2");
+    assertThat(vistedPaths).containsExactly("a", "ab", "f1", "f1/a", "f1/ab", "f2");
   }
 
   @Test
@@ -138,42 +138,41 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
     filenames.add("F1/ab");
     filenames.add("f2/sF1/aB");
     try (RevWalk rw = new RevWalk(repo)) {
-      RevCommit c =
-          makeCommit(rw, createEmptyDirCacheEntries(filenames, testRepo), testRepo);
+      RevCommit c = makeCommit(rw, createEmptyDirCacheEntries(filenames, testRepo), testRepo);
       List<CommitValidationMessage> m = validator.performValidation(repo, c, rw);
       assertThat(m).hasSize(4);
       // During checking inside of the commit it's unknown which file is checked
       // first, because of that, both capabilities must be checked.
-      assertThat(transformMessages(m)).containsAnyOf(
-          transformMessage(conflict("A", "a")),
-          transformMessage(conflict("a", "A")));
+      assertThat(transformMessages(m))
+          .containsAnyOf(
+              transformMessage(conflict("A", "a")), transformMessage(conflict("a", "A")));
 
-      assertThat(transformMessages(m)).containsAnyOf(
-          transformMessage(conflict("F1", "f1")),
-          transformMessage(conflict("f1", "F1")));
+      assertThat(transformMessages(m))
+          .containsAnyOf(
+              transformMessage(conflict("F1", "f1")), transformMessage(conflict("f1", "F1")));
 
-      assertThat(transformMessages(m)).containsAnyOf(
-          transformMessage(conflict("F1/ab", "f1/ab")),
-          transformMessage(conflict("f1/ab", "F1/ab")));
+      assertThat(transformMessages(m))
+          .containsAnyOf(
+              transformMessage(conflict("F1/ab", "f1/ab")),
+              transformMessage(conflict("f1/ab", "F1/ab")));
 
-      assertThat(transformMessages(m)).containsAnyOf(
-          transformMessage(
-              conflict("f2/sF1/aB", "f2/sF1/ab")),
-          transformMessage(
-              conflict("f2/sF1/ab", "f2/sF1/aB")));
+      assertThat(transformMessages(m))
+          .containsAnyOf(
+              transformMessage(conflict("f2/sF1/aB", "f2/sF1/ab")),
+              transformMessage(conflict("f2/sF1/ab", "f2/sF1/aB")));
     }
   }
 
   @Test
   public void testCheckRenaming() throws Exception {
     try (RevWalk rw = new RevWalk(repo)) {
-      RevCommit c = makeCommit(
-          rw, createEmptyDirCacheEntries(INITIAL_PATHNAMES, testRepo), testRepo);
+      RevCommit c =
+          makeCommit(rw, createEmptyDirCacheEntries(INITIAL_PATHNAMES, testRepo), testRepo);
       DirCacheEntry[] entries = new DirCacheEntry[INITIAL_PATHNAMES.size()];
       for (int x = 0; x < INITIAL_PATHNAMES.size(); x++) {
         // Rename files
-        entries[x] = createDirCacheEntry(INITIAL_PATHNAMES.get(x).toUpperCase(),
-            EMPTY_CONTENT, testRepo);
+        entries[x] =
+            createDirCacheEntry(INITIAL_PATHNAMES.get(x).toUpperCase(), EMPTY_CONTENT, testRepo);
       }
       RevCommit c1 = makeCommit(rw, entries, testRepo, c);
       List<CommitValidationMessage> m = validator.performValidation(repo, c1, rw);
@@ -183,20 +182,17 @@ public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
 
   @Test
   public void validatorInactiveWhenConfigEmpty() {
-    assertThat(DuplicatePathnameValidator.isActive(EMPTY_PLUGIN_CONFIG))
-        .isFalse();
+    assertThat(DuplicatePathnameValidator.isActive(EMPTY_PLUGIN_CONFIG)).isFalse();
   }
 
   @Test
   public void defaultLocale() {
-    assertThat(DuplicatePathnameValidator.getLocale(EMPTY_PLUGIN_CONFIG))
-        .isEqualTo(Locale.ENGLISH);
+    assertThat(DuplicatePathnameValidator.getLocale(EMPTY_PLUGIN_CONFIG)).isEqualTo(Locale.ENGLISH);
   }
 
   @Test
   public void testGetParentFolder() {
     assertThat(validator.allParentFolders(INITIAL_PATHNAMES))
-        .containsExactlyElementsIn(
-            ImmutableList.of("f1", "f2", "f2/sF1"));
+        .containsExactlyElementsIn(ImmutableList.of("f1", "f2", "f2/sF1"));
   }
 }

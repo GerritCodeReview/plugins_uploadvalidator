@@ -35,8 +35,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class ValidatorConfig {
-  private static final Logger log = LoggerFactory
-      .getLogger(ValidatorConfig.class);
+  private static final Logger log = LoggerFactory.getLogger(ValidatorConfig.class);
   private static final String KEY_PROJECT = "project";
   private static final String KEY_REF = "ref";
   private final ConfigFactory configFactory;
@@ -48,27 +47,36 @@ public class ValidatorConfig {
       protected void configure() {
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_PROJECT))
-            .toInstance(new ProjectConfigEntry("Projects", null,
-                ProjectConfigEntryType.ARRAY, null, false,
-                "Only projects that match this regex will be validated."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Projects",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Only projects that match this regex will be validated."));
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_REF))
-            .toInstance(new ProjectConfigEntry("Refs", null,
-                ProjectConfigEntryType.ARRAY, null, false,
-                "Only refs that match this regex will be validated."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Refs",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Only refs that match this regex will be validated."));
       }
     };
   }
 
   @Inject
-  public ValidatorConfig(ConfigFactory configFactory,
-      GroupCache groupCache) {
+  public ValidatorConfig(ConfigFactory configFactory, GroupCache groupCache) {
     this.configFactory = configFactory;
     this.groupCache = groupCache;
   }
 
-  public boolean isEnabledForRef(IdentifiedUser user,
-      Project.NameKey projectName, String refName, String validatorOp) {
+  public boolean isEnabledForRef(
+      IdentifiedUser user, Project.NameKey projectName, String refName, String validatorOp) {
     PluginConfig conf = configFactory.get(projectName);
 
     return conf != null
@@ -87,14 +95,16 @@ public class ValidatorConfig {
         && hasValidConfigRef(config, "skipRef", projectName);
   }
 
-  private boolean hasValidConfigRef(PluginConfig config, String refKey,
-      Project.NameKey projectName) {
+  private boolean hasValidConfigRef(
+      PluginConfig config, String refKey, Project.NameKey projectName) {
     boolean valid = true;
     for (String refPattern : config.getStringList(refKey)) {
       if (!RefConfigSection.isValid(refPattern)) {
         log.error(
             "Invalid {} name/pattern/regex '{}' in {} project's plugin config",
-            refKey, refPattern, projectName.get());
+            refKey,
+            refPattern,
+            projectName.get());
         valid = false;
       }
     }
@@ -125,12 +135,11 @@ public class ValidatorConfig {
     return matchCriteria(config, "skipRef", ref, true, true);
   }
 
-  private boolean matchCriteria(PluginConfig config, String criteria,
-      String value, boolean allowRegex, boolean refMatcher) {
+  private boolean matchCriteria(
+      PluginConfig config, String criteria, String value, boolean allowRegex, boolean refMatcher) {
     boolean match = true;
     for (String s : config.getStringList(criteria)) {
-      if ((allowRegex && match(value, s, refMatcher)) ||
-          (!allowRegex && s.equals(value))) {
+      if ((allowRegex && match(value, s, refMatcher)) || (!allowRegex && s.equals(value))) {
         return true;
       }
       match = false;
@@ -138,8 +147,7 @@ public class ValidatorConfig {
     return match;
   }
 
-  private static boolean match(String value, String pattern,
-      boolean refMatcher) {
+  private static boolean match(String value, String pattern, boolean refMatcher) {
     if (refMatcher) {
       return RefPatternMatcher.getMatcher(pattern).match(value, null);
     } else {
@@ -154,13 +162,11 @@ public class ValidatorConfig {
 
     Stream<AccountGroup.UUID> skipGroups =
         Arrays.stream(conf.getStringList("skipGroup")).map(this::groupUUID);
-    return user.asIdentifiedUser().getEffectiveGroups()
-        .containsAnyOf(skipGroups::iterator);
+    return user.asIdentifiedUser().getEffectiveGroups().containsAnyOf(skipGroups::iterator);
   }
 
   private AccountGroup.UUID groupUUID(String groupNameOrUUID) {
-    AccountGroup group =
-        groupCache.get(new AccountGroup.NameKey(groupNameOrUUID));
+    AccountGroup group = groupCache.get(new AccountGroup.NameKey(groupNameOrUUID));
     if (group == null) {
       return new AccountGroup.UUID(groupNameOrUUID);
     }
