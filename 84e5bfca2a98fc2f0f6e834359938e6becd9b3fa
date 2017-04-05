@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa885a15_ca7ecb1b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2017-04-05T06:54:45Z",
+      "side": 1,
+      "message": "Why was this message changed? I find the old message more specific.",
+      "revId": "84e5bfca2a98fc2f0f6e834359938e6becd9b3fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b160d3d2_903159fb",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2017-04-05T06:54:45Z",
+      "side": 1,
+      "message": "Should the return type of makeCommit() be changed to ObjectId so that callers don\u0027t forget to do \u0027rw.parseCommit(c)\u0027?\n\nOr would it make sense to pass the RevWalk into makeCommit so that the returned RevCommit was parsed with the correct RevWalk?",
+      "range": {
+        "startLine": 77,
+        "startChar": 18,
+        "endLine": 77,
+        "endChar": 28
+      },
+      "revId": "84e5bfca2a98fc2f0f6e834359938e6becd9b3fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
