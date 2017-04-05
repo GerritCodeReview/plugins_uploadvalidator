@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "023958a5_a7be5ba2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2017-04-05T03:57:39Z",
+      "side": 1,
+      "message": "google-java-format didn\u0027t exist when the plugin was created. Gerrit migrated to gjf successfully --- this plugin could, too.\n\nThat\u0027s a separate topic from this change, though.",
+      "parentUuid": "7b0ca5da_dbe78745",
+      "revId": "ce1b932206e5522964bd682e8cc555c7dacdb344",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b1ebb39_9374943a",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
         "patchSetId": 4
