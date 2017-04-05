@@ -16,6 +16,24 @@
       "revId": "48e80eda5e29a86684f69b859f737545e375a355",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d85122bb_80fc7f4f",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-05T04:12:22Z",
+      "side": 1,
+      "message": "No, thank you very much! Much better to do it right than be confused in the future due to some unintuitive behavior.\n\nPlus, I was lazy and made the patchset 5 changes without rerunning the tests, and this helped me catch some issues (namely, Revwalk !\u003d RevWalk). Serves me right for being lazy.",
+      "parentUuid": "c18a0ba5_ecb71110",
+      "revId": "48e80eda5e29a86684f69b859f737545e375a355",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
