@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "170e459e_287d2b58",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/CommitUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-05T03:41:06Z",
+      "side": 1,
+      "message": "Checking...",
+      "parentUuid": "6b1ebb39_9374943a",
+      "range": {
+        "startLine": 105,
+        "startChar": 17,
+        "endLine": 105,
+        "endChar": 35
+      },
+      "revId": "ce1b932206e5522964bd682e8cc555c7dacdb344",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c368cc8d_5d624837",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
         "patchSetId": 4
