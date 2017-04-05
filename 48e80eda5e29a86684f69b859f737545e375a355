@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c18a0ba5_ecb71110",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2017-04-05T03:55:09Z",
+      "side": 1,
+      "message": "The parameter \u0027c\u0027 provided to a validator is supposed to be a commit resolved by the parameter \u0027rw\u0027. Since we don\u0027t have access to the RevWalk that TestUtils#makeCommit used, the simplest way to accomplish this is to call RevWalk#parseCommit:\n\n  List\u003c...\u003e m \u003d validator.performValidation(repo, rw.parseCommit(c), rw, getPatterns().values(), EMPTY_PLUGIN_CONFIG);\n\nSorry to make extra work.\n\nLikewise for the other validator tests.",
+      "revId": "48e80eda5e29a86684f69b859f737545e375a355",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
