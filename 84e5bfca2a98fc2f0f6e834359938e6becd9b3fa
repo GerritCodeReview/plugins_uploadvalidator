@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "06b1c31b_0ecd4a90",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-05T07:50:23Z",
+      "side": 1,
+      "message": "Fair enough. Will move out of here.",
+      "parentUuid": "bdda2970_abd665f5",
+      "revId": "84e5bfca2a98fc2f0f6e834359938e6becd9b3fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b160d3d2_903159fb",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
         "patchSetId": 7
