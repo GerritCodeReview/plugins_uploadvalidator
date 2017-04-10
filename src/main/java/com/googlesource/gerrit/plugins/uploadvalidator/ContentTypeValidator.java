@@ -33,10 +33,11 @@ import com.google.inject.Inject;
 
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
-import org.eclipse.jgit.lib.ObjectStream;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -46,6 +47,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class ContentTypeValidator implements CommitValidationListener {
+  private static final Logger log = LoggerFactory.getLogger(ContentTypeValidator.class);
 
   public static AbstractModule module() {
     return new AbstractModule() {
@@ -120,16 +122,12 @@ public class ContentTypeValidator implements CommitValidationListener {
   @Override
   public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
       throws CommitValidationException {
+    log.info("Detecting content types yay!");
     try {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(
-              receiveEvent.user,
-              receiveEvent.getProjectNameKey(),
-              receiveEvent.getRefName(),
-              KEY_BLOCKED_CONTENT_TYPE)) {
+      if (true) {
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
               performValidation(
@@ -153,18 +151,21 @@ public class ContentTypeValidator implements CommitValidationListener {
   List<CommitValidationMessage> performValidation(
       Repository repo, RevCommit c, RevWalk revWalk, String[] blockedTypes, boolean whitelist)
       throws IOException, ExecutionException {
+    log.info("performing validatoin");
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
+    log.info("changed content keyset: {}", content.keySet());
     for (String path : content.keySet()) {
+      log.info("indaloop");
       ObjectLoader ol = repo.open(content.get(path));
-      try (ObjectStream os = ol.openStream()) {
-        String contentType = contentTypeUtil.getContentType(os, path);
-        if ((contentTypeUtil.matchesAny(contentType, blockedTypes) && !whitelist)
-            || (!contentTypeUtil.matchesAny(contentType, blockedTypes) && whitelist)) {
-          messages.add(
-              new CommitValidationMessage(
-                  "found blocked content type (" + contentType + ") in file: " + path, true));
-        }
+      String contentType = contentTypeUtil.getContentType(ol.getBytes(), path);
+      // TODO(stephenli): remove log
+      log.info("Detected content type {} for {}", contentType, path);
+      if ((contentTypeUtil.matchesAny(contentType, blockedTypes) && !whitelist)
+          || (!contentTypeUtil.matchesAny(contentType, blockedTypes) && whitelist)) {
+        messages.add(
+            new CommitValidationMessage(
+                "found blocked content type (" + contentType + ") in file: " + path, true));
       }
     }
     return messages;
