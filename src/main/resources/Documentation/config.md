@@ -79,7 +79,7 @@ plugin.@PLUGIN@.binaryType
 	If there is a NUL byte in the first 8k then the file will be considered
 	binary regardless of this setting.
 
-	To detect content types [Apache Tika library][2] is used.
+	To detect content types, the [MimeUtil2 library][2] is used.
 
 	Content type can be specified as a string, wildcard or a regular expression,
 	for example:
@@ -124,8 +124,8 @@ plugin.@PLUGIN@.blockedKeywordPattern
 	This check does not run on [binary files][4]
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
-[2]: https://tika.apache.org/
-[3]: https://tika.apache.org/1.12/formats.html#Full_list_of_Supported_Formats
+[2]: https://mvnrepository.com/artifact/eu.medsea.mimeutil/mime-util
+[3]: https://gerrit.googlesource.com/gerrit/+/refs/heads/master/gerrit-server/src/main/resources/com/google/gerrit/server/mime/mime-types.properties
 [4]: #binary_type
 
 plugin.@PLUGIN@.blockedContentType
@@ -134,7 +134,7 @@ plugin.@PLUGIN@.blockedContentType
 	This check looks for blocked content types. If the check finds a
 	blocked content type the push will be rejected.
 
-	To detect content types [Apache Tika library][2] is used.
+	To detect content types the [MimeUtil2 library][2] is used.
 
 	Content type can be specified as a string, wildcard or a regular expression,
 	for example:

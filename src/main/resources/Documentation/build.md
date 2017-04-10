@@ -14,15 +14,6 @@ tree.
   ln -s ../../@PLUGIN@ .
 ```
 
-Put the external dependency Bazel build file into the Gerrit /plugins
-directory, replacing the existing empty one.
-
-```
-  cd gerrit/plugins
-  rm external_plugin_deps.bzl
-  ln -s @PLUGIN@/external_plugin_deps.bzl .
-```
-
 From Gerrit source tree issue the command:
 
 ```
