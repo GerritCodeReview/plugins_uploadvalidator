@@ -62,7 +62,12 @@ public class ContentTypeValidatorTest extends ValidatorTestCase {
   @Before
   public void setUp() {
     validator =
-        new ContentTypeValidator(null, new ContentTypeUtil(PATTERN_CACHE), null, null, null);
+        new ContentTypeValidator(
+            null,
+            new ContentTypeUtil(PATTERN_CACHE, new FakeMimeUtilFileTypeRegistry()),
+            null,
+            null,
+            null);
   }
 
   @Test
