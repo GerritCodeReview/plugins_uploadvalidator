@@ -19,6 +19,8 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
 
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
+import com.google.gerrit.server.mime.MimeUtilFileTypeRegistry;
+import com.google.inject.Inject;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
@@ -55,7 +57,11 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
       RevCommit c = makeCommit(rw);
       InvalidLineEndingValidator validator =
           new InvalidLineEndingValidator(
-              null, new ContentTypeUtil(PATTERN_CACHE), null, null, null);
+              null,
+              new ContentTypeUtil(PATTERN_CACHE, new FakeMimeUtilFileTypeRegistry()),
+              null,
+              null,
+              null);
       List<CommitValidationMessage> m =
           validator.performValidation(repo, c, rw, EMPTY_PLUGIN_CONFIG);
       assertThat(TestUtils.transformMessages(m))

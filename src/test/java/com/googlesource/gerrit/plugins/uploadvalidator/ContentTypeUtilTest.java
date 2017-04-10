@@ -18,6 +18,9 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
 
+import com.google.gerrit.server.mime.MimeUtilFileTypeRegistry;
+import com.google.inject.Inject;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,10 +28,11 @@ import java.util.concurrent.ExecutionException;
 
 public class ContentTypeUtilTest {
   private ContentTypeUtil ctu;
+  @Inject private MimeUtilFileTypeRegistry mimeUtil;
 
   @Before
   public void setUp() {
-    ctu = new ContentTypeUtil(PATTERN_CACHE);
+    ctu = new ContentTypeUtil(PATTERN_CACHE, mimeUtil);
   }
 
   @Test
