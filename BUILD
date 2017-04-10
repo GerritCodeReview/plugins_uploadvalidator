@@ -12,7 +12,6 @@ gerrit_plugin(
     resources = glob(["src/main/resources/**/*"]),
     deps = [
         "@commons_io//jar",
-        "@tika_core//jar",
     ],
 )
 

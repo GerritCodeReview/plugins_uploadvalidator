@@ -19,6 +19,8 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
 
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
+import com.google.gerrit.server.mime.MimeUtilFileTypeRegistry;
+import com.google.inject.Inject;
 
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
