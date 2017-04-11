@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ce68b80_adf042a6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2017-04-11T09:54:20Z",
+      "side": 1,
+      "message": "This is now unused?\n\nThis means any plugin configuration regarding which mime types should be considered as binary files is ignored now. Not sure if this feature (being able to configure which mime types are considered binary) is needed, but if we no longer support this, the commit message should mention this and also the documentation in config.md should be adapted.",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
