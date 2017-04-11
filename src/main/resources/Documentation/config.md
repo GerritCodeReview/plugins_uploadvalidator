@@ -75,6 +75,9 @@ plugin.@PLUGIN@.binaryType
 	Some checks should not run on binary files (e. g. InvalidLineEndingCheck).
 	Using this option it is possible to configure which content types are
 	considered binary types.
+	
+	Note: If there is a NULL byte in the first 8k then the file will be considered
+	binary regardless of this setting.
 
 	To detect content types [Apache Tika library][2] is used.
 
