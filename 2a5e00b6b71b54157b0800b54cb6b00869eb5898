@@ -334,6 +334,30 @@
       "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e57fd83_617a8989",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T19:43:19Z",
+      "side": 1,
+      "message": "The git note on HEAD could look something like:\n\nSkipValidation\u003dc99aada9c4fa645b525113fe9d1c8a91a8e705d9\n\nbut we\u0027d have to do a `git notes show` on each note in `git notes list` in order to make sure that we get all the whitelisted SHAs...",
+      "parentUuid": "54e7e8b6_d2cad287",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
