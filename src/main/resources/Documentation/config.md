@@ -23,9 +23,6 @@ project info screen.
     blockedContentType = ^text/(html|xml)
     blockedContentTypeWhitelist = false
     rejectWindowsLineEndings = false
-    binaryType = application/*
-    binaryType = ^application/(pdf|xml)
-    binaryType = application/zip
     requiredFooter = Bug
     maxPathLength = 200
     rejectSymlink = false
@@ -67,28 +64,6 @@ plugin.@PLUGIN@.rejectWindowsLineEndings
 	This check does not run on [binary files][4]
 
 	The default value is false. This means the check will not be executed.
-
-<a name="binary_type">
-plugin.@PLUGIN@.binaryType
-:	Binary types.
-
-	Some checks should not run on binary files (e. g. InvalidLineEndingCheck).
-	Using this option it is possible to configure which content types are
-	considered binary types.
-
-	To detect content types [Apache Tika library][2] is used.
-
-	Content type can be specified as a string, wildcard or a regular expression,
-	for example:
-
-	- application/zip
-	- application/*
-	- ^application/(pdf|xml)
-
-	As usual, the '^' prefix is used to denote that the value is a regular
-	expression.
-
-	Full list of supported content types can be found [here][3].
 
 plugin.@PLUGIN@.rejectSymlink
 :	Reject symbolic links.

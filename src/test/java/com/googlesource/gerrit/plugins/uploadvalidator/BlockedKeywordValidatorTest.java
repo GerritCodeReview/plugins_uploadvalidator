@@ -77,10 +77,9 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
     try (RevWalk rw = new RevWalk(repo)) {
       RevCommit c = makeCommit(rw);
       BlockedKeywordValidator validator =
-          new BlockedKeywordValidator(
-              null, new ContentTypeUtil(PATTERN_CACHE), PATTERN_CACHE, null, null, null);
+          new BlockedKeywordValidator(null, PATTERN_CACHE, null, null, null);
       List<CommitValidationMessage> m =
-          validator.performValidation(repo, c, rw, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
+          validator.performValidation(repo, c, rw, getPatterns().values());
       Set<String> expected =
           ImmutableSet.of(
               "ERROR: blocked keyword(s) found in: foo.txt (Line: 1)"
