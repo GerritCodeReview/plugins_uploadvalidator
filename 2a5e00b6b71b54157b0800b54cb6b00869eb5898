@@ -46,6 +46,30 @@
       "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d362428c_155df525",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2017-04-11T17:26:14Z",
+      "side": 1,
+      "message": "I think it makes sense to get rid of it. Do we know of anyone using it? (E.g. do commit messages when it was introduced point to any users? Is there anyone we can cc to find out what they need?)\n\nIn particular, the MimeUtil2 based detection has a serious flaw: anything it doesn\u0027t recognize is considered binary, which hurts the validation that e.g. BlockedKeyworkValidator wants to do.",
+      "parentUuid": "4fb73429_804f2416",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
