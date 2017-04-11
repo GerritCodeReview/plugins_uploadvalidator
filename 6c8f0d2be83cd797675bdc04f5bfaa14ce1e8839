@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d39ab475_5ba55b05",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-04-11T18:41:52Z",
+      "side": 1,
+      "message": "Should the dependency to the apache tika also be removed?",
+      "revId": "6c8f0d2be83cd797675bdc04f5bfaa14ce1e8839",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
