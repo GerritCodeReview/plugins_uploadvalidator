@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec4e9964_c4f12bea",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2017-04-11T21:03:10Z",
+      "side": 1,
+      "message": "Probably worth a note to say that if there is a NUL byte in the first 8k then the file will be considered binary regardless of this setting.",
+      "revId": "913220c7c797cc6634bf475db7feda7c0105ab4f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
