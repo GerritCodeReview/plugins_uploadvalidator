@@ -142,6 +142,30 @@
       "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8a92477_42cfb17c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-04-11T18:53:34Z",
+      "side": 1,
+      "message": "Answering my own question: we discussed the idea of implementing a per-commit upload validation exception.\nIf a commit needs to bypass upload validation, a project owner would first push a Git note for that commit on the refs/notes/uploadvalidator branch. Upload validation is then skipped for a commit which has a note on that branch.\nThis mechanism could be used when RawText.isBinary returns wrong result.\n\nOpinions?",
+      "parentUuid": "dbf8f345_0c4147c3",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
