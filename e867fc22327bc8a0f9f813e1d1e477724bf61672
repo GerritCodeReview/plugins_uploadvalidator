@@ -22,6 +22,30 @@
       "revId": "e867fc22327bc8a0f9f813e1d1e477724bf61672",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e2b6146_49243116",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T02:08:22Z",
+      "side": 1,
+      "message": "I uploaded a change for review to wrap an InputStream version.\n\nFor now, I\u0027ll pass null for large objects.",
+      "parentUuid": "1cf1d161_60d1bac9",
+      "range": {
+        "startLine": 81,
+        "startChar": 37,
+        "endLine": 81,
+        "endChar": 50
+      },
+      "revId": "e867fc22327bc8a0f9f813e1d1e477724bf61672",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

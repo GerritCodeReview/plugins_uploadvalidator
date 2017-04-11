@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3f63ffea_55bb05c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T02:08:22Z",
+      "side": 1,
+      "message": "I was using the change number because the SHA isn\u0027t finalized yet (as the mentioned change isn\u0027t submitted yet). I\u0027ll use a change ID instead.\n\nThat being said, at least the other one can be a SHA. If 103290 ends up getting submitted before this (which it probably will be) I\u0027ll update this as well.",
+      "parentUuid": "3619c458_9993b087",
+      "revId": "92248036c14af477f92a046ab92fd633b6452574",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e01ee96_04aeffd1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2017-04-11T01:18:06Z",
       "side": 1,
       "message": "likewise.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 15
+      },
+      "revId": "92248036c14af477f92a046ab92fd633b6452574",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20c264e5_781bd5f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T02:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e01ee96_04aeffd1",
       "range": {
         "startLine": 17,
         "startChar": 10,
