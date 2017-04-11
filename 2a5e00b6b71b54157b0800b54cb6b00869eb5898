@@ -94,6 +94,30 @@
       "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cb10c3d_f465b023",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T17:42:50Z",
+      "side": 1,
+      "message": "To your first point: Not sure, the committer appears to have an inactive account now. It would be nice to get rid of just so we don\u0027t have two things doing the same thing...but I\u0027m skittish of breaking existing functionality. On the other hand, that\u0027s what versioning and history is for :P\n\nTo your second point: sure, that\u0027s why I\u0027m proposing keeping both.\n\n1) Use RawText.isBinary\n2) If that\u0027s false, check if it\u0027s a blacklisted content type.",
+      "parentUuid": "d362428c_155df525",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
