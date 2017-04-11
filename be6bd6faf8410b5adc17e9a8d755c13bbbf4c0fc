@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4148a585_42749efb",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T21:11:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae2049e9_69f1f7f1",
+      "revId": "be6bd6faf8410b5adc17e9a8d755c13bbbf4c0fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f4e4748_a08461f4",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 10
@@ -30,6 +48,30 @@
       "writtenOn": "2017-04-11T21:10:18Z",
       "side": 1,
       "message": "nit: drop the \"Note:\". It\u0027s cleaner. (Everything in this file is a note.)",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 79,
+        "endChar": 7
+      },
+      "revId": "be6bd6faf8410b5adc17e9a8d755c13bbbf4c0fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e626785a_edcbc0fa",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T21:11:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f4e4748_a08461f4",
       "range": {
         "startLine": 79,
         "startChar": 1,
