@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "8841669a_a6e3ee0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T16:53:10Z",
+      "side": 1,
+      "message": "Abbreviated.",
+      "parentUuid": "43831abd_f9d873f0",
+      "revId": "92248036c14af477f92a046ab92fd633b6452574",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0e01ee96_04aeffd1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3

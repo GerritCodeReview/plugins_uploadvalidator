@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5f9a45e2_463013b4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T16:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f524f804_5f76baab",
+      "revId": "b5d8b214deddcd8d516b88304442733f7626f72f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ea03764_ac5bb8f1",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FakeMimeUtilFileRegistry.java",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2017-04-11T11:14:20Z",
       "side": 1,
       "message": "missing license header",
+      "revId": "b5d8b214deddcd8d516b88304442733f7626f72f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc126c8e_cc2b36b1",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/FakeMimeUtilFileRegistry.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T16:53:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ea03764_ac5bb8f1",
       "revId": "b5d8b214deddcd8d516b88304442733f7626f72f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
