@@ -39,6 +39,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
+import org.eclipse.jgit.diff.RawText;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
 import org.eclipse.jgit.lib.Repository;
@@ -47,6 +48,7 @@ import org.eclipse.jgit.revwalk.RevWalk;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
@@ -89,13 +91,11 @@ public class BlockedKeywordValidator implements CommitValidationListener {
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
   private final LoadingCache<String, Pattern> patternCache;
-  private final ContentTypeUtil contentTypeUtil;
   private final ValidatorConfig validatorConfig;
 
   @Inject
   BlockedKeywordValidator(
       @PluginName String pluginName,
-      ContentTypeUtil contentTypeUtil,
       @Named(CACHE_NAME) LoadingCache<String, Pattern> patternCache,
       PluginConfigFactory cfgFactory,
       GitRepositoryManager repoManager,
@@ -104,7 +104,6 @@ public class BlockedKeywordValidator implements CommitValidationListener {
     this.patternCache = patternCache;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
-    this.contentTypeUtil = contentTypeUtil;
     this.validatorConfig = validatorConfig;
   }
 
@@ -161,8 +160,10 @@ public class BlockedKeywordValidator implements CommitValidationListener {
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
     for (String path : content.keySet()) {
       ObjectLoader ol = repo.open(content.get(path));
-      if (contentTypeUtil.isBinary(ol, path, cfg)) {
-        continue;
+      try (InputStream in = ol.openStream()) {
+        if (RawText.isBinary(in)) {
+          continue;
+        }
       }
       checkFileForBlockedKeywords(blockedKeywordPartterns, messages, path, ol);
     }
