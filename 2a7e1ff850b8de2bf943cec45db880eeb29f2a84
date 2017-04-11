@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "684dd173_4de2cc09",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2017-04-11T01:12:23Z",
+      "side": 1,
+      "message": "ol.getBytes() can throw an exception for large objects.\n\n boolean isBinary(ObjectLoader ol) {\n    try (InputStream in \u003d ol.openStream()) {\n     return isBinary(in);\n    }\n  }\n\nwould work more generally. Or to optimize it:\n\n  if (ol.isLarge()) {\n    try (InputStream in \u003d ol.openStream()) {\n      return isBinary(in);\n    }\n  } else {\n     return isBinary(ol.getCachedBytes());\n  }",
+      "revId": "2a7e1ff850b8de2bf943cec45db880eeb29f2a84",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
