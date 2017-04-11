@@ -77,13 +77,6 @@ public class ContentTypeUtil {
     this.patternCache = patternCache;
   }
 
-  public boolean isBinary(ObjectLoader ol, String pathname, PluginConfig cfg)
-      throws IOException, ExecutionException {
-    try (InputStream is = ol.openStream()) {
-      return matchesAny(getContentType(is, pathname), getBinaryTypes(cfg));
-    }
-  }
-
   public String getContentType(InputStream is, String pathname) throws IOException {
     Metadata metadata = new Metadata();
     metadata.set(Metadata.RESOURCE_NAME_KEY, pathname);
