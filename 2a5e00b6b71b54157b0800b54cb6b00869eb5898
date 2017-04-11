@@ -310,6 +310,30 @@
       "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54e7e8b6_d2cad287",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T19:41:52Z",
+      "side": 1,
+      "message": "Is the idea to create the git note on the object that hasn\u0027t been uploaded for review yet? Because we\u0027d get something like:\n\nGIT_NOTES_REF\u003drefs/notes/uploadvalidator git notes add c99aada9c4fa645b525113fe9d1c8a91a8e705d9\nfatal: bad object c99aada9c4fa645b525113fe9d1c8a91a8e705d9\nfatal: failed to finish \u0027show\u0027 for object \u0027c99aada9c4fa645b525113fe9d1c8a91a8e705d9\u0027\n\n\nOr is the idea to create the git note on HEAD? In which case `git notes list` gives us a list of all the notes in history, and we\u0027d have to iterate through all of them to see if it\u0027s whitelisted?\n\n\nI feel like I\u0027m missing something super obvious (which is entirely possible, given I\u0027m unfamiliar with git notes)",
+      "parentUuid": "c483632b_b3eea458",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
