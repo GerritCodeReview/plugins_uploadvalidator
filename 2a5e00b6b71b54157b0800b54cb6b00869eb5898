@@ -238,6 +238,30 @@
       "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce893fa8_abc22ae2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T19:26:43Z",
+      "side": 1,
+      "message": "Ah, you\u0027re right. Sounds like we could potentially make that work then.\n\nIt seems like it requires a project owner to have access to the Git commit first though (since I don\u0027t believe you can annotate a commit that you haven\u0027t seen before?). So a non-project owner would have to upload their change somewhere for the project owner to download, annotate, then upload for review, which seems painful.\n\nMaybe instead of that we could have a whitelistedCommits config option? Much less elegant, but it means that a project owner only has to know the string value of the commit SHA that the non-project owner is trying to upload.",
+      "parentUuid": "7099ed3e_b3126c73",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
