@@ -76,6 +76,9 @@ plugin.@PLUGIN@.binaryType
 	Using this option it is possible to configure which content types are
 	considered binary types.
 
+	If there is a NUL byte in the first 8k then the file will be considered
+	binary regardless of this setting.
+
 	To detect content types [Apache Tika library][2] is used.
 
 	Content type can be specified as a string, wildcard or a regular expression,
