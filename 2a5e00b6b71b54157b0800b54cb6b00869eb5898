@@ -22,6 +22,30 @@
       "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fb73429_804f2416",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T16:45:28Z",
+      "side": 1,
+      "message": "Hm. I would like to get rid of it, but I also don\u0027t want to get rid of support for currently existing things. \n\nI think my desire not to break things supersedes my desire for cleanliness. I don\u0027t know whether RawText.isBinary is flawless or not, and it\u0027s probably better to give users more options rather than less.\n\nAdded the contentTypeUtil.isBinary check back in, in addition to the RawText.isBinary check.",
+      "parentUuid": "1ce68b80_adf042a6",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
