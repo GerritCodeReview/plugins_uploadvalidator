@@ -22,6 +22,30 @@
       "revId": "7ffe5323bc2906e04ec8c3471b34e93bd4e54c1a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c642494_42480846",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T16:45:28Z",
+      "side": 0,
+      "message": "Keeping it in case RawText.isBinary isn\u0027t perfect.",
+      "parentUuid": "e9a05286_74c5991a",
+      "range": {
+        "startLine": 164,
+        "startChar": 10,
+        "endLine": 164,
+        "endChar": 34
+      },
+      "revId": "7ffe5323bc2906e04ec8c3471b34e93bd4e54c1a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
