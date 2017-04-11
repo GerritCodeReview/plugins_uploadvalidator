@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b098c64a_bb136b15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2017-04-11T21:21:16Z",
+      "side": 1,
+      "message": "nit: s/bianry/binary/\n\nTrying to summarize the review discussion:\n\nCheck jgit RawText#isBinary before MimeTypes\n\nJGit\u0027s isBinary function implements a simple heuristic: it considers a file binary if and only if one of the first 8000 bytes is NUL. This is the same heuristic used to decide whether to show a diff as text.\n\nKeep the MimeTypes based check to allow users to continue to exclude text-based checks for some file types. A followup change will allow whitelisting some files or commits using notes in the refs/notes/uploadvalidator ref, allowing the MimeTypes check to be dropped.",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "cf3ec78628efdd7fc5e13d259342d91d6a0140ed",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
