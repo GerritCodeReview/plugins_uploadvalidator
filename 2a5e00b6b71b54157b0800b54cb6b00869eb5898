@@ -286,6 +286,30 @@
       "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c483632b_b3eea458",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-04-11T19:33:06Z",
+      "side": 1,
+      "message": "\u003e Ah, you\u0027re right. Sounds like we could potentially make that work\n \u003e then.\n \u003e \n \u003e It seems like it requires a project owner to have access to the Git\n \u003e commit first though (since I don\u0027t believe you can annotate a\n \u003e commit that you haven\u0027t seen before?).\n\nI don\u0027t think that this is a precondition. Knowing the commit SHA1\nis enough to create a note.\n\n\u003e So a non-project owner would\n \u003e have to upload their change somewhere for the project owner to\n \u003e download, annotate, then upload for review, which seems painful.\n\nNo. Just communicating the commit SHA1 should to the project owner\nshould be enough.\n\n \u003e \n \u003e Maybe instead of that we could have a whitelistedCommits config\n \u003e option?\n\nThe notes on refs/notes/uploadvalidator are exactly that white list :-)\nIn addition, using Gerrit\u0027s access rights it can be precisely controlled\nwho is allowed to push to refs/notes/uploadvalidator.\n\n\n\u003e Much less elegant, but it means that a project owner only\n \u003e has to know the string value of the commit SHA that the non-project\n \u003e owner is trying to upload.",
+      "parentUuid": "ce893fa8_abc22ae2",
+      "range": {
+        "startLine": 156,
+        "startChar": 19,
+        "endLine": 156,
+        "endChar": 22
+      },
+      "revId": "2a5e00b6b71b54157b0800b54cb6b00869eb5898",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
