@@ -16,6 +16,24 @@
       "revId": "6c8f0d2be83cd797675bdc04f5bfaa14ce1e8839",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf2d4745_babfc14c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-11T18:42:55Z",
+      "side": 1,
+      "message": "Removing the Tika dependency is being done here: https://gerrit-review.googlesource.com/#/c/103233/\n\nIt\u0027s not being done in this change because ContentTypeValidator still uses it for validating content types.",
+      "parentUuid": "d39ab475_5ba55b05",
+      "revId": "6c8f0d2be83cd797675bdc04f5bfaa14ce1e8839",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
