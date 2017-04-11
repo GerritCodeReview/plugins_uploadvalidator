@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cf1d161_60d1bac9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ContentTypeUtil.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2017-04-11T01:18:06Z",
+      "side": 1,
+      "message": "What should happen for large blobs, where this throws LargeObjectException? MimeUtil2 can operate on an InputStream but MimeUtilFileTypeRegistry only wraps the byte[] version. Gerrit FileContentUtil passes null for the byte[] argument for large objects --- maybe that\u0027s a reasonable place to start (with a TODO to pass in an InputStream once gerrit FileTypeRegistry learns to take one).",
+      "range": {
+        "startLine": 81,
+        "startChar": 37,
+        "endLine": 81,
+        "endChar": 50
+      },
+      "revId": "e867fc22327bc8a0f9f813e1d1e477724bf61672",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
