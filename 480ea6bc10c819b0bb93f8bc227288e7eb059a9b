@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "79397ac9_45103592",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-13T00:01:09Z",
+      "side": 1,
+      "message": "Insert expletive here. How did that happen?",
+      "parentUuid": "5f87ef33_7d873bb4",
+      "revId": "480ea6bc10c819b0bb93f8bc227288e7eb059a9b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf7e3d3d_2ca3d67a",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/InvalidLineEndingValidator.java",
         "patchSetId": 13
@@ -47,6 +65,30 @@
       "writtenOn": "2017-04-12T23:57:17Z",
       "side": 1,
       "message": "nit: NUL",
+      "range": {
+        "startLine": 79,
+        "startChar": 15,
+        "endLine": 79,
+        "endChar": 19
+      },
+      "revId": "480ea6bc10c819b0bb93f8bc227288e7eb059a9b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8b51f9b_95e2b7ea",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-13T00:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c32a2e8_bb5118e1",
       "range": {
         "startLine": 79,
         "startChar": 15,
