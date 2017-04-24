@@ -155,7 +155,7 @@ public class ContentTypeValidator implements CommitValidationListener {
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
     for (String path : content.keySet()) {
-      ObjectLoader ol = repo.open(content.get(path));
+      ObjectLoader ol = revWalk.getObjectReader().open(content.get(path));
       String contentType = contentTypeUtil.getContentType(ol, path);
       if ((contentTypeUtil.matchesAny(contentType, blockedTypes) && !whitelist)
           || (!contentTypeUtil.matchesAny(contentType, blockedTypes) && whitelist)) {
