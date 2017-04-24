@@ -16,6 +16,24 @@
       "revId": "d0e6214de330d09eb603ab2cd1f284e176a7e84a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32bf6cd3_0ac59dd4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2017-04-24T23:07:32Z",
+      "side": 1,
+      "message": "Done. I couldn\u0027t figure out a good way to phrase it shortly, but what you supplied works :]",
+      "parentUuid": "ac8a62ff_30aae8d1",
+      "revId": "d0e6214de330d09eb603ab2cd1f284e176a7e84a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
