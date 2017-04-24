@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac8a62ff_30aae8d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2017-04-24T23:05:29Z",
+      "side": 1,
+      "message": "Can this line contain a summary of the change, so that if someone sees this change in a shortlog they will know what it does?\n\nE.g.\n\n Use provided ObjectReader to read changed content",
+      "revId": "d0e6214de330d09eb603ab2cd1f284e176a7e84a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
