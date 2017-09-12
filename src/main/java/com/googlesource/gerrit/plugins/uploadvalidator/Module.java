@@ -34,6 +34,7 @@ public class Module extends AbstractModule {
     install(InvalidLineEndingValidator.module());
     install(ContentTypeValidator.module());
     install(DuplicatePathnameValidator.module());
+    install(OwnersFileValidator.module());
     install(ValidatorConfig.module());
 
     bind(ConfigFactory.class).to(PluginConfigWithInheritanceFactory.class).in(Scopes.SINGLETON);

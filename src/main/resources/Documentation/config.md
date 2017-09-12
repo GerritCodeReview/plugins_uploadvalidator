@@ -32,6 +32,7 @@ project info screen.
     rejectSubmodule = false
     rejectDuplicatePathnames = false
     rejectDuplicatePathnamesLocale = en
+    rejectErrorInOwners = false
 ```
 
 plugin.@PLUGIN@.blockedFileExtension
@@ -186,6 +187,14 @@ plugin.@PLUGIN@.rejectDuplicatePathnamesLocale
 
 	The default value is "en" (English).
 
+plugin.@PLUGIN@.rejectErrorInOwners
+:	Reject OWNERS files with errors.
+
+	This check looks for syntax and email address errors in OWNERS files.
+	If the check finds such errors the push will be rejected.
+
+	The default value is false.
+
 [5]: http://bugs.java.com/view_bug.do?bug_id=6208680
 [6]: http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html
 
@@ -308,6 +317,7 @@ plugin.@PLUGIN@.skipValidation
 	- rejectSymlink
 	- rejectWindowsLineEndings
 	- requiredFooter
+	- rejectErrorInOwners
 
 	Multiple values are supported.
 	Default: groups defined at skipGroup can skip all the validation rules.

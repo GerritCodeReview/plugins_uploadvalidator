@@ -12,5 +12,6 @@ Project owners can configure:
 - reject submodules
 - required footers
 - maximum allowed path length
+- reject invalid OWNERS files
 
 Pushes of commits that violate these settings are rejected by Gerrit.
