@@ -29,7 +29,7 @@ public class SkipValidationTest {
   @Test
   public void dontSkipByDefault() throws Exception {
     ValidatorConfig validatorConfig =
-        new ValidatorConfig(new FakeConfigFactory(projectName, ""), new FakeGroupCacheUUIDByName());
+        new ValidatorConfig(new FakeConfigFactory(projectName, ""), new FakeGroupByNameFinder());
 
     assertThat(validatorConfig.isEnabledForRef(anyUser, projectName, "anyRef", "anyOp")).isTrue();
   }
@@ -44,7 +44,7 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
-            new FakeConfigFactory(projectName, config), new FakeGroupCacheUUIDByName());
+            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
     assertThat(
             validatorConfig.isEnabledForRef(
@@ -63,7 +63,7 @@ public class SkipValidationTest {
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
             new FakeConfigFactory(projectName, config),
-            new FakeGroupCacheUUIDByName(
+            new FakeGroupByNameFinder(
                 new AccountGroup(
                     new AccountGroup.NameKey("testGroupName"),
                     new AccountGroup.Id(1),
@@ -86,7 +86,7 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
-            new FakeConfigFactory(projectName, config), new FakeGroupCacheUUIDByName());
+            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
     assertThat(
             validatorConfig.isEnabledForRef(
@@ -104,7 +104,7 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
-            new FakeConfigFactory(projectName, config), new FakeGroupCacheUUIDByName());
+            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
     assertThat(validatorConfig.isEnabledForRef(anyUser, projectName, "anyRef", "anotherOp"))
         .isTrue();
@@ -120,7 +120,7 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
-            new FakeConfigFactory(projectName, config), new FakeGroupCacheUUIDByName());
+            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
     assertThat(
             validatorConfig.isEnabledForRef(
@@ -138,7 +138,7 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
-            new FakeConfigFactory(projectName, config), new FakeGroupCacheUUIDByName());
+            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
     assertThat(
             validatorConfig.isEnabledForRef(

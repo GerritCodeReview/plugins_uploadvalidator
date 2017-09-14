@@ -18,7 +18,6 @@ import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.IdentifiedUser;
-
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Test;
 
@@ -100,9 +99,7 @@ public class ProjectAwareValidatorConfigTest {
 
   private ValidatorConfig getConfig(String defaultConfig, Project.NameKey projName)
       throws ConfigInvalidException {
-    ValidatorConfig config =
-        new ValidatorConfig(
-            new FakeConfigFactory(projName, defaultConfig), new FakeGroupCacheUUIDByName());
-    return config;
+    return new ValidatorConfig(
+        new FakeConfigFactory(projName, defaultConfig), new FakeGroupByNameFinder());
   }
 }
