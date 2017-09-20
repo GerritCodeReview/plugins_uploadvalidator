@@ -6,7 +6,7 @@ gerrit_plugin(
     srcs = glob(["src/main/java/**/*.java"]),
     manifest_entries = [
         "Gerrit-PluginName: uploadvalidator",
-        "Gerrit-ApiVersion: 2.14-SNAPSHOT",
+        "Gerrit-ApiVersion: 2.14",
         "Gerrit-Module: com.googlesource.gerrit.plugins.uploadvalidator.Module",
     ],
     resources = glob(["src/main/resources/**/*"]),
@@ -39,6 +39,15 @@ junit_tests(
     srcs = glob([TEST_SRCS]),
     tags = ["uploadvalidator"],
     deps = TEST_DEPS + [
+        ":testutils",
+    ],
+)
+
+java_library(
+    name = "uploadvalidator__classpath_deps",
+    testonly = 1,
+    visibility = ["//visibility:public"],
+    exports = TEST_DEPS + [
         ":testutils",
     ],
 )
