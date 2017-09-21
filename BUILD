@@ -10,9 +10,6 @@ gerrit_plugin(
         "Gerrit-Module: com.googlesource.gerrit.plugins.uploadvalidator.Module",
     ],
     resources = glob(["src/main/resources/**/*"]),
-    deps = [
-        "@commons_io//jar",
-    ],
 )
 
 TEST_SRCS = "src/test/java/**/*Test.java"
@@ -38,6 +35,15 @@ junit_tests(
     srcs = glob([TEST_SRCS]),
     tags = ["uploadvalidator"],
     deps = TEST_DEPS + [
+        ":testutils",
+    ],
+)
+
+java_library(
+    name = "uploadvalidator_classpath_deps",
+    testonly = 1,
+    visibility = ["//visibility:public"],
+    exports = TEST_DEPS + [
         ":testutils",
     ],
 )
