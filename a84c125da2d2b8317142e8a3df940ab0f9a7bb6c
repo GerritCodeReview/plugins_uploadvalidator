@@ -22,6 +22,30 @@
       "revId": "a84c125da2d2b8317142e8a3df940ab0f9a7bb6c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27171687_a82f7265",
+        "filename": "BUILD",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2017-09-21T09:20:29Z",
+      "side": 1,
+      "message": "Just a typo. Done.",
+      "parentUuid": "8421975e_4ed08653",
+      "range": {
+        "startLine": 47,
+        "startChar": 27,
+        "endLine": 47,
+        "endChar": 29
+      },
+      "revId": "a84c125da2d2b8317142e8a3df940ab0f9a7bb6c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
