@@ -20,26 +20,28 @@ import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.IdentifiedUser;
-import com.google.gerrit.server.account.GroupCache;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.ProjectConfigEntry;
+import com.google.gerrit.server.group.InternalGroup;
 import com.google.gerrit.server.project.RefPatternMatcher;
+import com.google.gerrit.server.query.group.InternalGroupQuery;
+import com.google.gwtorm.server.OrmException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import com.google.inject.Provider;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ValidatorConfig {
   private static final Logger log = LoggerFactory.getLogger(ValidatorConfig.class);
   private static final String KEY_PROJECT = "project";
   private static final String KEY_REF = "ref";
   private final ConfigFactory configFactory;
-  private final GroupCache groupCache;
+  private final GroupByNameFinder groupByNameFinder;
 
   public static AbstractModule module() {
     return new AbstractModule() {
@@ -65,14 +67,15 @@ public class ValidatorConfig {
                     null,
                     false,
                     "Only refs that match this regex will be validated."));
+        bind(GroupByNameFinder.class).to(GroupByNameFromIndexFinder.class);
       }
     };
   }
 
   @Inject
-  public ValidatorConfig(ConfigFactory configFactory, GroupCache groupCache) {
+  public ValidatorConfig(ConfigFactory configFactory, GroupByNameFinder groupByNameFinder) {
     this.configFactory = configFactory;
-    this.groupCache = groupCache;
+    this.groupByNameFinder = groupByNameFinder;
   }
 
   public boolean isEnabledForRef(
@@ -165,10 +168,32 @@ public class ValidatorConfig {
   }
 
   private AccountGroup.UUID groupUUID(String groupNameOrUUID) {
-    AccountGroup group = groupCache.get(new AccountGroup.NameKey(groupNameOrUUID));
-    if (group == null) {
-      return new AccountGroup.UUID(groupNameOrUUID);
+    Optional<InternalGroup> group =
+        groupByNameFinder.get(new AccountGroup.NameKey(groupNameOrUUID));
+    return group.map(InternalGroup::getGroupUUID).orElse(new AccountGroup.UUID(groupNameOrUUID));
+  }
+
+  interface GroupByNameFinder {
+    Optional<InternalGroup> get(AccountGroup.NameKey groupName);
+  }
+
+  static class GroupByNameFromIndexFinder implements GroupByNameFinder {
+
+    private final Provider<InternalGroupQuery> groupQueryProvider;
+
+    @Inject
+    GroupByNameFromIndexFinder(Provider<InternalGroupQuery> groupQueryProvider) {
+      this.groupQueryProvider = groupQueryProvider;
     }
-    return group.getGroupUUID();
+
+    @Override
+    public Optional<InternalGroup> get(AccountGroup.NameKey groupName) {
+      try {
+        return groupQueryProvider.get().byName(groupName);
+      } catch (OrmException e) {
+        log.warn(String.format("Cannot lookup group %s by name", groupName.get()), e);
+      }
+      return Optional.empty();
+    }
   }
 }
