@@ -46,6 +46,21 @@ plugin.@PLUGIN@.requiredFooter
 
 	This is the footer in the commit message.
 
+	Valid footers are set in the .git/hooks/commit-msg file for a repository
+
+	By default, valid footers include:
+
+	- Bug:
+	- Depends-On:
+	- Issue:
+	- Test:
+	- Feature:
+	- Fixes:
+	- Fixed:
+
+	Footers should be included in the last paragraph of the commit message,
+	typically just above the Change-Id.
+
 plugin.@PLUGIN@.maxPathLength
 :	Maximum allowed path length. '0' means no limit.
 
