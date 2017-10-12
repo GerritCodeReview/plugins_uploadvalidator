@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f93e334_43c841bf",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-10-12T00:04:20Z",
+      "side": 1,
+      "message": "I think this will cause confusion.\n\nIn the default implementation of commit-msg provided by Gerrit, only the Change-Id footer is added into the commit message although the hook is aware of other footers and makes sure to put the Change-Id in the correct place.   If any other footers are needed in the commit message, they need to be added by the user or by a customized version of the commit-msg hook.",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 49,
+        "endChar": 73
+      },
+      "revId": "16880eaa488363f364b07e9ff25dcb51978ab44f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28f49d2b_eaf147cb",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-10-12T00:04:20Z",
+      "side": 1,
+      "message": "This is the documentation of the requiredFooter setting. Listing these here could give the impression that these are the default required footers, which is not the case IIUC.\n\nAlso, is there actually a set of valid footers?  I thought it was possible to specify any arbitrary name as as required footer.",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 51,
+        "endChar": 34
+      },
+      "revId": "16880eaa488363f364b07e9ff25dcb51978ab44f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7eba849c_77f9a60e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-10-12T00:04:20Z",
+      "side": 1,
+      "message": "Rather than listing these here, I think it would be better to have an example of how the values should be configured.  I.e. it\u0027s not clear if it\u0027s necessary to include the trailing colon.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 9
+      },
+      "revId": "16880eaa488363f364b07e9ff25dcb51978ab44f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
