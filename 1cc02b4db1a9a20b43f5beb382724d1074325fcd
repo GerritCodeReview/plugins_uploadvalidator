@@ -22,6 +22,30 @@
       "revId": "1cc02b4db1a9a20b43f5beb382724d1074325fcd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2aa7950b_81afabd1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2017-11-16T04:37:00Z",
+      "side": 1,
+      "message": "Done.\n\nJust moving it wouldn\u0027t do the right thing since we want a missing email to match an empty list of conditions. But I agree that doing the test for each loop iteration obscures things and is wasteful.",
+      "parentUuid": "87c7d52b_81989650",
+      "range": {
+        "startLine": 150,
+        "startChar": 6,
+        "endLine": 152,
+        "endChar": 7
+      },
+      "revId": "1cc02b4db1a9a20b43f5beb382724d1074325fcd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
