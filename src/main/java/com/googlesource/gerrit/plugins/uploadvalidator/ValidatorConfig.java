@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import com.google.gerrit.common.Nullable;
 import com.google.gerrit.common.data.RefConfigSection;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
@@ -126,7 +127,7 @@ public class ValidatorConfig {
     return matchCriteria(config, "ref", ref, true, true);
   }
 
-  private boolean activeForEmail(PluginConfig config, String email) {
+  private boolean activeForEmail(PluginConfig config, @Nullable String email) {
     return matchCriteria(config, "email", email, true, false);
   }
 
@@ -139,9 +140,16 @@ public class ValidatorConfig {
   }
 
   private boolean matchCriteria(
-      PluginConfig config, String criteria, String value, boolean allowRegex, boolean refMatcher) {
+      PluginConfig config,
+      String criteria,
+      @Nullable String value,
+      boolean allowRegex,
+      boolean refMatcher) {
     boolean match = true;
     for (String s : config.getStringList(criteria)) {
+      if (value == null) {
+        return false;
+      }
       if ((allowRegex && match(value, s, refMatcher)) || (!allowRegex && s.equals(value))) {
         return true;
       }

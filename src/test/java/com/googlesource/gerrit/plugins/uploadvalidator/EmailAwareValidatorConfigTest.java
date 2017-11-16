@@ -35,6 +35,16 @@ public class EmailAwareValidatorConfigTest {
   }
 
   @Test
+  public void isEnabledForMissingEmailByDefault() throws Exception {
+    IdentifiedUser missingEmail = new FakeUserProvider().get(null);
+    ValidatorConfig config =
+        getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar");
+
+    assertThat(config.isEnabledForRef(missingEmail, projectName, "anyRef", "blockedFileExtension"))
+        .isTrue();
+  }
+
+  @Test
   public void isEnabledForSingleEmail() throws Exception {
     ValidatorConfig config =
         getConfig(
@@ -81,6 +91,21 @@ public class EmailAwareValidatorConfigTest {
             config.isEnabledForRef(
                 exampleOrgUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isTrue();
+  }
+
+  @Test
+  public void missingEmailDoesNotMatchRegex() throws Exception {
+    IdentifiedUser missingEmail = new FakeUserProvider().get(null);
+    ValidatorConfig config =
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   email = .*$\n"
+                + "   blockedFileExtension = jar");
+
+    assertThat(
+            config.isEnabledForRef(
+                missingEmail, projectName, "refs/heads/anyref", "blockedFileExtension"))
+        .isFalse();
   }
 
   @Test
