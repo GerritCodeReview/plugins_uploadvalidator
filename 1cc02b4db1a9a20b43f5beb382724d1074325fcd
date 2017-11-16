@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87c7d52b_81989650",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-11-16T04:12:05Z",
+      "side": 1,
+      "message": "This could be moved out of the loop, to before L148",
+      "range": {
+        "startLine": 150,
+        "startChar": 6,
+        "endLine": 152,
+        "endChar": 7
+      },
+      "revId": "1cc02b4db1a9a20b43f5beb382724d1074325fcd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
