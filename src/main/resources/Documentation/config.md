@@ -32,7 +32,15 @@ project info screen.
     rejectSubmodule = false
     rejectDuplicatePathnames = false
     rejectDuplicatePathnamesLocale = en
+	emailDomainWhitelist = example.com
+	emailDomainWhitelist = gerrit.com
 ```
+
+plugin.@PLUGIN@.emailDomainWhitelist
+:	Email Domain to Whitelist.
+
+	The check looks for a matching email domain. If there are none
+	the push will be rejected.
 
 plugin.@PLUGIN@.blockedFileExtension
 :	File extension to be blocked.
