@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb5593b2_f262c92d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailDomainWhitelistValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-02-08T22:53:24Z",
+      "side": 1,
+      "message": "Usually not good practice to catch a NPE... What about setting the string to empty if null? And may be modifying a bit the try... catch? :\n\n    try {\n      URI uri \u003d new URI(Strings.nullToEmpty(email));\n      return emailDomainWhitelist.contains(uri.getHost());\n    } catch (URISyntaxException e) {\n      return false;\n    }\n\nGiven the way the list is created, we shouldn\u0027t expect it to be null",
+      "range": {
+        "startLine": 119,
+        "startChar": 34,
+        "endLine": 119,
+        "endChar": 54
+      },
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e7be74a_820942d4",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailDomainWhitelistTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019328
+      },
+      "writtenOn": "2018-02-08T22:53:24Z",
+      "side": 1,
+      "message": "Add a test to validate the handling of a null email?",
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
