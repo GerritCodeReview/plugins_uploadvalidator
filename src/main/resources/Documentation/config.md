@@ -34,6 +34,12 @@ project info screen.
     rejectDuplicatePathnamesLocale = en
 ```
 
+plugin.@PLUGIN@.emailDomainWhitelist
+:	Email Domain to Whitelist.
+
+	The check looks for a matching email domain. If there are none
+	the push will be rejected.
+
 plugin.@PLUGIN@.blockedFileExtension
 :	File extension to be blocked.
 
