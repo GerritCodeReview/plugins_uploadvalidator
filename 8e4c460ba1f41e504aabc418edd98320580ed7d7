@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "f69d4163_3b0aa7e6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailDomainWhitelistValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-02-09T23:53:55Z",
+      "side": 1,
+      "message": "Ya, I agree fully with you.\nI did end up changing this completely in the latest patchset(SP3), after looking deeper into the email-specific validations, I changed it to match that pattern used. Makes this a lot cleaner and we get a little additional functionality with the regex/pattern matching.",
+      "parentUuid": "bb5593b2_f262c92d",
+      "range": {
+        "startLine": 119,
+        "startChar": 34,
+        "endLine": 119,
+        "endChar": 54
+      },
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8108f9fb_0b491782",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -106,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "16a3f08c_03195843",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-02-09T23:53:55Z",
+      "side": 1,
+      "message": "From what I understand that just allows you to filter running the validation by an email address. Not having a listed email domain or address will just not run any validation, but nothing is rejected.\n\nThe intention of the email whitelist validator is to allow only emails with their domains listed. Not having a listed domain will result in the push being rejected.\n\nThis is what I gathered from the docs, if I\u0027m wrong or misinterpreting this feel free to correct me.",
+      "parentUuid": "44880017_9ab405ac",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e7be74a_820942d4",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailDomainWhitelistTest.java",
         "patchSetId": 1
@@ -120,6 +168,24 @@
       "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a67b68e_a9300167",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailDomainWhitelistTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-02-09T23:53:55Z",
+      "side": 1,
+      "message": "That\u0027s a good point, I added the test case in PS3.",
+      "parentUuid": "4e7be74a_820942d4",
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
