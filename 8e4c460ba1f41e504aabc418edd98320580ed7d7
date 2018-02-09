@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "8108f9fb_0b491782",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2018-02-09T01:43:23Z",
+      "side": 1,
+      "message": "How is this different from https://gerrit.googlesource.com/plugins/uploadvalidator/+/master/src/main/resources/Documentation/config.md#email_specific-validations?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e7be74a_820942d4",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailDomainWhitelistTest.java",
         "patchSetId": 1
