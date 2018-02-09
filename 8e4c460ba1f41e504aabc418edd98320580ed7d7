@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "44880017_9ab405ac",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2018-02-09T03:40:14Z",
+      "side": 1,
+      "message": "Good question. Nicholas, can you add some more detail here?\n\nE.g. is the commit author or the committer supposed to match this domain? What is an example scenario where this would be used?\n\nA name like requiredAuthorEmailPattern or requiredCommitterEmailPattern for the config item might also be useful for making this clearer as well.\n\nCan this take a regex instead of a domain, like the e-mail specific validations do?",
+      "parentUuid": "8108f9fb_0b491782",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e7be74a_820942d4",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailDomainWhitelistTest.java",
         "patchSetId": 1
