@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "5726d302_382548f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2018-02-09T15:58:19Z",
+      "side": 1,
+      "message": "Two nits:\n- commit messages tend to wrap to a wider width (e.g. 72 columns)\n- can you give more detail about the use case? E.g. is this about preventing typos in the author field of commits by people with \"Forge Author\" permission? Adding some detail would ensure people in the future have a better sense of what not to break when further modifying this code.",
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93338ba4_4472195a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2018-02-09T15:58:19Z",
+      "side": 1,
+      "message": "Feature: Issue 8343",
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb5593b2_f262c92d",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailDomainWhitelistValidator.java",
         "patchSetId": 1
