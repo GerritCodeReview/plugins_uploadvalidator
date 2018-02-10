@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "85ae7666_f3c5b139",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-02-10T00:24:07Z",
+      "side": 1,
+      "message": "updated with more details and was more mindful of the width(thanks)",
+      "parentUuid": "5726d302_382548f0",
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93338ba4_4472195a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -166,6 +184,30 @@
       "side": 1,
       "message": "Ah, got it. Makes sense.",
       "parentUuid": "16a3f08c_03195843",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "8e4c460ba1f41e504aabc418edd98320580ed7d7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3b9f20e_c4185519",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-02-10T00:24:07Z",
+      "side": 1,
+      "message": "Awesome and actually after your comment I ended up digging deeper into that to make sure it does what I thought and ended up changing my email checking to a pattern/regex matching to match how that is handled. Ended up being a lot cleaner with additional functionality.",
+      "parentUuid": "5365b65d_71506ee6",
       "range": {
         "startLine": 37,
         "startChar": 0,
