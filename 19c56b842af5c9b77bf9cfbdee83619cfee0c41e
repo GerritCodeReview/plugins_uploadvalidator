@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88073f19_d5c42e3a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2018-02-12T21:20:06Z",
+      "side": 1,
+      "message": "I don\u0027t think this format actually works anymore; or at least it didn\u0027t in my testing.",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 30
+      },
+      "revId": "19c56b842af5c9b77bf9cfbdee83619cfee0c41e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
