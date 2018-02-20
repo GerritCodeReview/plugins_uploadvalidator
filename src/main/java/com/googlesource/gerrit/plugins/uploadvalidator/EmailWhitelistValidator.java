@@ -35,37 +35,45 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class EmailDomainWhitelistValidator implements CommitValidationListener {
-
+public class EmailWhitelistValidator implements CommitValidationListener {
   public static AbstractModule module() {
     return new AbstractModule() {
       @Override
       public void configure() {
-        DynamicSet.bind(binder(), CommitValidationListener.class)
-            .to(EmailDomainWhitelistValidator.class);
+        DynamicSet.bind(binder(), CommitValidationListener.class).to(EmailWhitelistValidator.class);
         bind(ProjectConfigEntry.class)
-            .annotatedWith(Exports.named(KEY_EMAIL_DOMAIN_WHITELIST))
+            .annotatedWith(Exports.named(KEY_AUTHOR_EMAIL_WHITELIST))
             .toInstance(
                 new ProjectConfigEntry(
-                    "Email Domain White List",
+                    "Author Email Whitelist",
                     null,
                     ProjectConfigEntryType.ARRAY,
                     null,
                     false,
-                    "Whitelist of email domains that will be permitted."));
+                    "Whitelist of author email addresses that will be permitted."));
+        bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_COMMITTER_EMAIL_WHITELIST))
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Committter Email Whitelist",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Whitelist of committer email addresses that will be permitted."));
       }
     };
   }
 
-  public static final String KEY_EMAIL_DOMAIN_WHITELIST = "emailDomainWhitelist";
-
+  public static final String KEY_AUTHOR_EMAIL_WHITELIST = "authorEmailWhitelist";
+  public static final String KEY_COMMITTER_EMAIL_WHITELIST = "committerEmailWhitelist";
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
   private final ValidatorConfig validatorConfig;
 
   @Inject
-  EmailDomainWhitelistValidator(
+  EmailWhitelistValidator(
       @PluginName String pluginName,
       PluginConfigFactory cfgFactory,
       GitRepositoryManager repoManager,
@@ -77,13 +85,23 @@ public class EmailDomainWhitelistValidator implements CommitValidationListener {
   }
 
   @VisibleForTesting
-  static String[] getEmailDomainWhiteList(PluginConfig cfg) {
-    return cfg.getStringList(KEY_EMAIL_DOMAIN_WHITELIST);
+  static String[] getAuthorEmailWhiteList(PluginConfig cfg) {
+    return cfg.getStringList(KEY_AUTHOR_EMAIL_WHITELIST);
   }
 
   @VisibleForTesting
-  static boolean isActive(PluginConfig cfg) {
-    return cfg.getStringList(KEY_EMAIL_DOMAIN_WHITELIST).length > 0;
+  static String[] getCommitterEmailWhiteList(PluginConfig cfg) {
+    return cfg.getStringList(KEY_COMMITTER_EMAIL_WHITELIST);
+  }
+
+  @VisibleForTesting
+  static boolean isAuthorActive(PluginConfig cfg) {
+    return cfg.getStringList(KEY_AUTHOR_EMAIL_WHITELIST).length > 0;
+  }
+
+  @VisibleForTesting
+  static boolean isCommitterActive(PluginConfig cfg) {
+    return cfg.getStringList(KEY_COMMITTER_EMAIL_WHITELIST).length > 0;
   }
 
   @Override
@@ -93,30 +111,44 @@ public class EmailDomainWhitelistValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (isActive(cfg)
+      if (isAuthorActive(cfg)
           && validatorConfig.isEnabledForRef(
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_EMAIL_DOMAIN_WHITELIST)) {
+              KEY_AUTHOR_EMAIL_WHITELIST)) {
         if (!performValidation(
-            receiveEvent.user.getAccount().getPreferredEmail(), getEmailDomainWhiteList(cfg))) {
+            receiveEvent.commit.getAuthorIdent().getEmailAddress(), getAuthorEmailWhiteList(cfg))) {
           throw new CommitValidationException(
-              "Email <"
-                  + receiveEvent.user.getAccount().getPreferredEmail()
+              "Author Email <"
+                  + receiveEvent.commit.getAuthorIdent().getEmailAddress()
+                  + "> - is not whitelisted for this Project.");
+        }
+      }
+      if (isCommitterActive(cfg)
+          && validatorConfig.isEnabledForRef(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
+              KEY_COMMITTER_EMAIL_WHITELIST)) {
+        if (!performValidation(
+            receiveEvent.commit.getCommitterIdent().getEmailAddress(),
+            getCommitterEmailWhiteList(cfg))) {
+          throw new CommitValidationException(
+              "Committer Email <"
+                  + receiveEvent.commit.getCommitterIdent().getEmailAddress()
                   + "> - is not whitelisted for this Project.");
         }
       }
     } catch (NoSuchProjectException e) {
-      throw new CommitValidationException("Failed to check for Email Domain Whitelist ", e);
+      throw new CommitValidationException("Failed to check for Email Whitelists ", e);
     }
     return Collections.emptyList();
   }
 
   @VisibleForTesting
-  static boolean performValidation(String email, String[] emailDomainWhitelist) {
-
-    return Arrays.stream(emailDomainWhitelist)
+  static boolean performValidation(String email, String[] emailWhitelist) {
+    return Arrays.stream(emailWhitelist)
         .anyMatch(s -> Pattern.matches(s, Strings.nullToEmpty(email)));
   }
 }
