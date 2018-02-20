@@ -27,7 +27,7 @@ public class Module extends AbstractModule {
     install(FooterValidator.module());
     install(MaxPathLengthValidator.module());
     install(FileExtensionValidator.module());
-    install(EmailDomainWhitelistValidator.module());
+    install(ChangeEmailValidator.module());
     install(InvalidFilenameValidator.module());
     install(SubmoduleValidator.module());
     install(SymlinkValidator.module());
