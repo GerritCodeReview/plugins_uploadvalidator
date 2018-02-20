@@ -32,17 +32,37 @@ project info screen.
     rejectSubmodule = false
     rejectDuplicatePathnames = false
     rejectDuplicatePathnamesLocale = en
-    emailDomainWhitelist = .*@example.com$
-    emailDomainWhitelist = .*gerrit.*
+    allowedAuthorEmailPattern = .*@example\\.com$
+    allowedAuthorEmailPattern = admin@example\\.com
+    allowedCommitterEmailPattern = .*gerrit\\.com
+    allowedCommitterEmailPattern =  admin@gerrit\\..*
 ```
 
-plugin.@PLUGIN@.emailDomainWhitelist
-:    Email Domain to Whitelist.
+plugin.@PLUGIN@.allowedAuthorEmailPattern
+:    Author Email to Allow.
 
     The check looks for a match based on the described specifics.
     If there are no matches the push will be rejected.
-    The emails may be configured using specific emails, patterns, or
-    regular expressions.
+
+    Note that all email addresses contain the dot character, and if
+    included in the pattern needs to be properly escaped as shown in
+    the examples.
+
+    This check is using `java.util.regex.Pattern` which is described
+    [here][1].
+
+plugin.@PLUGIN@.allowedCommitterEmailPattern
+:    Committer Email to Allow.
+
+    The check looks for a match based on the described specifics.
+    If there are no matches the push will be rejected.
+
+    Note that all email addresses contain the dot character, and if
+    included in the pattern needs to be properly escaped as shown in
+    the examples.
+
+    This check is using `java.util.regex.Pattern` which is described
+    [here][1].
 
 plugin.@PLUGIN@.blockedFileExtension
 :    File extension to be blocked.

@@ -35,37 +35,45 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class EmailDomainWhitelistValidator implements CommitValidationListener {
-
+public class ChangeEmailValidator implements CommitValidationListener {
   public static AbstractModule module() {
     return new AbstractModule() {
       @Override
       public void configure() {
-        DynamicSet.bind(binder(), CommitValidationListener.class)
-            .to(EmailDomainWhitelistValidator.class);
+        DynamicSet.bind(binder(), CommitValidationListener.class).to(ChangeEmailValidator.class);
         bind(ProjectConfigEntry.class)
-            .annotatedWith(Exports.named(KEY_EMAIL_DOMAIN_WHITELIST))
+            .annotatedWith(Exports.named(KEY_ALLOWED_AUTHOR_EMAIL_PATTERN))
             .toInstance(
                 new ProjectConfigEntry(
-                    "Email Domain White List",
+                    "Author Email Pattern",
                     null,
                     ProjectConfigEntryType.ARRAY,
                     null,
                     false,
-                    "Whitelist of email domains that will be permitted."));
+                    "Commits with author email not matching one of these pattterns will be rejected."));
+        bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN))
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Committer Email Pattern",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Commits with committer email not matching one of these patterns will be rejected."));
       }
     };
   }
 
-  public static final String KEY_EMAIL_DOMAIN_WHITELIST = "emailDomainWhitelist";
-
+  public static final String KEY_ALLOWED_AUTHOR_EMAIL_PATTERN = "allowedAuthorEmailPattern";
+  public static final String KEY_ALLOWED_COMMITTER_EMAIL_PATTERN = "allowedCommitterEmailPattern";
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
   private final ValidatorConfig validatorConfig;
 
   @Inject
-  EmailDomainWhitelistValidator(
+  ChangeEmailValidator(
       @PluginName String pluginName,
       PluginConfigFactory cfgFactory,
       GitRepositoryManager repoManager,
@@ -77,13 +85,23 @@ public class EmailDomainWhitelistValidator implements CommitValidationListener {
   }
 
   @VisibleForTesting
-  static String[] getEmailDomainWhiteList(PluginConfig cfg) {
-    return cfg.getStringList(KEY_EMAIL_DOMAIN_WHITELIST);
+  static String[] getAllowedAuthorEmailPatterns(PluginConfig cfg) {
+    return cfg.getStringList(KEY_ALLOWED_AUTHOR_EMAIL_PATTERN);
   }
 
   @VisibleForTesting
-  static boolean isActive(PluginConfig cfg) {
-    return cfg.getStringList(KEY_EMAIL_DOMAIN_WHITELIST).length > 0;
+  static String[] getAllowedCommitterEmailPatterns(PluginConfig cfg) {
+    return cfg.getStringList(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN);
+  }
+
+  @VisibleForTesting
+  static boolean isAuthorActive(PluginConfig cfg) {
+    return cfg.getStringList(KEY_ALLOWED_AUTHOR_EMAIL_PATTERN).length > 0;
+  }
+
+  @VisibleForTesting
+  static boolean isCommitterActive(PluginConfig cfg) {
+    return cfg.getStringList(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN).length > 0;
   }
 
   @Override
@@ -93,30 +111,45 @@ public class EmailDomainWhitelistValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (isActive(cfg)
+      if (isAuthorActive(cfg)
           && validatorConfig.isEnabledForRef(
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_EMAIL_DOMAIN_WHITELIST)) {
+              KEY_ALLOWED_AUTHOR_EMAIL_PATTERN)) {
         if (!performValidation(
-            receiveEvent.user.getAccount().getPreferredEmail(), getEmailDomainWhiteList(cfg))) {
+            receiveEvent.commit.getAuthorIdent().getEmailAddress(),
+            getAllowedAuthorEmailPatterns(cfg))) {
           throw new CommitValidationException(
-              "Email <"
-                  + receiveEvent.user.getAccount().getPreferredEmail()
-                  + "> - is not whitelisted for this Project.");
+              "Author Email <"
+                  + receiveEvent.commit.getAuthorIdent().getEmailAddress()
+                  + "> - is not allowed for this Project.");
+        }
+      }
+      if (isCommitterActive(cfg)
+          && validatorConfig.isEnabledForRef(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
+              KEY_ALLOWED_COMMITTER_EMAIL_PATTERN)) {
+        if (!performValidation(
+            receiveEvent.commit.getCommitterIdent().getEmailAddress(),
+            getAllowedCommitterEmailPatterns(cfg))) {
+          throw new CommitValidationException(
+              "Committer Email <"
+                  + receiveEvent.commit.getCommitterIdent().getEmailAddress()
+                  + "> - is not allowed for this Project.");
         }
       }
     } catch (NoSuchProjectException e) {
-      throw new CommitValidationException("Failed to check for Email Domain Whitelist ", e);
+      throw new CommitValidationException("Failed to check for Change Email Patterns ", e);
     }
     return Collections.emptyList();
   }
 
   @VisibleForTesting
-  static boolean performValidation(String email, String[] emailDomainWhitelist) {
-
-    return Arrays.stream(emailDomainWhitelist)
+  static boolean performValidation(String email, String[] allowedEmailPatterns) {
+    return Arrays.stream(allowedEmailPatterns)
         .anyMatch(s -> Pattern.matches(s, Strings.nullToEmpty(email)));
   }
 }
