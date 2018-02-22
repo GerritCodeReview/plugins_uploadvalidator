@@ -12,6 +12,5 @@ Project owners can configure:
 - reject submodules
 - required footers
 - maximum allowed path length
-- whitelisting email domains
 
 Pushes of commits that violate these settings are rejected by Gerrit.
