@@ -32,106 +32,106 @@ project info screen.
     rejectSubmodule = false
     rejectDuplicatePathnames = false
     rejectDuplicatePathnamesLocale = en
-	emailDomainWhitelist = .*@example.com$
-	emailDomainWhitelist = .*gerrit.*
+    emailDomainWhitelist = .*@example.com$
+    emailDomainWhitelist = .*gerrit.*
 ```
 
 plugin.@PLUGIN@.emailDomainWhitelist
-:	Email Domain to Whitelist.
+:    Email Domain to Whitelist.
 
-	The check looks for a match based on the described specifics.
-	If there are no matches the push will be rejected.
-	The emails may be configured using specific emails, patterns, or
-	regular expressions.
+    The check looks for a match based on the described specifics.
+    If there are no matches the push will be rejected.
+    The emails may be configured using specific emails, patterns, or
+    regular expressions.
 
 plugin.@PLUGIN@.blockedFileExtension
-:	File extension to be blocked.
+:    File extension to be blocked.
 
-	The values for this check are case insensitive. You can define the
-	blocked file extensions with or without a leading dot. This check
-	only test if the filename ends with one of the defined values.
+    The values for this check are case insensitive. You can define the
+    blocked file extensions with or without a leading dot. This check
+    only test if the filename ends with one of the defined values.
 
 plugin.@PLUGIN@.requiredFooter
-:	Footer that is required.
+:    Footer that is required.
 
-	This is the footer in the commit message.
+    This is the footer in the commit message.
 
 plugin.@PLUGIN@.maxPathLength
-:	Maximum allowed path length. '0' means no limit.
+:    Maximum allowed path length. '0' means no limit.
 
-	Defaults to '0'.
+    Defaults to '0'.
 
 plugin.@PLUGIN@.invalidFilenamePattern
-:	Patterns for invalid filenames.
+:    Patterns for invalid filenames.
 
-	This check is using `java.util.regex.Pattern` which is described
-	[here][1].
+    This check is using `java.util.regex.Pattern` which is described
+    [here][1].
 
 plugin.@PLUGIN@.rejectWindowsLineEndings
-:	Reject Windows line endings.
+:    Reject Windows line endings.
 
-	This check looks for carriage return (CR) characters in pushed
-	files. If the check finds a carriage return (CR) character
-	the push will be rejected.
+    This check looks for carriage return (CR) characters in pushed
+    files. If the check finds a carriage return (CR) character
+    the push will be rejected.
 
-	This check does not run on [binary files][4]
+    This check does not run on [binary files][4]
 
-	The default value is false. This means the check will not be executed.
+    The default value is false. This means the check will not be executed.
 
 <a name="binary_type">
 plugin.@PLUGIN@.binaryType
-:	Binary types.
+:    Binary types.
 
-	Some checks should not run on binary files (e. g. InvalidLineEndingCheck).
-	Using this option it is possible to configure which content types are
-	considered binary types.
+    Some checks should not run on binary files (e. g. InvalidLineEndingCheck).
+    Using this option it is possible to configure which content types are
+    considered binary types.
 
-	If there is a NUL byte in the first 8k then the file will be considered
-	binary regardless of this setting.
+    If there is a NUL byte in the first 8k then the file will be considered
+    binary regardless of this setting.
 
-	To detect content types, the [MimeUtil2 library][2] is used.
+    To detect content types, the [MimeUtil2 library][2] is used.
 
-	Content type can be specified as a string, wildcard or a regular expression,
-	for example:
+    Content type can be specified as a string, wildcard or a regular expression,
+    for example:
 
-	- application/zip
-	- application/*
-	- ^application/(pdf|xml)
+    - application/zip
+    - application/*
+    - ^application/(pdf|xml)
 
-	As usual, the '^' prefix is used to denote that the value is a regular
-	expression.
+    As usual, the '^' prefix is used to denote that the value is a regular
+    expression.
 
-	Full list of supported content types can be found [here][3].
+    Full list of supported content types can be found [here][3].
 
 plugin.@PLUGIN@.rejectSymlink
-:	Reject symbolic links.
+:    Reject symbolic links.
 
-	This check looks for symbolic links in the set of pushed files. If
-	the check finds a symbolic link the push will be rejected.
+    This check looks for symbolic links in the set of pushed files. If
+    the check finds a symbolic link the push will be rejected.
 
-	The default value is false. This means the check will not be executed.
+    The default value is false. This means the check will not be executed.
 
 plugin.@PLUGIN@.rejectSubmodule
-:	Reject submodules.
+:    Reject submodules.
 
-	This check looks for submodules in the set of pushed commits. If
-	the check finds a submodule the push will be rejected.
+    This check looks for submodules in the set of pushed commits. If
+    the check finds a submodule the push will be rejected.
 
-	The default value is false. This means the check will not be executed.
+    The default value is false. This means the check will not be executed.
 
 plugin.@PLUGIN@.blockedKeywordPattern
-:	Patterns for blocked keywords.
+:    Patterns for blocked keywords.
 
-	This check looks for blocked keywords in files. If the check finds an
-	blocked keyword the push will be rejected.
+    This check looks for blocked keywords in files. If the check finds an
+    blocked keyword the push will be rejected.
 
-	To find a keyword it is possible to pass a regular expressions by
-	blockedKeywordPattern.
+    To find a keyword it is possible to pass a regular expressions by
+    blockedKeywordPattern.
 
-	To detect blocked keywords, this check is using
-	`java.util.regex.Pattern` which is described [here][1].
+    To detect blocked keywords, this check is using
+    `java.util.regex.Pattern` which is described [here][1].
 
-	This check does not run on [binary files][4]
+    This check does not run on [binary files][4]
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
 [2]: https://mvnrepository.com/artifact/eu.medsea.mimeutil/mime-util
@@ -139,62 +139,62 @@ plugin.@PLUGIN@.blockedKeywordPattern
 [4]: #binary_type
 
 plugin.@PLUGIN@.blockedContentType
-:	Blocked content type.
+:    Blocked content type.
 
-	This check looks for blocked content types. If the check finds a
-	blocked content type the push will be rejected.
+    This check looks for blocked content types. If the check finds a
+    blocked content type the push will be rejected.
 
-	To detect content types the [MimeUtil2 library][2] is used.
+    To detect content types the [MimeUtil2 library][2] is used.
 
-	Content type can be specified as a string, wildcard or a regular expression,
-	for example:
+    Content type can be specified as a string, wildcard or a regular expression,
+    for example:
 
-	- application/zip
-	- application/*
-	- ^application/(pdf|xml)
+    - application/zip
+    - application/*
+    - ^application/(pdf|xml)
 
-	As usual, the '^' prefix is used to denote that the value is a regular
-	expression.
+    As usual, the '^' prefix is used to denote that the value is a regular
+    expression.
 
-	Full list of supported content types can be found [here][3].
+    Full list of supported content types can be found [here][3].
 
 plugin.@PLUGIN@.blockedContentTypeWhitelist
-:	Blocked content type whitelist.
+:    Blocked content type whitelist.
 
-	If this option is checked, the entered content types are interpreted as
-	a whitelist. Otherwise the entered content types are interpreted as a
-	blacklist and commits that contains one of these content types will be
-	rejected.
+    If this option is checked, the entered content types are interpreted as
+    a whitelist. Otherwise the entered content types are interpreted as a
+    blacklist and commits that contains one of these content types will be
+    rejected.
 
-	There must be specified at least one blocked content type pattern,
-	otherwise this option will be ignored.
+    There must be specified at least one blocked content type pattern,
+    otherwise this option will be ignored.
 
-	The default value is false. This means the entered content types are
-	interpreted as a blacklist.
+    The default value is false. This means the entered content types are
+    interpreted as a blacklist.
 
 plugin.@PLUGIN@.rejectDuplicatePathnames
-:	Reject duplicate pathnames.
+:    Reject duplicate pathnames.
 
-	This check looks for duplicate pathnames which only differ in case
-	in the tree of the commit as these can cause problems on case
-	insensitive filesystems commonly used e.g. on Windows or Mac. If the
-	check finds duplicate pathnames the push will be rejected.
+    This check looks for duplicate pathnames which only differ in case
+    in the tree of the commit as these can cause problems on case
+    insensitive filesystems commonly used e.g. on Windows or Mac. If the
+    check finds duplicate pathnames the push will be rejected.
 
-	The default value is false. This means duplicate pathnames ignoring
-	case are allowed.
+    The default value is false. This means duplicate pathnames ignoring
+    case are allowed.
 
 plugin.@PLUGIN@.rejectDuplicatePathnamesLocale
-:	Reject duplicate pathnames locale.
+:    Reject duplicate pathnames locale.
 
-	When the validator checks for duplicate pathnames it will convert
-	the pathnames to lower case. In some cases this leads to a [problem][5].
+    When the validator checks for duplicate pathnames it will convert
+    the pathnames to lower case. In some cases this leads to a [problem][5].
 
-	To avoid these kind of problems, this option is used to specify a
-	locale which is used when converting a pathname to lower case.
+    To avoid these kind of problems, this option is used to specify a
+    locale which is used when converting a pathname to lower case.
 
-	Full list of supported locales can be found [here][6].
+    Full list of supported locales can be found [here][6].
 
-	The default value is "en" (English).
+    The default value is "en" (English).
 
 [5]: http://bugs.java.com/view_bug.do?bug_id=6208680
 [6]: http://www.oracle.com/technetwork/java/javase/javase7locales-334809.html
@@ -280,47 +280,47 @@ project.config.
 Skip of the rules is controlled by:
 
 plugin.@PLUGIN@.skipGroup
-:	Group names or UUIDs allowed to skip the rules.
+:    Group names or UUIDs allowed to skip the rules.
 
-	Groups that are allowed to skip the rules.
+    Groups that are allowed to skip the rules.
 
-	Multiple values are supported.
-	Default: nobody is allowed to skip the rules (empty).
+    Multiple values are supported.
+    Default: nobody is allowed to skip the rules (empty).
 
-	NOTE: When skipGroup isn't defined, all the other skip settings are ignored.
+    NOTE: When skipGroup isn't defined, all the other skip settings are ignored.
 
 plugin.@PLUGIN@.skipRef
-:	Ref name, pattern or regexp of the branch to skip.
+:    Ref name, pattern or regexp of the branch to skip.
 
-	List of specific ref names, ref patterns, or regular expressions
-	of the branches where Groups defined in skipGroup are allowed to
-	skip the rules.
+    List of specific ref names, ref patterns, or regular expressions
+    of the branches where Groups defined in skipGroup are allowed to
+    skip the rules.
 
-	Multiple values are supported.
-	Default: skip validation on all branches for commits pushed by a member of
-	a group listed in skipGroup
+    Multiple values are supported.
+    Default: skip validation on all branches for commits pushed by a member of
+    a group listed in skipGroup
 
 plugin.@PLUGIN@.skipValidation
-:	Specific validation to be skipped.
+:    Specific validation to be skipped.
 
-	List of specific validation operations allowed to be skipped by
-	the Groups defined in skipGroup on the branches defined in skipRef.
+    List of specific validation operations allowed to be skipped by
+    the Groups defined in skipGroup on the branches defined in skipRef.
 
-	Validations can be one of the following strings:
+    Validations can be one of the following strings:
 
-	- blockedContentType
-	- blockedFileExtension
-	- blockedKeyword
-	- invalidFilename
-	- maxPathLength
-	- rejectDuplicatePathnames
-	- rejectSubmodule
-	- rejectSymlink
-	- rejectWindowsLineEndings
-	- requiredFooter
+    - blockedContentType
+    - blockedFileExtension
+    - blockedKeyword
+    - invalidFilename
+    - maxPathLength
+    - rejectDuplicatePathnames
+    - rejectSubmodule
+    - rejectSymlink
+    - rejectWindowsLineEndings
+    - requiredFooter
 
-	Multiple values are supported.
-	Default: groups defined at skipGroup can skip all the validation rules.
+    Multiple values are supported.
+    Default: groups defined at skipGroup can skip all the validation rules.
 
 NOTE: Skip of the validations are inherited from parent projects. The definition
 of the skip criteria on All-Projects automatically apply to every project.
