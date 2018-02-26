@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a767391b_a8c5c768",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1019952
+      },
+      "writtenOn": "2018-02-26T23:15:25Z",
+      "side": 1,
+      "message": "It looks like we\u0027re also allowing whitelisting author email addresses? Presumably that should be in this description as well.",
+      "range": {
+        "startLine": 15,
+        "startChar": 18,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "a502e0c41eff0635289e4ff79bfc06636178ab0a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
