@@ -78,4 +78,10 @@ public class ChangeEmailTest {
     assertThat(ChangeEmailValidator.getAllowedCommitterEmailPatterns(EMPTY_PLUGIN_CONFIG))
         .isEmpty();
   }
+
+  @Test
+  public void validatorBehaviorWhenChangeConfigEmpty() {
+    assertThat(ChangeEmailValidator.isChangeActive(EMPTY_PLUGIN_CONFIG)).isFalse();
+    assertThat(ChangeEmailValidator.getAllowedChangeEmailPatterns(EMPTY_PLUGIN_CONFIG)).isEmpty();
+  }
 }

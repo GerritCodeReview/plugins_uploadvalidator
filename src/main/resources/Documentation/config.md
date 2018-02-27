@@ -35,8 +35,27 @@ project info screen.
     allowedAuthorEmailPattern = .*@example\\.com$
     allowedAuthorEmailPattern = admin@example\\.com
     allowedCommitterEmailPattern = .*gerrit\\.com
-    allowedCommitterEmailPattern =  admin@gerrit\\..*
+    allowedCommitterEmailPattern = admin@gerrit\\..*
+    allowedEmailPattern = .*testing.*
+    allowedEmailPattern = .*@testing\\.com
 ```
+
+plugin.@PLUGIN@.allowedEmailPattern
+:    Change Email to Allow.
+
+    This will be checked against both the Author and Committer email
+    addresses. This is intended to allow a single entry to satisfy
+    both needs.
+
+    The check looks for a match based on the described specifics.
+    If there are no matches the push will be rejected.
+
+    Note that all email addresses contain the dot character, and if
+    included in the pattern needs to be properly escaped as shown in
+    the examples.
+
+    This check is using `java.util.regex.Pattern` which is described
+    [here][1].
 
 plugin.@PLUGIN@.allowedAuthorEmailPattern
 :    Author Email to Allow.
