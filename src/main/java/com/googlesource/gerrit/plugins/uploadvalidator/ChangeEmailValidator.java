@@ -15,6 +15,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Strings;
+import com.google.common.collect.ObjectArrays;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
@@ -61,12 +62,24 @@ public class ChangeEmailValidator implements CommitValidationListener {
                     null,
                     false,
                     "Commits with committer email not matching one of these patterns will be rejected."));
+        bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_ALLOWED_CHANGE_EMAIL_PATTERN))
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Change Email Pattern",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Commits with committer or author email not matching one of these           patterns will be rejected."));
       }
     };
   }
 
   public static final String KEY_ALLOWED_AUTHOR_EMAIL_PATTERN = "allowedAuthorEmailPattern";
   public static final String KEY_ALLOWED_COMMITTER_EMAIL_PATTERN = "allowedCommitterEmailPattern";
+  public static final String KEY_ALLOWED_CHANGE_EMAIL_PATTERN = "allowedChangeEmailPattern";
+
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final GitRepositoryManager repoManager;
@@ -86,12 +99,23 @@ public class ChangeEmailValidator implements CommitValidationListener {
 
   @VisibleForTesting
   static String[] getAllowedAuthorEmailPatterns(PluginConfig cfg) {
-    return cfg.getStringList(KEY_ALLOWED_AUTHOR_EMAIL_PATTERN);
+    return ObjectArrays.concat(
+        cfg.getStringList(KEY_ALLOWED_AUTHOR_EMAIL_PATTERN),
+        cfg.getStringList(KEY_ALLOWED_CHANGE_EMAIL_PATTERN),
+        String.class);
   }
 
   @VisibleForTesting
   static String[] getAllowedCommitterEmailPatterns(PluginConfig cfg) {
-    return cfg.getStringList(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN);
+    return ObjectArrays.concat(
+        cfg.getStringList(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN),
+        cfg.getStringList(KEY_ALLOWED_CHANGE_EMAIL_PATTERN),
+        String.class);
+  }
+
+  @VisibleForTesting
+  static String[] getAllowedChangeEmailPatterns(PluginConfig cfg) {
+    return cfg.getStringList(KEY_ALLOWED_CHANGE_EMAIL_PATTERN);
   }
 
   @VisibleForTesting
@@ -104,6 +128,11 @@ public class ChangeEmailValidator implements CommitValidationListener {
     return cfg.getStringList(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN).length > 0;
   }
 
+  @VisibleForTesting
+  static boolean isChangeActive(PluginConfig cfg) {
+    return cfg.getStringList(KEY_ALLOWED_CHANGE_EMAIL_PATTERN).length > 0;
+  }
+
   @Override
   public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
       throws CommitValidationException {
@@ -112,11 +141,12 @@ public class ChangeEmailValidator implements CommitValidationListener {
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isAuthorActive(cfg)
-          && validatorConfig.isEnabledForRef(
-              receiveEvent.user,
-              receiveEvent.getProjectNameKey(),
-              receiveEvent.getRefName(),
-              KEY_ALLOWED_AUTHOR_EMAIL_PATTERN)) {
+          || isChangeActive(cfg)
+              && validatorConfig.isEnabledForRef(
+                  receiveEvent.user,
+                  receiveEvent.getProjectNameKey(),
+                  receiveEvent.getRefName(),
+                  KEY_ALLOWED_AUTHOR_EMAIL_PATTERN)) {
         if (!performValidation(
             receiveEvent.commit.getAuthorIdent().getEmailAddress(),
             getAllowedAuthorEmailPatterns(cfg))) {
@@ -127,11 +157,12 @@ public class ChangeEmailValidator implements CommitValidationListener {
         }
       }
       if (isCommitterActive(cfg)
-          && validatorConfig.isEnabledForRef(
-              receiveEvent.user,
-              receiveEvent.getProjectNameKey(),
-              receiveEvent.getRefName(),
-              KEY_ALLOWED_COMMITTER_EMAIL_PATTERN)) {
+          || isChangeActive(cfg)
+              && validatorConfig.isEnabledForRef(
+                  receiveEvent.user,
+                  receiveEvent.getProjectNameKey(),
+                  receiveEvent.getRefName(),
+                  KEY_ALLOWED_COMMITTER_EMAIL_PATTERN)) {
         if (!performValidation(
             receiveEvent.commit.getCommitterIdent().getEmailAddress(),
             getAllowedCommitterEmailPatterns(cfg))) {
