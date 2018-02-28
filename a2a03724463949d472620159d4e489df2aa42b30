@@ -151,6 +151,24 @@
     },
     {
       "key": {
+        "uuid": "80059526_a180cd47",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2018-02-28T23:03:38Z",
+      "side": 1,
+      "message": "Agreed. This should mention that it\u0027s a Java regex, like invalidFilenamePattern.",
+      "parentUuid": "2a39f264_291891a7",
+      "revId": "a2a03724463949d472620159d4e489df2aa42b30",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2943d07a_8ddc61b0",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailWhitelistTest.java",
         "patchSetId": 2
