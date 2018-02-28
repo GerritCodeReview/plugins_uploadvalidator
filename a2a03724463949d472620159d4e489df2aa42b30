@@ -131,6 +131,46 @@
       "revId": "a2a03724463949d472620159d4e489df2aa42b30",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a39f264_291891a7",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2018-02-28T22:59:17Z",
+      "side": 1,
+      "message": "I am not sure what a \"pattern\" is if not an RE?  How will I know whether it is looking for an exact match, a pattern, or an RE?",
+      "revId": "a2a03724463949d472620159d4e489df2aa42b30",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2943d07a_8ddc61b0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailWhitelistTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2018-02-28T22:59:17Z",
+      "side": 1,
+      "message": "Why would someone have to specify wildcards on the front to presumably overcome auto-anchoring, and then anchor the back?",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "a2a03724463949d472620159d4e489df2aa42b30",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
