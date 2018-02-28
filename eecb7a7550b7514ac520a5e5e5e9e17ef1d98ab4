@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d7078115_976ff8b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2018-02-28T22:49:55Z",
+      "side": 1,
+      "message": "Commit message proposal, as an example for next time (sorry I didn\u0027t edit it in time):\n\n Clean up tabs in config documentation\n\n This file uses a mixture of 4-space and one-tab indents, making the\n source hard to read in any editor with a tab stop other than 4.\n\n Replace all tabs with spaces so the file is uniform and easier to\n read.\n\n Change-Id: I3136b0328e51d32ea8b556c1e3b29ee5cb447c79",
+      "revId": "eecb7a7550b7514ac520a5e5e5e9e17ef1d98ab4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "370c4ff0_cae87de1",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
