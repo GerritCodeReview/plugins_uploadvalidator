@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "8bf384a6_7ff116aa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailWhitelistValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2018-03-01T22:13:24Z",
+      "side": 1,
+      "message": "Either required or allowed sounds fine. allowed sounds a bit better to me.",
+      "parentUuid": "645f2a8d_d4b6abcb",
+      "range": {
+        "startLine": 69,
+        "startChar": 59,
+        "endLine": 69,
+        "endChar": 81
+      },
+      "revId": "8918778134a0ee48f31d4ade993a88b973c6e3df",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b5d467f_430e9bd2",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
