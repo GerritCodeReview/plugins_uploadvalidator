@@ -138,6 +138,29 @@
     },
     {
       "key": {
+        "uuid": "65b13c97_38d6ace9",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2018-03-02T22:50:19Z",
+      "side": 1,
+      "message": "We need to escape any regex characters in our examples.",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "8918778134a0ee48f31d4ade993a88b973c6e3df",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e7a9c8b_c7f4ecac",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
