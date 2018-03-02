@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "c9484a73_d51b44e3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailWhitelistValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-03-02T18:25:16Z",
+      "side": 1,
+      "message": "Along with this, should change the name of the plugin too? Seeing how we are setting up for future extended functionally, the whitelist name doesn\u0027t seem to apply anymore.\n\nEmailWhitelistValidator to ... maybe just EmailValidator or ChangeEmailValidator or maybe EmailPatternValidator?",
+      "parentUuid": "8bf384a6_7ff116aa",
+      "range": {
+        "startLine": 69,
+        "startChar": 59,
+        "endLine": 69,
+        "endChar": 81
+      },
+      "revId": "8918778134a0ee48f31d4ade993a88b973c6e3df",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b5d467f_430e9bd2",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
