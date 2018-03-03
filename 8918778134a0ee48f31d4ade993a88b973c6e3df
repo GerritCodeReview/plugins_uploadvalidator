@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "2f9187e3_fa8e36ee",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/EmailWhitelistValidator.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-03-03T00:41:42Z",
+      "side": 1,
+      "message": "...ya I realized my that right after I hit reply\n\nAlso ended up deciding on ChangeEmailValidator for the name, since email was a little too vague.",
+      "parentUuid": "b89a3d25_87da36e6",
+      "range": {
+        "startLine": 69,
+        "startChar": 59,
+        "endLine": 69,
+        "endChar": 81
+      },
+      "revId": "8918778134a0ee48f31d4ade993a88b973c6e3df",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4b5d467f_430e9bd2",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -159,6 +183,24 @@
       "revId": "8918778134a0ee48f31d4ade993a88b973c6e3df",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "207a4781_d3bbfa6f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-03-03T00:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b5d467f_430e9bd2",
+      "revId": "8918778134a0ee48f31d4ade993a88b973c6e3df",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -185,6 +227,30 @@
     },
     {
       "key": {
+        "uuid": "9a145d5b_f69f3349",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-03-03T00:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65b13c97_38d6ace9",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "8918778134a0ee48f31d4ade993a88b973c6e3df",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e7a9c8b_c7f4ecac",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -199,6 +265,24 @@
       "revId": "8918778134a0ee48f31d4ade993a88b973c6e3df",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddbc732c_0a8c4543",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-03-03T00:41:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e7a9c8b_c7f4ecac",
+      "revId": "8918778134a0ee48f31d4ade993a88b973c6e3df",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
