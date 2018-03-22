@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb05a233_b41aa4a2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeEmailValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2018-03-22T22:24:49Z",
+      "side": 1,
+      "message": "strange whitespace",
+      "range": {
+        "startLine": 74,
+        "startChar": 85,
+        "endLine": 74,
+        "endChar": 96
+      },
+      "revId": "2920493ee0e69adb9048795fab514e82d0a2ab51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "533fdbb7_3a3c1fda",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2018-03-22T22:24:49Z",
+      "side": 1,
+      "message": "optional: How about: allowedEmailPattern?",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "2920493ee0e69adb9048795fab514e82d0a2ab51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d607446_3496f6ee",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2018-03-22T22:24:49Z",
+      "side": 1,
+      "message": "What happens if both this and allowedAuthorEmailPattern are set? Is the permitted set the union or the intersection of sets matched by the two pattern lists?",
+      "revId": "2920493ee0e69adb9048795fab514e82d0a2ab51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
