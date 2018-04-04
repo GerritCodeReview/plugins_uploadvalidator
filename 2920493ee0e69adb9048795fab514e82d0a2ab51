@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f8cfee22_817d626f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeEmailValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-04-04T18:19:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b17ab12_ba159ebe",
+      "range": {
+        "startLine": 74,
+        "startChar": 85,
+        "endLine": 74,
+        "endChar": 96
+      },
+      "revId": "2920493ee0e69adb9048795fab514e82d0a2ab51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "533fdbb7_3a3c1fda",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -93,6 +117,30 @@
       "revId": "2920493ee0e69adb9048795fab514e82d0a2ab51",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75c03d8f_64d64c67",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1056342
+      },
+      "writtenOn": "2018-04-04T18:19:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc3ce8d9_999f6f99",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "2920493ee0e69adb9048795fab514e82d0a2ab51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
