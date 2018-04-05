@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "bb332afc_6761a236",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003883
+      },
+      "writtenOn": "2018-04-05T17:08:29Z",
+      "side": 1,
+      "message": "I think that allowedEmailPattern is too vague and could lead to confusion.  As a person configuring this, I would think that an allowedEmailPattern would verify the email of the Gerrit user (any of their registered emails), not necessarily the git (change) contents.",
+      "parentUuid": "75c03d8f_64d64c67",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "2920493ee0e69adb9048795fab514e82d0a2ab51",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d607446_3496f6ee",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
