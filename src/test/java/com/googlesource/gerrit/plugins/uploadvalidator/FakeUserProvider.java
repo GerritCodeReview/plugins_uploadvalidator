@@ -48,8 +48,7 @@ public class FakeUserProvider implements Provider<IdentifiedUser> {
     expect(user.isIdentifiedUser()).andReturn(true);
     expect(user.asIdentifiedUser()).andReturn(user);
     expect(user.getAccount()).andStubReturn(account);
-    expect(user.getEffectiveGroups()).andReturn(
-        new FakeGroupMembership(groupUUID));
+    expect(user.getEffectiveGroups()).andReturn(new FakeGroupMembership(groupUUID));
     replay(user);
     return user;
   }

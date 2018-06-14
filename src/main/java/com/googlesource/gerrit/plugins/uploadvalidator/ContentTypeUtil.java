@@ -25,17 +25,15 @@ import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
+import java.util.regex.Pattern;
 import org.apache.tika.Tika;
 import org.apache.tika.config.TikaConfig;
 import org.apache.tika.io.TikaInputStream;
 import org.apache.tika.metadata.Metadata;
 import org.eclipse.jgit.lib.ObjectLoader;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.concurrent.ExecutionException;
-import java.util.regex.Pattern;
 
 public class ContentTypeUtil {
   private static final String KEY_BINARY_TYPES = "binaryTypes";
@@ -48,13 +46,18 @@ public class ContentTypeUtil {
         bind(ContentTypeUtil.class);
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_BINARY_TYPES))
-            .toInstance(new ProjectConfigEntry("Binary Types", null,
-                ProjectConfigEntryType.ARRAY, null, false,
-                "At the moment, there is no ideal solution to detect binary "
-                    + "files. But some checks shouldn't run on binary files "
-                    + "(e. g. InvalidLineEndingCheck). Because of that you can "
-                    + "enter content types to avoid that these checks run on "
-                    + "files with one of the entered content types."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Binary Types",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "At the moment, there is no ideal solution to detect binary "
+                        + "files. But some checks shouldn't run on binary files "
+                        + "(e. g. InvalidLineEndingCheck). Because of that you can "
+                        + "enter content types to avoid that these checks run on "
+                        + "files with one of the entered content types."));
       }
     };
   }
@@ -68,8 +71,7 @@ public class ContentTypeUtil {
   private final Tika tika = new Tika(TikaConfig.getDefaultConfig());
 
   @Inject
-  ContentTypeUtil(
-      @Named(CACHE_NAME) LoadingCache<String, Pattern> patternCache) {
+  ContentTypeUtil(@Named(CACHE_NAME) LoadingCache<String, Pattern> patternCache) {
     this.patternCache = patternCache;
   }
 
@@ -80,22 +82,18 @@ public class ContentTypeUtil {
     }
   }
 
-  public String getContentType(InputStream is, String pathname)
-      throws IOException {
+  public String getContentType(InputStream is, String pathname) throws IOException {
     Metadata metadata = new Metadata();
     metadata.set(Metadata.RESOURCE_NAME_KEY, pathname);
     return tika.detect(TikaInputStream.get(is), metadata);
   }
 
   @VisibleForTesting
-  boolean matchesAny(String s, String[] patterns)
-      throws ExecutionException {
+  boolean matchesAny(String s, String[] patterns) throws ExecutionException {
     for (String p : patterns) {
-      if (p.startsWith("^")
-          && patternCache.get(p).matcher(s).matches()) {
+      if (p.startsWith("^") && patternCache.get(p).matcher(s).matches()) {
         return true;
-      } else if (p.endsWith("*")
-          && s.startsWith(p.substring(0, p.length() - 1))) {
+      } else if (p.endsWith("*") && s.startsWith(p.substring(0, p.length() - 1))) {
         return true;
       } else {
         if (p.equals(s)) {

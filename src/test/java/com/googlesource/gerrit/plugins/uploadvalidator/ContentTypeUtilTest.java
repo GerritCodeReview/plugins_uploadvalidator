@@ -18,10 +18,9 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
 
+import java.util.concurrent.ExecutionException;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.concurrent.ExecutionException;
 
 public class ContentTypeUtilTest {
   private ContentTypeUtil ctu;
@@ -33,8 +32,7 @@ public class ContentTypeUtilTest {
 
   @Test
   public void testMatchesAny() throws ExecutionException {
-    String[] patterns =
-        new String[] {"text/*", "^application/(pdf|xml)", "application/zip"};
+    String[] patterns = new String[] {"text/*", "^application/(pdf|xml)", "application/zip"};
 
     matchesAny("text/xml", patterns);
     matchesAny("text/html", patterns);
@@ -47,13 +45,11 @@ public class ContentTypeUtilTest {
     noMatch("application/msword", patterns);
   }
 
-  private void matchesAny(String p, String[] patterns)
-      throws ExecutionException {
+  private void matchesAny(String p, String[] patterns) throws ExecutionException {
     assertThat(ctu.matchesAny(p, patterns)).isTrue();
   }
 
-  private void noMatch(String p, String[] patterns)
-      throws ExecutionException {
+  private void noMatch(String p, String[] patterns) throws ExecutionException {
     assertThat(ctu.matchesAny(p, patterns)).isFalse();
   }
 

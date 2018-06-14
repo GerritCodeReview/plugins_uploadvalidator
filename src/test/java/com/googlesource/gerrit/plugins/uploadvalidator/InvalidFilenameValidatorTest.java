@@ -18,16 +18,14 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.junit.Test;
 
 public class InvalidFilenameValidatorTest extends ValidatorTestCase {
   private static Set<String> getInvalidFilenames() {
@@ -56,14 +54,13 @@ public class InvalidFilenameValidatorTest extends ValidatorTestCase {
   public void test() throws Exception {
     String[] invalidFilenamePattern = {"\\[|\\]|\\*|#", "[%:@]"};
     RevCommit c = makeCommit();
-    List<CommitValidationMessage> m = InvalidFilenameValidator
-        .performValidation(repo, c, invalidFilenamePattern);
+    List<CommitValidationMessage> m =
+        InvalidFilenameValidator.performValidation(repo, c, invalidFilenamePattern);
     Set<String> expected = new HashSet<>();
     for (String filenames : getInvalidFilenames()) {
       expected.add("ERROR: invalid characters found in filename: " + filenames);
     }
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
+    assertThat(TestUtils.transformMessages(m)).containsExactlyElementsIn(expected);
   }
 
   @Test

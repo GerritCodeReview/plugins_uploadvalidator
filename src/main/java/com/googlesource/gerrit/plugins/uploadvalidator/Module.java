@@ -36,7 +36,6 @@ public class Module extends AbstractModule {
     install(DuplicatePathnameValidator.module());
     install(ValidatorConfig.module());
 
-    bind(ConfigFactory.class).to(PluginConfigWithInheritanceFactory.class).in(
-        Scopes.SINGLETON);
+    bind(ConfigFactory.class).to(PluginConfigWithInheritanceFactory.class).in(Scopes.SINGLETON);
   }
 }

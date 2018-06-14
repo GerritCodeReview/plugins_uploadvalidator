@@ -21,7 +21,13 @@ import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Lists;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.AddCommand;
 import org.eclipse.jgit.api.Git;
@@ -35,17 +41,8 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTree;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Pattern;
-
 public class TestUtils {
-  public static final PluginConfig EMPTY_PLUGIN_CONFIG =
-      new PluginConfig("", new Config());
+  public static final PluginConfig EMPTY_PLUGIN_CONFIG = new PluginConfig("", new Config());
 
   protected static final byte[] EMPTY_CONTENT = "".getBytes(Charsets.UTF_8);
 
@@ -59,18 +56,16 @@ public class TestUtils {
       };
 
   public static final LoadingCache<String, Pattern> PATTERN_CACHE =
-    CacheBuilder.newBuilder().build(new PatternCacheModule.Loader());
+      CacheBuilder.newBuilder().build(new PatternCacheModule.Loader());
 
-  public static Repository createNewRepository(File repoFolder)
-      throws IOException {
-    Repository repository =
-        FileRepositoryBuilder.create(new File(repoFolder, ".git"));
+  public static Repository createNewRepository(File repoFolder) throws IOException {
+    Repository repository = FileRepositoryBuilder.create(new File(repoFolder, ".git"));
     repository.create();
     return repository;
   }
 
-  public static RevCommit makeCommit(Repository repo, String message,
-      Set<File> files) throws IOException, GitAPIException {
+  public static RevCommit makeCommit(Repository repo, String message, Set<File> files)
+      throws IOException, GitAPIException {
     Map<File, byte[]> tmp = new HashMap<>();
     for (File f : files) {
       tmp.put(f, null);
@@ -78,8 +73,8 @@ public class TestUtils {
     return makeCommit(repo, message, tmp);
   }
 
-  public static RevCommit makeCommit(Repository repo, String message,
-      Map<File, byte[]> files) throws IOException, GitAPIException {
+  public static RevCommit makeCommit(Repository repo, String message, Map<File, byte[]> files)
+      throws IOException, GitAPIException {
     try (Git git = new Git(repo)) {
       if (files != null) {
         addFiles(git, files);
@@ -94,8 +89,7 @@ public class TestUtils {
         .substring(1);
   }
 
-  public static void removeFiles(Git git, Set<File> files)
-      throws GitAPIException {
+  public static void removeFiles(Git git, Set<File> files) throws GitAPIException {
     RmCommand rmc = git.rm();
     for (File f : files) {
       rmc.addFilepattern(generateFilePattern(f, git));
@@ -126,39 +120,34 @@ public class TestUtils {
     return MESSAGE_TRANSFORMER.apply(messages);
   }
 
-  public static List<String> transformMessages(
-      List<CommitValidationMessage> messages) {
+  public static List<String> transformMessages(List<CommitValidationMessage> messages) {
     return Lists.transform(messages, MESSAGE_TRANSFORMER);
   }
 
   public static DirCacheEntry[] createEmptyDirCacheEntries(
-      List<String> filenames, TestRepository<Repository> repo)
-      throws Exception {
+      List<String> filenames, TestRepository<Repository> repo) throws Exception {
     DirCacheEntry[] entries = new DirCacheEntry[filenames.size()];
     for (int x = 0; x < filenames.size(); x++) {
       entries[x] = createDirCacheEntry(filenames.get(x), EMPTY_CONTENT, repo);
     }
     return entries;
-
   }
 
-  public static DirCacheEntry createDirCacheEntry(String pathname,
-      byte[] content, TestRepository<Repository> repo)
-      throws Exception {
+  public static DirCacheEntry createDirCacheEntry(
+      String pathname, byte[] content, TestRepository<Repository> repo) throws Exception {
     return repo.file(pathname, repo.blob(content));
   }
 
-  public static RevCommit makeCommit(DirCacheEntry[] entries,
-      TestRepository<Repository> repo) throws Exception {
+  public static RevCommit makeCommit(DirCacheEntry[] entries, TestRepository<Repository> repo)
+      throws Exception {
     return makeCommit(entries, repo, (RevCommit[]) null);
   }
 
-  public static RevCommit makeCommit(DirCacheEntry[] entries,
-      TestRepository<Repository> repo, RevCommit... parents)
+  public static RevCommit makeCommit(
+      DirCacheEntry[] entries, TestRepository<Repository> repo, RevCommit... parents)
       throws Exception {
     final RevTree ta = repo.tree(entries);
-    RevCommit c =
-        (parents == null) ? repo.commit(ta) : repo.commit(ta, parents);
+    RevCommit c = (parents == null) ? repo.commit(ta) : repo.commit(ta, parents);
     repo.parseBody(c);
     return c;
   }

@@ -18,7 +18,6 @@ import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.IdentifiedUser;
-
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Test;
 
@@ -29,58 +28,58 @@ public class ProjectAwareValidatorConfigTest {
   @Test
   public void isEnabledForAllProjectsByDefault() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "blockedFileExtension = jar", projectName);
+        getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar", projectName);
 
-    assertThat(
-        config.isEnabledForRef(anyUser, projectName, "anyRef",
-            "blockedFileExtension")).isTrue();
+    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+        .isTrue();
   }
 
   @Test
   public void isEnabledForSingleProject() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "   project = testProject\n"
-            + "   blockedFileExtension = jar", projectName);
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   project = testProject\n"
+                + "   blockedFileExtension = jar",
+            projectName);
 
-    assertThat(
-        config.isEnabledForRef(anyUser, projectName, "anyRef",
-            "blockedFileExtension")).isTrue();
+    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+        .isTrue();
   }
 
   @Test
   public void isDisabledForInvalidProject() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "   project = someOtherProject\n"
-            + "   blockedFileExtension = jar", projectName);
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   project = someOtherProject\n"
+                + "   blockedFileExtension = jar",
+            projectName);
 
-    assertThat(
-        config.isEnabledForRef(anyUser, projectName, "anyRef",
-            "blockedFileExtension")).isFalse();
+    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+        .isFalse();
   }
 
   @Test
   public void isEnabledForRegexProject() throws Exception {
-    String configString = "[plugin \"uploadvalidator\"]\n"
-        + "   project = test.*\n"
-        + "   blockedFileExtension = jar";
+    String configString =
+        "[plugin \"uploadvalidator\"]\n"
+            + "   project = test.*\n"
+            + "   blockedFileExtension = jar";
     Project.NameKey otherNameKey = new Project.NameKey("someOtherProject");
     ValidatorConfig config = getConfig(configString, projectName);
     ValidatorConfig config2 = getConfig(configString, otherNameKey);
 
-    assertThat(
-        config.isEnabledForRef(anyUser, projectName, "anyRef",
-            "blockedFileExtension")).isTrue();
-    assertThat(
-        config2.isEnabledForRef(anyUser, otherNameKey,
-            "anyRef", "blockedFileExtension")).isFalse();
+    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+        .isTrue();
+    assertThat(config2.isEnabledForRef(anyUser, otherNameKey, "anyRef", "blockedFileExtension"))
+        .isFalse();
   }
 
   @Test
   public void isEnabledForMultipleProjects() throws Exception {
-    String configString = "[plugin \"uploadvalidator\"]\n"
+    String configString =
+        "[plugin \"uploadvalidator\"]\n"
             + "   project = testProject\n"
             + "   project = another.*\n"
             + "   blockedFileExtension = jar";
@@ -90,23 +89,19 @@ public class ProjectAwareValidatorConfigTest {
     ValidatorConfig config2 = getConfig(configString, anotherNameKey);
     ValidatorConfig config3 = getConfig(configString, someOtherNameKey);
 
-    assertThat(
-        config.isEnabledForRef(anyUser, projectName, "anyRef",
-            "blockedFileExtension")).isTrue();
-    assertThat(
-        config2.isEnabledForRef(anyUser, anotherNameKey, "anyRef",
-            "blockedFileExtension")).isTrue();
-    assertThat(
-        config3.isEnabledForRef(anyUser, someOtherNameKey, "anyRef",
-            "blockedFileExtension")).isFalse();
+    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+        .isTrue();
+    assertThat(config2.isEnabledForRef(anyUser, anotherNameKey, "anyRef", "blockedFileExtension"))
+        .isTrue();
+    assertThat(config3.isEnabledForRef(anyUser, someOtherNameKey, "anyRef", "blockedFileExtension"))
+        .isFalse();
   }
 
-  private ValidatorConfig getConfig(
-      String defaultConfig, Project.NameKey projName)
+  private ValidatorConfig getConfig(String defaultConfig, Project.NameKey projName)
       throws ConfigInvalidException {
     ValidatorConfig config =
-        new ValidatorConfig(new FakeConfigFactory(projName, defaultConfig),
-            new FakeGroupCacheUUIDByName());
+        new ValidatorConfig(
+            new FakeConfigFactory(projName, defaultConfig), new FakeGroupCacheUUIDByName());
     return config;
   }
 }

@@ -18,89 +18,95 @@ import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.IdentifiedUser;
-
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Test;
 
 public class RefAwareValidatorConfigTest {
-  private final Project.NameKey projectName =
-      new Project.NameKey("testProject");
+  private final Project.NameKey projectName = new Project.NameKey("testProject");
   private final IdentifiedUser anyUser = new FakeUserProvider().get();
 
   @Test
   public void isEnabledForAllRefsByDefault() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "blockedFileExtension = jar");
+        getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar");
 
-    assertThat(
-        config.isEnabledForRef(anyUser, projectName, "anyRef",
-            "blockedFileExtension")).isTrue();
+    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+        .isTrue();
   }
 
   @Test
   public void isEnabledForSingleRef() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "   ref = refs/heads/anyref\n"
-            + "   blockedFileExtension = jar");
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   ref = refs/heads/anyref\n"
+                + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/anyref",
-            "blockedFileExtension")).isTrue();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+        .isTrue();
   }
 
   @Test
   public void isDisabledForInvalidRef() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "   ref = anInvalidRef\n"
-            + "   blockedFileExtension = jar");
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   ref = anInvalidRef\n"
+                + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/anyref",
-            "blockedFileExtension")).isFalse();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+        .isFalse();
   }
 
   @Test
   public void isEnabledForRegexRef() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "   ref = ^refs/heads/mybranch.*\n"
-            + "   blockedFileExtension = jar");
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   ref = ^refs/heads/mybranch.*\n"
+                + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/anotherref",
-            "blockedFileExtension")).isFalse();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/anotherref", "blockedFileExtension"))
+        .isFalse();
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/mybranch123",
-            "blockedFileExtension")).isTrue();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/mybranch123", "blockedFileExtension"))
+        .isTrue();
   }
 
   @Test
   public void isEnabledForMultipleRefs() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "   ref = refs/heads/branch1\n"
-            + "   ref = refs/heads/branch2\n"
-            + "   blockedFileExtension = jar");
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   ref = refs/heads/branch1\n"
+                + "   ref = refs/heads/branch2\n"
+                + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/branch1",
-            "blockedFileExtension")).isTrue();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/branch1", "blockedFileExtension"))
+        .isTrue();
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/branch2",
-            "blockedFileExtension")).isTrue();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/branch2", "blockedFileExtension"))
+        .isTrue();
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/branch3",
-            "blockedFileExtension")).isFalse();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/branch3", "blockedFileExtension"))
+        .isFalse();
   }
 
-  private ValidatorConfig getConfig(String defaultConfig)
-      throws ConfigInvalidException {
+  private ValidatorConfig getConfig(String defaultConfig) throws ConfigInvalidException {
     ValidatorConfig config =
-        new ValidatorConfig(new FakeConfigFactory(projectName, defaultConfig),
-            new FakeGroupCacheUUIDByName());
+        new ValidatorConfig(
+            new FakeConfigFactory(projectName, defaultConfig), new FakeGroupCacheUUIDByName());
     return config;
   }
 }

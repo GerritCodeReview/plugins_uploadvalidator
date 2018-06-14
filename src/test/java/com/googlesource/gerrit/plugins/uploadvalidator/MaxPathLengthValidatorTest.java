@@ -19,17 +19,15 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
-import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.junit.Test;
 
 public class MaxPathLengthValidatorTest extends ValidatorTestCase {
   private static final String TOO_LONG = "foo/bar/test/too/long.java";
@@ -51,23 +49,21 @@ public class MaxPathLengthValidatorTest extends ValidatorTestCase {
     RevCommit c = makeCommit();
     List<CommitValidationMessage> m =
         MaxPathLengthValidator.performValidation(repo, c, getMaxPathLength());
-    Set<String> expected =
-        ImmutableSet.of("ERROR: path too long: " + TOO_LONG);
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
+    Set<String> expected = ImmutableSet.of("ERROR: path too long: " + TOO_LONG);
+    assertThat(TestUtils.transformMessages(m)).containsExactlyElementsIn(expected);
   }
 
   @Test
   public void testDeleteTooLongPath() throws Exception {
     RevCommit c = makeCommit();
-    try(Git git = new Git(repo)) {
+    try (Git git = new Git(repo)) {
       Set<File> files = new HashSet<>();
       files.add(TestUtils.createEmptyFile(TOO_LONG, repo));
       TestUtils.removeFiles(git, files);
       c = git.commit().setMessage("Delete file which is too long").call();
     }
-    List<CommitValidationMessage> m = MaxPathLengthValidator
-        .performValidation(repo, c, getMaxPathLength());
+    List<CommitValidationMessage> m =
+        MaxPathLengthValidator.performValidation(repo, c, getMaxPathLength());
     assertThat(m).isEmpty();
   }
 

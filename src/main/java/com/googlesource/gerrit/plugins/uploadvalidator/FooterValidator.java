@@ -30,14 +30,12 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
-
-import org.eclipse.jgit.revwalk.FooterLine;
-
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import org.eclipse.jgit.revwalk.FooterLine;
 
 public class FooterValidator implements CommitValidationListener {
 
@@ -46,14 +44,18 @@ public class FooterValidator implements CommitValidationListener {
 
       @Override
       protected void configure() {
-        DynamicSet.bind(binder(), CommitValidationListener.class)
-            .to(FooterValidator.class);
+        DynamicSet.bind(binder(), CommitValidationListener.class).to(FooterValidator.class);
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_REQUIRED_FOOTER))
-            .toInstance(new ProjectConfigEntry("Required Footers", null,
-                ProjectConfigEntryType.ARRAY, null, false,
-                "Required footers. Pushes of commits that miss any"
-                    + " of the footers will be rejected."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Required Footers",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Required footers. Pushes of commits that miss any"
+                        + " of the footers will be rejected."));
       }
     };
   }
@@ -65,7 +67,9 @@ public class FooterValidator implements CommitValidationListener {
   private final ValidatorConfig validatorConfig;
 
   @Inject
-  FooterValidator(@PluginName String pluginName, PluginConfigFactory cfgFactory,
+  FooterValidator(
+      @PluginName String pluginName,
+      PluginConfigFactory cfgFactory,
       ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
@@ -73,31 +77,35 @@ public class FooterValidator implements CommitValidationListener {
   }
 
   @Override
-  public List<CommitValidationMessage> onCommitReceived(
-      CommitReceivedEvent receiveEvent) throws CommitValidationException {
+  public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
+      throws CommitValidationException {
     try {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      String[] requiredFooters =
-          cfg.getStringList(KEY_REQUIRED_FOOTER);
+      String[] requiredFooters = cfg.getStringList(KEY_REQUIRED_FOOTER);
       if (requiredFooters.length > 0
-          && validatorConfig.isEnabledForRef(receiveEvent.user,
-              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+          && validatorConfig.isEnabledForRef(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
               KEY_REQUIRED_FOOTER)) {
         List<CommitValidationMessage> messages = new LinkedList<>();
-        Set<String> footers = FluentIterable.from(receiveEvent.commit.getFooterLines())
-            .transform(new Function<FooterLine, String>() {
-                @Override
-                public String apply(FooterLine f) {
-                    return f.getKey().toLowerCase(Locale.US);
-                }
-            })
-            .toSet();
+        Set<String> footers =
+            FluentIterable.from(receiveEvent.commit.getFooterLines())
+                .transform(
+                    new Function<FooterLine, String>() {
+                      @Override
+                      public String apply(FooterLine f) {
+                        return f.getKey().toLowerCase(Locale.US);
+                      }
+                    })
+                .toSet();
         for (int i = 0; i < requiredFooters.length; i++) {
           if (!footers.contains(requiredFooters[i].toLowerCase(Locale.US))) {
-            messages.add(new CommitValidationMessage(
-                "missing required footer: " + requiredFooters[i], true));
+            messages.add(
+                new CommitValidationMessage(
+                    "missing required footer: " + requiredFooters[i], true));
           }
         }
         if (!messages.isEmpty()) {

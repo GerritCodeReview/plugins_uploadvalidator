@@ -33,12 +33,6 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
-
-import org.eclipse.jgit.lib.FileMode;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.treewalk.TreeWalk;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
@@ -50,13 +44,18 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import org.eclipse.jgit.lib.FileMode;
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.treewalk.TreeWalk;
 
 public class DuplicatePathnameValidator implements CommitValidationListener {
 
   public static AbstractModule module() {
     return new AbstractModule() {
       private List<String> getAvailableLocales() {
-        return Lists.transform(Arrays.asList(Locale.getAvailableLocales()),
+        return Lists.transform(
+            Arrays.asList(Locale.getAvailableLocales()),
             new Function<Locale, String>() {
               @Override
               public String apply(Locale input) {
@@ -71,25 +70,34 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
             .to(DuplicatePathnameValidator.class);
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_REJECT_DUPLICATE_PATHNAMES))
-            .toInstance(new ProjectConfigEntry("Reject Duplicate Pathnames",
-                null, ProjectConfigEntryType.BOOLEAN, null, false,
-                "Pushes of commits that contain duplicate pathnames, or that "
-                    + "contain duplicates of existing pathnames will be "
-                    + "rejected. Pathnames y and z are considered to be "
-                    + "duplicates if they are equal, case-insensitive."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Reject Duplicate Pathnames",
+                    null,
+                    ProjectConfigEntryType.BOOLEAN,
+                    null,
+                    false,
+                    "Pushes of commits that contain duplicate pathnames, or that "
+                        + "contain duplicates of existing pathnames will be "
+                        + "rejected. Pathnames y and z are considered to be "
+                        + "duplicates if they are equal, case-insensitive."));
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_REJECT_DUPLICATE_PATHNAMES_LOCALE))
-            .toInstance(new ProjectConfigEntry("Reject Duplicate Pathnames Locale",
-                "en", ProjectConfigEntryType.STRING, getAvailableLocales(), false,
-                "To avoid problems caused by comparing pathnames with different "
-                    + "locales it is possible to use a specific locale. The "
-                    + "default is English (en)."));
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Reject Duplicate Pathnames Locale",
+                    "en",
+                    ProjectConfigEntryType.STRING,
+                    getAvailableLocales(),
+                    false,
+                    "To avoid problems caused by comparing pathnames with different "
+                        + "locales it is possible to use a specific locale. The "
+                        + "default is English (en)."));
       }
     };
   }
 
-  public static final String KEY_REJECT_DUPLICATE_PATHNAMES =
-      "rejectDuplicatePathnames";
+  public static final String KEY_REJECT_DUPLICATE_PATHNAMES = "rejectDuplicatePathnames";
   public static final String KEY_REJECT_DUPLICATE_PATHNAMES_LOCALE =
       "rejectDuplicatePathnamesLocale";
 
@@ -100,8 +108,7 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
 
   @VisibleForTesting
   static Locale getLocale(PluginConfig cfg) {
-    return Locale.forLanguageTag(
-        cfg.getString(KEY_REJECT_DUPLICATE_PATHNAMES_LOCALE, "en"));
+    return Locale.forLanguageTag(cfg.getString(KEY_REJECT_DUPLICATE_PATHNAMES_LOCALE, "en"));
   }
 
   @VisibleForTesting
@@ -134,8 +141,7 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
 
   @VisibleForTesting
   static CommitValidationMessage conflict(String f1, String f2) {
-    return new CommitValidationMessage(f1 + ": pathname conflicts with " + f2,
-        true);
+    return new CommitValidationMessage(f1 + ": pathname conflicts with " + f2, true);
   }
 
   private static boolean isDeleted(TreeWalk tw) {
@@ -155,8 +161,10 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
   }
 
   @Inject
-  DuplicatePathnameValidator(@PluginName String pluginName,
-      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager,
+  DuplicatePathnameValidator(
+      @PluginName String pluginName,
+      PluginConfigFactory cfgFactory,
+      GitRepositoryManager repoManager,
       ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
@@ -165,37 +173,34 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
   }
 
   @Override
-  public List<CommitValidationMessage> onCommitReceived(
-      CommitReceivedEvent receiveEvent) throws CommitValidationException {
+  public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
+      throws CommitValidationException {
     try {
-      PluginConfig cfg = cfgFactory
-          .getFromProjectConfigWithInheritance(
+      PluginConfig cfg =
+          cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(receiveEvent.user,
-              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+          && validatorConfig.isEnabledForRef(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
               KEY_REJECT_DUPLICATE_PATHNAMES)) {
         locale = getLocale(cfg);
-        try (Repository repo =
-            repoManager.openRepository(receiveEvent.project.getNameKey())) {
-          List<CommitValidationMessage> messages =
-              performValidation(repo, receiveEvent.commit);
+        try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
+          List<CommitValidationMessage> messages = performValidation(repo, receiveEvent.commit);
           if (!messages.isEmpty()) {
-            throw new CommitValidationException("contains duplicate pathnames",
-                messages);
+            throw new CommitValidationException("contains duplicate pathnames", messages);
           }
         }
       }
     } catch (NoSuchProjectException | IOException e) {
-      throw new CommitValidationException(
-          "failed to check for duplicate pathnames", e);
+      throw new CommitValidationException("failed to check for duplicate pathnames", e);
     }
     return Collections.emptyList();
   }
 
   @VisibleForTesting
-  List<CommitValidationMessage> performValidation(Repository repo, RevCommit c)
-      throws IOException {
+  List<CommitValidationMessage> performValidation(Repository repo, RevCommit c) throws IOException {
     List<CommitValidationMessage> messages = new LinkedList<>();
 
     Set<String> pathnames = CommitUtils.getChangedPaths(repo, c);
@@ -213,9 +218,8 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
   }
 
   @VisibleForTesting
-  void checkForDuplicatesAgainstTheWholeTree(TreeWalk tw,
-      Set<String> changed, List<CommitValidationMessage> messages)
-          throws IOException {
+  void checkForDuplicatesAgainstTheWholeTree(
+      TreeWalk tw, Set<String> changed, List<CommitValidationMessage> messages) throws IOException {
     Map<String, String> all = allPaths(changed);
 
     while (tw.next()) {
@@ -239,8 +243,7 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
     }
   }
 
-  private void checkForDuplicatesInSet(Set<String> files,
-      List<CommitValidationMessage> messages) {
+  private void checkForDuplicatesInSet(Set<String> files, List<CommitValidationMessage> messages) {
     Set<String> filesAndFolders = Sets.newHashSet(files);
     filesAndFolders.addAll(allParentFolders(files));
     Map<String, String> seen = new HashMap<>();

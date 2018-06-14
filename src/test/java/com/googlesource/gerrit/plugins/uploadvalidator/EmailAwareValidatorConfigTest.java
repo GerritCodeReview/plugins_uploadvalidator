@@ -18,7 +18,6 @@ import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.IdentifiedUser;
-
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Test;
 
@@ -29,52 +28,59 @@ public class EmailAwareValidatorConfigTest {
   @Test
   public void isEnabledForAllEmailsByDefault() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "blockedFileExtension = jar");
+        getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar");
 
-    assertThat(
-        config.isEnabledForRef(anyUser, projectName, "anyRef",
-            "blockedFileExtension")).isTrue();
+    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+        .isTrue();
   }
 
   @Test
   public void isEnabledForSingleEmail() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "   email = " + FakeUserProvider.FAKE_EMAIL + "\n"
-            + "   blockedFileExtension = jar");
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   email = "
+                + FakeUserProvider.FAKE_EMAIL
+                + "\n"
+                + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/anyref",
-            "blockedFileExtension")).isTrue();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+        .isTrue();
   }
 
   @Test
   public void isDisabledForInvalidEmail() throws Exception {
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "   email = anInvalidEmail@example.com\n"
-            + "   blockedFileExtension = jar");
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   email = anInvalidEmail@example.com\n"
+                + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/anyref",
-            "blockedFileExtension")).isFalse();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+        .isFalse();
   }
 
   @Test
   public void isEnabledForRegexEmail() throws Exception {
     IdentifiedUser exampleOrgUser = new FakeUserProvider().get("a@example.org");
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "   email = .*@example.org$\n"
-            + "   blockedFileExtension = jar");
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   email = .*@example.org$\n"
+                + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/anyref",
-            "blockedFileExtension")).isFalse();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+        .isFalse();
     assertThat(
-        config.isEnabledForRef(exampleOrgUser, projectName,
-            "refs/heads/anyref", "blockedFileExtension")).isTrue();
+            config.isEnabledForRef(
+                exampleOrgUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+        .isTrue();
   }
 
   @Test
@@ -82,27 +88,29 @@ public class EmailAwareValidatorConfigTest {
     IdentifiedUser exampleOrgUser = new FakeUserProvider().get("a@example.org");
     IdentifiedUser xUser = new FakeUserProvider().get("x@example.com");
     ValidatorConfig config =
-        getConfig("[plugin \"uploadvalidator\"]\n"
-            + "   email = .*@example.org$\n"
-            + "   email = x@example.com\n"
-            + "   blockedFileExtension = jar");
+        getConfig(
+            "[plugin \"uploadvalidator\"]\n"
+                + "   email = .*@example.org$\n"
+                + "   email = x@example.com\n"
+                + "   blockedFileExtension = jar");
 
     assertThat(
-        config.isEnabledForRef(exampleOrgUser, projectName, "refs/heads/anyref",
-            "blockedFileExtension")).isTrue();
+            config.isEnabledForRef(
+                exampleOrgUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+        .isTrue();
     assertThat(
-        config.isEnabledForRef(xUser, projectName, "refs/heads/anyref",
-            "blockedFileExtension")).isTrue();
+            config.isEnabledForRef(xUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+        .isTrue();
     assertThat(
-        config.isEnabledForRef(anyUser, projectName, "refs/heads/anyref",
-            "blockedFileExtension")).isFalse();
+            config.isEnabledForRef(
+                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+        .isFalse();
   }
 
-  private ValidatorConfig getConfig(String defaultConfig)
-      throws ConfigInvalidException {
+  private ValidatorConfig getConfig(String defaultConfig) throws ConfigInvalidException {
     ValidatorConfig config =
-        new ValidatorConfig(new FakeConfigFactory(projectName, defaultConfig),
-            new FakeGroupCacheUUIDByName());
+        new ValidatorConfig(
+            new FakeConfigFactory(projectName, defaultConfig), new FakeGroupCacheUUIDByName());
     return config;
   }
 }

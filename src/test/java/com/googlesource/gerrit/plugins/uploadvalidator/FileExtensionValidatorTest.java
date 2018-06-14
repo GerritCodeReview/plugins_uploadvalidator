@@ -19,18 +19,16 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 
 import com.google.common.collect.Lists;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.NoFilepatternException;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.api.errors.NoFilepatternException;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.junit.Test;
 
 public class FileExtensionValidatorTest extends ValidatorTestCase {
   private static final List<String> BLOCKED_EXTENSIONS_LC =
@@ -55,27 +53,25 @@ public class FileExtensionValidatorTest extends ValidatorTestCase {
   @Test
   public void testBlockedExtensions() throws Exception {
     RevCommit c = makeCommit(BLOCKED_EXTENSIONS_LC);
-    List<CommitValidationMessage> m = FileExtensionValidator
-        .performValidation(repo, c, BLOCKED_EXTENSIONS_LC);
+    List<CommitValidationMessage> m =
+        FileExtensionValidator.performValidation(repo, c, BLOCKED_EXTENSIONS_LC);
     List<String> expected = new ArrayList<>();
     for (String extension : BLOCKED_EXTENSIONS_LC) {
       expected.add("ERROR: blocked file: foo." + extension);
     }
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
+    assertThat(TestUtils.transformMessages(m)).containsExactlyElementsIn(expected);
   }
 
   @Test
   public void testBlockedExtensionsCaseInsensitive() throws Exception {
     RevCommit c = makeCommit(BLOCKED_EXTENSIONS_UC);
-    List<CommitValidationMessage> m = FileExtensionValidator
-        .performValidation(repo, c, BLOCKED_EXTENSIONS_LC);
+    List<CommitValidationMessage> m =
+        FileExtensionValidator.performValidation(repo, c, BLOCKED_EXTENSIONS_LC);
     List<String> expected = new ArrayList<>();
     for (String extension : BLOCKED_EXTENSIONS_UC) {
       expected.add("ERROR: blocked file: foo." + extension);
     }
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
+    assertThat(TestUtils.transformMessages(m)).containsExactlyElementsIn(expected);
   }
 
   @Test

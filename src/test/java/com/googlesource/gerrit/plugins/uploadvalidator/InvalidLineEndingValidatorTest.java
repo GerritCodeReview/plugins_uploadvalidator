@@ -19,35 +19,29 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
 
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.junit.Test;
 
 public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   private RevCommit makeCommit() throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     // invalid line endings
-    String content = "Testline1\r\n"
-        + "Testline2\n"
-        + "Testline3\r\n"
-        + "Testline4";
-    files.put(new File(repo.getDirectory().getParent(), "foo.txt"),
+    String content = "Testline1\r\n" + "Testline2\n" + "Testline3\r\n" + "Testline4";
+    files.put(
+        new File(repo.getDirectory().getParent(), "foo.txt"),
         content.getBytes(StandardCharsets.UTF_8));
 
     // valid line endings
-    content = "Testline1\n"
-        + "Testline2\n"
-        + "Testline3\n"
-        + "Testline4";
-    files.put(new File(repo.getDirectory().getParent(), "bar.txt"),
+    content = "Testline1\n" + "Testline2\n" + "Testline3\n" + "Testline4";
+    files.put(
+        new File(repo.getDirectory().getParent(), "bar.txt"),
         content.getBytes(StandardCharsets.UTF_8));
     return TestUtils.makeCommit(repo, "Commit with test files.", files);
   }
@@ -55,12 +49,11 @@ public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   @Test
   public void testCarriageReturn() throws Exception {
     RevCommit c = makeCommit();
-    InvalidLineEndingValidator validator = new InvalidLineEndingValidator(null,
-        new ContentTypeUtil(PATTERN_CACHE), null, null, null);
-    List<CommitValidationMessage> m = validator.performValidation(repo, c,
-        EMPTY_PLUGIN_CONFIG);
-    assertThat(TestUtils.transformMessages(m)).containsExactly(
-        "ERROR: found carriage return (CR) character in file: foo.txt");
+    InvalidLineEndingValidator validator =
+        new InvalidLineEndingValidator(null, new ContentTypeUtil(PATTERN_CACHE), null, null, null);
+    List<CommitValidationMessage> m = validator.performValidation(repo, c, EMPTY_PLUGIN_CONFIG);
+    assertThat(TestUtils.transformMessages(m))
+        .containsExactly("ERROR: found carriage return (CR) character in file: foo.txt");
   }
 
   @Test

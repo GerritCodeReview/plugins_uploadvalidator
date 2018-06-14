@@ -20,18 +20,17 @@ import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class PluginConfigWithInheritanceFactory implements ConfigFactory {
-  private static final Logger log = LoggerFactory.getLogger(PluginConfigWithInheritanceFactory.class);
+  private static final Logger log =
+      LoggerFactory.getLogger(PluginConfigWithInheritanceFactory.class);
   private final PluginConfigFactory pluginConfigFactory;
   private final String pluginName;
 
   @Inject
-  public PluginConfigWithInheritanceFactory(PluginConfigFactory pcf,
-      @PluginName String pn) {
+  public PluginConfigWithInheritanceFactory(PluginConfigFactory pcf, @PluginName String pn) {
     this.pluginConfigFactory = pcf;
     this.pluginName = pn;
   }
@@ -39,8 +38,7 @@ public class PluginConfigWithInheritanceFactory implements ConfigFactory {
   @Override
   public PluginConfig get(Project.NameKey projectName) {
     try {
-      return pluginConfigFactory.getFromProjectConfigWithInheritance(projectName,
-          pluginName);
+      return pluginConfigFactory.getFromProjectConfigWithInheritance(projectName, pluginName);
     } catch (NoSuchProjectException e) {
       log.warn(projectName.get() + " not found");
       return null;

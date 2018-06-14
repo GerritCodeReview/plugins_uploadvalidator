@@ -20,7 +20,6 @@ import com.google.gerrit.reviewdb.client.AccountGroup.Id;
 import com.google.gerrit.reviewdb.client.AccountGroup.NameKey;
 import com.google.gerrit.reviewdb.client.AccountGroup.UUID;
 import com.google.gerrit.server.account.GroupCache;
-
 import java.io.IOException;
 
 public class FakeGroupCacheUUIDByName implements GroupCache {
@@ -41,8 +40,7 @@ public class FakeGroupCacheUUIDByName implements GroupCache {
 
   @Override
   public AccountGroup get(NameKey name) {
-    return accountGroup != null && accountGroup.getNameKey().equals(name)
-        ? accountGroup : null;
+    return accountGroup != null && accountGroup.getNameKey().equals(name) ? accountGroup : null;
   }
 
   @Override
@@ -56,15 +54,11 @@ public class FakeGroupCacheUUIDByName implements GroupCache {
   }
 
   @Override
-  public void onCreateGroup(NameKey newGroupName) throws IOException {
-  }
+  public void onCreateGroup(NameKey newGroupName) throws IOException {}
 
   @Override
-  public void evict(AccountGroup group) throws IOException {
-  }
+  public void evict(AccountGroup group) throws IOException {}
 
   @Override
-  public void evictAfterRename(NameKey oldName, NameKey newName)
-      throws IOException {
-  }
+  public void evictAfterRename(NameKey oldName, NameKey newName) throws IOException {}
 }

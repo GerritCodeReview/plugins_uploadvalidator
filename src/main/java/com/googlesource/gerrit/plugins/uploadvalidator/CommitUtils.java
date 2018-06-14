@@ -14,6 +14,10 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
@@ -22,56 +26,54 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.eclipse.jgit.treewalk.filter.TreeFilter;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
 public class CommitUtils {
 
   /**
-   * This method spots all files which differ between the passed commit and its
-   * parents. The paths of the spotted files will be returned as a Set.
+   * This method spots all files which differ between the passed commit and its parents. The paths
+   * of the spotted files will be returned as a Set.
    *
    * @param repo The repository
    * @param c The commit
-   * @return A Set containing the paths of all files which differ between the
-   *     passed commit and its parents.
+   * @return A Set containing the paths of all files which differ between the passed commit and its
+   *     parents.
    * @throws IOException
    */
-  public static Set<String> getChangedPaths(Repository repo, RevCommit c)
-      throws IOException {
+  public static Set<String> getChangedPaths(Repository repo, RevCommit c) throws IOException {
     Map<String, ObjectId> content = getChangedContent(repo, c);
     return content.keySet();
   }
 
   /**
-   * This method spots all files which differ between the passed commit and its
-   * parents. The spotted files will be returned as a Map. The structure of the
-   * returned map looks like this:
+   * This method spots all files which differ between the passed commit and its parents. The spotted
+   * files will be returned as a Map. The structure of the returned map looks like this:
+   *
    * <p>
+   *
    * <ul>
-   * <li> Key: Path to the changed file.</li>
-   * <li> Value: ObjectId of the changed file.</li>
+   *   <li>Key: Path to the changed file.
+   *   <li>Value: ObjectId of the changed file.
    * </ul>
+   *
    * @param repo The repository
    * @param c The commit
-   * @return A Map containing all files which differ between the passed commit
-   *     and its parents.
+   * @return A Map containing all files which differ between the passed commit and its parents.
    * @throws IOException
    */
-  public static Map<String, ObjectId> getChangedContent(Repository repo,
-      RevCommit c) throws IOException {
+  public static Map<String, ObjectId> getChangedContent(Repository repo, RevCommit c)
+      throws IOException {
     final Map<String, ObjectId> content = new HashMap<>();
 
-    visitChangedEntries(repo, c, new TreeWalkVisitor() {
-      @Override
-      public void onVisit(TreeWalk tw) {
-        if (isFile(tw)) {
-          content.put(tw.getPathString(), tw.getObjectId(0));
-        }
-      }
-    });
+    visitChangedEntries(
+        repo,
+        c,
+        new TreeWalkVisitor() {
+          @Override
+          public void onVisit(TreeWalk tw) {
+            if (isFile(tw)) {
+              content.put(tw.getPathString(), tw.getObjectId(0));
+            }
+          }
+        });
     return content;
   }
 
@@ -81,17 +83,17 @@ public class CommitUtils {
   }
 
   /**
-   * This method spots all TreeWalk entries which differ between the passed
-   * commit and its parents. If a TreeWalk entry is found this method calls the
-   * onVisit() method of the class TreeWalkVisitor.
+   * This method spots all TreeWalk entries which differ between the passed commit and its parents.
+   * If a TreeWalk entry is found this method calls the onVisit() method of the class
+   * TreeWalkVisitor.
    *
    * @param repo The repository
    * @param c The commit
    * @param visitor A TreeWalkVisitor with the desired action
    * @throws IOException
    */
-  public static void visitChangedEntries(Repository repo, RevCommit c,
-      TreeWalkVisitor visitor) throws IOException {
+  public static void visitChangedEntries(Repository repo, RevCommit c, TreeWalkVisitor visitor)
+      throws IOException {
     try (TreeWalk tw = new TreeWalk(repo)) {
       tw.setRecursive(true);
       tw.setFilter(TreeFilter.ANY_DIFF);

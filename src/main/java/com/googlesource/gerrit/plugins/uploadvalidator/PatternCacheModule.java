@@ -16,7 +16,6 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.common.cache.CacheLoader;
 import com.google.gerrit.server.cache.CacheModule;
-
 import java.util.regex.Pattern;
 
 public class PatternCacheModule extends CacheModule {

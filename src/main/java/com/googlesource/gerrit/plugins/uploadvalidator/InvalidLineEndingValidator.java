@@ -30,12 +30,6 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
-
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.ObjectLoader;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.revwalk.RevCommit;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -44,6 +38,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.lib.ObjectLoader;
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
 
 public class InvalidLineEndingValidator implements CommitValidationListener {
 
@@ -55,19 +53,22 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
         DynamicSet.bind(binder(), CommitValidationListener.class)
             .to(InvalidLineEndingValidator.class);
         bind(ProjectConfigEntry.class)
-            .annotatedWith(
-                Exports.named(KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS))
-            .toInstance(new ProjectConfigEntry("Reject Windows Line Endings",
-                "false", ProjectConfigEntryType.BOOLEAN, null, false,
-                "Windows line endings. Pushes of commits that include files "
-                    + "containing carriage return (CR) characters will be "
-                    + "rejected."));
+            .annotatedWith(Exports.named(KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS))
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Reject Windows Line Endings",
+                    "false",
+                    ProjectConfigEntryType.BOOLEAN,
+                    null,
+                    false,
+                    "Windows line endings. Pushes of commits that include files "
+                        + "containing carriage return (CR) characters will be "
+                        + "rejected."));
       }
     };
   }
 
-  public static final String KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS =
-      "rejectWindowsLineEndings";
+  public static final String KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS = "rejectWindowsLineEndings";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
@@ -76,7 +77,8 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
   private final ValidatorConfig validatorConfig;
 
   @Inject
-  InvalidLineEndingValidator(@PluginName String pluginName,
+  InvalidLineEndingValidator(
+      @PluginName String pluginName,
       ContentTypeUtil contentTypeUtil,
       PluginConfigFactory cfgFactory,
       GitRepositoryManager repoManager,
@@ -93,18 +95,19 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
   }
 
   @Override
-  public List<CommitValidationMessage> onCommitReceived(
-      CommitReceivedEvent receiveEvent) throws CommitValidationException {
+  public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
+      throws CommitValidationException {
     try {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(receiveEvent.user,
-              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+          && validatorConfig.isEnabledForRef(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
               KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS)) {
-        try (Repository repo =
-            repoManager.openRepository(receiveEvent.project.getNameKey())) {
+        try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
               performValidation(repo, receiveEvent.commit, cfg);
           if (!messages.isEmpty()) {
@@ -114,15 +117,14 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
         }
       }
     } catch (NoSuchProjectException | IOException | ExecutionException e) {
-      throw new CommitValidationException(
-          "failed to check on Windows line endings", e);
+      throw new CommitValidationException("failed to check on Windows line endings", e);
     }
     return Collections.emptyList();
   }
 
   @VisibleForTesting
-  List<CommitValidationMessage> performValidation(Repository repo, RevCommit c,
-      PluginConfig cfg) throws IOException, ExecutionException {
+  List<CommitValidationMessage> performValidation(Repository repo, RevCommit c, PluginConfig cfg)
+      throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c);
     for (String path : content.keySet()) {
@@ -130,19 +132,18 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
       if (contentTypeUtil.isBinary(ol, path, cfg)) {
         continue;
       }
-      try (InputStreamReader isr =
-          new InputStreamReader(ol.openStream(), StandardCharsets.UTF_8)) {
+      try (InputStreamReader isr = new InputStreamReader(ol.openStream(), StandardCharsets.UTF_8)) {
         if (doesInputStreanContainCR(isr)) {
-          messages.add(new CommitValidationMessage(
-              "found carriage return (CR) character in file: " + path, true));
+          messages.add(
+              new CommitValidationMessage(
+                  "found carriage return (CR) character in file: " + path, true));
         }
       }
     }
     return messages;
   }
 
-  private static boolean doesInputStreanContainCR(InputStreamReader isr)
-      throws IOException {
+  private static boolean doesInputStreanContainCR(InputStreamReader isr) throws IOException {
     char[] buffer = new char[1024];
     int n;
     while ((n = isr.read(buffer, 0, buffer.length)) > 0) {

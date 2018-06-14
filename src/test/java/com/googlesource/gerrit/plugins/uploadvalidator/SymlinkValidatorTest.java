@@ -19,11 +19,6 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,10 +27,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.junit.Test;
 
 public class SymlinkValidatorTest extends ValidatorTestCase {
-  private RevCommit makeCommitWithSymlink()
-      throws IOException, GitAPIException {
+  private RevCommit makeCommitWithSymlink() throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     File link = new File(repo.getDirectory().getParent(), "foo.txt");
     Files.createSymbolicLink(link.toPath(), Paths.get("bar.txt"));
@@ -51,17 +48,15 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
   @Test
   public void testWithSymlink() throws Exception {
     RevCommit c = makeCommitWithSymlink();
-    List<CommitValidationMessage> m =
-        SymlinkValidator.performValidation(repo, c);
-    Set<String> expected = ImmutableSet.of(
-        "ERROR: Symbolic links are not allowed: foo.txt",
-        "ERROR: Symbolic links are not allowed: symbolicFolder");
-    assertThat(TestUtils.transformMessages(m))
-        .containsExactlyElementsIn(expected);
+    List<CommitValidationMessage> m = SymlinkValidator.performValidation(repo, c);
+    Set<String> expected =
+        ImmutableSet.of(
+            "ERROR: Symbolic links are not allowed: foo.txt",
+            "ERROR: Symbolic links are not allowed: symbolicFolder");
+    assertThat(TestUtils.transformMessages(m)).containsExactlyElementsIn(expected);
   }
 
-  private RevCommit makeCommitWithoutSymlink()
-      throws IOException, GitAPIException {
+  private RevCommit makeCommitWithoutSymlink() throws IOException, GitAPIException {
     Map<File, byte[]> files = new HashMap<>();
     files.put(new File(repo.getDirectory().getParent(), "foo.txt"), null);
     return TestUtils.makeCommit(repo, "Commit with empty test files.", files);
@@ -70,8 +65,7 @@ public class SymlinkValidatorTest extends ValidatorTestCase {
   @Test
   public void testWithoutSymlink() throws Exception {
     RevCommit c = makeCommitWithoutSymlink();
-    List<CommitValidationMessage> m =
-        SymlinkValidator.performValidation(repo, c);
+    List<CommitValidationMessage> m = SymlinkValidator.performValidation(repo, c);
     assertThat(m).isEmpty();
   }
 
