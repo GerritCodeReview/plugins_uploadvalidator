@@ -53,7 +53,7 @@ public class CommitUtils {
    * <ul>
    * <li> Key: Path to the changed file.</li>
    * <li> Value: ObjectId of the changed file.</li>
-   * <ul>
+   * </ul>
    * @param repo The repository
    * @param c The commit
    * @return A Map containing all files which differ between the passed commit
