@@ -16,10 +16,8 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.server.mime.FileTypeRegistry;
 import com.google.inject.Singleton;
-
-import java.io.InputStream;
-
 import eu.medsea.mimeutil.MimeType;
+import java.io.InputStream;
 
 @Singleton
 class FakeMimeUtilFileTypeRegistry implements FileTypeRegistry {

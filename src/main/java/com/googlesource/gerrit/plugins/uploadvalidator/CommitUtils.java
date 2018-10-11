@@ -14,6 +14,10 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import org.eclipse.jgit.lib.FileMode;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
@@ -21,11 +25,6 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.eclipse.jgit.treewalk.filter.TreeFilter;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 /** Utility class for checking whether commits are different. */
 public class CommitUtils {
@@ -55,7 +54,7 @@ public class CommitUtils {
    * <ul>
    *   <li>Key: Path to the changed file.
    *   <li>Value: ObjectId of the changed file.
-   *       <ul>
+   * </ul>
    *
    * @param repo The repository
    * @param c The commit
