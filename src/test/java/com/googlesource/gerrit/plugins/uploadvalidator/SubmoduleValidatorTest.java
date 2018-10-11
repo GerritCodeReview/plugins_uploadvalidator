@@ -18,19 +18,17 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.SubmoduleAddCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class SubmoduleValidatorTest extends ValidatorTestCase {
   private RevCommit makeCommitWithSubmodule(RevWalk rw) throws IOException, GitAPIException {

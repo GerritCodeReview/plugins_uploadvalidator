@@ -26,13 +26,11 @@ import com.google.gerrit.server.mime.FileTypeRegistry;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-
-import org.eclipse.jgit.lib.ObjectLoader;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
+import org.eclipse.jgit.lib.ObjectLoader;
 
 public class ContentTypeUtil {
   private static final String KEY_BINARY_TYPES = "binaryTypes";

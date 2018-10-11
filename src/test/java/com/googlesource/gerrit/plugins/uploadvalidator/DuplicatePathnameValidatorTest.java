@@ -28,7 +28,10 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 import org.eclipse.jgit.dircache.DirCacheEntry;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.Repository;
@@ -37,11 +40,6 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
 
 public class DuplicatePathnameValidatorTest extends ValidatorTestCase {
   private static final ImmutableList<String> INITIAL_PATHNAMES =

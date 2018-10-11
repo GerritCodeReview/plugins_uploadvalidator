@@ -29,17 +29,14 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
-
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.revwalk.RevWalk;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
 
 public class FileExtensionValidator implements CommitValidationListener {
 
@@ -64,8 +61,7 @@ public class FileExtensionValidator implements CommitValidationListener {
     };
   }
 
-  public static final String KEY_BLOCKED_FILE_EXTENSION =
-      "blockedFileExtension";
+  public static final String KEY_BLOCKED_FILE_EXTENSION = "blockedFileExtension";
 
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
@@ -73,8 +69,10 @@ public class FileExtensionValidator implements CommitValidationListener {
   private final ValidatorConfig validatorConfig;
 
   @Inject
-  FileExtensionValidator(@PluginName String pluginName,
-      PluginConfigFactory cfgFactory, GitRepositoryManager repoManager,
+  FileExtensionValidator(
+      @PluginName String pluginName,
+      PluginConfigFactory cfgFactory,
+      GitRepositoryManager repoManager,
       ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
@@ -95,20 +93,22 @@ public class FileExtensionValidator implements CommitValidationListener {
   }
 
   @Override
-  public List<CommitValidationMessage> onCommitReceived(
-      CommitReceivedEvent receiveEvent) throws CommitValidationException {
+  public List<CommitValidationMessage> onCommitReceived(CommitReceivedEvent receiveEvent)
+      throws CommitValidationException {
     try {
-      PluginConfig cfg = cfgFactory
-          .getFromProjectConfigWithInheritance(
+      PluginConfig cfg =
+          cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(receiveEvent.user,
-              receiveEvent.getProjectNameKey(), receiveEvent.getRefName(),
+          && validatorConfig.isEnabledForRef(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
               KEY_BLOCKED_FILE_EXTENSION)) {
-        try (Repository repo =
-            repoManager.openRepository(receiveEvent.project.getNameKey())) {
-          List<CommitValidationMessage> messages = performValidation(repo,
-              receiveEvent.commit, receiveEvent.revWalk, getBlockedExtensions(cfg));
+        try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
+          List<CommitValidationMessage> messages =
+              performValidation(
+                  repo, receiveEvent.commit, receiveEvent.revWalk, getBlockedExtensions(cfg));
           if (!messages.isEmpty()) {
             throw new CommitValidationException(
                 "contains files with blocked file extensions", messages);
@@ -121,8 +121,9 @@ public class FileExtensionValidator implements CommitValidationListener {
     return Collections.emptyList();
   }
 
-  static List<CommitValidationMessage> performValidation(Repository repo,
-      RevCommit c, RevWalk revWalk, List<String> blockedFileExtensions) throws IOException {
+  static List<CommitValidationMessage> performValidation(
+      Repository repo, RevCommit c, RevWalk revWalk, List<String> blockedFileExtensions)
+      throws IOException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     for (String file : CommitUtils.getChangedPaths(repo, c, revWalk)) {
       for (String blockedExtension : blockedFileExtensions) {

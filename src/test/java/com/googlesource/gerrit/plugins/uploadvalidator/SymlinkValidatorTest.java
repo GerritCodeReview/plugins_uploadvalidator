@@ -19,12 +19,6 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.revwalk.RevWalk;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,6 +27,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
+import org.junit.Test;
 
 public class SymlinkValidatorTest extends ValidatorTestCase {
   private RevCommit makeCommitWithSymlink(RevWalk rw) throws IOException, GitAPIException {

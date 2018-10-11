@@ -30,14 +30,12 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
-
-import org.eclipse.jgit.revwalk.FooterLine;
-
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import org.eclipse.jgit.revwalk.FooterLine;
 
 public class FooterValidator implements CommitValidationListener {
 

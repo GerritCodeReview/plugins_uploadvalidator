@@ -19,18 +19,16 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
-import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.revwalk.RevWalk;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
+import org.junit.Test;
 
 public class MaxPathLengthValidatorTest extends ValidatorTestCase {
   private static final String TOO_LONG = "foo/bar/test/too/long.java";
