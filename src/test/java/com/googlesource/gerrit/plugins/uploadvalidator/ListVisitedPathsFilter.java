@@ -14,11 +14,10 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import org.eclipse.jgit.treewalk.TreeWalk;
-import org.eclipse.jgit.treewalk.filter.TreeFilter;
-
 import java.io.IOException;
 import java.util.List;
+import org.eclipse.jgit.treewalk.TreeWalk;
+import org.eclipse.jgit.treewalk.filter.TreeFilter;
 
 public class ListVisitedPathsFilter extends TreeFilter {
   private List<String> visitedPaths;

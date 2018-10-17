@@ -20,11 +20,9 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_
 
 import com.google.gerrit.server.mime.MimeUtilFileTypeRegistry;
 import com.google.inject.Inject;
-
+import java.util.concurrent.ExecutionException;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.concurrent.ExecutionException;
 
 public class ContentTypeUtilTest {
   private ContentTypeUtil ctu;

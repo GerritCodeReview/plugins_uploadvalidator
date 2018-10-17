@@ -19,20 +19,16 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
 
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-import com.google.gerrit.server.mime.MimeUtilFileTypeRegistry;
-import com.google.inject.Inject;
-
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.revwalk.RevWalk;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
+import org.junit.Test;
 
 public class InvalidLineEndingValidatorTest extends ValidatorTestCase {
   private RevCommit makeCommit(RevWalk rw) throws IOException, GitAPIException {

@@ -21,7 +21,13 @@ import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Lists;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.AddCommand;
 import org.eclipse.jgit.api.Git;
@@ -35,14 +41,6 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTree;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Pattern;
 
 public class TestUtils {
   public static final PluginConfig EMPTY_PLUGIN_CONFIG = new PluginConfig("", new Config());
