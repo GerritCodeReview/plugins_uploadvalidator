@@ -148,9 +148,8 @@ public class ValidatorConfig {
   private static boolean match(String value, String pattern, boolean refMatcher) {
     if (refMatcher) {
       return RefPatternMatcher.getMatcher(pattern).match(value, null);
-    } else {
-      return Pattern.matches(pattern, value);
     }
+    return Pattern.matches(pattern, value);
   }
 
   private boolean canSkipGroup(PluginConfig conf, IdentifiedUser user) {
