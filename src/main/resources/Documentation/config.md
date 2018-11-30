@@ -307,7 +307,27 @@ plugin.@PLUGIN@.skipGroup
     Multiple values are supported.
     Default: nobody is allowed to skip the rules (empty).
 
-    NOTE: When skipGroup isn't defined, all the other skip settings are ignored.
+NOTE: When skipGroup isn't defined, all the other skip settings are ignored.
+
+NOTE: For [system groups](../../../Documentation/access-control.html#system_groups)
+and external groups (e.g.
+[LDAP groups](../../../Documentation/access-control.html#ldap_groups)) the use
+of UUID's is required. This is because group names are resolved through the
+group index and the group index only contains Gerrit internal groups.
+
+Example for system group:
+
+```
+   [plugin "@PLUGIN@"]
+     skipGroup = global:Registered-Users
+```
+
+Example for external group:
+
+```
+   [plugin "@PLUGIN@"]
+     skipGroup = ldap:Foo
+```
 
 plugin.@PLUGIN@.skipRef
 :    Ref name, pattern or regexp of the branch to skip.
