@@ -6,7 +6,7 @@ gerrit_plugin(
     srcs = glob(["src/main/java/**/*.java"]),
     manifest_entries = [
         "Gerrit-PluginName: uploadvalidator",
-        "Gerrit-ApiVersion: 2.15-SNAPSHOT",
+        "Gerrit-ApiVersion: 3.0-SNAPSHOT",
         "Gerrit-Module: com.googlesource.gerrit.plugins.uploadvalidator.Module",
     ],
     resources = glob(["src/main/resources/**/*"]),
