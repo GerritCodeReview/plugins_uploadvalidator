@@ -15,7 +15,7 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.common.Nullable;
-import com.google.gerrit.common.data.RefConfigSection;
+import com.google.gerrit.common.data.AccessSection;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.reviewdb.client.AccountGroup;
@@ -103,7 +103,7 @@ public class ValidatorConfig {
       PluginConfig config, String refKey, Project.NameKey projectName) {
     boolean valid = true;
     for (String refPattern : config.getStringList(refKey)) {
-      if (!RefConfigSection.isValid(refPattern)) {
+      if (!AccessSection.isValidRefSectionName(refPattern)) {
         log.error(
             "Invalid {} name/pattern/regex '{}' in {} project's plugin config",
             refKey,
