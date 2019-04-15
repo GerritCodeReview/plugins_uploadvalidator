@@ -23,7 +23,6 @@ import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.gerrit.server.events.CommitReceivedEvent;
-import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.validators.CommitValidationException;
 import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
@@ -69,18 +68,15 @@ public class ChangeEmailValidator implements CommitValidationListener {
   public static final String KEY_ALLOWED_COMMITTER_EMAIL_PATTERN = "allowedCommitterEmailPattern";
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
-  private final GitRepositoryManager repoManager;
   private final ValidatorConfig validatorConfig;
 
   @Inject
   ChangeEmailValidator(
       @PluginName String pluginName,
       PluginConfigFactory cfgFactory,
-      GitRepositoryManager repoManager,
       ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.cfgFactory = cfgFactory;
-    this.repoManager = repoManager;
     this.validatorConfig = validatorConfig;
   }
 
