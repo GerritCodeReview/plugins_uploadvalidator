@@ -66,7 +66,7 @@ public class SkipValidationTest {
             new FakeGroupByNameFinder(
                 new AccountGroup(
                     AccountGroup.nameKey("testGroupName"),
-                    new AccountGroup.Id(1),
+                    AccountGroup.id(1),
                     AccountGroup.uuid("testGroupId"),
                     TimeUtil.nowTs())));
 
