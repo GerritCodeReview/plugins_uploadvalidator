@@ -65,7 +65,7 @@ public class SkipValidationTest {
             new FakeConfigFactory(projectName, config),
             new FakeGroupByNameFinder(
                 new AccountGroup(
-                    new AccountGroup.NameKey("testGroupName"),
+                    AccountGroup.nameKey("testGroupName"),
                     new AccountGroup.Id(1),
                     new AccountGroup.UUID("testGroupId"),
                     TimeUtil.nowTs())));
