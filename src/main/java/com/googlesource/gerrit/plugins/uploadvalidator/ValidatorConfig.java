@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.common.data.AccessSection;
+import com.google.gerrit.exceptions.StorageException;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.reviewdb.client.AccountGroup;
@@ -26,7 +27,6 @@ import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.gerrit.server.group.InternalGroup;
 import com.google.gerrit.server.project.RefPatternMatcher;
 import com.google.gerrit.server.query.group.InternalGroupQuery;
-import com.google.gwtorm.server.OrmException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -198,7 +198,7 @@ public class ValidatorConfig {
     public Optional<InternalGroup> get(AccountGroup.NameKey groupName) {
       try {
         return groupQueryProvider.get().byName(groupName);
-      } catch (OrmException e) {
+      } catch (StorageException e) {
         log.warn(String.format("Cannot lookup group %s by name", groupName.get()), e);
       }
       return Optional.empty();
