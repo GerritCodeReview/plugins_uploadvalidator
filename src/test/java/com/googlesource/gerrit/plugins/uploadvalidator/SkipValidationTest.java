@@ -67,7 +67,7 @@ public class SkipValidationTest {
                 new AccountGroup(
                     AccountGroup.nameKey("testGroupName"),
                     new AccountGroup.Id(1),
-                    new AccountGroup.UUID("testGroupId"),
+                    AccountGroup.uuid("testGroupId"),
                     TimeUtil.nowTs())));
 
     assertThat(
