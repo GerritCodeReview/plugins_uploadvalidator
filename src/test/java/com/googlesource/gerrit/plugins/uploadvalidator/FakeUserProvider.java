@@ -43,7 +43,7 @@ public class FakeUserProvider implements Provider<IdentifiedUser> {
 
   private IdentifiedUser createNew(String email) {
     IdentifiedUser user = createMock(IdentifiedUser.class);
-    Account account = new Account(new Account.Id(1), TimeUtil.nowTs());
+    Account account = new Account(Account.id(1), TimeUtil.nowTs());
     account.setPreferredEmail(email);
     expect(user.isIdentifiedUser()).andReturn(true);
     expect(user.asIdentifiedUser()).andReturn(user);
