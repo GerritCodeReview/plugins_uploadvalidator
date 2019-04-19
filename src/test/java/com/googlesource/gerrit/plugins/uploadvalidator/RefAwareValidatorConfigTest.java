@@ -22,7 +22,7 @@ import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Test;
 
 public class RefAwareValidatorConfigTest {
-  private final Project.NameKey projectName = new Project.NameKey("testProject");
+  private final Project.NameKey projectName = Project.nameKey("testProject");
   private final IdentifiedUser anyUser = new FakeUserProvider().get();
 
   @Test

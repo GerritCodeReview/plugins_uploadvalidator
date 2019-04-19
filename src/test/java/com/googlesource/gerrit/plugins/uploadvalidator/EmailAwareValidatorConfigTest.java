@@ -22,7 +22,7 @@ import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Test;
 
 public class EmailAwareValidatorConfigTest {
-  private Project.NameKey projectName = new Project.NameKey("testProject");
+  private Project.NameKey projectName = Project.nameKey("testProject");
   private IdentifiedUser anyUser = new FakeUserProvider().get();
 
   @Test
