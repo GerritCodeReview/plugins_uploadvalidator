@@ -23,7 +23,7 @@ import com.google.gerrit.server.util.time.TimeUtil;
 import org.junit.Test;
 
 public class SkipValidationTest {
-  private final Project.NameKey projectName = new Project.NameKey("testProject");
+  private final Project.NameKey projectName = Project.nameKey("testProject");
   private final IdentifiedUser anyUser = new FakeUserProvider().get();
 
   @Test

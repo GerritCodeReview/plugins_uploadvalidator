@@ -22,7 +22,7 @@ import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.junit.Test;
 
 public class ProjectAwareValidatorConfigTest {
-  private Project.NameKey projectName = new Project.NameKey("testProject");
+  private Project.NameKey projectName = Project.nameKey("testProject");
   private IdentifiedUser anyUser = new FakeUserProvider().get();
 
   @Test
@@ -66,7 +66,7 @@ public class ProjectAwareValidatorConfigTest {
         "[plugin \"uploadvalidator\"]\n"
             + "   project = test.*\n"
             + "   blockedFileExtension = jar";
-    Project.NameKey otherNameKey = new Project.NameKey("someOtherProject");
+    Project.NameKey otherNameKey = Project.nameKey("someOtherProject");
     ValidatorConfig config = getConfig(configString, projectName);
     ValidatorConfig config2 = getConfig(configString, otherNameKey);
 
@@ -83,8 +83,8 @@ public class ProjectAwareValidatorConfigTest {
             + "   project = testProject\n"
             + "   project = another.*\n"
             + "   blockedFileExtension = jar";
-    Project.NameKey anotherNameKey = new Project.NameKey("anotherProject");
-    Project.NameKey someOtherNameKey = new Project.NameKey("someOtherProject");
+    Project.NameKey anotherNameKey = Project.nameKey("anotherProject");
+    Project.NameKey someOtherNameKey = Project.nameKey("someOtherProject");
     ValidatorConfig config = getConfig(configString, projectName);
     ValidatorConfig config2 = getConfig(configString, anotherNameKey);
     ValidatorConfig config3 = getConfig(configString, someOtherNameKey);
