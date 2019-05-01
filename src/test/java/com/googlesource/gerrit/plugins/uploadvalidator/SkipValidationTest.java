@@ -64,11 +64,10 @@ public class SkipValidationTest {
         new ValidatorConfig(
             new FakeConfigFactory(projectName, config),
             new FakeGroupByNameFinder(
-                new AccountGroup(
-                    AccountGroup.nameKey("testGroupName"),
-                    AccountGroup.id(1),
-                    AccountGroup.uuid("testGroupId"),
-                    TimeUtil.nowTs())));
+                AccountGroup.nameKey("testGroupName"),
+                AccountGroup.id(1),
+                AccountGroup.uuid("testGroupId"),
+                TimeUtil.nowTs()));
 
     assertThat(
             validatorConfig.isEnabledForRef(
