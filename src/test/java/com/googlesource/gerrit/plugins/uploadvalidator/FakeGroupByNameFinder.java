@@ -36,8 +36,8 @@ public class FakeGroupByNameFinder implements ValidatorConfig.GroupByNameFinder 
             InternalGroup.builder()
                 .setId(id)
                 .setNameKey(name)
-                .setGroupUUID(uuid)
-                .setOwnerGroupUUID(uuid)
+                .setGroupUuid(uuid)
+                .setOwnerGroupUuid(uuid)
                 .setVisibleToAll(false)
                 .setCreatedOn(createdOn)
                 .build());

@@ -179,7 +179,7 @@ public class ValidatorConfig {
 
   private GroupUuid groupUUID(String groupNameOrUUID) {
     Optional<InternalGroup> group = groupByNameFinder.get(NameKey.create(groupNameOrUUID));
-    return group.map(InternalGroup::getGroupUUID).orElse(GroupUuid.create(groupNameOrUUID));
+    return group.map(InternalGroup::getGroupUuid).orElse(GroupUuid.create(groupNameOrUUID));
   }
 
   interface GroupByNameFinder {
