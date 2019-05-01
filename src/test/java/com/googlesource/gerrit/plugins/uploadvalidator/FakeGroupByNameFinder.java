@@ -14,8 +14,10 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.server.group.InternalGroup;
+import com.google.gerrit.server.group.db.GroupId;
+import com.google.gerrit.server.group.db.GroupName;
+import com.google.gerrit.server.group.db.GroupUuid;
 import java.sql.Timestamp;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,8 +30,7 @@ public class FakeGroupByNameFinder implements ValidatorConfig.GroupByNameFinder 
     onlyGroup = Optional.empty();
   }
 
-  public FakeGroupByNameFinder(
-      AccountGroup.NameKey name, AccountGroup.Id id, AccountGroup.UUID uuid, Timestamp createdOn) {
+  public FakeGroupByNameFinder(GroupName name, GroupId id, GroupUuid uuid, Timestamp createdOn) {
     onlyGroup =
         Optional.of(
             InternalGroup.builder()
@@ -43,7 +44,7 @@ public class FakeGroupByNameFinder implements ValidatorConfig.GroupByNameFinder 
   }
 
   @Override
-  public Optional<InternalGroup> get(AccountGroup.NameKey groupName) {
+  public Optional<InternalGroup> get(GroupName groupName) {
     return onlyGroup.filter(group -> Objects.equals(group.getNameKey(), groupName));
   }
 }

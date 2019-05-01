@@ -16,9 +16,11 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import com.google.gerrit.reviewdb.client.AccountGroup;
+import com.google.gerrit.reviewdb.client.AccountGroup.NameKey;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.IdentifiedUser;
+import com.google.gerrit.server.group.db.GroupId;
+import com.google.gerrit.server.group.db.GroupUuid;
 import com.google.gerrit.server.util.time.TimeUtil;
 import org.junit.Test;
 
@@ -64,9 +66,9 @@ public class SkipValidationTest {
         new ValidatorConfig(
             new FakeConfigFactory(projectName, config),
             new FakeGroupByNameFinder(
-                AccountGroup.nameKey("testGroupName"),
-                AccountGroup.id(1),
-                AccountGroup.uuid("testGroupId"),
+                NameKey.create("testGroupName"),
+                GroupId.create(1),
+                GroupUuid.create("testGroupId"),
                 TimeUtil.nowTs()));
 
     assertThat(

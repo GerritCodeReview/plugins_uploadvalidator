@@ -14,8 +14,8 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.gerrit.reviewdb.client.AccountGroup.UUID;
 import com.google.gerrit.server.account.GroupMembership;
+import com.google.gerrit.server.group.db.GroupUuid;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -30,24 +30,24 @@ public class FakeGroupMembership implements GroupMembership {
   }
 
   @Override
-  public boolean contains(UUID groupId) {
+  public boolean contains(GroupUuid groupId) {
     return memberOfGroup.contains(groupId.get());
   }
 
   @Override
-  public boolean containsAnyOf(Iterable<UUID> groupIds) {
+  public boolean containsAnyOf(Iterable<GroupUuid> groupIds) {
     return !intersection(groupIds).isEmpty();
   }
 
   @Override
-  public Set<UUID> intersection(Iterable<UUID> groupIds) {
+  public Set<GroupUuid> intersection(Iterable<GroupUuid> groupIds) {
     return StreamSupport.stream(groupIds.spliterator(), false)
         .filter(this::contains)
         .collect(Collectors.toSet());
   }
 
   @Override
-  public Set<UUID> getKnownGroups() {
+  public Set<GroupUuid> getKnownGroups() {
     return new HashSet<>();
   }
 }

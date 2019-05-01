@@ -20,11 +20,13 @@ import com.google.gerrit.exceptions.StorageException;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.reviewdb.client.AccountGroup;
+import com.google.gerrit.reviewdb.client.AccountGroup.NameKey;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.gerrit.server.group.InternalGroup;
+import com.google.gerrit.server.group.db.GroupUuid;
 import com.google.gerrit.server.project.RefPatternMatcher;
 import com.google.gerrit.server.query.group.InternalGroupQuery;
 import com.google.inject.AbstractModule;
@@ -170,15 +172,14 @@ public class ValidatorConfig {
       return false;
     }
 
-    Stream<AccountGroup.UUID> skipGroups =
+    Stream<GroupUuid> skipGroups =
         Arrays.stream(conf.getStringList("skipGroup")).map(this::groupUUID);
     return user.asIdentifiedUser().getEffectiveGroups().containsAnyOf(skipGroups::iterator);
   }
 
-  private AccountGroup.UUID groupUUID(String groupNameOrUUID) {
-    Optional<InternalGroup> group =
-        groupByNameFinder.get(AccountGroup.nameKey(groupNameOrUUID));
-    return group.map(InternalGroup::getGroupUUID).orElse(AccountGroup.uuid(groupNameOrUUID));
+  private GroupUuid groupUUID(String groupNameOrUUID) {
+    Optional<InternalGroup> group = groupByNameFinder.get(NameKey.create(groupNameOrUUID));
+    return group.map(InternalGroup::getGroupUUID).orElse(GroupUuid.create(groupNameOrUUID));
   }
 
   interface GroupByNameFinder {
