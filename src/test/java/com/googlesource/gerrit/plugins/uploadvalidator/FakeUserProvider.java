@@ -17,7 +17,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import com.google.gerrit.reviewdb.client.Account;
+import com.google.gerrit.entities.Account;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.util.time.TimeUtil;
 import com.google.inject.Provider;

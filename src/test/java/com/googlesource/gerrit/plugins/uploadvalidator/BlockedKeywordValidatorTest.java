@@ -20,7 +20,7 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.google.gerrit.reviewdb.client.Patch;
+import com.google.gerrit.entities.Patch;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import java.io.File;
 import java.io.IOException;
