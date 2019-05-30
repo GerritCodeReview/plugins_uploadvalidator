@@ -16,11 +16,11 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.common.data.AccessSection;
+import com.google.gerrit.entities.AccountGroup;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.exceptions.StorageException;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
-import com.google.gerrit.reviewdb.client.AccountGroup;
-import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.ProjectConfigEntry;
@@ -176,8 +176,7 @@ public class ValidatorConfig {
   }
 
   private AccountGroup.UUID groupUUID(String groupNameOrUUID) {
-    Optional<InternalGroup> group =
-        groupByNameFinder.get(AccountGroup.nameKey(groupNameOrUUID));
+    Optional<InternalGroup> group = groupByNameFinder.get(AccountGroup.nameKey(groupNameOrUUID));
     return group.map(InternalGroup::getGroupUUID).orElse(AccountGroup.uuid(groupNameOrUUID));
   }
 
