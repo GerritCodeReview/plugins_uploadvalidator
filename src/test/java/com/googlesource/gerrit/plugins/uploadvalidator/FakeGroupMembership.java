@@ -14,7 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.gerrit.reviewdb.client.AccountGroup.UUID;
+import com.google.gerrit.entities.AccountGroup.UUID;
 import com.google.gerrit.server.account.GroupMembership;
 import java.util.Collections;
 import java.util.HashSet;
