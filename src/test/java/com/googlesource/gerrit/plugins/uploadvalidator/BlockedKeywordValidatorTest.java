@@ -25,6 +25,7 @@ import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,12 +37,12 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
 
 public class BlockedKeywordValidatorTest extends ValidatorTestCase {
-  private static ImmutableMap<String, Pattern> getPatterns() {
-    return ImmutableMap.<String, Pattern>builder()
-        .put("myp4ssw0rd", Pattern.compile("myp4ssw0rd"))
-        .put("foobar", Pattern.compile("foobar"))
-        .put("\\$(Id|Header):[^$]*\\$", Pattern.compile("\\$(Id|Header):[^$]*\\$"))
-        .build();
+  private static List<BlockedKeywordMatcher> getPatterns() {
+    return Arrays.asList(
+        new BlockedKeywordMatcher(Pattern.compile("myp4ssw0rd")),
+        new BlockedKeywordMatcher(Pattern.compile("foobar")),
+        new BlockedKeywordMatcher(Pattern.compile("\\$(Id|Header):[^$]*\\$"))
+    );
   }
 
   private RevCommit makeCommit(RevWalk rw) throws IOException, GitAPIException {
@@ -79,6 +80,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
               null,
               new ContentTypeUtil(PATTERN_CACHE, new FakeMimeUtilFileTypeRegistry()),
               PATTERN_CACHE,
+              null,
               null,
               null,
               null);
