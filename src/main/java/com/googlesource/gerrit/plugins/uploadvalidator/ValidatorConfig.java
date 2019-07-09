@@ -34,6 +34,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,7 +82,7 @@ public class ValidatorConfig {
 
   public boolean isEnabledForRef(
       IdentifiedUser user, Project.NameKey projectName, String refName, String validatorOp) {
-    PluginConfig conf = configFactory.get(projectName);
+    PluginConfig conf = configFactory.getFromProjectConfig(projectName);
 
     return conf != null
         && isValidConfig(conf, projectName)

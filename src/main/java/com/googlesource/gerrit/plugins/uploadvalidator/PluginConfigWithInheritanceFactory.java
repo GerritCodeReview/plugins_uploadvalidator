@@ -19,6 +19,7 @@ import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.project.NoSuchProjectException;
+import org.eclipse.jgit.lib.Config;
 import com.google.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +37,18 @@ public class PluginConfigWithInheritanceFactory implements ConfigFactory {
   }
 
   @Override
-  public PluginConfig get(Project.NameKey projectName) {
+  public Config get(Project.NameKey projectName) {
+    try {
+      // return pluginConfigFactory.getProjectPluginConfigWithInheritance(projectName, pluginName);
+      return pluginConfigFactory.getProjectPluginConfigWithInheritance(projectName, pluginName);
+    } catch (NoSuchProjectException e) {
+      log.warn(projectName.get() + " not found");
+      return null;
+    }
+  }
+
+  @Override
+  public PluginConfig getFromProjectConfig(Project.NameKey projectName) {
     try {
       return pluginConfigFactory.getFromProjectConfigWithInheritance(projectName, pluginName);
     } catch (NoSuchProjectException e) {
