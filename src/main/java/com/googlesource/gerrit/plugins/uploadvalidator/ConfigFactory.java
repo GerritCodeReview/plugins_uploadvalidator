@@ -16,8 +16,10 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.config.PluginConfig;
+import org.eclipse.jgit.lib.Config;
 
 public interface ConfigFactory {
 
   public PluginConfig get(Project.NameKey projectName);
+  public Config getFromPluginConfig(Project.NameKey projectName);
 }
