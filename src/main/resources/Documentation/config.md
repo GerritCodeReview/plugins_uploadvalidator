@@ -394,3 +394,25 @@ and GerritAdmins, to push any content to any file extension but only for the mas
     skipGroup = ldap/GerritAdmins
     skipRef = refs/heads/master
 ```
+
+BlockedKeyword-specific validation configuration
+---------------------------
+
+By default, blockedKeyword patterns all equally apply to the global set of validation configuration
+(ie. project, ref, email, skipRef, etc). However, there are times when blockedKeywordPatterns
+should have a subset of validation configuration settings applied to only a single blockedKeyword.
+
+BlockedKeywordPatterns that require additional validation parameters can be added to the
+@PLUGIN@.config file in a projects refs/meta/config branch.
+
+NOTE: global validation configurations will still apply to blockedKeywordPatterns defined in
+@PLUGIN@.config.
+```
+  [blockedKeyword "\\$(Id|Header):[^$]*\\$"]
+    skipProject = safeProject
+    skipRef = ^refs/heads/master
+    skipFile = \\.md
+    skipEmail = .*@example.com$
+```
+
+
