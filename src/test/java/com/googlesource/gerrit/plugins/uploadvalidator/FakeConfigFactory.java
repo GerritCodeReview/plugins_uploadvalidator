@@ -39,4 +39,13 @@ public class FakeConfigFactory implements ConfigFactory {
 
     return new PluginConfig("uploadvalidator", new Config());
   }
+
+  @Override
+  public Config getFromPluginConfig(NameKey projectName) {
+    if (this.projectName.equals(projectName)) {
+      return config;
+    }
+
+    return new Config();
+  }
 }
