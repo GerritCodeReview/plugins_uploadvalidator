@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0887355_43f6377b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordConfigLoader.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1077840
+      },
+      "writtenOn": "2019-07-10T20:16:42Z",
+      "side": 1,
+      "message": "This may not need to be public, but I\u0027m not sure what is usually done",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 8
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3aa9537_0a499ad6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordConfigLoader.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1077840
+      },
+      "writtenOn": "2019-07-10T20:16:42Z",
+      "side": 1,
+      "message": "This can be changed to Map unless there\u0027s something weird going on.",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 18
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0227f673_1a2d649c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordConfigLoader.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1077840
+      },
+      "writtenOn": "2019-07-10T20:16:42Z",
+      "side": 1,
+      "message": "Streams may be appropriate here as well. See comment below.",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 92,
+        "endChar": 7
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38a29c8c_425ac1c1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordConfigLoader.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1077840
+      },
+      "writtenOn": "2019-07-10T20:16:42Z",
+      "side": 1,
+      "message": "It looks like this can be done with streams.\n\nreturn cfg.getStringList(...).stream().map(rawPattern -\u003e patternCache.get(rawPattern)).collect(toImmutableList());\n\n\"rawPattern -\u003e patternCache.get(rawPattern)\" may be simplified to a method reference instead of a lambda, but I\u0027m not great at eyeballing it.",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 15
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "777863f9_157b729a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordMatcher.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1077840
+      },
+      "writtenOn": "2019-07-10T20:16:42Z",
+      "side": 1,
+      "message": "Any reason why the argument is ImmutableList instead of List? Same with the other isValid(), and skipEmails().",
+      "range": {
+        "startLine": 42,
+        "startChar": 57,
+        "endLine": 42,
+        "endChar": 70
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e75b645b_a147a658",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigWithInheritanceFactory.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1077840
+      },
+      "writtenOn": "2019-07-10T20:16:42Z",
+      "side": 1,
+      "message": "Is there a rule for documenting or annotating when nulls can be returned by a method?",
+      "range": {
+        "startLine": 45,
+        "startChar": 6,
+        "endLine": 45,
+        "endChar": 18
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
