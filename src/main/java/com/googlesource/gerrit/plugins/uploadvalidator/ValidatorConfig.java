@@ -176,8 +176,7 @@ public class ValidatorConfig {
   }
 
   private AccountGroup.UUID groupUUID(String groupNameOrUUID) {
-    Optional<InternalGroup> group =
-        groupByNameFinder.get(AccountGroup.nameKey(groupNameOrUUID));
+    Optional<InternalGroup> group = groupByNameFinder.get(AccountGroup.nameKey(groupNameOrUUID));
     return group.map(InternalGroup::getGroupUUID).orElse(AccountGroup.uuid(groupNameOrUUID));
   }
 
