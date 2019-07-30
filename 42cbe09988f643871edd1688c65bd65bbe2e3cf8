@@ -325,6 +325,30 @@
     },
     {
       "key": {
+        "uuid": "c5474af8_22648290",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordMatcher.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2019-07-30T22:30:39Z",
+      "side": 1,
+      "message": "[Whoops, that was 2nd ed. In 3rd ed it\u0027s p237: \"For parameter types, favor interfaces over classes (Item 64).\" Sorry for the noise.]",
+      "parentUuid": "1c095aca_61367e8c",
+      "range": {
+        "startLine": 42,
+        "startChar": 57,
+        "endLine": 42,
+        "endChar": 70
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "047326e1_ab4a51cc",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 3
