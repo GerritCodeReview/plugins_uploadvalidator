@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "12db92e6_efe09d74",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordConfigLoader.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2019-07-30T16:23:25Z",
+      "side": 1,
+      "message": "(c) header -here and others",
+      "range": {
+        "startLine": 1,
+        "startChar": 32,
+        "endLine": 1,
+        "endChar": 39
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0887355_43f6377b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordConfigLoader.java",
         "patchSetId": 3
