@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "bce8ca4f_380b403b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2019-07-31T00:08:31Z",
+      "side": 1,
+      "message": "missing some words: e.g. \"using a separate plugin configuration file\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 45
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe45c1dc_d87266c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2019-07-31T00:08:31Z",
+      "side": 1,
+      "message": "Neat! I like it.\n\nI wonder if this can apply more widely to uploadvalidator config. E.g. How about something like this?\n\n\n [rule \"x\"]\n   skipProject \u003d All-Projects\n   skipRef \u003d ...\n   blockedKeywordPattern \u003d \"^banmeplease\\\\b\"\n\n? The skip* settings would be scoped to the config stanza.",
+      "range": {
+        "startLine": 10,
+        "startChar": 47,
+        "endLine": 10,
+        "endChar": 69
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "12db92e6_efe09d74",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordConfigLoader.java",
         "patchSetId": 3
@@ -423,6 +469,29 @@
         "startChar": 6,
         "endLine": 45,
         "endChar": 18
+      },
+      "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e832d9b_4e1503f2",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2019-07-31T00:08:31Z",
+      "side": 1,
+      "message": "If we make the uploadvalidator.config approach more generally applicable, then we could advertise it here as the normal way to configure the plugin.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 41
       },
       "revId": "42cbe09988f643871edd1688c65bd65bbe2e3cf8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
