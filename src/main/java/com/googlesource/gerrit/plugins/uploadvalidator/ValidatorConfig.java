@@ -86,7 +86,7 @@ public class ValidatorConfig {
     return conf != null
         && isValidConfig(conf, projectName)
         && (activeForRef(conf, refName))
-        && (activeForEmail(conf, user.getAccount().getPreferredEmail()))
+        && (activeForEmail(conf, user.getAccount().preferredEmail()))
         && (activeForProject(conf, projectName.get()))
         && (!hasCriteria(conf, "skipGroup")
             || !canSkipValidation(conf, validatorOp)
@@ -176,8 +176,7 @@ public class ValidatorConfig {
   }
 
   private AccountGroup.UUID groupUUID(String groupNameOrUUID) {
-    Optional<InternalGroup> group =
-        groupByNameFinder.get(AccountGroup.nameKey(groupNameOrUUID));
+    Optional<InternalGroup> group = groupByNameFinder.get(AccountGroup.nameKey(groupNameOrUUID));
     return group.map(InternalGroup::getGroupUUID).orElse(AccountGroup.uuid(groupNameOrUUID));
   }
 
