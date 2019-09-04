@@ -27,7 +27,7 @@ java_library(
     name = "testutils",
     testonly = 1,
     srcs = glob(
-        include = ["src/test/java/**/*.java"],
+        ["src/test/java/**/*.java"],
         exclude = [TEST_SRCS],
     ),
     deps = TEST_DEPS,
