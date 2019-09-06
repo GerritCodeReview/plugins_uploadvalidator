@@ -1,3 +1,4 @@
+load("@rules_java//java:defs.bzl", "java_library")
 load("//tools/bzl:junit.bzl", "junit_tests")
 load("//tools/bzl:plugin.bzl", "PLUGIN_DEPS", "PLUGIN_TEST_DEPS", "gerrit_plugin")
 
@@ -23,7 +24,7 @@ java_library(
     name = "testutils",
     testonly = 1,
     srcs = glob(
-        include = ["src/test/java/**/*.java"],
+        ["src/test/java/**/*.java"],
         exclude = [TEST_SRCS],
     ),
     deps = TEST_DEPS,
