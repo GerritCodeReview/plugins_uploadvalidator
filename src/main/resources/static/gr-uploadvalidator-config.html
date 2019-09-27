@@ -1,0 +1,179 @@
+<!--
+@license
+Copyright (C) 2019 The Android Open Source Project
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<link rel="import" href="./gr-uploadvalidator-config-table.html">
+
+<dom-module id="gr-uploadvalidator-config">
+  <template>
+    <style include="shared-styles"></style>
+    <style include="gr-form-styles"></style>
+    <style>
+      .sectionTitle {
+        padding-top: 2em;
+      }
+    </style>
+    <fieldset class="gr-form-styles">
+      <h2 class="sectionTitle">Uploadvalidator Options</h2>
+      <section>
+        <section>
+          <h3>Author Email Pattern</h3>
+          <gr-uploadvalidator-config-table id="allowedAuthorEmailPattern">
+          </gr-uploadvalidator-config-table>
+        </section>
+        <section>
+          <h3>Committer Email Pattern</h3>
+          <gr-uploadvalidator-config-table id="allowedCommitterEmailPattern">
+          </gr-uploadvalidator-config-table>
+        </section>
+        <section>
+          <h3>Binary Types</h3>
+          <gr-uploadvalidator-config-table id="binaryTypes">
+          </gr-uploadvalidator-config-table>
+        </section>
+        <section>
+          <h3>Blocked Content</h3>
+          <span class="title">List Type</span>
+          <span class="value">
+            <gr-select id="blockedContentTypeWhitelist"
+                       bind-value="{{_changedConfig.blockedContentTypeWhitelist.value}}"
+                       on-change="_handlePrefsChanged">
+              <select>
+                <option value="true">Whitelist</option>
+                <option value="false">Blacklist</option>
+              </select>
+            </gr-select>
+          </span>
+          <gr-uploadvalidator-config-table id="blockedContentType">
+          </gr-uploadvalidator-config-table>
+        </section>
+        <section>
+          <h3>Blocked File Extensions</h3>
+          <gr-uploadvalidator-config-table id="blockedFileExtension">
+          </gr-uploadvalidator-config-table>
+        </section>
+        <section>
+          <h3>Blocked Keyword Pattern</h3>
+          <gr-uploadvalidator-config-table id="blockedKeywordPattern">
+          </gr-uploadvalidator-config-table>
+        </section>
+        <section>
+          <h3>Invalid Filename Pattern</h3>
+          <gr-uploadvalidator-config-table id="invalidFilenamePattern">
+          </gr-uploadvalidator-config-table>
+        </section>
+        <section>
+          <h3>Projects</h3>
+          <gr-uploadvalidator-config-table id="project">
+          </gr-uploadvalidator-config-table>
+        </section>
+        <section>
+          <h3>Refs</h3>
+          <gr-uploadvalidator-config-table id="ref">
+          </gr-uploadvalidator-config-table>
+        </section>
+        <section>
+          <h3>Required Footers</h3>
+          <gr-uploadvalidator-config-table id="requiredFooter">
+          </gr-uploadvalidator-config-table>
+        </section>
+        <section>
+          <span class="title">Max Path Length</span>
+          <span class="value">
+            <iron-input>
+              <input id="maxPathLength"
+                     bind-value="{{_changedConfig.maxPathLength.value}}"
+                     prevent-invalid-input
+                     allowed-pattern="[0-9]"
+                     type="number"
+                     on-keypress="_handlePrefsChanged"
+                     on-change="_handlePrefsChanged">
+            </iron-input>
+          </span>
+        </section>
+        <section>
+          <span class="title">Reject Duplicate Pathnames Locale</span>
+          <span class="value">
+            <gr-select id="rejectDuplicatePathnamesLocale"
+                       bind-value="{{_changedConfig.rejectDuplicatePathnamesLocale.value}}"
+                       on-change="_handlePrefsChanged">
+              <select>
+                <template is="dom-repeat"
+                          items="[[_changedConfig.rejectDuplicatePathnamesLocale.permitted_values]]">
+                  <option value="[[item]]">[[item]]</option>
+                </template>
+              </select>
+            </gr-select>
+          </span>
+        </section>
+        <section>
+          <span class="title">Reject Duplicate Pathnames</span>
+          <span class="value">
+            <gr-select id="rejectDuplicatePathnames"
+                       bind-value="{{_changedConfig.rejectDuplicatePathnames.value}}"
+                       on-change="_handlePrefsChanged">
+              <select>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </gr-select>
+          </span>
+        </section>
+        <section>
+          <span class="title">Reject Submodules</span>
+          <span class="value">
+            <gr-select id="rejectSubmodule"
+                       bind-value="{{_changedConfig.rejectSubmodule.value}}"
+                       on-change="_handlePrefsChanged">
+              <select>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </gr-select>
+          </span>
+        </section>
+        <section>
+          <span class="title">Reject Symbolic Links</span>
+          <span class="value">
+            <gr-select id="rejectSymlink"
+                       bind-value="{{_changedConfig.rejectSymlink.value}}"
+                       on-change="_handlePrefsChanged">
+              <select>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </gr-select>
+          </span>
+        </section>
+        <section>
+          <span class="title">Reject Windows Line Endings</span>
+          <span class="value">
+            <gr-select id="rejectWindowsLineEndings"
+                       bind-value="{{_changedConfig.rejectWindowsLineEndings.value}}"
+                       on-change="_handlePrefsChanged">
+              <select>
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </gr-select>
+          </span>
+        </section>
+        <gr-button id="saveButton"
+                   on-tap="_handlePrefsSave"
+                   disabled="[[!_prefsChanged]]">
+          Save Changes
+        </gr-button>
+    </fieldset>
+  </template>
+  <script src="gr-uploadvalidator-config.js"></script>
+</dom-module>
