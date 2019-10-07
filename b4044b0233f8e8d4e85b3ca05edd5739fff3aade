@@ -16,6 +16,24 @@
       "revId": "b4044b0233f8e8d4e85b3ca05edd5739fff3aade",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21c6e6ae_6f480d46",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-07T13:42:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ca18a0d_f9302907",
+      "revId": "b4044b0233f8e8d4e85b3ca05edd5739fff3aade",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
