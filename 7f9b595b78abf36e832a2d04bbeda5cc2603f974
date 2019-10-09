@@ -1,0 +1,216 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e966dd8_a6765fc8",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-09T09:21:53Z",
+      "side": 1,
+      "message": "any particular reason to have two separated style tags for these ?",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 11
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e74720a7_e3482a2c",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-09T09:21:53Z",
+      "side": 1,
+      "message": "for performance improvement, maybe replace with `on-click`:\n\nhttps://polymer-library.polymer-project.org/2.0/docs/devguide/gesture-events",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 35
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28d52ef9_a9b11e5d",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-09T09:21:53Z",
+      "side": 1,
+      "message": "https://polymer-library.polymer-project.org/2.0/docs/devguide/gesture-events",
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6743ad22_a963a501",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-09T09:21:53Z",
+      "side": 1,
+      "message": "this will make the `entries` pointing to same array across all gr-uploadvalidator-config-table instances, leave a comment if you intend to do that, otherwise maybe just do `value(){ return []; }` instead.",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 13
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5587dd0b_6ed548d5",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-09T09:21:53Z",
+      "side": 1,
+      "message": "maybe return a copy of the entries instead ? `this.entries.slice()`, so changes made on allEntries array directly in the event listener should not affect `this.entries`.",
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdd2ca37_b00d6276",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-09T09:21:53Z",
+      "side": 1,
+      "message": "`{}`",
+      "range": {
+        "startLine": 37,
+        "startChar": 45,
+        "endLine": 37,
+        "endChar": 56
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c501621d_64b7e94b",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-09T09:21:53Z",
+      "side": 1,
+      "message": "maybe move all these to template instead ?\n\n`entries\u003d\"[[_changedConfig.xxxx]]\"`",
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e5acb30_510d61b2",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-09T09:21:53Z",
+      "side": 1,
+      "message": "i think you can use `.` notation instead: config.plugin_config ?",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 37
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e04b40b_7be4f419",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-09T09:21:53Z",
+      "side": 1,
+      "message": "maybe just use `{}` ?",
+      "range": {
+        "startLine": 83,
+        "startChar": 41,
+        "endLine": 83,
+        "endChar": 53
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "453a17a3_89c026c0",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-09T09:21:53Z",
+      "side": 1,
+      "message": "maybe store `this.plugin.restAPi(\u0027/projects/\u0027)` in `this.pluginRestApi`, so you can reuse it and no need to pass in the prefix everytime :)",
+      "range": {
+        "startLine": 86,
+        "startChar": 6,
+        "endLine": 86,
+        "endChar": 25
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
