@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e4027d13_8731761d",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-09T12:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e966dd8_a6765fc8",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 11
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e74720a7_e3482a2c",
         "filename": "src/main/resources/static/gr-uploadvalidator-config-table.html",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "daa0c17d_c8894ef5",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-09T12:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e74720a7_e3482a2c",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 35
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28d52ef9_a9b11e5d",
         "filename": "src/main/resources/static/gr-uploadvalidator-config-table.html",
         "patchSetId": 5
@@ -62,6 +110,24 @@
       "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04d82c51_0f6d1e69",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-09T12:21:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "28d52ef9_a9b11e5d",
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "fa99bc0e_4ded0371",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-09T12:21:08Z",
+      "side": 1,
+      "message": "Done.\n\nI have not observed that actually. The menu added in this change has multiple instances of this element and they do not show the same entries.",
+      "parentUuid": "6743ad22_a963a501",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 13
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5587dd0b_6ed548d5",
         "filename": "src/main/resources/static/gr-uploadvalidator-config-table.js",
         "patchSetId": 5
@@ -102,6 +192,24 @@
       "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb9fc70_ba3d80d9",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-09T12:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5587dd0b_6ed548d5",
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "69bbced5_01be3f47",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-09T12:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdd2ca37_b00d6276",
+      "range": {
+        "startLine": 37,
+        "startChar": 45,
+        "endLine": 37,
+        "endChar": 56
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c501621d_64b7e94b",
         "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
         "patchSetId": 5
@@ -142,6 +274,24 @@
       "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd72b65b_03c2f8e9",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-09T12:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c501621d_64b7e94b",
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -168,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "49590aab_81e25269",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-09T12:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e5acb30_510d61b2",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 37
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e04b40b_7be4f419",
         "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
         "patchSetId": 5
@@ -191,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "294449d9_5733eadc",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-09T12:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e04b40b_7be4f419",
+      "range": {
+        "startLine": 83,
+        "startChar": 41,
+        "endLine": 83,
+        "endChar": 53
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "453a17a3_89c026c0",
         "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
         "patchSetId": 5
@@ -211,6 +409,30 @@
       "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "521b0fdb_a2c1ec35",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2019-10-09T12:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "453a17a3_89c026c0",
+      "range": {
+        "startLine": 86,
+        "startChar": 6,
+        "endLine": 86,
+        "endChar": 25
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
