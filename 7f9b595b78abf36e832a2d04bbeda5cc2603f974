@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "f99cfd1b_2bdc2af1",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-10-10T13:23:04Z",
+      "side": 1,
+      "message": "ya if you always passed the entries in or set it specifically, then the default value will not be used :)",
+      "parentUuid": "fa99bc0e_4ded0371",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 13
+      },
+      "revId": "7f9b595b78abf36e832a2d04bbeda5cc2603f974",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5587dd0b_6ed548d5",
         "filename": "src/main/resources/static/gr-uploadvalidator-config-table.js",
         "patchSetId": 5
