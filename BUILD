@@ -17,6 +17,7 @@ TEST_SRCS = "src/test/java/**/*Test.java"
 
 TEST_DEPS = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
     "@commons_io//jar",
+    "@easymock//jar",
     ":uploadvalidator__plugin",
 ]
 
