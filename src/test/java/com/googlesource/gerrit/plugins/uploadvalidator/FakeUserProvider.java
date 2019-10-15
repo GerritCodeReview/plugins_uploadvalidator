@@ -14,9 +14,8 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import static org.easymock.EasyMock.createMock;
-import static org.easymock.EasyMock.expect;
-import static org.easymock.EasyMock.replay;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import com.google.gerrit.reviewdb.client.Account;
 import com.google.gerrit.server.IdentifiedUser;
@@ -42,14 +41,13 @@ public class FakeUserProvider implements Provider<IdentifiedUser> {
   }
 
   private IdentifiedUser createNew(String email) {
-    IdentifiedUser user = createMock(IdentifiedUser.class);
+    IdentifiedUser user = mock(IdentifiedUser.class);
     Account account =
         Account.builder(Account.id(1), TimeUtil.nowTs()).setPreferredEmail(email).build();
-    expect(user.isIdentifiedUser()).andReturn(true);
-    expect(user.asIdentifiedUser()).andReturn(user);
-    expect(user.getAccount()).andStubReturn(account);
-    expect(user.getEffectiveGroups()).andReturn(new FakeGroupMembership(groupUUID));
-    replay(user);
+    when(user.isIdentifiedUser()).thenReturn(true);
+    when(user.asIdentifiedUser()).thenReturn(user);
+    when(user.getAccount()).thenReturn(account);
+    when(user.getEffectiveGroups()).thenReturn(new FakeGroupMembership(groupUUID));
     return user;
   }
 }
