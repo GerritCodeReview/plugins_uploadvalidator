@@ -29,19 +29,22 @@ limitations under the License.
         <section>
           <h3>Author Email Pattern</h3>
           <gr-uploadvalidator-config-table id="allowedAuthorEmailPattern"
-                                           entries=[[_changedConfig.allowedAuthorEmailPattern.values]]>
+                                           entries=[[_changedConfig.allowedAuthorEmailPattern.values]]
+                                           disabled$="[[readOnly]]">
           </gr-uploadvalidator-config-table>
         </section>
         <section>
           <h3>Committer Email Pattern</h3>
           <gr-uploadvalidator-config-table id="allowedCommitterEmailPattern"
-                                           entries=[[_changedConfig.allowedCommitterEmailPattern.values]]>
+                                           entries=[[_changedConfig.allowedCommitterEmailPattern.values]]
+                                           disabled$="[[readOnly]]">
           </gr-uploadvalidator-config-table>
         </section>
         <section>
           <h3>Binary Types</h3>
           <gr-uploadvalidator-config-table id="binaryTypes"
-                                           entries=[[_changedConfig.binaryTypes.values]]>
+                                           entries=[[_changedConfig.binaryTypes.values]]
+                                           disabled$="[[readOnly]]">
           </gr-uploadvalidator-config-table>
         </section>
         <section>
@@ -51,50 +54,57 @@ limitations under the License.
             <gr-select id="blockedContentTypeWhitelist"
                        bind-value="{{_changedConfig.blockedContentTypeWhitelist.value}}"
                        on-change="_handlePrefsChanged">
-              <select>
+              <select disabled$="[[readOnly]]">
                 <option value="true">Whitelist</option>
                 <option value="false">Blacklist</option>
               </select>
             </gr-select>
           </span>
           <gr-uploadvalidator-config-table id="blockedContentType"
-                                           entries=[[_changedConfig.blockedContentType.values]]>
+                                           entries=[[_changedConfig.blockedContentType.values]]
+                                           disabled$="[[readOnly]]">
           </gr-uploadvalidator-config-table>
         </section>
         <section>
           <h3>Blocked File Extensions</h3>
           <gr-uploadvalidator-config-table id="blockedFileExtension"
-                                           entries=[[_changedConfig.blockedFileExtension.values]]>
+                                           entries=[[_changedConfig.blockedFileExtension.values]]
+                                           disabled$="[[readOnly]]">
           </gr-uploadvalidator-config-table>
         </section>
         <section>
           <h3>Blocked Keyword Pattern</h3>
           <gr-uploadvalidator-config-table id="blockedKeywordPattern"
-                                           entries=[[_changedConfig.blockedKeywordPattern.values]]>
+                                           entries=[[_changedConfig.blockedKeywordPattern.values]]
+                                           disabled$="[[readOnly]]">
           </gr-uploadvalidator-config-table>
         </section>
         <section>
           <h3>Invalid Filename Pattern</h3>
           <gr-uploadvalidator-config-table id="invalidFilenamePattern"
-                                           entries=[[_changedConfig.invalidFilenamePattern.values]]>
+                                           entries=[[_changedConfig.invalidFilenamePattern.values]]
+                                           disabled$="[[readOnly]]">
           </gr-uploadvalidator-config-table>
         </section>
         <section>
           <h3>Projects</h3>
           <gr-uploadvalidator-config-table id="project"
-                                           entries=[[_changedConfig.project.values]]>
+                                           entries=[[_changedConfig.project.values]]
+                                           disabled$="[[readOnly]]">
           </gr-uploadvalidator-config-table>
         </section>
         <section>
           <h3>Refs</h3>
           <gr-uploadvalidator-config-table id="ref"
-                                           entries=[[_changedConfig.ref.values]]>
+                                           entries=[[_changedConfig.ref.values]]
+                                           disabled$="[[readOnly]]">
           </gr-uploadvalidator-config-table>
         </section>
         <section>
           <h3>Required Footers</h3>
           <gr-uploadvalidator-config-table id="requiredFooter"
-                                           entries=[[_changedConfig.requiredFooter.values]]>
+                                           entries=[[_changedConfig.requiredFooter.values]]
+                                           disabled$="[[readOnly]]">
           </gr-uploadvalidator-config-table>
         </section>
         <section>
@@ -107,7 +117,8 @@ limitations under the License.
                      allowed-pattern="[0-9]"
                      type="number"
                      on-keypress="_handlePrefsChanged"
-                     on-change="_handlePrefsChanged">
+                     on-change="_handlePrefsChanged"
+                     disabled$="[[readOnly]]">
             </iron-input>
           </span>
         </section>
@@ -117,7 +128,7 @@ limitations under the License.
             <gr-select id="rejectDuplicatePathnamesLocale"
                        bind-value="{{_changedConfig.rejectDuplicatePathnamesLocale.value}}"
                        on-change="_handlePrefsChanged">
-              <select>
+              <select disabled$="[[readOnly]]">
                 <template is="dom-repeat"
                           items="[[_changedConfig.rejectDuplicatePathnamesLocale.permitted_values]]">
                   <option value="[[item]]">[[item]]</option>
@@ -132,7 +143,7 @@ limitations under the License.
             <gr-select id="rejectDuplicatePathnames"
                        bind-value="{{_changedConfig.rejectDuplicatePathnames.value}}"
                        on-change="_handlePrefsChanged">
-              <select>
+              <select disabled$="[[readOnly]]">
                 <option value="true">True</option>
                 <option value="false">False</option>
               </select>
@@ -145,7 +156,7 @@ limitations under the License.
             <gr-select id="rejectSubmodule"
                        bind-value="{{_changedConfig.rejectSubmodule.value}}"
                        on-change="_handlePrefsChanged">
-              <select>
+              <select disabled$="[[readOnly]]">
                 <option value="true">True</option>
                 <option value="false">False</option>
               </select>
@@ -158,7 +169,7 @@ limitations under the License.
             <gr-select id="rejectSymlink"
                        bind-value="{{_changedConfig.rejectSymlink.value}}"
                        on-change="_handlePrefsChanged">
-              <select>
+              <select disabled$="[[readOnly]]">
                 <option value="true">True</option>
                 <option value="false">False</option>
               </select>
@@ -171,7 +182,7 @@ limitations under the License.
             <gr-select id="rejectWindowsLineEndings"
                        bind-value="{{_changedConfig.rejectWindowsLineEndings.value}}"
                        on-change="_handlePrefsChanged">
-              <select>
+              <select disabled$="[[readOnly]]">
                 <option value="true">True</option>
                 <option value="false">False</option>
               </select>

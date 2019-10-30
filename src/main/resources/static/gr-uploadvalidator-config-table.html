@@ -34,7 +34,8 @@ limitations under the License.
                 <td class="deleteColumn">
                   <gr-button id="{{item}}"
                              class="deleteEntryButton"
-                             on-click="_handleDeleteEntry">
+                             on-click="_handleDeleteEntry"
+                             disabled="[[disabled]]">
                     Delete
                   </gr-button>
                 </td>
@@ -43,7 +44,7 @@ limitations under the License.
             <tr>
               <td class="nameColumn">
                 <iron-input>
-                  <input id="newEntry" type="text">
+                  <input id="newEntry" type="text" disabled="[[disabled]]">
                 </iron-input>
               </td>
               <td class="deleteColumn">
