@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0b0b63f_989a3420",
+        "filename": "src/main/resources/static/gr-uploadvalidator-config-table.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-10-30T11:52:23Z",
+      "side": 1,
+      "message": "Is this intentional?",
+      "range": {
+        "startLine": 47,
+        "startChar": 59,
+        "endLine": 47,
+        "endChar": 60
+      },
+      "revId": "ceb0e1a3bace9a18b2d0b9bfea3256dbd6db5d20",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
