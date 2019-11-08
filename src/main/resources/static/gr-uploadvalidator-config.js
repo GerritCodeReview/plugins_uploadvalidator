@@ -20,6 +20,10 @@
 
     properties: {
       repoName: String,
+      readOnly: {
+        type: Boolean,
+        value: true,
+      },
       _config: Object,
       _changedConfig: Object,
       _prefsChanged: {
