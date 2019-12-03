@@ -17,7 +17,7 @@ gerrit_plugin(
 TEST_SRCS = "src/test/java/**/*Test.java"
 
 TEST_DEPS = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
-    "@commons_io//jar",
+    "@commons-io//jar",
     ":uploadvalidator__plugin",
 ]
 
