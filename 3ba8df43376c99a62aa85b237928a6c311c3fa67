@@ -70,6 +70,30 @@
       "revId": "3ba8df43376c99a62aa85b237928a6c311c3fa67",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f7a284b_36581806",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-12-04T08:28:34Z",
+      "side": 1,
+      "message": "Yes, but that shouldn\u0027t make a difference, should it?",
+      "parentUuid": "59d66830_acd0dac1",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "3ba8df43376c99a62aa85b237928a6c311c3fa67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
