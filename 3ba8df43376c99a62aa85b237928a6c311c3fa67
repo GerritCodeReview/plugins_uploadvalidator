@@ -22,6 +22,30 @@
       "revId": "3ba8df43376c99a62aa85b237928a6c311c3fa67",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9cba7b2_f23158a9",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2019-12-04T08:15:24Z",
+      "side": 1,
+      "message": "Thanks for the fix. It\u0027s strange though, it didn\u0027t build with an underscore for me, just with a dash.",
+      "parentUuid": "2eb3b28e_072d4531",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "3ba8df43376c99a62aa85b237928a6c311c3fa67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
