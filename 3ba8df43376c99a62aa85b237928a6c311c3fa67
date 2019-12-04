@@ -94,6 +94,30 @@
       "revId": "3ba8df43376c99a62aa85b237928a6c311c3fa67",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2eac81e9_59ab966d",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-12-04T08:32:05Z",
+      "side": 1,
+      "message": "I\u0027m not 100% sure.  Did you link the external plugin deps file?  Maybe that\u0027s not needed in in-tree mode.",
+      "parentUuid": "6f7a284b_36581806",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "3ba8df43376c99a62aa85b237928a6c311c3fa67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
