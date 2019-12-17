@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3849927f_d751e645",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-17T15:27:29Z",
+      "side": 1,
+      "message": "maybe also include the reason of reverting ?",
+      "revId": "19bab62c59818c30cce23046ffbf9ac7308c3553",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
