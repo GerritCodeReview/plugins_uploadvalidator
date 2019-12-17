@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e939fa1_4a67f2d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1086906
+      },
+      "writtenOn": "2019-12-17T14:53:29Z",
+      "side": 1,
+      "message": "can you link to Bug: Issue 12082 as its already served in Gerrit now :)",
+      "revId": "278fc157637273d84092da9052d908d18f86cdf8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
