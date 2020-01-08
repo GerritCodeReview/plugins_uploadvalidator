@@ -30,7 +30,7 @@ public class RefAwareValidatorConfigTest {
     ValidatorConfig config =
         getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar");
 
-    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
         .isTrue();
   }
 
@@ -43,7 +43,7 @@ public class RefAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar");
 
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isTrue();
   }
@@ -57,7 +57,7 @@ public class RefAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar");
 
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isFalse();
   }
@@ -71,11 +71,11 @@ public class RefAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar");
 
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/anotherref", "blockedFileExtension"))
         .isFalse();
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/mybranch123", "blockedFileExtension"))
         .isTrue();
   }
@@ -90,15 +90,15 @@ public class RefAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar");
 
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/branch1", "blockedFileExtension"))
         .isTrue();
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/branch2", "blockedFileExtension"))
         .isTrue();
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/branch3", "blockedFileExtension"))
         .isFalse();
   }
