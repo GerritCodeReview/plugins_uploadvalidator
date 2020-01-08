@@ -20,12 +20,20 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Joiner;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableCollection;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.gerrit.common.Nullable;
 import com.google.gerrit.entities.Patch;
+import com.google.gerrit.entities.Project;
+import com.google.gerrit.entities.Project.NameKey;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.extensions.registration.DynamicSet;
+import com.google.gerrit.extensions.validators.CommentForValidation;
+import com.google.gerrit.extensions.validators.CommentValidationContext;
+import com.google.gerrit.extensions.validators.CommentValidationFailure;
+import com.google.gerrit.extensions.validators.CommentValidator;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.config.ProjectConfigEntry;
@@ -47,12 +55,16 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import org.eclipse.jgit.diff.RawText;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
@@ -60,7 +72,7 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 
-public class BlockedKeywordValidator implements CommitValidationListener {
+public class BlockedKeywordValidator implements CommitValidationListener, CommentValidator {
   private static final String KEY_CHECK_BLOCKED_KEYWORD = "blockedKeyword";
   private static final String KEY_CHECK_BLOCKED_KEYWORD_PATTERN =
       KEY_CHECK_BLOCKED_KEYWORD + "Pattern";
@@ -70,6 +82,7 @@ public class BlockedKeywordValidator implements CommitValidationListener {
       @Override
       protected void configure() {
         DynamicSet.bind(binder(), CommitValidationListener.class).to(BlockedKeywordValidator.class);
+        DynamicSet.bind(binder(), CommentValidator.class).to(BlockedKeywordValidator.class);
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_CHECK_BLOCKED_KEYWORD_PATTERN))
             .toInstance(
@@ -148,6 +161,47 @@ public class BlockedKeywordValidator implements CommitValidationListener {
     return Collections.emptyList();
   }
 
+  @Nullable
+  private static CommentValidationFailure validateComment(ImmutableMap blockedKeywordPatterns, CommentForValidation comment) {
+    Set<String> findings = new HashSet<>();
+    List<String> found = findBlockedKeywordsInString(blockedKeywordPatterns.values(), comment.getText());
+    findings.addAll(found);
+    if (!findings.isEmpty()) {
+      StringBuilder msgBuilder = new StringBuilder();
+      msgBuilder.append("banned words found in your comment (");
+      msgBuilder.append(findings.stream().collect(Collectors.joining(", ")));
+      msgBuilder.append(")");
+      return comment.failValidation(msgBuilder.toString());
+    }
+    return null;
+  }
+
+  @Override
+  public ImmutableList<CommentValidationFailure> validateComments(ImmutableList<CommentForValidation> comments, CommentValidationContext ctx) {
+    try {
+      NameKey projectNameKey = Project.nameKey(ctx.getProject());
+      PluginConfig cfg =
+          cfgFactory.getFromProjectConfigWithInheritance(projectNameKey, pluginName);
+      if (isActive(cfg)
+          && validatorConfig.isEnabledForRef(
+            null,
+            projectNameKey,
+            "",
+            KEY_CHECK_BLOCKED_KEYWORD)) {
+        ImmutableMap<String, Pattern> blockedKeywordPatterns =
+            patternCache.getAll(
+                Arrays.asList(cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN)));
+        return comments.stream()
+            .map(comment -> validateComment(blockedKeywordPatterns, comment))
+            .filter(Objects::nonNull)
+            .collect(ImmutableList.toImmutableList());
+      }
+    } catch (NoSuchProjectException | ExecutionException e) {
+      return ImmutableList.of();
+    }
+    return ImmutableList.of();
+  }
+
   @VisibleForTesting
   List<CommitValidationMessage> performValidation(
       Repository repo,
@@ -198,19 +252,27 @@ public class BlockedKeywordValidator implements CommitValidationListener {
     }
   }
 
+  private static List<String> findBlockedKeywordsInString(
+      ImmutableCollection<Pattern> blockedKeywordPartterns,
+      String text
+  ) {
+    List<String> found = new ArrayList<>();
+    for (Pattern p : blockedKeywordPartterns) {
+      Matcher matcher = p.matcher(text);
+      while (matcher.find()) {
+        found.add(matcher.group());
+      }
+    }
+    return found;
+  }
+
   private static void checkLineForBlockedKeywords(
       ImmutableCollection<Pattern> blockedKeywordPartterns,
       List<CommitValidationMessage> messages,
       String path,
       int lineNumber,
       String line) {
-    List<String> found = new ArrayList<>();
-    for (Pattern p : blockedKeywordPartterns) {
-      Matcher matcher = p.matcher(line);
-      while (matcher.find()) {
-        found.add(matcher.group());
-      }
-    }
+    List<String> found = findBlockedKeywordsInString(blockedKeywordPartterns, line);
     if (!found.isEmpty()) {
       messages.add(
           new CommitValidationMessage(

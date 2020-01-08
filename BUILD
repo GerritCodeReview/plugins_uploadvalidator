@@ -9,6 +9,7 @@ gerrit_plugin(
         "Gerrit-PluginName: uploadvalidator",
         "Gerrit-ApiVersion: 3.0-SNAPSHOT",
         "Gerrit-Module: com.googlesource.gerrit.plugins.uploadvalidator.Module",
+        "Gerrit-HttpModule: com.googlesource.gerrit.plugins.uploadvalidator.HttpModule",
     ],
     resources = glob(["src/main/resources/**/*"]),
 )
