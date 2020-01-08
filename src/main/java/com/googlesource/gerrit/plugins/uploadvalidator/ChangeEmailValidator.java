@@ -108,7 +108,7 @@ public class ChangeEmailValidator implements CommitValidationListener {
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isAuthorActive(cfg)
-          && validatorConfig.isEnabledForRef(
+          && validatorConfig.isEnabled(
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
@@ -123,7 +123,7 @@ public class ChangeEmailValidator implements CommitValidationListener {
         }
       }
       if (isCommitterActive(cfg)
-          && validatorConfig.isEnabledForRef(
+          && validatorConfig.isEnabled(
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),

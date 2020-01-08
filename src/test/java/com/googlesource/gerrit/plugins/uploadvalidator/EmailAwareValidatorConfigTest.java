@@ -30,7 +30,7 @@ public class EmailAwareValidatorConfigTest {
     ValidatorConfig config =
         getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar");
 
-    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
         .isTrue();
   }
 
@@ -40,7 +40,7 @@ public class EmailAwareValidatorConfigTest {
     ValidatorConfig config =
         getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar");
 
-    assertThat(config.isEnabledForRef(missingEmail, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(config.isEnabled(missingEmail, projectName, "anyRef", "blockedFileExtension"))
         .isTrue();
   }
 
@@ -55,7 +55,7 @@ public class EmailAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar");
 
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isTrue();
   }
@@ -69,7 +69,7 @@ public class EmailAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar");
 
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isFalse();
   }
@@ -84,11 +84,11 @@ public class EmailAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar");
 
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isFalse();
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 exampleOrgUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isTrue();
   }
@@ -103,7 +103,7 @@ public class EmailAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar");
 
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 missingEmail, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isFalse();
   }
@@ -120,14 +120,14 @@ public class EmailAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar");
 
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 exampleOrgUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isTrue();
     assertThat(
-            config.isEnabledForRef(xUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+            config.isEnabled(xUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isTrue();
     assertThat(
-            config.isEnabledForRef(
+            config.isEnabled(
                 anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isFalse();
   }

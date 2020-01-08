@@ -181,7 +181,7 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
       if (isActive(cfg)
-          && validatorConfig.isEnabledForRef(
+          && validatorConfig.isEnabled(
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
