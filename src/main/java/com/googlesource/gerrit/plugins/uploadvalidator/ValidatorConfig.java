@@ -86,7 +86,7 @@ public class ValidatorConfig {
     return conf != null
         && isValidConfig(conf, projectName)
         && (activeForRef(conf, refName))
-        && (activeForEmail(conf, user.getAccount().preferredEmail()))
+        && (user == null || activeForEmail(conf, user.getAccount().preferredEmail()))
         && (activeForProject(conf, projectName.get()))
         && (!hasCriteria(conf, "skipGroup")
             || !canSkipValidation(conf, validatorOp)
