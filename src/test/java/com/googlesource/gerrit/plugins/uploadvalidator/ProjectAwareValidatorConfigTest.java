@@ -30,7 +30,7 @@ public class ProjectAwareValidatorConfigTest {
     ValidatorConfig config =
         getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar", projectName);
 
-    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
         .isTrue();
   }
 
@@ -43,7 +43,7 @@ public class ProjectAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar",
             projectName);
 
-    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
         .isTrue();
   }
 
@@ -56,7 +56,7 @@ public class ProjectAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar",
             projectName);
 
-    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
         .isFalse();
   }
 
@@ -70,9 +70,9 @@ public class ProjectAwareValidatorConfigTest {
     ValidatorConfig config = getConfig(configString, projectName);
     ValidatorConfig config2 = getConfig(configString, otherNameKey);
 
-    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
         .isTrue();
-    assertThat(config2.isEnabledForRef(anyUser, otherNameKey, "anyRef", "blockedFileExtension"))
+    assertThat(config2.isEnabled(anyUser, otherNameKey, "anyRef", "blockedFileExtension"))
         .isFalse();
   }
 
@@ -89,11 +89,11 @@ public class ProjectAwareValidatorConfigTest {
     ValidatorConfig config2 = getConfig(configString, anotherNameKey);
     ValidatorConfig config3 = getConfig(configString, someOtherNameKey);
 
-    assertThat(config.isEnabledForRef(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
         .isTrue();
-    assertThat(config2.isEnabledForRef(anyUser, anotherNameKey, "anyRef", "blockedFileExtension"))
+    assertThat(config2.isEnabled(anyUser, anotherNameKey, "anyRef", "blockedFileExtension"))
         .isTrue();
-    assertThat(config3.isEnabledForRef(anyUser, someOtherNameKey, "anyRef", "blockedFileExtension"))
+    assertThat(config3.isEnabled(anyUser, someOtherNameKey, "anyRef", "blockedFileExtension"))
         .isFalse();
   }
 
