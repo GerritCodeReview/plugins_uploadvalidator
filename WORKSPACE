@@ -3,7 +3,7 @@ workspace(name = "uploadvalidator")
 load("//:bazlets.bzl", "load_bazlets")
 
 load_bazlets(
-    commit = "fbe2b2fd07c95d752dced6b8624c9d5a08e8c6c6",
+    commit = "8c8df720486ebe0b60adccd0eceb1c8122edaf58",
     #local_path = "/home/<user>/projects/bazlets",
 )
 

@@ -79,14 +79,27 @@ public class ValidatorConfig {
     this.groupByNameFinder = groupByNameFinder;
   }
 
+  /**
+   * Validates that the provided params match with the plugin configuration for an enabled ref.
+   *
+   * @param user A Nullable field identifying the user defined on the ref. Passing null will ignore
+   *     user checks.
+   * @param projectName Identifier for the project name on the ref.
+   * @param refName Identifier for the ref name.
+   * @param validatorOp The name of the validator operation. Can be used in skip validation config.
+   * @return boolean indicating if the ref is enabled for validation.
+   */
   public boolean isEnabledForRef(
-      IdentifiedUser user, Project.NameKey projectName, String refName, String validatorOp) {
+      @Nullable IdentifiedUser user,
+      Project.NameKey projectName,
+      String refName,
+      String validatorOp) {
     PluginConfig conf = configFactory.get(projectName);
 
     return conf != null
         && isValidConfig(conf, projectName)
         && (activeForRef(conf, refName))
-        && (activeForEmail(conf, user.getAccount().preferredEmail()))
+        && (user == null || activeForEmail(conf, user.getAccount().preferredEmail()))
         && (activeForProject(conf, projectName.get()))
         && (!hasCriteria(conf, "skipGroup")
             || !canSkipValidation(conf, validatorOp)
@@ -165,8 +178,8 @@ public class ValidatorConfig {
     return Pattern.matches(pattern, value);
   }
 
-  private boolean canSkipGroup(PluginConfig conf, IdentifiedUser user) {
-    if (!user.isIdentifiedUser()) {
+  private boolean canSkipGroup(PluginConfig conf, @Nullable IdentifiedUser user) {
+    if (user != null && !user.isIdentifiedUser()) {
       return false;
     }
 
