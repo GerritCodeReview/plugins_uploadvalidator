@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1adcef4_d9a6accd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-01-15T01:13:55Z",
+      "side": 1,
+      "message": "nit: long line (google-java-format should be able to take care of these)",
+      "revId": "3683acb239f7fe2fcf00c9b4b4d6511d034916cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de1ee3ac_708c33c3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-01-15T01:13:55Z",
+      "side": 1,
+      "message": "Is this temporary variable needed? It seems like it should be possible to use `found` directly.",
+      "revId": "3683acb239f7fe2fcf00c9b4b4d6511d034916cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "728836d2_18bdbead",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-01-15T01:13:55Z",
+      "side": 1,
+      "message": "@Nullable\n\nCan this include a short javadoc describing what it means to pass `null`?",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 83,
+        "endChar": 25
+      },
+      "revId": "3683acb239f7fe2fcf00c9b4b4d6511d034916cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
