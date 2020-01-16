@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1266b429_b4e823c5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-01-16T08:28:41Z",
+      "side": 1,
+      "message": "Since the class is public, could you add Javadoc? E.g. it might be interesting why it implements two interfaces.",
+      "revId": "3683acb239f7fe2fcf00c9b4b4d6511d034916cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f1adcef4_d9a6accd",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 2
@@ -30,6 +47,57 @@
       "writtenOn": "2020-01-15T01:13:55Z",
       "side": 1,
       "message": "Is this temporary variable needed? It seems like it should be possible to use `found` directly.",
+      "revId": "3683acb239f7fe2fcf00c9b4b4d6511d034916cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8888ef4e_0ebd8fa2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-01-16T08:28:41Z",
+      "side": 1,
+      "message": "nit/opt: Reversing this logic avoids one negation and would keep the default flow contiguous.",
+      "revId": "3683acb239f7fe2fcf00c9b4b4d6511d034916cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b59b550_9d9a55e7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-01-16T08:28:41Z",
+      "side": 1,
+      "message": "How about:\n...failValidation(String.format(\"banned words found... (%s)\", Iterables.toString(found)));",
+      "revId": "3683acb239f7fe2fcf00c9b4b4d6511d034916cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9072069c_15571c32",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-01-16T08:28:41Z",
+      "side": 1,
+      "message": "Would it be helpful to log a warning in this case?",
       "revId": "3683acb239f7fe2fcf00c9b4b4d6511d034916cb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
