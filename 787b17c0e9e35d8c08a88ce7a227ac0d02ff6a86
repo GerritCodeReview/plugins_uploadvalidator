@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0cab7c66_d59f4009",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-02-03T22:23:09Z",
+      "side": 1,
+      "message": "nit: it wasn\u0027t obvious to me what the semantics of this key are (I thought it might represent keywords that are blocked particularly for comments). Would a different name make it clearer? Does it need to be conditional at all?",
+      "range": {
+        "startLine": 86,
+        "startChar": 67,
+        "endLine": 86,
+        "endChar": 89
+      },
+      "revId": "787b17c0e9e35d8c08a88ce7a227ac0d02ff6a86",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "932d2ba2_4b940eb8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-02-03T22:23:09Z",
+      "side": 1,
+      "message": "Can we let the exception percolate instead? (I realize this would be a change to the validateComments interface, but probably a good one.)",
+      "revId": "787b17c0e9e35d8c08a88ce7a227ac0d02ff6a86",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
