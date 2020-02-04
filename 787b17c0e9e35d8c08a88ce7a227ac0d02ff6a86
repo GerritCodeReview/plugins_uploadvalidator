@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e42a9020_cf77a72c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-02-04T23:46:21Z",
+      "side": 1,
+      "message": "We want to use a separate key so that individual config options can apply to file keyword blocking separately from comment keyword blocking. Main example: A host might want to use this plugin for only comment keyword blocking but not file keyword blocking. This is possible since they are identified with different keys.",
+      "parentUuid": "0cab7c66_d59f4009",
+      "range": {
+        "startLine": 86,
+        "startChar": 67,
+        "endLine": 86,
+        "endChar": 89
+      },
+      "revId": "787b17c0e9e35d8c08a88ce7a227ac0d02ff6a86",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "932d2ba2_4b940eb8",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2020-02-03T22:23:09Z",
       "side": 1,
       "message": "Can we let the exception percolate instead? (I realize this would be a change to the validateComments interface, but probably a good one.)",
+      "revId": "787b17c0e9e35d8c08a88ce7a227ac0d02ff6a86",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a88113a_293d8ed6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-02-04T23:46:21Z",
+      "side": 1,
+      "message": "Do you mean something like `public ImmutableList\u003cCommentValidationFailure\u003e validateComments(...) throws ExecutionException`?",
+      "parentUuid": "932d2ba2_4b940eb8",
       "revId": "787b17c0e9e35d8c08a88ce7a227ac0d02ff6a86",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
