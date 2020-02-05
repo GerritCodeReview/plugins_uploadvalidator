@@ -81,6 +81,24 @@
       "revId": "787b17c0e9e35d8c08a88ce7a227ac0d02ff6a86",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bc4afa9_f0688ab0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-02-05T18:24:19Z",
+      "side": 1,
+      "message": "Yes, or wrapping in an appropriate runtime exception. See effective java 3rd ed p302 \"Item 73: Throw exceptions appropriate to the abstraction\".",
+      "parentUuid": "2a88113a_293d8ed6",
+      "revId": "787b17c0e9e35d8c08a88ce7a227ac0d02ff6a86",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
