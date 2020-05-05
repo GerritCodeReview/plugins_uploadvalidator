@@ -13,28 +13,21 @@
 // limitations under the License.
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
-
-import static java.util.Comparator.comparing;
-
-import eu.medsea.mimeutil.MimeType;
-import eu.medsea.mimeutil.MimeUtil2;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import org.apache.tika.Tika;
+import org.apache.tika.config.TikaConfig;
+import org.apache.tika.io.TikaInputStream;
+import org.apache.tika.metadata.Metadata;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 
 class MimeTypeDetection {
-  public String getMimeType(String path, byte[] content) {
-    MimeUtil2 mimeUtil = new MimeUtil2();
+  public String getMimeType(String path, byte[] content) throws IOException {
+    Tika tika = new Tika(TikaConfig.getDefaultConfig());
 
-    Set<MimeType> mimeTypes = new HashSet<>();
-    mimeTypes.addAll(mimeUtil.getMimeTypes(content));
-    mimeTypes.addAll(mimeUtil.getMimeTypes(path));
+    Metadata metadata = new Metadata();
+    metadata.set(Metadata.RESOURCE_NAME_KEY, path);
 
-    if (mimeTypes.isEmpty()
-        || (mimeTypes.size() == 1 && mimeTypes.contains(MimeUtil2.UNKNOWN_MIME_TYPE))) {
-      return MimeUtil2.UNKNOWN_MIME_TYPE.toString();
-    }
-
-    return Collections.max(mimeTypes, comparing(MimeType::getSpecificity)).toString();
+    ByteArrayInputStream bis = new ByteArrayInputStream(content);
+    return tika.detect(TikaInputStream.get(bis), metadata);
   }
 }

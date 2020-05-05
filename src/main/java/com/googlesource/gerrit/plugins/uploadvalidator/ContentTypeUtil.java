@@ -22,7 +22,6 @@ import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.ProjectConfigEntry;
-import com.google.gerrit.server.mime.FileTypeRegistry;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -30,6 +29,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
+import org.apache.tika.Tika;
+import org.apache.tika.config.TikaConfig;
+import org.apache.tika.io.TikaInputStream;
+import org.apache.tika.metadata.Metadata;
 import org.eclipse.jgit.lib.ObjectLoader;
 
 public class ContentTypeUtil {
@@ -65,24 +68,24 @@ public class ContentTypeUtil {
   }
 
   private final LoadingCache<String, Pattern> patternCache;
-  private final FileTypeRegistry mimeUtil;
+  private final Tika tika = new Tika(TikaConfig.getDefaultConfig());
 
   @Inject
-  ContentTypeUtil(
-      @Named(CACHE_NAME) LoadingCache<String, Pattern> patternCache, FileTypeRegistry mimeUtil) {
+  ContentTypeUtil(@Named(CACHE_NAME) LoadingCache<String, Pattern> patternCache) {
     this.patternCache = patternCache;
-    this.mimeUtil = mimeUtil;
   }
 
   public boolean isBlacklistedBinaryContentType(ObjectLoader ol, String pathname, PluginConfig cfg)
       throws IOException, ExecutionException {
-    return matchesAny(getContentType(ol, pathname), getBinaryTypes(cfg));
+    try (InputStream is = ol.openStream()) {
+      return matchesAny(getContentType(is, pathname), getBinaryTypes(cfg));
+    }
   }
 
-  public String getContentType(ObjectLoader ol, String pathname) throws IOException {
-    try (InputStream is = ol.openStream()) {
-      return mimeUtil.getMimeType(pathname, is).toString();
-    }
+  public String getContentType(InputStream is, String pathname) throws IOException {
+    Metadata metadata = new Metadata();
+    metadata.set(Metadata.RESOURCE_NAME_KEY, pathname);
+    return tika.detect(TikaInputStream.get(is), metadata);
   }
 
   @VisibleForTesting

@@ -12,12 +12,16 @@ gerrit_plugin(
         "Gerrit-HttpModule: com.googlesource.gerrit.plugins.uploadvalidator.HttpModule",
     ],
     resources = glob(["src/main/resources/**/*"]),
+    deps = [
+        "@tika-core//jar",
+    ],
 )
 
 TEST_SRCS = "src/test/java/**/*Test.java"
 
 TEST_DEPS = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
-    "@commons_io//jar",
+    "@commons-io//jar",
+    "@tika-core//jar",
     ":uploadvalidator__plugin",
 ]
 
