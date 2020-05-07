@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6118c250_eac74415",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-05-07T11:54:02Z",
+      "side": 1,
+      "message": "Nit: We consistently use hyphen char, so change it to: \u0027tika-core\u0027. Can also be done in follow-up change, also the commons_io.",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "ad8e3354604593b29cf7d0d38902e4287c3b5940",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
