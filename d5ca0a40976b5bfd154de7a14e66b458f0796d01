@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e8a1c4c7_7c7a7163",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2020-05-08T14:01:43Z",
+      "side": 1,
+      "message": "done in https://gerrit-review.googlesource.com/c/plugins/uploadvalidator/+/266615/1",
+      "parentUuid": "c841a60e_b48819ea",
+      "revId": "d5ca0a40976b5bfd154de7a14e66b458f0796d01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "93b1e278_7e76cce6",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-05-08T14:01:02Z",
       "side": 1,
       "message": "we should upgrade to a more recent version (in a follow-up change), latest is 1.24.1\nhttps://search.maven.org/artifact/org.apache.tika/tika-core/1.24.1/bundle",
+      "revId": "d5ca0a40976b5bfd154de7a14e66b458f0796d01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a46e553_010ceeb3",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2020-05-08T14:01:43Z",
+      "side": 1,
+      "message": "done in https://gerrit-review.googlesource.com/c/plugins/uploadvalidator/+/266615/1",
+      "parentUuid": "93b1e278_7e76cce6",
       "revId": "d5ca0a40976b5bfd154de7a14e66b458f0796d01",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
