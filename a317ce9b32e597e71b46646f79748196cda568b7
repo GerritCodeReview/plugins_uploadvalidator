@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6cc3411b_aca03d6a",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-05-08T14:11:25Z",
+      "side": 1,
+      "message": "Unrelated format change? Also, in replication plugin and thus in core we have this dependency already and it is already 2.2 there: [1], also on stable-2.1 branch.\n\n* [1] https://gerrit.googlesource.com/gerrit/+/refs/heads/master/WORKSPACE#961",
+      "range": {
+        "startLine": 6,
+        "startChar": 8,
+        "endLine": 6,
+        "endChar": 12
+      },
+      "revId": "a317ce9b32e597e71b46646f79748196cda568b7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
