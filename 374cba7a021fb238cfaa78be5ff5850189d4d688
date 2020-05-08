@@ -22,6 +22,30 @@
       "revId": "374cba7a021fb238cfaa78be5ff5850189d4d688",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f53ffa6d_6f0b7c6e",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1097120
+      },
+      "writtenOn": "2020-05-08T08:55:55Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "abfa9c5e_9226e0a5",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 5
+      },
+      "revId": "374cba7a021fb238cfaa78be5ff5850189d4d688",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
