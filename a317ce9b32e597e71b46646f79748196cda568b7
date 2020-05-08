@@ -22,6 +22,30 @@
       "revId": "a317ce9b32e597e71b46646f79748196cda568b7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "506ee759_c8ba4254",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2020-05-08T14:16:27Z",
+      "side": 1,
+      "message": "fixed formatting\n\nthis dependency is required for standalone build",
+      "parentUuid": "6cc3411b_aca03d6a",
+      "range": {
+        "startLine": 6,
+        "startChar": 8,
+        "endLine": 6,
+        "endChar": 12
+      },
+      "revId": "a317ce9b32e597e71b46646f79748196cda568b7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
