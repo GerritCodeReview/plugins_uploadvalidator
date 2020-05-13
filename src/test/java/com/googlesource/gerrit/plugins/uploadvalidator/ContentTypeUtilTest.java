@@ -18,19 +18,16 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
 
-import com.google.gerrit.server.mime.MimeUtilFileTypeRegistry;
-import com.google.inject.Inject;
 import java.util.concurrent.ExecutionException;
 import org.junit.Before;
 import org.junit.Test;
 
 public class ContentTypeUtilTest {
   private ContentTypeUtil ctu;
-  @Inject private MimeUtilFileTypeRegistry mimeUtil;
 
   @Before
   public void setUp() {
-    ctu = new ContentTypeUtil(PATTERN_CACHE, mimeUtil);
+    ctu = new ContentTypeUtil(PATTERN_CACHE);
   }
 
   @Test
