@@ -38,6 +38,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.ObjectLoader;
+import org.eclipse.jgit.lib.ObjectStream;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
@@ -153,13 +154,15 @@ public class ContentTypeValidator implements CommitValidationListener {
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
     for (String path : content.keySet()) {
-      ObjectLoader ol = revWalk.getObjectReader().open(content.get(path));
-      String contentType = contentTypeUtil.getContentType(ol, path);
-      if ((contentTypeUtil.matchesAny(contentType, blockedTypes) && !whitelist)
-          || (!contentTypeUtil.matchesAny(contentType, blockedTypes) && whitelist)) {
-        messages.add(
-            new CommitValidationMessage(
-                "found blocked content type (" + contentType + ") in file: " + path, true));
+      ObjectLoader ol = repo.open(content.get(path));
+      try (ObjectStream os = ol.openStream()) {
+        String contentType = contentTypeUtil.getContentType(os, path);
+        if ((contentTypeUtil.matchesAny(contentType, blockedTypes) && !whitelist)
+            || (!contentTypeUtil.matchesAny(contentType, blockedTypes) && whitelist)) {
+          messages.add(
+              new CommitValidationMessage(
+                  "found blocked content type (" + contentType + ") in file: " + path, true));
+        }
       }
     }
     return messages;
