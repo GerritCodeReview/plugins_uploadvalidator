@@ -13,12 +13,13 @@
 // limitations under the License.
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import org.apache.tika.Tika;
 import org.apache.tika.config.TikaConfig;
 import org.apache.tika.io.TikaInputStream;
 import org.apache.tika.metadata.Metadata;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 
 class MimeTypeDetection {
   public String getMimeType(String path, byte[] content) throws IOException {
