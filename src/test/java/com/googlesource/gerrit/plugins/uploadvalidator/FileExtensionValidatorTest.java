@@ -33,9 +33,9 @@ import org.junit.Test;
 
 public class FileExtensionValidatorTest extends ValidatorTestCase {
   private static final List<String> BLOCKED_EXTENSIONS_LC =
-      Lists.newArrayList("jpeg", "pdf", "zip", "exe", "tar.gz");
+      Lists.newArrayList("jpeg", "pdf", "zip", "exe", "tar.gz", "o");
   private static final List<String> BLOCKED_EXTENSIONS_UC =
-      Lists.newArrayList("JPEG", "PDF", "ZIP", "EXE", "TAR.GZ");
+      Lists.newArrayList("JPEG", "PDF", "ZIP", "EXE", "TAR.GZ", "O");
 
   private RevCommit makeCommit(RevWalk rw, List<String> blockedExtensions)
       throws NoFilepatternException, IOException, GitAPIException {
@@ -48,6 +48,7 @@ public class FileExtensionValidatorTest extends ValidatorTestCase {
     files.add(new File(repo.getDirectory().getParent(), "foo.core.tmp"));
     files.add(new File(repo.getDirectory().getParent(), "foo.c"));
     files.add(new File(repo.getDirectory().getParent(), "foo.txt"));
+    files.add(new File(repo.getDirectory().getParent(), "foo.py.mako"));
     return TestUtils.makeCommit(rw, repo, "Commit with empty test files.", files);
   }
 

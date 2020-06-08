@@ -127,7 +127,7 @@ public class FileExtensionValidator implements CommitValidationListener {
     List<CommitValidationMessage> messages = new LinkedList<>();
     for (String file : CommitUtils.getChangedPaths(repo, c, revWalk)) {
       for (String blockedExtension : blockedFileExtensions) {
-        if (file.toLowerCase().endsWith(blockedExtension.toLowerCase())) {
+        if (file.toLowerCase().endsWith("." + blockedExtension.toLowerCase())) {
           messages.add(new CommitValidationMessage("blocked file: " + file, true));
           break;
         }
