@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1171e2e5_e6e27711",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-07-01T18:28:09Z",
+      "side": 1,
+      "message": "Zuul Failure is unrelated?\n\n  /home/zuul/src/gerrit.googlesource.com/gerrit/tools/download_file.py, \"-o\", bcprov-jdk15on-1.60-sources.jar\n\n",
+      "revId": "2790c6460e86773b7dab4c60c3706eae1b15bb6b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
