@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74992bb0_f84224e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-07-28T13:21:37Z",
+      "side": 1,
+      "message": "Please don\u0027t add tests that fail. We are going through some hops internally because Tika doesn\u0027t work on our infrastructure and this change adds additional burden, because it introduced a failing state in the repo.\n\nYou could add the test with a correct assertation that passes and shows the wrong behavior and a TODO(name) to fix this. The Tika change could have then removed the TODO(name) and corrected the assertation.",
+      "revId": "ab1c1b48510f3a876afaed7d4f5c8718da70b6b9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
