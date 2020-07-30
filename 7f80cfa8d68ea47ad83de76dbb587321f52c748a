@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ef3569f_8da091e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T16:07:50Z",
+      "side": 1,
+      "message": "This is another that doesn\u0027t build stand-alone anymore, locally.\n-Can you help here too, @Matthias or @Saša? (Thanks again.)",
+      "revId": "7f80cfa8d68ea47ad83de76dbb587321f52c748a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
