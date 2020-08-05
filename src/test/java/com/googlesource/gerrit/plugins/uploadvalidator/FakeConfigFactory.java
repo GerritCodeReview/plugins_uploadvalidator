@@ -20,7 +20,8 @@ import com.google.gerrit.server.config.PluginConfig;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
 
-public class FakeConfigFactory implements ConfigFactory {
+public class FakeConfigFactory
+    implements com.googlesource.gerrit.plugins.uploadvalidator.ConfigFactory {
   private final Config config;
   private final Project.NameKey projectName;
 
@@ -34,9 +35,9 @@ public class FakeConfigFactory implements ConfigFactory {
   @Override
   public PluginConfig get(NameKey projectName) {
     if (this.projectName.equals(projectName)) {
-      return new PluginConfig("uploadvalidator", config);
+      return PluginConfig.create("uploadvalidator", config, null);
     }
 
-    return new PluginConfig("uploadvalidator", new Config());
+    return PluginConfig.create("uploadvalidator", new Config(), null);
   }
 }

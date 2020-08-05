@@ -43,7 +43,8 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
 public class TestUtils {
-  public static final PluginConfig EMPTY_PLUGIN_CONFIG = new PluginConfig("", new Config());
+  public static final PluginConfig EMPTY_PLUGIN_CONFIG =
+      PluginConfig.create("", new Config(), null);
 
   protected static final byte[] EMPTY_CONTENT = "".getBytes(Charsets.UTF_8);
 
