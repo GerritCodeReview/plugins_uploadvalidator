@@ -34,9 +34,9 @@ public class FakeConfigFactory implements ConfigFactory {
   @Override
   public PluginConfig get(NameKey projectName) {
     if (this.projectName.equals(projectName)) {
-      return new PluginConfig("uploadvalidator", config);
+      return PluginConfig.create("uploadvalidator", config, null);
     }
 
-    return new PluginConfig("uploadvalidator", new Config());
+    return PluginConfig.create("uploadvalidator", new Config(), null);
   }
 }
