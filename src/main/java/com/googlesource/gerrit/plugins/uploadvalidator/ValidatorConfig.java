@@ -15,7 +15,7 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.common.Nullable;
-import com.google.gerrit.entities.AccessSection;
+import com.google.gerrit.common.data.AccessSection;
 import com.google.gerrit.entities.AccountGroup;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.exceptions.StorageException;
