@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30b44f28_6dae53b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-08-06T09:25:29Z",
+      "side": 1,
+      "message": "Reintroducing the Tika dependency is causing issues for us as Tika is using ffmpeg. In this state, we can\u0027t use the uploadvalidator plugin.\n\nAs this revert happened three years after the removal, I actually consider this change as new (and introducing a new library) and not a revert. I would revert this change and ask you to find another solution for the binary detection issue you\u0027re describing. Or do you have a different proposal to resolve this, Lucas?",
+      "revId": "1588062a59ad421307dba24fb8dde68fcfc1f0b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
