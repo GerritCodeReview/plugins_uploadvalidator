@@ -16,6 +16,24 @@
       "revId": "1588062a59ad421307dba24fb8dde68fcfc1f0b0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9db1599c_1fadadd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2020-08-08T17:34:42Z",
+      "side": 1,
+      "message": "Where is Apache Tika [1] using ffmpeg ?\n\nAFAICS the dependencies of tika-core 1.12-rc1 (didn\u0027t find a tag for 1.12) which is used here are:\n\ntika-core ((1.12-rc1))]$ mvn dependency:tree\n[INFO] Scanning for projects...\n[INFO]\n[INFO] ---------------------\u003c org.apache.tika:tika-core \u003e----------------------\n[INFO] Building Apache Tika core 1.12\n[INFO] -------------------------------[ bundle ]-------------------------------\n[INFO]\n[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tika-core ---\n[INFO] org.apache.tika:tika-core:bundle:1.12\n[INFO] +- org.osgi:org.osgi.core:jar:4.0.0:provided\n[INFO] +- org.osgi:org.osgi.compendium:jar:4.0.0:provided\n[INFO] +- biz.aQute:bndlib:jar:1.43.0:provided\n[INFO] \\- junit:junit:jar:4.11:test\n[INFO]    \\- org.hamcrest:hamcrest-core:jar:1.3:test\n\nlooking at the latest release 1.24.1 there is still no dependency on ffmpeg:\n\ntika-core ((1.24.1))]$ mvn dependency:tree\n[INFO] Scanning for projects...\n[INFO]\n[INFO] ---------------------\u003c org.apache.tika:tika-core \u003e----------------------\n[INFO] Building Apache Tika core 1.24.1\n[INFO] -------------------------------[ bundle ]-------------------------------\n[INFO]\n[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ tika-core ---\n[INFO] org.apache.tika:tika-core:bundle:1.24.1\n[INFO] +- org.osgi:org.osgi.core:jar:6.0.0:provided\n[INFO] +- org.osgi:org.osgi.compendium:jar:4.0.0:provided\n[INFO] +- biz.aQute:bndlib:jar:1.50.0:provided\n[INFO] \\- junit:junit:jar:4.13:test\n[INFO]    \\- org.hamcrest:hamcrest-core:jar:1.3:test\n\nRelease notes of Tika 1.9 [3] state that ffmpeg can be used as an external parser if installed separately (which isn\u0027t done here) and according to [2] the project is following the Apache 3rd party license policy [4].\n\n[1] https://github.com/apache/tika\n[2] https://tika.apache.org/contribute.html#Dependencies\n[3] https://dist.apache.org/repos/dist/release/tika/CHANGES-1.24.1.txt\n\"* If FFMPEG is installed and on the PATH, it is a \n    usable Parser in Tika now (TIKA-1510).\"\n[4] https://www.apache.org/legal/resolved.html",
+      "parentUuid": "30b44f28_6dae53b8",
+      "revId": "1588062a59ad421307dba24fb8dde68fcfc1f0b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
