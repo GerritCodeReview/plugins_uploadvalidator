@@ -34,6 +34,24 @@
       "revId": "1588062a59ad421307dba24fb8dde68fcfc1f0b0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd09b27e_63e11bf7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-08-10T10:26:04Z",
+      "side": 1,
+      "message": "You\u0027re right that there isn\u0027t a direct dependency visible. The issue is that Tika checks whether ffmpeg is installed by executing some commands. That execution is already causing issues for us.\n\nWe only need the mimetype detection of Tika, don\u0027t we? If so, there might be a solution to this. The Tika class [1] instantiates both parsers and detectors. The instantiation of the parsers contains the ffmpeg check. As we only call the detect() method on the Tika class, we could directly instantiate the DefaultDetector [2].\n\n[1] https://github.com/apache/tika/blob/main/tika-core/src/main/java/org/apache/tika/Tika.java\n[2] https://github.com/apache/tika/blob/main/tika-core/src/main/java/org/apache/tika/detect/DefaultDetector.java",
+      "parentUuid": "9db1599c_1fadadd2",
+      "revId": "1588062a59ad421307dba24fb8dde68fcfc1f0b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
