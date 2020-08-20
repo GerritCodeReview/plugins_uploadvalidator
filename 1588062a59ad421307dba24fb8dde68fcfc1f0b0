@@ -70,6 +70,24 @@
       "revId": "1588062a59ad421307dba24fb8dde68fcfc1f0b0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fab8953_2224ed0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-08-20T18:41:35Z",
+      "side": 1,
+      "message": "One thing I\u0027d add is that Tika creates a huge attack surface for untrusted input. I don\u0027t think we\u0027re comfortable running it on `*.googlesource.com`.",
+      "parentUuid": "4e2c6605_84e24077",
+      "revId": "1588062a59ad421307dba24fb8dde68fcfc1f0b0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
