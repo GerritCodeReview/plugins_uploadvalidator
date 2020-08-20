@@ -14,9 +14,13 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import static com.google.common.collect.ImmutableList.toImmutableList;
+
+import com.google.common.collect.ImmutableList;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.entities.AccessSection;
 import com.google.gerrit.entities.AccountGroup;
+import com.google.gerrit.entities.AccountGroup.UUID;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.exceptions.StorageException;
 import com.google.gerrit.extensions.annotations.Exports;
@@ -33,7 +37,6 @@ import com.google.inject.Provider;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -170,9 +173,11 @@ public class ValidatorConfig {
       return false;
     }
 
-    Stream<AccountGroup.UUID> skipGroups =
-        Arrays.stream(conf.getStringList("skipGroup")).map(this::groupUUID);
-    return user.asIdentifiedUser().getEffectiveGroups().containsAnyOf(skipGroups::iterator);
+    ImmutableList<UUID> skipGroups =
+        Arrays.stream(conf.getStringList("skipGroup"))
+            .map(this::groupUUID)
+            .collect(toImmutableList());
+    return user.asIdentifiedUser().getEffectiveGroups().containsAnyOf(skipGroups);
   }
 
   private AccountGroup.UUID groupUUID(String groupNameOrUUID) {
