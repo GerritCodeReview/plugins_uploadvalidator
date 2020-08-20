@@ -29,8 +29,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
-import org.apache.tika.Tika;
-import org.apache.tika.config.TikaConfig;
+import org.apache.tika.detect.DefaultDetector;
+import org.apache.tika.detect.Detector;
 import org.apache.tika.io.TikaInputStream;
 import org.apache.tika.metadata.Metadata;
 import org.eclipse.jgit.lib.ObjectLoader;
@@ -68,7 +68,7 @@ public class ContentTypeUtil {
   }
 
   private final LoadingCache<String, Pattern> patternCache;
-  private final Tika tika = new Tika(TikaConfig.getDefaultConfig());
+  private final Detector detector = new DefaultDetector();
 
   @Inject
   ContentTypeUtil(@Named(CACHE_NAME) LoadingCache<String, Pattern> patternCache) {
@@ -85,7 +85,7 @@ public class ContentTypeUtil {
   public String getContentType(InputStream is, String pathname) throws IOException {
     Metadata metadata = new Metadata();
     metadata.set(Metadata.RESOURCE_NAME_KEY, pathname);
-    return tika.detect(TikaInputStream.get(is), metadata);
+    return detector.detect(TikaInputStream.get(is), metadata).toString();
   }
 
   @VisibleForTesting
