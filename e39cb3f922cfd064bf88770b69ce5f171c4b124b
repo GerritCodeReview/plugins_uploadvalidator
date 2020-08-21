@@ -1,9 +1,11 @@
 {
   "checks": {
     "zuul-check:plugins_uploadvalidator": {
-      "state": "NOT_STARTED",
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "started": "2020-08-21T21:27:47Z",
       "created": "2020-08-21T21:05:47Z",
-      "updated": "2020-08-21T21:27:28Z"
+      "updated": "2020-08-21T21:27:47Z"
     }
   }
 }
