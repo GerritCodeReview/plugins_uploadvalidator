@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c244ccaf_341e1cbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1030912
+      },
+      "writtenOn": "2020-08-21T08:23:04Z",
+      "side": 1,
+      "message": "Blocking until we have more clarity regarding the Tika dependency.",
+      "revId": "ae8de5ca99ea4cfe05ad12f293a4fa5a14cf22f2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
