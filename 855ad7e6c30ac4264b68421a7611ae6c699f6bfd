@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "32a6b02b_851726b0",
+        "filename": "WORKSPACE",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-08-21T21:05:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5b76cb7_345cba76",
+      "range": {
+        "startLine": 6,
+        "startChar": 14,
+        "endLine": 6,
+        "endChar": 54
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f630a8d6_1278ddf4",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 6
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "37ed70a6_b3e1d14d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-08-21T21:05:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f630a8d6_1278ddf4",
+      "range": {
+        "startLine": 175,
+        "startChar": 1,
+        "endLine": 175,
+        "endChar": 11
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e6b34cc_22625de9",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 6
@@ -82,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "987af470_01a4f00a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-08-21T21:05:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e6b34cc_22625de9",
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb950966_fe9aeecb",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 6
@@ -93,6 +159,30 @@
       "writtenOn": "2020-08-21T07:03:41Z",
       "side": 1,
       "message": "Can this just be a list?\n\nI don\u0027t think you make any contains checks that\u0027d be expensive then.",
+      "range": {
+        "startLine": 178,
+        "startChar": 3,
+        "endLine": 179,
+        "endChar": 28
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "709c2f41_f857336d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-08-21T21:05:42Z",
+      "side": 1,
+      "message": "I used the HashSet here to deduplicate found blocked words. That way the list doesn\u0027t look like `(\"bannedA\", \"bannedA\", \"bannedB\")` if the comment contained a word multiple times. Is there a better java datatype for doing this?",
+      "parentUuid": "cb950966_fe9aeecb",
       "range": {
         "startLine": 178,
         "startChar": 3,
@@ -128,6 +218,30 @@
     },
     {
       "key": {
+        "uuid": "2689329a_bfb99534",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-08-21T21:05:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cab385e_00490ad6",
+      "range": {
+        "startLine": 195,
+        "startChar": 29,
+        "endLine": 195,
+        "endChar": 44
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caf86c28_f6508a52",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 6
@@ -148,6 +262,30 @@
       "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e32c4a8_20b9fd4f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-08-21T21:05:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caf86c28_f6508a52",
+      "range": {
+        "startLine": 206,
+        "startChar": 16,
+        "endLine": 206,
+        "endChar": 42
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
