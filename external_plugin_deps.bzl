@@ -7,7 +7,7 @@ def external_plugin_deps():
         sha1 = "83b5b8a7ba1c08f9e8c8ff2373724e33d3c1e22a",
     )
     maven_jar(
-        name = "tika-core",
-        artifact = "org.apache.tika:tika-core:1.24.1",
-        sha1 = "703e65fb300d1425d4ad7b68c21c7795bb7a95c3",
+        name = "mime-types",
+        artifact = "org.overviewproject:mime-types:0.1.3",
+        sha1 = "63ebd860cdad2f8a5fec89ae3238970607d943a3",
     )

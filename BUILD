@@ -13,7 +13,7 @@ gerrit_plugin(
     ],
     resources = glob(["src/main/resources/**/*"]),
     deps = [
-        "@tika-core//jar",
+        "@mime-types//jar",
     ],
 )
 
@@ -21,7 +21,7 @@ TEST_SRCS = "src/test/java/**/*Test.java"
 
 TEST_DEPS = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
     "@commons-io//jar",
-    "@tika-core//jar",
+    "@mime-types//jar",
     ":uploadvalidator__plugin",
 ]
 
