@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a519d859_69677cca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-08-21T07:03:41Z",
+      "side": 1,
+      "message": "A test would be good to boost confidence in the change :-)",
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5b76cb7_345cba76",
+        "filename": "WORKSPACE",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-08-21T07:03:41Z",
+      "side": 1,
+      "message": "Why is this change required?",
+      "range": {
+        "startLine": 6,
+        "startChar": 14,
+        "endLine": 6,
+        "endChar": 54
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f630a8d6_1278ddf4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-08-21T07:03:41Z",
+      "side": 1,
+      "message": "nit: Use an Optional\u003cCommentValidationFailure\u003e\n\nOptionals are preferred over Nullable in return types.",
+      "range": {
+        "startLine": 175,
+        "startChar": 1,
+        "endLine": 175,
+        "endChar": 11
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e6b34cc_22625de9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-08-21T07:03:41Z",
+      "side": 1,
+      "message": "nit: ordering (private after public)",
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb950966_fe9aeecb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-08-21T07:03:41Z",
+      "side": 1,
+      "message": "Can this just be a list?\n\nI don\u0027t think you make any contains checks that\u0027d be expensive then.",
+      "range": {
+        "startLine": 178,
+        "startChar": 3,
+        "endLine": 179,
+        "endChar": 28
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cab385e_00490ad6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-08-21T07:03:41Z",
+      "side": 1,
+      "message": "Would be nice if this could be renamed. It\u0027s not actually checking \"just for a ref\". It seems it\u0027s checking many conditions, so we could name it \"isEnabled\".",
+      "range": {
+        "startLine": 195,
+        "startChar": 29,
+        "endLine": 195,
+        "endChar": 44
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caf86c28_f6508a52",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-08-21T07:03:41Z",
+      "side": 1,
+      "message": "IllegalStateException\n\nThat spares you from creating another exception in core and has the same result (HTTP 500).",
+      "range": {
+        "startLine": 206,
+        "startChar": 16,
+        "endLine": 206,
+        "endChar": 42
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
