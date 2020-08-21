@@ -29,11 +29,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
-import org.apache.tika.detect.DefaultDetector;
-import org.apache.tika.detect.Detector;
-import org.apache.tika.io.TikaInputStream;
-import org.apache.tika.metadata.Metadata;
 import org.eclipse.jgit.lib.ObjectLoader;
+import org.overviewproject.mime_types.GetBytesException;
+import org.overviewproject.mime_types.MimeTypeDetector;
 
 public class ContentTypeUtil {
   private static final String KEY_BINARY_TYPES = "binaryTypes";
@@ -68,7 +66,7 @@ public class ContentTypeUtil {
   }
 
   private final LoadingCache<String, Pattern> patternCache;
-  private final Detector detector = new DefaultDetector();
+  private final MimeTypeDetector detector = new MimeTypeDetector();
 
   @Inject
   ContentTypeUtil(@Named(CACHE_NAME) LoadingCache<String, Pattern> patternCache) {
@@ -83,9 +81,11 @@ public class ContentTypeUtil {
   }
 
   public String getContentType(InputStream is, String pathname) throws IOException {
-    Metadata metadata = new Metadata();
-    metadata.set(Metadata.RESOURCE_NAME_KEY, pathname);
-    return detector.detect(TikaInputStream.get(is), metadata).toString();
+    try {
+      return detector.detectMimeType(pathname, is);
+    } catch (GetBytesException e) {
+      throw new IOException(e);
+    }
   }
 
   @VisibleForTesting
