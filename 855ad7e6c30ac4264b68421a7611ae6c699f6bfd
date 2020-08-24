@@ -195,6 +195,30 @@
     },
     {
       "key": {
+        "uuid": "5b8cfe9b_2c2a7dd6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-08-24T06:43:01Z",
+      "side": 1,
+      "message": "I see. Can you add a comment that this is done for de-duping?\n\n(the test failures on this patch set look real, so we need a new version anyway)",
+      "parentUuid": "709c2f41_f857336d",
+      "range": {
+        "startLine": 178,
+        "startChar": 3,
+        "endLine": 179,
+        "endChar": 28
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4cab385e_00490ad6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 6
