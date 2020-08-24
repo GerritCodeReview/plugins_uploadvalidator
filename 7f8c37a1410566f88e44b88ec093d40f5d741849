@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "f76bdb2e_092a64da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1097120
+      },
+      "writtenOn": "2020-08-24T06:02:40Z",
+      "side": 1,
+      "message": "great, thanks!",
+      "revId": "7f8c37a1410566f88e44b88ec093d40f5d741849",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e86f5a0_0c16f31b",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
