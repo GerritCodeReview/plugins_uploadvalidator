@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2877b6f5_41f2c368",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-08-25T00:38:43Z",
+      "side": 1,
+      "message": "optional: the style used by BLOCKED_KEYWORD_PATTERN would be to do\n\n  private static ... \u003d KEY_CHECK_BLOCKED_KEYWORD + \"Comments\";\n\nActually I suspect I\u0027d rather go the other way around and avoid the concatenation in defining ..._PATTERN, but that can happen in a followup change.\n\nMore importantly, can this get a brief comment describing what the key is used for? (If I understand correctly, it\u0027s for turning on comment validation. Did I get that right?)",
+      "revId": "99df376e086d65b6681ac0a9fdf63e121f8e63a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5381ce4_d18d5cf5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-08-25T00:38:43Z",
+      "side": 1,
+      "message": "A HashSet iterates in hash order, which isn\u0027t likely to be predictable for the end user. Can we produce something that maintains a predictable order? Perhaps something like (*) below. Or perhaps a LinkedHashSet?",
+      "revId": "99df376e086d65b6681ac0a9fdf63e121f8e63a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1b1e497_5a50205c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-08-25T00:38:43Z",
+      "side": 1,
+      "message": "(*)\n  HashSet\u003cString\u003e found \u003d new HashSet\u003c\u003e();\n  List\u003cString\u003e result \u003d new ArrayList\u003c\u003e();\n  for (...) {\n    ...\n      if (!found.add(matcher.group()) {\n        result.add(matcher.group());\n      }\n  }\n  return result;",
+      "revId": "99df376e086d65b6681ac0a9fdf63e121f8e63a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fb9d2cd_3db13f0c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-08-25T00:38:43Z",
+      "side": 1,
+      "message": "Does this mean \"Checks whether\"?",
+      "range": {
+        "startLine": 86,
+        "startChar": 5,
+        "endLine": 86,
+        "endChar": 19
+      },
+      "revId": "99df376e086d65b6681ac0a9fdf63e121f8e63a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
