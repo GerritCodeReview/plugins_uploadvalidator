@@ -219,6 +219,30 @@
     },
     {
       "key": {
+        "uuid": "ca396344_30a5f6cb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-08-25T00:10:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b8cfe9b_2c2a7dd6",
+      "range": {
+        "startLine": 178,
+        "startChar": 3,
+        "endLine": 179,
+        "endChar": 28
+      },
+      "revId": "855ad7e6c30ac4264b68421a7611ae6c699f6bfd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cab385e_00490ad6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 6
