@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "c812c770_7fe0f447",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-08-25T12:39:12Z",
+      "side": 1,
+      "message": "LGTM from the Gerrit side. I think jrn@\u0027s remaining comments are nits, so giving +2 already.",
+      "revId": "99df376e086d65b6681ac0a9fdf63e121f8e63a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2877b6f5_41f2c368",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 8
@@ -47,6 +64,24 @@
       "writtenOn": "2020-08-25T00:38:43Z",
       "side": 1,
       "message": "(*)\n  HashSet\u003cString\u003e found \u003d new HashSet\u003c\u003e();\n  List\u003cString\u003e result \u003d new ArrayList\u003c\u003e();\n  for (...) {\n    ...\n      if (!found.add(matcher.group()) {\n        result.add(matcher.group());\n      }\n  }\n  return result;",
+      "revId": "99df376e086d65b6681ac0a9fdf63e121f8e63a4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2423d2b6_755e912f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2020-08-25T12:39:12Z",
+      "side": 1,
+      "message": "I don\u0027t think ordering is relevant here as we return a list of problematic key words which the user can search/replace in their comments.",
+      "parentUuid": "b1b1e497_5a50205c",
       "revId": "99df376e086d65b6681ac0a9fdf63e121f8e63a4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
