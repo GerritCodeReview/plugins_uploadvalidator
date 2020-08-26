@@ -99,6 +99,24 @@
       "revId": "787b17c0e9e35d8c08a88ce7a227ac0d02ff6a86",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e60d3514_1089eda3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-08-26T22:04:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc4afa9_f0688ab0",
+      "revId": "787b17c0e9e35d8c08a88ce7a227ac0d02ff6a86",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
