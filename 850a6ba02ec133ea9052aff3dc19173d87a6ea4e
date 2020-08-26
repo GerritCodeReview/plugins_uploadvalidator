@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "706c76c3_fb90606d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-08-26T22:03:14Z",
+      "side": 1,
+      "message": "nit: \"Keys used\" or \"These keys are used\"",
+      "range": {
+        "startLine": 84,
+        "startChar": 5,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "850a6ba02ec133ea9052aff3dc19173d87a6ea4e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
