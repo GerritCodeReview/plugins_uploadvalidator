@@ -35,6 +35,9 @@ import com.google.gerrit.extensions.validators.CommentForValidation;
 import com.google.gerrit.extensions.validators.CommentValidationContext;
 import com.google.gerrit.extensions.validators.CommentValidationFailure;
 import com.google.gerrit.extensions.validators.CommentValidator;
+import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.IdentifiedUser;
+import com.google.gerrit.server.account.AccountResolver;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.config.ProjectConfigEntry;
@@ -181,7 +184,7 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
       PluginConfig cfg = cfgFactory.getFromProjectConfigWithInheritance(projectNameKey, pluginName);
       if (isActive(cfg)
           && validatorConfig.isEnabled(
-              null, projectNameKey, "", KEY_CHECK_COMMENT_BLOCKED_KEYWORD)) {
+              null, projectNameKey, "", ctx.getEmail(), KEY_CHECK_COMMENT_BLOCKED_KEYWORD)) {
         ImmutableMap<String, Pattern> blockedKeywordPatterns =
             patternCache.getAll(
                 Arrays.asList(cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN)));

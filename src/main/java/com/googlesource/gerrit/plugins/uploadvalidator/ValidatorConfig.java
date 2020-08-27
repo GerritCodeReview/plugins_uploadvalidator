@@ -89,6 +89,7 @@ public class ValidatorConfig {
    *     user checks.
    * @param projectName Identifier for the project name on the ref.
    * @param refName Identifier for the ref name.
+   * @param email Identifier for the email of the current user.
    * @param validatorOp The name of the validator operation. Can be used in skip validation config.
    * @return boolean indicating if the ref is enabled for validation.
    */
@@ -96,13 +97,14 @@ public class ValidatorConfig {
       @Nullable IdentifiedUser user,
       Project.NameKey projectName,
       String refName,
+      String email,
       String validatorOp) {
     PluginConfig conf = configFactory.get(projectName);
 
     return conf != null
         && isValidConfig(conf, projectName)
         && (activeForRef(conf, refName))
-        && (user == null || activeForEmail(conf, user.getAccount().preferredEmail()))
+        && (email.isEmpty() || activeForEmail(conf, email))
         && (activeForProject(conf, projectName.get()))
         && (!isDisabledValidatorOp(conf, validatorOp))
         && (!hasCriteria(conf, "skipGroup")
@@ -111,7 +113,27 @@ public class ValidatorConfig {
             || !canSkipGroup(conf, user));
   }
 
-  private boolean isValidConfig(PluginConfig config, Project.NameKey projectName) {
+  /**
+   * Checks whether the provided params match with the plugin configuration to verify it is enabled.
+   * Uses the preferred email of the IdentifiedUser if provided.
+   *
+   * @param user A Nullable field identifying the user defined on the ref. Passing null will ignore
+   *     user checks.
+   * @param projectName Identifier for the project name on the ref.
+   * @param refName Identifier for the ref name.
+   * @param validatorOp The name of the validator operation. Can be used in skip validation config.
+   * @return boolean indicating if the ref is enabled for validation.
+   */
+  public boolean isEnabled(
+    @Nullable IdentifiedUser user,
+    Project.NameKey projectName,
+    String refName,
+    String validatorOp) {
+    String email = user != null ? user.getAccount().preferredEmail() : "";
+    return isEnabled(user, projectName, refName, email, validatorOp);
+  }
+
+    private boolean isValidConfig(PluginConfig config, Project.NameKey projectName) {
     return hasValidConfigRef(config, "ref", projectName)
         && hasValidConfigRef(config, "skipRef", projectName);
   }
