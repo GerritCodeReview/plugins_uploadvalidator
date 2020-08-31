@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c192301_8672dcb5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-08-31T09:37:37Z",
+      "side": 1,
+      "message": "Could you add a test?",
+      "revId": "b2a36b43125211be24d77368698ce982135ad0d4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "037d9c66_e21c2773",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-08-31T09:37:37Z",
+      "side": 1,
+      "message": "I think this should also use null instead of \"\" to match handling of the \"user\" field.",
+      "revId": "b2a36b43125211be24d77368698ce982135ad0d4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1354a26a_b09a96e0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1083042
+      },
+      "writtenOn": "2020-08-31T09:37:37Z",
+      "side": 1,
+      "message": "nit: @link",
+      "range": {
+        "startLine": 118,
+        "startChar": 37,
+        "endLine": 118,
+        "endChar": 51
+      },
+      "revId": "b2a36b43125211be24d77368698ce982135ad0d4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
