@@ -105,8 +105,7 @@ public class SkipValidationTest {
         new ValidatorConfig(
             new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
-    assertThat(validatorConfig.isEnabled(anyUser, projectName, "anyRef", "anotherOp"))
-        .isTrue();
+    assertThat(validatorConfig.isEnabled(anyUser, projectName, "anyRef", "anotherOp")).isTrue();
   }
 
   @Test
@@ -116,6 +115,20 @@ public class SkipValidationTest {
             + "skipValidation=testOp\n"
             + "skipRef=refs/heads/myref\n"
             + "skipGroup=testGroup";
+
+    ValidatorConfig validatorConfig =
+        new ValidatorConfig(
+            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
+
+    assertThat(
+            validatorConfig.isEnabled(
+                new FakeUserProvider("testGroup").get(), projectName, "refs/heads/myref", "testOp"))
+        .isFalse();
+  }
+
+  @Test
+  public void skipSpecificProject() throws Exception {
+    String config = "[plugin \"uploadvalidator\"]\n" + "disableProject=testProject";
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
@@ -139,9 +152,7 @@ public class SkipValidationTest {
         new ValidatorConfig(
             new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
-    assertThat(
-            validatorConfig.isEnabled(
-                anyUser, projectName, "refs/heads/anotherRef", "testOp"))
+    assertThat(validatorConfig.isEnabled(anyUser, projectName, "refs/heads/anotherRef", "testOp"))
         .isTrue();
   }
 }
