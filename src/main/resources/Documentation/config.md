@@ -150,6 +150,7 @@ plugin.@PLUGIN@.blockedKeywordPattern
 
     To detect blocked keywords, this check is using
     `java.util.regex.Pattern` which is described [here][1].
+    
 
     This check does not run on [binary files][4]
 
@@ -292,6 +293,17 @@ following could be configured:
     disabledProject = ^platform/excluded/from/check
 ```
 
+File-specific validation skip
+-----------------------------
+
+By default, the blocked keyword validation will be run against all files except
+binary files. For additional control, configuration can be added to prevent the
+validation from running on certain filepaths.
+
+```
+  [plugin "@PLUGIN@"]
+    disabledFilepath = \.xml
+```
 
 Permission to skip the rules
 ----------------------------

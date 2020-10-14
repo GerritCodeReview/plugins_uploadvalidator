@@ -132,6 +132,20 @@ public class ValidatorConfig {
     return true;
   }
 
+
+  /**
+   * Checks whether the provided filepath is disabled.
+   *
+   * @param config The config file to check the filename against.
+   * @param filepath The filepath to check against the plugin config.
+   * @return boolean indicating if the filepath is disabled for the provided plugin config.
+   */
+  public boolean isDisabledForFilepath(PluginConfig config, String filepath) {
+    return hasCriteria(config, "disabledFilepath")
+        && matchCriteria(config, "disabledFilepath", filepath, true, false);
+  }
+
+
   private boolean isValidConfig(PluginConfig config, Project.NameKey projectName) {
     return hasValidConfigRef(config, "ref", projectName)
         && hasValidConfigRef(config, "skipRef", projectName);
