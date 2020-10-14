@@ -292,6 +292,17 @@ following could be configured:
     disabledProject = ^platform/excluded/from/check
 ```
 
+File-specific validation skip
+-----------------------------
+
+By default, the blocked keyword validation will be run against all files except
+binary files. For additional control, configuration can be added to prevent the
+validation from running on certain filepaths.
+
+```
+  [plugin "@PLUGIN@"]
+    disabledFilepath = \.xml
+```
 
 Permission to skip the rules
 ----------------------------
