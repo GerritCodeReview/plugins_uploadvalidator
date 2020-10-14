@@ -278,9 +278,10 @@ Project-specific validations
 ---------------------------
 
 By default, the validation will be enabled for all projects. However, it can
-be limited to particular projects by setting `plugin.@PLUGIN@.project`. The
-projects may be configured using specific project names, project patterns, or
-regular expressions. Multiple projects may be specified.
+be limited to particular projects by setting `plugin.@PLUGIN@.project` and/or
+`plugin.@PLUGIN@.disabledProject`. The projects may be configured using specific
+project names, project patterns, or regular expressions.
+Multiple projects and disabledProjects may be specified.
 
 E.g. to limit the validation to all projects that match `^platform/.*` the
 following could be configured:
@@ -288,7 +289,9 @@ following could be configured:
 ```
   [plugin "@PLUGIN@"]
     project = ^platform/.*
+    disabledProject = ^platform/excluded/from/check
 ```
+
 
 Permission to skip the rules
 ----------------------------
@@ -328,6 +331,7 @@ Example for external group:
    [plugin "@PLUGIN@"]
      skipGroup = ldap:Foo
 ```
+
 
 plugin.@PLUGIN@.skipRef
 :    Ref name, pattern or regexp of the branch to skip.

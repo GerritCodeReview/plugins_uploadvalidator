@@ -98,17 +98,38 @@ public class ValidatorConfig {
       String refName,
       String validatorOp) {
     PluginConfig conf = configFactory.get(projectName);
-
-    return conf != null
-        && isValidConfig(conf, projectName)
-        && (activeForRef(conf, refName))
-        && (user == null || activeForEmail(conf, user.getAccount().preferredEmail()))
-        && (activeForProject(conf, projectName.get()))
-        && (!isDisabledValidatorOp(conf, validatorOp))
-        && (!hasCriteria(conf, "skipGroup")
-            || !canSkipValidation(conf, validatorOp)
-            || !canSkipRef(conf, refName)
-            || !canSkipGroup(conf, user));
+    if (conf == null) {
+      // Not enabled if no config is retrieved.
+      return false;
+    }
+    if (!isValidConfig(conf, projectName)) {
+      // Not enabled if config is not determined to be valid.
+      return false;
+    }
+    if (isDisabledValidatorOp(conf, validatorOp)) {
+      // Not enabled if it is an explicitly disabled validator.
+      return false;
+    }
+    if (isDisabledForProject(conf, projectName.get())) {
+      // Not enabled if project is a disabled project.
+      return false;
+    }
+    if (!activeForRef(conf, refName)) {
+      return false;
+    }
+    if (!activeForProject(conf, projectName.get())) {
+      return false;
+    }
+    if (user != null && !activeForEmail(conf, user.getAccount().preferredEmail())) {
+      return false;
+    }
+    if (hasCriteria(conf, "skipGroup")
+        && canSkipGroup(conf, user)
+        && canSkipValidation(conf, validatorOp)
+        && canSkipRef(conf, refName)) {
+      return false;
+    }
+    return true;
   }
 
   private boolean isValidConfig(PluginConfig config, Project.NameKey projectName) {
@@ -143,6 +164,11 @@ public class ValidatorConfig {
 
   private boolean activeForProject(PluginConfig config, String project) {
     return matchCriteria(config, "project", project, true, false);
+  }
+
+  private boolean isDisabledForProject(PluginConfig config, String project) {
+    return hasCriteria(config, "disabledProject")
+        && matchCriteria(config, "disabledProject", project, true, false);
   }
 
   private boolean activeForRef(PluginConfig config, String ref) {
