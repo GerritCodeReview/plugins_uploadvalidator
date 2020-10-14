@@ -128,6 +128,22 @@ public class SkipValidationTest {
   }
 
   @Test
+  public void skipSpecificProject() throws Exception {
+    String config =
+        "[plugin \"uploadvalidator\"]\n"
+            + "skipProject=testProject";
+
+    ValidatorConfig validatorConfig =
+        new ValidatorConfig(
+            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
+
+    assertThat(
+        validatorConfig.isEnabled(
+            new FakeUserProvider("testGroup").get(), projectName, "refs/heads/myref", "testOp"))
+        .isFalse();
+  }
+
+  @Test
   public void dontSkipOnOtherRefs() throws Exception {
     String config =
         "[plugin \"uploadvalidator\"]\n"
