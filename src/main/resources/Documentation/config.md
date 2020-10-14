@@ -329,6 +329,16 @@ Example for external group:
      skipGroup = ldap:Foo
 ```
 
+
+plugin.@PLUGIN@.disabledProject
+:    Project name or regexp of the project to disabled all validators on.
+
+    List of specific project names or regular expressions
+    of projects that should have validators disabled.
+
+    Multiple values are supported.
+    Default: doesn't disable any projects if empty
+
 plugin.@PLUGIN@.skipRef
 :    Ref name, pattern or regexp of the branch to skip.
 
