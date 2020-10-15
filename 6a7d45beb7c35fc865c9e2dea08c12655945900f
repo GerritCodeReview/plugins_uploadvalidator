@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "739ed5d1_aaaf98ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-10-15T03:58:11Z",
+      "side": 1,
+      "message": "Interesting. I think what you\u0027re saying is that if project.config contains\n\n  [plugin \"uploadvalidator\"]\n    project \u003d ...some complex regex...\n\nthis new setting would allow simplifying that.\n\nhttps://gerrit.googlesource.com/plugins/uploadvalidator/+/HEAD/src/main/resources/Documentation/config.md tells me I can configure the plugin in project.config; I wonder if we could simplify it via a setting\n\n  [plugin \"uploadvalidator\"]\n     disable \u003d true\n\nthat gets set on a repository where we want to disable it and gets inherited. What do you think?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "6a7d45beb7c35fc865c9e2dea08c12655945900f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93fb454e_92e00bb5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-10-15T03:58:11Z",
+      "side": 1,
+      "message": "This comment restates what the code says --- it makes it harder to read, in my opinion.\n\nWould something like\n\n  if (conf \u003d\u003d null  // no config was retrieved\n                       ^^ but why? Does that mean no config was *present*?\n      || !isValidConfig(conf, projectName)\n      || isDisabledValidatorOp(conf, validaterOp)  // validator was explicitly disabled\n      || isDisabledForProject(conf, projectName.get())  // validation on project disabled\n      || !activeForRef(conf, refName))\n      || ...) {\n    return false;\n  }\n\nmake sense?",
+      "revId": "6a7d45beb7c35fc865c9e2dea08c12655945900f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4326c106_30385cca",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-10-15T03:58:11Z",
+      "side": 1,
+      "message": "What\u0027s the difference between isDisabledForProject and !activeForProject?",
+      "range": {
+        "startLine": 113,
+        "startChar": 8,
+        "endLine": 113,
+        "endChar": 28
+      },
+      "revId": "6a7d45beb7c35fc865c9e2dea08c12655945900f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
