@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a222681_f5421dab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-10-15T18:40:42Z",
+      "side": 1,
+      "message": "The issue with having inheritance control when the plugin is enabled makes it hard to manage. With all the config at a single level it\u0027s easy to the person managing the banned words to see where it will apply instead of having to go check every projects config to see if it is actually enabled.",
+      "parentUuid": "739ed5d1_aaaf98ec",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "6a7d45beb7c35fc865c9e2dea08c12655945900f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93fb454e_92e00bb5",
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4627228_6ba4a4f3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-10-15T18:40:42Z",
+      "side": 1,
+      "message": "I guess I can revert back? Maybe it\u0027s just me but it\u0027s not worth the compactness of having everything in one giant block (like I spent 5 solid minutes just staring at it getting lost). It\u0027s must easier for me at least to follow this fallthrough type pattern even though it\u0027s more verbose.",
+      "parentUuid": "93fb454e_92e00bb5",
+      "revId": "6a7d45beb7c35fc865c9e2dea08c12655945900f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4326c106_30385cca",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
         "patchSetId": 6
@@ -54,6 +96,30 @@
       "writtenOn": "2020-10-15T03:58:11Z",
       "side": 1,
       "message": "What\u0027s the difference between isDisabledForProject and !activeForProject?",
+      "range": {
+        "startLine": 113,
+        "startChar": 8,
+        "endLine": 113,
+        "endChar": 28
+      },
+      "revId": "6a7d45beb7c35fc865c9e2dea08c12655945900f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbe22347_b3f8c977",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1070962
+      },
+      "writtenOn": "2020-10-15T18:40:42Z",
+      "side": 1,
+      "message": "I can move the disabled check login into the activeForProject method so this is less confusing.",
+      "parentUuid": "4326c106_30385cca",
       "range": {
         "startLine": 113,
         "startChar": 8,
