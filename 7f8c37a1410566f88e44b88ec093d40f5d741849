@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "146207ab_ee3ad7c7",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Maybe this addresses the concerns that Tika adds a large attack surface for untrusted input which Jonathan raised in I75d8b85d7be0e11dffeee410d4b3ed3c5dcfc08c",
       "revId": "7f8c37a1410566f88e44b88ec093d40f5d741849",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "81295a1a_55efc23c",
         "filename": "/PATCHSET_LEVEL",
@@ -31,10 +32,10 @@
       "side": 1,
       "message": "Lovely, thank you.\n\nmime-types is fairly simple and does exactly what we\u0027re looking for, if I understand correctly. I\u0027ll get to work on setting it up internally.",
       "revId": "7f8c37a1410566f88e44b88ec093d40f5d741849",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "f76bdb2e_092a64da",
         "filename": "/PATCHSET_LEVEL",
@@ -48,10 +49,10 @@
       "side": 1,
       "message": "great, thanks!",
       "revId": "7f8c37a1410566f88e44b88ec093d40f5d741849",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "2fe78dbb_bcb27a73",
         "filename": "/PATCHSET_LEVEL",
@@ -66,10 +67,10 @@
       "message": "Thanks a lot, Matthias!",
       "parentUuid": "146207ab_ee3ad7c7",
       "revId": "7f8c37a1410566f88e44b88ec093d40f5d741849",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": false
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1e86f5a0_0c16f31b",
         "filename": "src/main/resources/Documentation/config.md",
@@ -89,8 +90,31 @@
         "endChar": 46
       },
       "revId": "7f8c37a1410566f88e44b88ec093d40f5d741849",
-      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
-      "unresolved": true
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fad89a9_201b3b04",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2020-10-22T22:32:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e86f5a0_0c16f31b",
+      "range": {
+        "startLine": 157,
+        "startChar": 44,
+        "endLine": 157,
+        "endChar": 46
+      },
+      "revId": "7f8c37a1410566f88e44b88ec093d40f5d741849",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
