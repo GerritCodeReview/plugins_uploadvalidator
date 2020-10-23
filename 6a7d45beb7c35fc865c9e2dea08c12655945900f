@@ -48,6 +48,23 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6bc0253_425fee3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-10-23T01:43:36Z",
+      "side": 1,
+      "message": "I think the `project`, `disabledProject` pair is still a bit hard to manage.\n\nIs the issue with having `disable \u003d true` in the per-repository configuration that it\u0027s hard to collect the configuration from all repos? That seems like a more generally applicable problem; feel free to reach out to me on internal forums so we can look at how to tackle it more broadly.",
+      "revId": "6a7d45beb7c35fc865c9e2dea08c12655945900f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93fb454e_92e00bb5",
@@ -79,6 +96,24 @@
       "side": 1,
       "message": "I guess I can revert back? Maybe it\u0027s just me but it\u0027s not worth the compactness of having everything in one giant block (like I spent 5 solid minutes just staring at it getting lost). It\u0027s must easier for me at least to follow this fallthrough type pattern even though it\u0027s more verbose.",
       "parentUuid": "93fb454e_92e00bb5",
+      "revId": "6a7d45beb7c35fc865c9e2dea08c12655945900f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20a4c874_4eb90d3d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-10-23T01:43:36Z",
+      "side": 1,
+      "message": "Yes, I think getting back to using || (but perhaps avoiding the nesting if that makes it easier to read?) would make it more readable.",
+      "parentUuid": "d4627228_6ba4a4f3",
       "revId": "6a7d45beb7c35fc865c9e2dea08c12655945900f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -120,6 +155,30 @@
       "side": 1,
       "message": "I can move the disabled check login into the activeForProject method so this is less confusing.",
       "parentUuid": "4326c106_30385cca",
+      "range": {
+        "startLine": 113,
+        "startChar": 8,
+        "endLine": 113,
+        "endChar": 28
+      },
+      "revId": "6a7d45beb7c35fc865c9e2dea08c12655945900f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "765e705d_1ed45604",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1011842
+      },
+      "writtenOn": "2020-10-23T01:43:36Z",
+      "side": 1,
+      "message": "Sounds good.",
+      "parentUuid": "cbe22347_b3f8c977",
       "range": {
         "startLine": 113,
         "startChar": 8,
