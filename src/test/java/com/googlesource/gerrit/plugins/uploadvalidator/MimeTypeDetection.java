@@ -16,19 +16,17 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import org.apache.tika.Tika;
-import org.apache.tika.config.TikaConfig;
-import org.apache.tika.io.TikaInputStream;
-import org.apache.tika.metadata.Metadata;
+import org.overviewproject.mime_types.GetBytesException;
+import org.overviewproject.mime_types.MimeTypeDetector;
 
 class MimeTypeDetection {
   public String getMimeType(String path, byte[] content) throws IOException {
-    Tika tika = new Tika(TikaConfig.getDefaultConfig());
-
-    Metadata metadata = new Metadata();
-    metadata.set(Metadata.RESOURCE_NAME_KEY, path);
-
+    MimeTypeDetector detector = new MimeTypeDetector();
     ByteArrayInputStream bis = new ByteArrayInputStream(content);
-    return tika.detect(TikaInputStream.get(bis), metadata);
+    try {
+      return detector.detectMimeType(path, bis);
+    } catch (GetBytesException e) {
+      throw new IOException(e);
+    }
   }
 }
