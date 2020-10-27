@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c104c2a9_e9231e11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-10-27T21:04:34Z",
+      "side": 1,
+      "message": "Let\u0027s see how the co-tagged core upgrade I4ed5a44a does.",
+      "revId": "efcec1e0fddc04011090d7adee825ca66bf7e2f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
