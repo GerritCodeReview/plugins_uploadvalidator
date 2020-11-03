@@ -16,6 +16,24 @@
       "message": "what about stable-3.3 ?",
       "revId": "3093d722e13c2f909cf5ad50989c644e4f84858b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d8c53e5_2e606e38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-11-03T22:35:58Z",
+      "side": 1,
+      "message": "I don\u0027t see that branch under [1] https://gerrit-review.googlesource.com/admin/repos/plugins/uploadvalidator,branches",
+      "parentUuid": "cf26630f_1889edcc",
+      "revId": "3093d722e13c2f909cf5ad50989c644e4f84858b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
