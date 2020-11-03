@@ -34,6 +34,23 @@
       "parentUuid": "cf26630f_1889edcc",
       "revId": "3093d722e13c2f909cf5ad50989c644e4f84858b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a241cd4_04915350",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2020-11-03T22:39:05Z",
+      "side": 1,
+      "message": "oops, you are right, I looked at the gerrit repo",
+      "revId": "3093d722e13c2f909cf5ad50989c644e4f84858b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
