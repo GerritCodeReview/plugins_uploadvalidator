@@ -73,7 +73,7 @@ public class ContentTypeUtil {
     this.patternCache = patternCache;
   }
 
-  public boolean isBlacklistedBinaryContentType(ObjectLoader ol, String pathname, PluginConfig cfg)
+  public boolean isForbiddenBinaryContentType(ObjectLoader ol, String pathname, PluginConfig cfg)
       throws IOException, ExecutionException {
     try (InputStream is = ol.openStream()) {
       return matchesAny(getContentType(is, pathname), getBinaryTypes(cfg));
