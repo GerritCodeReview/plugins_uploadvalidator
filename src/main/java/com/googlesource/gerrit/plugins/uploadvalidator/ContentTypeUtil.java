@@ -76,8 +76,12 @@ public class ContentTypeUtil {
   public boolean isBlacklistedBinaryContentType(ObjectLoader ol, String pathname, PluginConfig cfg)
       throws IOException, ExecutionException {
     try (InputStream is = ol.openStream()) {
-      return matchesAny(getContentType(is, pathname), getBinaryTypes(cfg));
+      String[] types = getBinaryTypes(cfg);
+      if (types.length > 0) {
+        return matchesAny(getContentType(is, pathname), types);
+      }
     }
+    return false;
   }
 
   public String getContentType(InputStream is, String pathname) throws IOException {
