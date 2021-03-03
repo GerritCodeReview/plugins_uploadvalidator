@@ -211,7 +211,7 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
     for (String path : content.keySet()) {
       ObjectLoader ol = revWalk.getObjectReader().open(content.get(path));
       try (InputStream in = ol.openStream()) {
-        if (RawText.isBinary(in) || contentTypeUtil.isBlacklistedBinaryContentType(ol, path, cfg)) {
+        if (RawText.isBinary(in) || contentTypeUtil.isForbiddenBinaryContentType(ol, path, cfg)) {
           continue;
         }
       }

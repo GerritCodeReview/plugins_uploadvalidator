@@ -182,16 +182,15 @@ plugin.@PLUGIN@.blockedContentType
 plugin.@PLUGIN@.blockedContentTypeWhitelist
 :    Blocked content type whitelist.
 
-    If this option is checked, the entered content types are interpreted as
-    a whitelist. Otherwise the entered content types are interpreted as a
-    blacklist and commits that contains one of these content types will be
-    rejected.
+    If this option is checked, the entered content types are allowed.
+    Otherwise the entered content types are forbidden and commits that
+    contains one of these content types will be rejected.
 
     There must be specified at least one blocked content type pattern,
     otherwise this option will be ignored.
 
     The default value is false. This means the entered content types are
-    interpreted as a blacklist.
+    forbidden.
 
 plugin.@PLUGIN@.rejectDuplicatePathnames
 :    Reject duplicate pathnames.
