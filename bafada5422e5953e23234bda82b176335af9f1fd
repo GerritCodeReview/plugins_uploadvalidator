@@ -16,6 +16,24 @@
       "message": "Maybe add:\n\n  Bug: Issue 13014",
       "revId": "bafada5422e5953e23234bda82b176335af9f1fd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ccc51b6_d6846f05",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-03-04T11:07:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "613e420b_5c466b87",
+      "revId": "bafada5422e5953e23234bda82b176335af9f1fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
