@@ -105,8 +105,7 @@ public class SkipValidationTest {
         new ValidatorConfig(
             new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
-    assertThat(validatorConfig.isEnabled(anyUser, projectName, "anyRef", "anotherOp"))
-        .isTrue();
+    assertThat(validatorConfig.isEnabled(anyUser, projectName, "anyRef", "anotherOp")).isTrue();
   }
 
   @Test
@@ -139,9 +138,7 @@ public class SkipValidationTest {
         new ValidatorConfig(
             new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
-    assertThat(
-            validatorConfig.isEnabled(
-                anyUser, projectName, "refs/heads/anotherRef", "testOp"))
+    assertThat(validatorConfig.isEnabled(anyUser, projectName, "refs/heads/anotherRef", "testOp"))
         .isTrue();
   }
 }

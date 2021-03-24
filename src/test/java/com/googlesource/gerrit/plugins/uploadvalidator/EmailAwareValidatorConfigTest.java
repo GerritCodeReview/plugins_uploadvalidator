@@ -30,8 +30,7 @@ public class EmailAwareValidatorConfigTest {
     ValidatorConfig config =
         getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar");
 
-    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
-        .isTrue();
+    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension")).isTrue();
   }
 
   @Test
@@ -54,9 +53,7 @@ public class EmailAwareValidatorConfigTest {
                 + "\n"
                 + "   blockedFileExtension = jar");
 
-    assertThat(
-            config.isEnabled(
-                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isTrue();
   }
 
@@ -68,9 +65,7 @@ public class EmailAwareValidatorConfigTest {
                 + "   email = anInvalidEmail@example.com\n"
                 + "   blockedFileExtension = jar");
 
-    assertThat(
-            config.isEnabled(
-                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isFalse();
   }
 
@@ -83,9 +78,7 @@ public class EmailAwareValidatorConfigTest {
                 + "   email = .*@example.org$\n"
                 + "   blockedFileExtension = jar");
 
-    assertThat(
-            config.isEnabled(
-                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isFalse();
     assertThat(
             config.isEnabled(
@@ -123,12 +116,9 @@ public class EmailAwareValidatorConfigTest {
             config.isEnabled(
                 exampleOrgUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isTrue();
-    assertThat(
-            config.isEnabled(xUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+    assertThat(config.isEnabled(xUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isTrue();
-    assertThat(
-            config.isEnabled(
-                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+    assertThat(config.isEnabled(anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
         .isFalse();
   }
 
