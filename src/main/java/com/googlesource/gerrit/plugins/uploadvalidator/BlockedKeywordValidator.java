@@ -221,7 +221,7 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
   }
 
   private static Optional<CommentValidationFailure> validateComment(
-      ImmutableMap blockedKeywordPatterns, CommentForValidation comment) {
+      ImmutableMap<String, Pattern>  blockedKeywordPatterns, CommentForValidation comment) {
     // Uses HashSet data structure for de-duping found blocked keywords.
     Set<String> findings = new LinkedHashSet<String>(
         findBlockedKeywordsInString(blockedKeywordPatterns.values(), comment.getText()));
