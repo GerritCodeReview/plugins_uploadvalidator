@@ -79,7 +79,7 @@ public class ContentTypeValidatorTest extends ValidatorTestCase {
   }
 
   @Test
-  public void testWhitelist() throws Exception {
+  public void testAllowlist() throws Exception {
     String[] patterns = new String[] {"application/pdf", "application/xml"};
 
     try (RevWalk rw = new RevWalk(repo)) {
@@ -93,7 +93,7 @@ public class ContentTypeValidatorTest extends ValidatorTestCase {
   @Test
   public void validatorBehaviorWhenConfigEmpty() {
     assertThat(ContentTypeValidator.isActive(EMPTY_PLUGIN_CONFIG)).isFalse();
-    assertThat(ContentTypeValidator.isWhitelist(EMPTY_PLUGIN_CONFIG)).isFalse();
+    assertThat(ContentTypeValidator.isAllowList(EMPTY_PLUGIN_CONFIG)).isFalse();
   }
 
   private RevCommit makeCommit(RevWalk rw) throws IOException, GitAPIException {

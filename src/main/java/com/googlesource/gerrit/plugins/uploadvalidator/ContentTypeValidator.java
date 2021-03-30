@@ -63,27 +63,27 @@ public class ContentTypeValidator implements CommitValidationListener {
                     "Pushes of commits that contain files with blocked content "
                         + "types will be rejected."));
         bind(ProjectConfigEntry.class)
-            .annotatedWith(Exports.named(KEY_BLOCKED_CONTENT_TYPE_WHITELIST))
+            .annotatedWith(Exports.named(KEY_BLOCKED_CONTENT_TYPE_ALLOWLIST))
             .toInstance(
                 new ProjectConfigEntry(
-                    "Blocked Content Type Whitelist",
+                    "Blocked Content Type Allowlist",
                     "false",
                     ProjectConfigEntryType.BOOLEAN,
                     null,
                     false,
                     "If this option is checked, the entered content types are "
-                        + "interpreted as a whitelist. Otherwise commits that "
+                        + "interpreted as an allowlist. Otherwise commits that "
                         + "contain one of these content types will be rejected."));
       }
     };
   }
 
   public static final String KEY_BLOCKED_CONTENT_TYPE = "blockedContentType";
-  public static final String KEY_BLOCKED_CONTENT_TYPE_WHITELIST = "blockedContentTypeWhitelist";
+  public static final String KEY_BLOCKED_CONTENT_TYPE_ALLOWLIST = "blockedContentTypeWhitelist";
 
   @VisibleForTesting
-  static boolean isWhitelist(PluginConfig cfg) {
-    return cfg.getBoolean(KEY_BLOCKED_CONTENT_TYPE_WHITELIST, false);
+  static boolean isAllowList(PluginConfig cfg) {
+    return cfg.getBoolean(KEY_BLOCKED_CONTENT_TYPE_ALLOWLIST, false);
   }
 
   @VisibleForTesting
@@ -135,7 +135,7 @@ public class ContentTypeValidator implements CommitValidationListener {
                   receiveEvent.commit,
                   receiveEvent.revWalk,
                   getBlockedTypes(cfg),
-                  isWhitelist(cfg));
+                  isAllowList(cfg));
           if (!messages.isEmpty()) {
             throw new CommitValidationException("contains blocked content type", messages);
           }
@@ -149,7 +149,7 @@ public class ContentTypeValidator implements CommitValidationListener {
 
   @VisibleForTesting
   List<CommitValidationMessage> performValidation(
-      Repository repo, RevCommit c, RevWalk revWalk, String[] blockedTypes, boolean whitelist)
+      Repository repo, RevCommit c, RevWalk revWalk, String[] blockedTypes, boolean allowList)
       throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
@@ -157,8 +157,8 @@ public class ContentTypeValidator implements CommitValidationListener {
       ObjectLoader ol = repo.open(content.get(path));
       try (ObjectStream os = ol.openStream()) {
         String contentType = contentTypeUtil.getContentType(os, path);
-        if ((contentTypeUtil.matchesAny(contentType, blockedTypes) && !whitelist)
-            || (!contentTypeUtil.matchesAny(contentType, blockedTypes) && whitelist)) {
+        if ((contentTypeUtil.matchesAny(contentType, blockedTypes) && !allowList)
+            || (!contentTypeUtil.matchesAny(contentType, blockedTypes) && allowList)) {
           messages.add(
               new CommitValidationMessage(
                   "found blocked content type (" + contentType + ") in file: " + path, true));
