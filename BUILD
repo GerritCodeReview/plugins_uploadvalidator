@@ -16,12 +16,15 @@ gerrit_plugin(
     ],
 )
 
-TEST_SRCS = "src/test/java/**/*Test.java"
-
 TEST_DEPS = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
     "@commons-io//jar",
     "@mime-types//jar",
     ":uploadvalidator__plugin",
+]
+
+TEST_SRCS = [
+    "src/test/java/**/*Test.java",
+    "src/test/java/**/*IT.java",
 ]
 
 java_library(
@@ -29,7 +32,7 @@ java_library(
     testonly = 1,
     srcs = glob(
         ["src/test/java/**/*.java"],
-        exclude = [TEST_SRCS],
+        exclude = TEST_SRCS,
     ),
     deps = TEST_DEPS,
 )
@@ -37,7 +40,19 @@ java_library(
 junit_tests(
     name = "uploadvalidator_tests",
     testonly = 1,
-    srcs = glob([TEST_SRCS]),
+    srcs = glob(
+        ["src/test/java/**/*Test.java"]),
+    tags = ["uploadvalidator"],
+    deps = TEST_DEPS + [
+        ":testutils",
+    ],
+)
+
+junit_tests(
+    name = "uploadvalidator_integration_tests",
+    testonly = 1,
+    srcs = glob(
+        ["src/test/java/**/*IT.java"]),
     tags = ["uploadvalidator"],
     deps = TEST_DEPS + [
         ":testutils",
