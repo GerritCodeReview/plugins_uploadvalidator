@@ -16,6 +16,24 @@
       "message": "- move this to stable-3.3 where it applies cleanly ?\n- could be also cherry-picked to stable-3.1 where \n  - import of Permission needs to be fixed since the class was moved to another package in 3.3\n  - testKeywordComment() can\u0027t succeed in 3.1 and 3.2 since the feature was introduced only in 3.3",
       "revId": "177c5f7ed6a9c02a4618c8be796f0f62d9e09fc0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15f3d3fe_e5261425",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-04-06T08:55:03Z",
+      "side": 1,
+      "message": "I\u0027ll move to stable-3.3.",
+      "parentUuid": "2870d919_acb15a0e",
+      "revId": "177c5f7ed6a9c02a4618c8be796f0f62d9e09fc0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
