@@ -16,6 +16,155 @@
       "message": "Why is this cherry-picked to the master branch after it has been merged for stable-3.3? Shouldn\u0027t the stable-3.3 rather be merged back into master? ",
       "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa74f5cb_cf6e00fe",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-09T07:58:19Z",
+      "side": 1,
+      "message": "optional: split this into two constants and avoid repetition of the values at lines 44 and 55",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 0
+      },
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40c90a3d_8e273c4d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-09T07:58:19Z",
+      "side": 1,
+      "message": "RefNames.REFS_CONFIG",
+      "range": {
+        "startLine": 57,
+        "startChar": 39,
+        "endLine": 57,
+        "endChar": 57
+      },
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74470c11_368e07ef",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-09T07:58:19Z",
+      "side": 1,
+      "message": "optional: this may be a more readable version avoiding \u0027\\n\u0027 and \u0027+\u0027 at each line:\n\n  Joiner.on(\"\\n\").join(\n    \"[plugin \\\"uploadvalidator\\\"]\",\n    \"    blockedFileExtension \u003d jar\",\n    \"    blockedFileExtension \u003d .zip\",\n    \"    blockedKeywordPattern \u003d secr3t\",\n    \"    invalidFilenamePattern \u003d [%:@]\"\n    \"    rejectWindowsLineEndings \u003d true\",\n    \"    maxPathLength \u003d 20\",\n    \"    rejectDuplicatePathnames \u003d true\");",
+      "range": {
+        "startLine": 63,
+        "startChar": 15,
+        "endLine": 70,
+        "endChar": 47
+      },
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b968ed44_c53a742f",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-09T07:58:19Z",
+      "side": 1,
+      "message": "This empty string is unnecessary.",
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b5440ef_79e4320a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-09T07:58:19Z",
+      "side": 1,
+      "message": "Is this change formatted with the google-java-format?",
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ec575f_f795141f",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-09T07:58:19Z",
+      "side": 1,
+      "message": "testKeywordInMessage (look at the line 100)",
+      "range": {
+        "startLine": 97,
+        "startChar": 14,
+        "endLine": 97,
+        "endChar": 32
+      },
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "409ecd06_d3dd15d3",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-09T07:58:19Z",
+      "side": 1,
+      "message": "testKeywordInFile",
+      "range": {
+        "startLine": 114,
+        "startChar": 14,
+        "endLine": 114,
+        "endChar": 25
+      },
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
