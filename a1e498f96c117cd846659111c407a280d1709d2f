@@ -249,6 +249,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "391e74c0_39a59d29",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-12T14:37:10Z",
+      "side": 1,
+      "message": "Yes, it should be because this project was already formatted using the google-java-format:\n\n  $ git log --grep google-java-format\n  ...\n  commit 3b454d473a982892d2dcf8b1fa43f2d3a2730176\n  Author: David Pursehouse \u003cdpursehouse@digital.ai\u003e\n  Date:   Wed May 13 09:16:38 2020 +0900\n\n     Format Java files with google-java-format\n\n      Change-Id: Ia8b858aee87de579a49d20f43c4fdc5b9bb12bd4",
+      "parentUuid": "e7b4253b_20611684",
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f0ec575f_f795141f",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
         "patchSetId": 1
@@ -284,6 +302,30 @@
       "side": 1,
       "message": "the message field lives in the Comment class, so I think this name is correct?",
       "parentUuid": "f0ec575f_f795141f",
+      "range": {
+        "startLine": 97,
+        "startChar": 14,
+        "endLine": 97,
+        "endChar": 32
+      },
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3416459_651669fc",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-12T14:37:10Z",
+      "side": 1,
+      "message": "OK",
+      "parentUuid": "fc9b8270_b2cb7681",
       "range": {
         "startLine": 97,
         "startChar": 14,
