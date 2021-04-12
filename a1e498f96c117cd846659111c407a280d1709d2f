@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca84ad15_aab8fbc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-04-12T13:37:43Z",
+      "side": 1,
+      "message": "I don\u0027t understand the branching strategy for this plugin; before I started work on this, stable-3.3 and master were the same. The stable-3.3 branch didn\u0027t compile against gerrit 3.3, so I had to introduce https://gerrit-review.googlesource.com/c/plugins/uploadvalidator/+/302517 . If we would merge stable-3.3, we\u0027d have to create an extra change to revert that one.",
+      "parentUuid": "33d84d8b_08a831a0",
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa74f5cb_cf6e00fe",
@@ -64,6 +82,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef708b83_bdd1f52a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-04-12T13:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40c90a3d_8e273c4d",
+      "range": {
+        "startLine": 57,
+        "startChar": 39,
+        "endLine": 57,
+        "endChar": 57
+      },
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74470c11_368e07ef",
@@ -77,6 +119,30 @@
       "writtenOn": "2021-04-09T07:58:19Z",
       "side": 1,
       "message": "optional: this may be a more readable version avoiding \u0027\\n\u0027 and \u0027+\u0027 at each line:\n\n  Joiner.on(\"\\n\").join(\n    \"[plugin \\\"uploadvalidator\\\"]\",\n    \"    blockedFileExtension \u003d jar\",\n    \"    blockedFileExtension \u003d .zip\",\n    \"    blockedKeywordPattern \u003d secr3t\",\n    \"    invalidFilenamePattern \u003d [%:@]\"\n    \"    rejectWindowsLineEndings \u003d true\",\n    \"    maxPathLength \u003d 20\",\n    \"    rejectDuplicatePathnames \u003d true\");",
+      "range": {
+        "startLine": 63,
+        "startChar": 15,
+        "endLine": 70,
+        "endChar": 47
+      },
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "103005ed_b69b3b20",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-04-12T13:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74470c11_368e07ef",
       "range": {
         "startLine": 63,
         "startChar": 15,
@@ -104,6 +170,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55268c6a_3ce50547",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-04-12T13:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b968ed44_c53a742f",
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b5440ef_79e4320a",
@@ -117,6 +201,24 @@
       "writtenOn": "2021-04-09T07:58:19Z",
       "side": 1,
       "message": "Is this change formatted with the google-java-format?",
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7b4253b_20611684",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-04-12T13:37:43Z",
+      "side": 1,
+      "message": "not sure. :) do you want it to be ?",
+      "parentUuid": "0b5440ef_79e4320a",
       "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -144,6 +246,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc9b8270_b2cb7681",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-04-12T13:37:43Z",
+      "side": 1,
+      "message": "the message field lives in the Comment class, so I think this name is correct?",
+      "parentUuid": "f0ec575f_f795141f",
+      "range": {
+        "startLine": 97,
+        "startChar": 14,
+        "endLine": 97,
+        "endChar": 32
+      },
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "409ecd06_d3dd15d3",
@@ -157,6 +283,30 @@
       "writtenOn": "2021-04-09T07:58:19Z",
       "side": 1,
       "message": "testKeywordInFile",
+      "range": {
+        "startLine": 114,
+        "startChar": 14,
+        "endLine": 114,
+        "endChar": 25
+      },
+      "revId": "a1e498f96c117cd846659111c407a280d1709d2f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77bf2050_db73d6d6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-04-12T13:37:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "409ecd06_d3dd15d3",
       "range": {
         "startLine": 114,
         "startChar": 14,
