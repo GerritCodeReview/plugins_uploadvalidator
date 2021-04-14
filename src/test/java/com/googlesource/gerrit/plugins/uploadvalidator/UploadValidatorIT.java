@@ -23,6 +23,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.gerrit.acceptance.GitUtil;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.PushOneCommit;
+import com.google.gerrit.acceptance.TestAccount;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
 import com.google.gerrit.entities.Permission;
@@ -59,11 +60,11 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
 
   @Before
   public void setup() throws Exception {
-
     pushConfig(
         Joiner.on("\n")
             .join(
                 "[plugin \"uploadvalidator\"]",
+                "    group = " + adminGroupUuid(),
                 "    blockedFileExtension = jar",
                 "    blockedFileExtension = .zip",
                 "    blockedKeywordPattern = secr3t",
@@ -160,5 +161,19 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
             ImmutableMap.of("a.txt", "content\nline2\n", "A.TXT", "content"))
         .to("refs/heads/master")
         .assertErrorStatus("duplicate pathnames");
+  }
+
+  @Test
+  public void testRulesNotEnforcedForNonGroupMembers() throws Exception {
+    TestRepository<InMemoryRepository> userClone =
+        GitUtil.cloneProject(project, registerRepoConnection(project, user));
+    pushFactory
+        .create(
+            user.newIdent(),
+            userClone,
+            "Subject",
+            ImmutableMap.of("a.txt", "content\nline2\n", "A.TXT", "content"))
+        .to("refs/heads/master")
+        .assertOkStatus();
   }
 }
