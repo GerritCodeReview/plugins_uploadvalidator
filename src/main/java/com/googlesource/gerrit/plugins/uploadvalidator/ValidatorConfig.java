@@ -103,6 +103,7 @@ public class ValidatorConfig {
         && isValidConfig(conf, projectName)
         && (activeForRef(conf, refName))
         && (user == null || activeForEmail(conf, user.getAccount().preferredEmail()))
+        && activeForGroup(conf, user)
         && (activeForProject(conf, projectName.get()))
         && (!isDisabledValidatorOp(conf, validatorOp))
         && (!hasCriteria(conf, "skipGroup")
@@ -151,6 +152,18 @@ public class ValidatorConfig {
 
   private boolean activeForEmail(PluginConfig config, @Nullable String email) {
     return matchCriteria(config, "email", email, true, false);
+  }
+
+  private boolean activeForGroup(PluginConfig config, @Nullable IdentifiedUser user) {
+    ImmutableList<UUID> groups =
+        Arrays.stream(config.getStringList("group"))
+            .map(this::groupUUID)
+            .collect(toImmutableList());
+    if (groups.isEmpty() || user == null || !user.isIdentifiedUser()) {
+      return true;
+    }
+
+    return user.asIdentifiedUser().getEffectiveGroups().containsAnyOf(groups);
   }
 
   private boolean canSkipValidation(PluginConfig config, String validatorOp) {
