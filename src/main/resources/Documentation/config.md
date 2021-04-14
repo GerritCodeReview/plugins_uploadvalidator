@@ -290,12 +290,33 @@ following could be configured:
     project = ^platform/.*
 ```
 
+Group-specific validations
+---------------------------
+
+By default, the validation will be enabled for all users. However, it can be
+limited to particular user group by setting `plugin.@PLUGIN@.group`. The group
+may be configured using a specific group name or UUID. Multiple groups may
+be specified.
+
+NOTE: For [system groups](../../../Documentation/access-control.html#system_groups)
+and external groups (e.g.
+[LDAP groups](../../../Documentation/access-control.html#ldap_groups)) the use
+of UUIDs is required. This is because group names are resolved through the
+group index and the group index only contains Gerrit internal groups.
+
+E.g. to limit the validation to all users that are part of group `foo` the
+following could be configured:
+
+```
+  [plugin "@PLUGIN@"]
+    group = foo
+```
+
 Permission to skip the rules
 ----------------------------
 
-Some users may be allowed to skip some of the rules on a per project and
-per repository basis by configuring the appropriate "skip" settings in the
-project.config.
+Some users may be allowed to skip some of the rules by configuring the
+appropriate "skip" settings in the project.config.
 
 Skip of the rules is controlled by:
 
@@ -308,6 +329,9 @@ plugin.@PLUGIN@.skipGroup
     Default: nobody is allowed to skip the rules (empty).
 
 NOTE: When skipGroup isn't defined, all the other skip settings are ignored.
+
+NOTE: If skipGroup is the same as group, all users are able to skip validations
+based on other skip rules.
 
 NOTE: For [system groups](../../../Documentation/access-control.html#system_groups)
 and external groups (e.g.

@@ -59,11 +59,11 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
 
   @Before
   public void setup() throws Exception {
-
     pushConfig(
         Joiner.on("\n")
             .join(
                 "[plugin \"uploadvalidator\"]",
+                "    group = " + adminGroupUuid(),
                 "    blockedFileExtension = jar",
                 "    blockedFileExtension = .zip",
                 "    blockedKeywordPattern = secr3t",
@@ -160,5 +160,19 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
             ImmutableMap.of("a.txt", "content\nline2\n", "A.TXT", "content"))
         .to("refs/heads/master")
         .assertErrorStatus("duplicate pathnames");
+  }
+
+  @Test
+  public void testRulesNotEnforcedForNonGroupMembers() throws Exception {
+    TestRepository<InMemoryRepository> userClone =
+        GitUtil.cloneProject(project, registerRepoConnection(project, user));
+    pushFactory
+        .create(
+            user.newIdent(),
+            userClone,
+            "Subject",
+            ImmutableMap.of("a.txt", "content\nline2\n", "A.TXT", "content"))
+        .to("refs/heads/master")
+        .assertOkStatus();
   }
 }
