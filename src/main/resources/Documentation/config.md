@@ -290,6 +290,28 @@ following could be configured:
     project = ^platform/.*
 ```
 
+Group-specific validations
+---------------------------
+
+By default, the validation will be enabled for all users. However, it can be
+limited to particular user group by setting `plugin.@PLUGIN@.group`. The group
+may be configured using a specific group name or UUID. Multiple groups may
+be specified.
+
+NOTE: For [system groups](../../../Documentation/access-control.html#system_groups)
+and external groups (e.g.
+[LDAP groups](../../../Documentation/access-control.html#ldap_groups)) the use
+of UUIDs is required. This is because group names are resolved through the
+group index and the group index only contains Gerrit internal groups.
+
+E.g. to limit the validation to all users that are part of group `foo` the
+following could be configured:
+
+```
+  [plugin "@PLUGIN@"]
+    group =foo
+```
+
 Permission to skip the rules
 ----------------------------
 
