@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce12894e_295d309d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-04-14T16:20:09Z",
+      "side": 1,
+      "message": "I don\u0027t understand why Zuul fails here.\n\nI\u0027m merging in stable-3.3, but since this is a fast-forward, it\u0027s not actually merge commit.\n\nI can build it locally just fine.",
+      "revId": "5ad563d763f4f16af70d5815feb11397566e77a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
