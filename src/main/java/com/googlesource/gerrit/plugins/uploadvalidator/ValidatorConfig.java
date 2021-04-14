@@ -101,10 +101,11 @@ public class ValidatorConfig {
 
     return conf != null
         && isValidConfig(conf, projectName)
-        && (activeForRef(conf, refName))
+        && activeForRef(conf, refName)
         && (user == null || activeForEmail(conf, user.getAccount().preferredEmail()))
-        && (activeForProject(conf, projectName.get()))
-        && (!isDisabledValidatorOp(conf, validatorOp))
+        && activeForGroup(conf, user)
+        && activeForProject(conf, projectName.get())
+        && !isDisabledValidatorOp(conf, validatorOp)
         && (!hasCriteria(conf, "skipGroup")
             || !canSkipValidation(conf, validatorOp)
             || !canSkipRef(conf, refName)
@@ -153,6 +154,18 @@ public class ValidatorConfig {
     return matchCriteria(config, "email", email, true, false);
   }
 
+  private boolean activeForGroup(PluginConfig config, @Nullable IdentifiedUser user) {
+    ImmutableList<UUID> groups =
+        Arrays.stream(config.getStringList("group"))
+            .map(this::groupUUID)
+            .collect(toImmutableList());
+    if (groups.isEmpty() || user == null) {
+      return true;
+    }
+
+    return user.getEffectiveGroups().containsAnyOf(groups);
+  }
+
   private boolean canSkipValidation(PluginConfig config, String validatorOp) {
     return matchCriteria(config, "skipValidation", validatorOp, false, false);
   }
@@ -188,7 +201,7 @@ public class ValidatorConfig {
   }
 
   private boolean canSkipGroup(PluginConfig conf, @Nullable IdentifiedUser user) {
-    if (user == null || !user.isIdentifiedUser()) {
+    if (user == null) {
       return false;
     }
 
@@ -196,7 +209,7 @@ public class ValidatorConfig {
         Arrays.stream(conf.getStringList("skipGroup"))
             .map(this::groupUUID)
             .collect(toImmutableList());
-    return user.asIdentifiedUser().getEffectiveGroups().containsAnyOf(skipGroups);
+    return user.getEffectiveGroups().containsAnyOf(skipGroups);
   }
 
   private AccountGroup.UUID groupUUID(String groupNameOrUUID) {
