@@ -34,6 +34,24 @@
       "parentUuid": "06615587_e381fa90",
       "revId": "6ad4cb301e6754bcd4dd75c5e22f14dd5adbc280",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e11543e8_e751cb2c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1024147
+      },
+      "writtenOn": "2021-04-15T08:22:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e36034c4_4d05c757",
+      "revId": "6ad4cb301e6754bcd4dd75c5e22f14dd5adbc280",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
