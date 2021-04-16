@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4674606_be72a414",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1096638
+      },
+      "writtenOn": "2021-04-16T00:02:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6d24b34_c00f34b0",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "dba2c2408881cfa258c238b9702a0af14b5f5718",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca499558_9b830cd5",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-15T08:22:21Z",
       "side": 1,
       "message": "I\u0027m adding integration tests in https://gerrit-review.googlesource.com/c/plugins/uploadvalidator/+/303336 (this merges in https://gerrit-review.googlesource.com/c/plugins/uploadvalidator/+/302004).\n\nIt would be good to have an integration test.",
+      "range": {
+        "startLine": 26,
+        "startChar": 13,
+        "endLine": 26,
+        "endChar": 42
+      },
+      "revId": "dba2c2408881cfa258c238b9702a0af14b5f5718",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d6bd241_081c537a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/GroupAwareValidatorConfigTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1096638
+      },
+      "writtenOn": "2021-04-16T00:02:48Z",
+      "side": 1,
+      "message": "Done. I moved target repo to stable-3.3. Also, while adding IT, I noticed the behavior in groups wasn\u0027t consistent with email in case user \u003d\u003d null. I did some adjustments in the implementation to match it.",
+      "parentUuid": "ca499558_9b830cd5",
       "range": {
         "startLine": 26,
         "startChar": 13,
