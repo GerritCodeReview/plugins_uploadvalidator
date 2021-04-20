@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.gerrit.entities.AccountGroup;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.IdentifiedUser;
@@ -26,6 +27,7 @@ import org.junit.Test;
 public class GroupAwareValidatorConfigTest {
   private Project.NameKey projectName = Project.nameKey("testProject");
   private IdentifiedUser anyUser = new FakeUserProvider().get();
+  private static final String pluginName = "uploadvalidator";
 
   @Test
   public void isEnabledForNoGroupsByDefault() throws Exception {
@@ -35,10 +37,12 @@ public class GroupAwareValidatorConfigTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
+            pluginName,
             new FakeConfigFactory(projectName, config),
             new FakeGroupByNameFinder());
 
-    assertThat(validatorConfig.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(validatorConfig.isEnabled(
+        anyUser, projectName, "anyRef", "blockedFileExtension", ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -52,12 +56,17 @@ public class GroupAwareValidatorConfigTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
+            pluginName,
             new FakeConfigFactory(projectName, config),
             new FakeGroupByNameFinder());
 
     assertThat(
             validatorConfig.isEnabled(
-                new FakeUserProvider("fooGroup", "bazGroup").get(), projectName, "anyRef", "blockedFileExtension"))
+                new FakeUserProvider("fooGroup", "bazGroup").get(),
+                projectName,
+                "anyRef",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -70,6 +79,7 @@ public class GroupAwareValidatorConfigTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
+            pluginName,
             new FakeConfigFactory(projectName, config),
             new FakeGroupByNameFinder(
                 AccountGroup.nameKey("testGroupName"),
@@ -79,7 +89,11 @@ public class GroupAwareValidatorConfigTest {
 
     assertThat(
             validatorConfig.isEnabled(
-                new FakeUserProvider("testGroupId").get(), projectName, "anyRef", "blockedFileExtension"))
+                new FakeUserProvider("testGroupId").get(),
+                projectName,
+                "anyRef",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -93,12 +107,17 @@ public class GroupAwareValidatorConfigTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
+            pluginName,
             new FakeConfigFactory(projectName, config),
             new FakeGroupByNameFinder());
 
     assertThat(
             validatorConfig.isEnabled(
-                new FakeUserProvider("bazGroup").get(), projectName, "anyRef", "blockedFileExtension"))
+                new FakeUserProvider("bazGroup").get(),
+                projectName,
+                "anyRef",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isFalse();
   }
 }
