@@ -21,6 +21,7 @@ import com.google.common.base.Joiner;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.google.common.flogger.FluentLogger;
@@ -149,7 +150,8 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_CHECK_BLOCKED_KEYWORD)) {
+              KEY_CHECK_BLOCKED_KEYWORD,
+              receiveEvent.pushOptions)) {
         ImmutableMap<String, Pattern> blockedKeywordPatterns =
             patternCache.getAll(
                 Arrays.asList(cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN)));
@@ -181,7 +183,8 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
       PluginConfig cfg = cfgFactory.getFromProjectConfigWithInheritance(projectNameKey, pluginName);
       if (isActive(cfg)
           && validatorConfig.isEnabled(
-              null, projectNameKey, "", KEY_CHECK_COMMENT_BLOCKED_KEYWORD)) {
+              null, projectNameKey, "", KEY_CHECK_COMMENT_BLOCKED_KEYWORD,
+              ImmutableListMultimap.of())) {
         ImmutableMap<String, Pattern> blockedKeywordPatterns =
             patternCache.getAll(
                 Arrays.asList(cfg.getStringList(KEY_CHECK_BLOCKED_KEYWORD_PATTERN)));
