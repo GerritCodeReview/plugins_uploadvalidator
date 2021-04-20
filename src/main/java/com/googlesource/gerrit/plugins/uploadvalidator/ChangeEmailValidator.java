@@ -49,7 +49,8 @@ public class ChangeEmailValidator implements CommitValidationListener {
                     ProjectConfigEntryType.ARRAY,
                     null,
                     false,
-                    "Commits with author email not matching one of these pattterns will be rejected."));
+                    "Commits with author email not matching one of these pattterns will be"
+                        + " rejected."));
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN))
             .toInstance(
@@ -59,7 +60,8 @@ public class ChangeEmailValidator implements CommitValidationListener {
                     ProjectConfigEntryType.ARRAY,
                     null,
                     false,
-                    "Commits with committer email not matching one of these patterns will be rejected."));
+                    "Commits with committer email not matching one of these patterns will be"
+                        + " rejected."));
       }
     };
   }
@@ -112,7 +114,8 @@ public class ChangeEmailValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_ALLOWED_AUTHOR_EMAIL_PATTERN)) {
+              KEY_ALLOWED_AUTHOR_EMAIL_PATTERN,
+              receiveEvent.pushOptions)) {
         if (!performValidation(
             receiveEvent.commit.getAuthorIdent().getEmailAddress(),
             getAllowedAuthorEmailPatterns(cfg))) {
@@ -127,7 +130,8 @@ public class ChangeEmailValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_ALLOWED_COMMITTER_EMAIL_PATTERN)) {
+              KEY_ALLOWED_COMMITTER_EMAIL_PATTERN,
+              receiveEvent.pushOptions)) {
         if (!performValidation(
             receiveEvent.commit.getCommitterIdent().getEmailAddress(),
             getAllowedCommitterEmailPatterns(cfg))) {

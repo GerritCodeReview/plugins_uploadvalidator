@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.IdentifiedUser;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -30,7 +31,9 @@ public class ProjectAwareValidatorConfigTest {
     ValidatorConfig config =
         getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar", projectName);
 
-    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(
+            config.isEnabled(
+                anyUser, projectName, "anyRef", "blockedFileExtension", ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -43,7 +46,9 @@ public class ProjectAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar",
             projectName);
 
-    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(
+            config.isEnabled(
+                anyUser, projectName, "anyRef", "blockedFileExtension", ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -56,7 +61,9 @@ public class ProjectAwareValidatorConfigTest {
                 + "   blockedFileExtension = jar",
             projectName);
 
-    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(
+            config.isEnabled(
+                anyUser, projectName, "anyRef", "blockedFileExtension", ImmutableListMultimap.of()))
         .isFalse();
   }
 
@@ -70,9 +77,17 @@ public class ProjectAwareValidatorConfigTest {
     ValidatorConfig config = getConfig(configString, projectName);
     ValidatorConfig config2 = getConfig(configString, otherNameKey);
 
-    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(
+            config.isEnabled(
+                anyUser, projectName, "anyRef", "blockedFileExtension", ImmutableListMultimap.of()))
         .isTrue();
-    assertThat(config2.isEnabled(anyUser, otherNameKey, "anyRef", "blockedFileExtension"))
+    assertThat(
+            config2.isEnabled(
+                anyUser,
+                otherNameKey,
+                "anyRef",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isFalse();
   }
 
@@ -89,17 +104,33 @@ public class ProjectAwareValidatorConfigTest {
     ValidatorConfig config2 = getConfig(configString, anotherNameKey);
     ValidatorConfig config3 = getConfig(configString, someOtherNameKey);
 
-    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(
+            config.isEnabled(
+                anyUser, projectName, "anyRef", "blockedFileExtension", ImmutableListMultimap.of()))
         .isTrue();
-    assertThat(config2.isEnabled(anyUser, anotherNameKey, "anyRef", "blockedFileExtension"))
+    assertThat(
+            config2.isEnabled(
+                anyUser,
+                anotherNameKey,
+                "anyRef",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isTrue();
-    assertThat(config3.isEnabled(anyUser, someOtherNameKey, "anyRef", "blockedFileExtension"))
+    assertThat(
+            config3.isEnabled(
+                anyUser,
+                someOtherNameKey,
+                "anyRef",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isFalse();
   }
 
   private ValidatorConfig getConfig(String defaultConfig, Project.NameKey projName)
       throws ConfigInvalidException {
     return new ValidatorConfig(
-        new FakeConfigFactory(projName, defaultConfig), new FakeGroupByNameFinder());
+        "uploadvalidator",
+        new FakeConfigFactory(projName, defaultConfig),
+        new FakeGroupByNameFinder());
   }
 }

@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.gerrit.entities.AccountGroup;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.IdentifiedUser;
@@ -25,13 +26,18 @@ import org.junit.Test;
 public class SkipValidationTest {
   private final Project.NameKey projectName = Project.nameKey("testProject");
   private final IdentifiedUser anyUser = new FakeUserProvider().get();
+  private static final String pluginName = "uploadvalidator";
 
   @Test
   public void dontSkipByDefault() throws Exception {
     ValidatorConfig validatorConfig =
-        new ValidatorConfig(new FakeConfigFactory(projectName, ""), new FakeGroupByNameFinder());
+        new ValidatorConfig(
+            pluginName, new FakeConfigFactory(projectName, ""), new FakeGroupByNameFinder());
 
-    assertThat(validatorConfig.isEnabled(anyUser, projectName, "anyRef", "anyOp")).isTrue();
+    assertThat(
+            validatorConfig.isEnabled(
+                anyUser, projectName, "anyRef", "anyOp", ImmutableListMultimap.of()))
+        .isTrue();
   }
 
   @Test
@@ -44,14 +50,15 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
-            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
+            pluginName, new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
     assertThat(
             validatorConfig.isEnabled(
                 new FakeUserProvider("testGroup", "yetAnotherGroup").get(),
                 projectName,
                 "anyRef",
-                "testOp"))
+                "testOp",
+                ImmutableListMultimap.of()))
         .isFalse();
   }
 
@@ -62,6 +69,7 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
+            pluginName,
             new FakeConfigFactory(projectName, config),
             new FakeGroupByNameFinder(
                 AccountGroup.nameKey("testGroupName"),
@@ -71,7 +79,11 @@ public class SkipValidationTest {
 
     assertThat(
             validatorConfig.isEnabled(
-                new FakeUserProvider("testGroupId").get(), projectName, "anyRef", "testOp"))
+                new FakeUserProvider("testGroupId").get(),
+                projectName,
+                "anyRef",
+                "testOp",
+                ImmutableListMultimap.of()))
         .isFalse();
   }
 
@@ -85,11 +97,15 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
-            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
+            pluginName, new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
     assertThat(
             validatorConfig.isEnabled(
-                new FakeUserProvider("yetAnotherGroup").get(), projectName, "anyRef", "testOp"))
+                new FakeUserProvider("yetAnotherGroup").get(),
+                projectName,
+                "anyRef",
+                "testOp",
+                ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -103,9 +119,11 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
-            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
+            pluginName, new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
-    assertThat(validatorConfig.isEnabled(anyUser, projectName, "anyRef", "anotherOp"))
+    assertThat(
+            validatorConfig.isEnabled(
+                anyUser, projectName, "anyRef", "anotherOp", ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -119,11 +137,15 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
-            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
+            pluginName, new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
     assertThat(
             validatorConfig.isEnabled(
-                new FakeUserProvider("testGroup").get(), projectName, "refs/heads/myref", "testOp"))
+                new FakeUserProvider("testGroup").get(),
+                projectName,
+                "refs/heads/myref",
+                "testOp",
+                ImmutableListMultimap.of()))
         .isFalse();
   }
 
@@ -137,11 +159,48 @@ public class SkipValidationTest {
 
     ValidatorConfig validatorConfig =
         new ValidatorConfig(
-            new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
+            pluginName, new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
 
     assertThat(
             validatorConfig.isEnabled(
-                anyUser, projectName, "refs/heads/anotherRef", "testOp"))
+                anyUser,
+                projectName,
+                "refs/heads/anotherRef",
+                "testOp",
+                ImmutableListMultimap.of()))
         .isTrue();
+  }
+
+  @Test
+  public void dontSkipOnPushOptionIfNotEnabled() throws Exception {
+    ValidatorConfig validatorConfig =
+        new ValidatorConfig(
+            pluginName, new FakeConfigFactory(projectName, ""), new FakeGroupByNameFinder());
+
+    assertThat(
+            validatorConfig.isEnabled(
+                anyUser,
+                projectName,
+                "anyRef",
+                "anyOp",
+                ImmutableListMultimap.of("uploadvalidator~skip", "")))
+        .isTrue();
+  }
+
+  @Test
+  public void skipOnPushOptionEnabled() throws Exception {
+    String config = "[plugin \"uploadvalidator\"]\n" + "skipViaPushOption=true";
+    ValidatorConfig validatorConfig =
+        new ValidatorConfig(
+            pluginName, new FakeConfigFactory(projectName, config), new FakeGroupByNameFinder());
+
+    assertThat(
+            validatorConfig.isEnabled(
+                anyUser,
+                projectName,
+                "anyRef",
+                "anyOp",
+                ImmutableListMultimap.of("uploadvalidator~skip", "")))
+        .isFalse();
   }
 }
