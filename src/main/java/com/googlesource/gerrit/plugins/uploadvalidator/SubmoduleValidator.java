@@ -96,7 +96,8 @@ public class SubmoduleValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_CHECK_SUBMODULE)) {
+              KEY_CHECK_SUBMODULE,
+              receiveEvent.pushOptions)) {
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
               performValidation(repo, receiveEvent.commit, receiveEvent.revWalk);

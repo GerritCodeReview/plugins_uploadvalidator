@@ -185,7 +185,8 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_REJECT_DUPLICATE_PATHNAMES)) {
+              KEY_REJECT_DUPLICATE_PATHNAMES,
+              receiveEvent.pushOptions)) {
         locale = getLocale(cfg);
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =

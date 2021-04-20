@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.entities.AccessSection;
 import com.google.gerrit.entities.AccountGroup;
@@ -25,6 +26,7 @@ import com.google.gerrit.entities.InternalGroup;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.exceptions.StorageException;
 import com.google.gerrit.extensions.annotations.Exports;
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.config.PluginConfig;
@@ -44,6 +46,7 @@ public class ValidatorConfig {
   private static final Logger log = LoggerFactory.getLogger(ValidatorConfig.class);
   private static final String KEY_PROJECT = "project";
   private static final String KEY_REF = "ref";
+  private final String pluginName;
   private final ConfigFactory configFactory;
   private final GroupByNameFinder groupByNameFinder;
 
@@ -77,7 +80,11 @@ public class ValidatorConfig {
   }
 
   @Inject
-  public ValidatorConfig(ConfigFactory configFactory, GroupByNameFinder groupByNameFinder) {
+  public ValidatorConfig(
+      @PluginName String pluginName,
+      ConfigFactory configFactory,
+      GroupByNameFinder groupByNameFinder) {
+    this.pluginName = pluginName;
     this.configFactory = configFactory;
     this.groupByNameFinder = groupByNameFinder;
   }
@@ -96,7 +103,8 @@ public class ValidatorConfig {
       @Nullable IdentifiedUser user,
       Project.NameKey projectName,
       String refName,
-      String validatorOp) {
+      String validatorOp,
+      ImmutableListMultimap<String, String> pushOptions) {
     PluginConfig conf = configFactory.get(projectName);
 
     return conf != null
@@ -106,6 +114,7 @@ public class ValidatorConfig {
         && activeForGroup(conf, user)
         && activeForProject(conf, projectName.get())
         && !isDisabledValidatorOp(conf, validatorOp)
+        && !isDisabledByPushOption(conf, pushOptions)
         && (!hasCriteria(conf, "skipGroup")
             || !canSkipValidation(conf, validatorOp)
             || !canSkipRef(conf, refName)
@@ -140,6 +149,15 @@ public class ValidatorConfig {
   private boolean isDisabledValidatorOp(PluginConfig config, String validatorOp) {
     String[] c = config.getStringList("disabledValidation");
     return Arrays.asList(c).contains(validatorOp);
+  }
+
+  private boolean isDisabledByPushOption(
+      PluginConfig config, ImmutableListMultimap<String, String> pushOptions) {
+    String qualifiedName = pluginName + "~" + SkipValidationPushOption.NAME;
+    if (!config.getBoolean("skipViaPushOption", false)) {
+      return false;
+    }
+    return pushOptions.containsKey(qualifiedName);
   }
 
   private boolean activeForProject(PluginConfig config, String project) {

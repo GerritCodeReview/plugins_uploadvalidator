@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.IdentifiedUser;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -30,7 +31,9 @@ public class EmailAwareValidatorConfigTest {
     ValidatorConfig config =
         getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar");
 
-    assertThat(config.isEnabled(anyUser, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(
+            config.isEnabled(
+                anyUser, projectName, "anyRef", "blockedFileExtension", ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -40,7 +43,13 @@ public class EmailAwareValidatorConfigTest {
     ValidatorConfig config =
         getConfig("[plugin \"uploadvalidator\"]\n" + "blockedFileExtension = jar");
 
-    assertThat(config.isEnabled(missingEmail, projectName, "anyRef", "blockedFileExtension"))
+    assertThat(
+            config.isEnabled(
+                missingEmail,
+                projectName,
+                "anyRef",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -56,7 +65,11 @@ public class EmailAwareValidatorConfigTest {
 
     assertThat(
             config.isEnabled(
-                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+                anyUser,
+                projectName,
+                "refs/heads/anyref",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -70,7 +83,11 @@ public class EmailAwareValidatorConfigTest {
 
     assertThat(
             config.isEnabled(
-                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+                anyUser,
+                projectName,
+                "refs/heads/anyref",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isFalse();
   }
 
@@ -85,11 +102,19 @@ public class EmailAwareValidatorConfigTest {
 
     assertThat(
             config.isEnabled(
-                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+                anyUser,
+                projectName,
+                "refs/heads/anyref",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isFalse();
     assertThat(
             config.isEnabled(
-                exampleOrgUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+                exampleOrgUser,
+                projectName,
+                "refs/heads/anyref",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isTrue();
   }
 
@@ -104,7 +129,11 @@ public class EmailAwareValidatorConfigTest {
 
     assertThat(
             config.isEnabled(
-                missingEmail, projectName, "refs/heads/anyref", "blockedFileExtension"))
+                missingEmail,
+                projectName,
+                "refs/heads/anyref",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isFalse();
   }
 
@@ -121,19 +150,34 @@ public class EmailAwareValidatorConfigTest {
 
     assertThat(
             config.isEnabled(
-                exampleOrgUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
-        .isTrue();
-    assertThat(
-            config.isEnabled(xUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+                exampleOrgUser,
+                projectName,
+                "refs/heads/anyref",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isTrue();
     assertThat(
             config.isEnabled(
-                anyUser, projectName, "refs/heads/anyref", "blockedFileExtension"))
+                xUser,
+                projectName,
+                "refs/heads/anyref",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
+        .isTrue();
+    assertThat(
+            config.isEnabled(
+                anyUser,
+                projectName,
+                "refs/heads/anyref",
+                "blockedFileExtension",
+                ImmutableListMultimap.of()))
         .isFalse();
   }
 
   private ValidatorConfig getConfig(String defaultConfig) throws ConfigInvalidException {
     return new ValidatorConfig(
-        new FakeConfigFactory(projectName, defaultConfig), new FakeGroupByNameFinder());
+        "uploadvalidator",
+        new FakeConfigFactory(projectName, defaultConfig),
+        new FakeGroupByNameFinder());
   }
 }
