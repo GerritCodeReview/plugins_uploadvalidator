@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4de2b789_e9684918",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-04-20T07:18:27Z",
+      "side": 1,
+      "message": "I think this needs to be done on the master branch or stable-3.4, since the PluginPushOption is not available in stable-3.3.",
+      "revId": "ae286ec7ed54d8b6c4cace277f5f4cbb27675f33",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87eed778_e9f5c882",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-04-20T07:18:27Z",
+      "side": 1,
+      "message": "[optional] Maybe add a test here too.",
+      "revId": "ae286ec7ed54d8b6c4cace277f5f4cbb27675f33",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
