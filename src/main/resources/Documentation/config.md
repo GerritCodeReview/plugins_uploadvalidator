@@ -416,3 +416,11 @@ and GerritAdmins, to push any content to any file extension but only for the mas
     skipGroup = ldap/GerritAdmins
     skipRef = refs/heads/master
 ```
+
+plugin.@PLUGIN@.skipViaPushOption
+:   Allow all users to skip validation using push options
+
+    This check allows all users to bypass all validation rules if they set push
+    option "@PLUGIN@~skip" (e.g. git push -o "@PLUGIN@~skip").
+
+    Default: false

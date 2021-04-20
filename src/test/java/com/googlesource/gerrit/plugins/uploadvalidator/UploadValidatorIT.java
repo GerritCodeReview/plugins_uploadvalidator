@@ -19,6 +19,7 @@ import static com.google.gerrit.acceptance.testsuite.project.TestProjectUpdate.a
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.gerrit.acceptance.GitUtil;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
@@ -64,6 +65,7 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
         Joiner.on("\n")
             .join(
                 "[plugin \"uploadvalidator\"]",
+                "    skipViaPushOption = true",
                 "    group = " + adminGroupUuid(),
                 "    blockedFileExtension = jar",
                 "    blockedFileExtension = .zip",
@@ -175,5 +177,17 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
             ImmutableMap.of("a.txt", "content\nline2\n", "A.TXT", "content"))
         .to("refs/heads/master")
         .assertOkStatus();
+  }
+
+  @Test
+  public void testRulesNotEnforcedForSkipPushOption() throws Exception {
+    PushOneCommit push = pushFactory
+        .create(
+            admin.newIdent(),
+            clone,
+            "Subject",
+            ImmutableMap.of("a.txt", "content\nline2\n", "A.TXT", "content"));
+    push.setPushOptions(ImmutableList.of("uploadvalidator~skip"));
+    push.to("refs/heads/master").assertOkStatus();
   }
 }
