@@ -112,7 +112,8 @@ public class ChangeEmailValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_ALLOWED_AUTHOR_EMAIL_PATTERN)) {
+              KEY_ALLOWED_AUTHOR_EMAIL_PATTERN,
+              receiveEvent.pushOptions)) {
         if (!performValidation(
             receiveEvent.commit.getAuthorIdent().getEmailAddress(),
             getAllowedAuthorEmailPatterns(cfg))) {
@@ -127,7 +128,8 @@ public class ChangeEmailValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_ALLOWED_COMMITTER_EMAIL_PATTERN)) {
+              KEY_ALLOWED_COMMITTER_EMAIL_PATTERN,
+              receiveEvent.pushOptions)) {
         if (!performValidation(
             receiveEvent.commit.getCommitterIdent().getEmailAddress(),
             getAllowedCommitterEmailPatterns(cfg))) {

@@ -109,7 +109,8 @@ public class InvalidLineEndingValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS)) {
+              KEY_CHECK_REJECT_WINDOWS_LINE_ENDINGS,
+              receiveEvent.pushOptions)) {
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
               performValidation(repo, receiveEvent.commit, receiveEvent.revWalk, cfg);

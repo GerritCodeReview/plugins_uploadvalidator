@@ -89,7 +89,8 @@ public class FooterValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_REQUIRED_FOOTER)) {
+              KEY_REQUIRED_FOOTER,
+              receiveEvent.pushOptions)) {
         List<CommitValidationMessage> messages = new LinkedList<>();
         Set<String> footers =
             FluentIterable.from(receiveEvent.commit.getFooterLines())

@@ -127,7 +127,8 @@ public class ContentTypeValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_BLOCKED_CONTENT_TYPE)) {
+              KEY_BLOCKED_CONTENT_TYPE,
+              receiveEvent.pushOptions)) {
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
               performValidation(

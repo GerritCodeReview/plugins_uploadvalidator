@@ -14,6 +14,8 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import com.google.gerrit.extensions.registration.DynamicSet;
+import com.google.gerrit.server.git.receive.PluginPushOption;
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 
@@ -38,5 +40,8 @@ public class Module extends AbstractModule {
     install(ValidatorConfig.module());
 
     bind(ConfigFactory.class).to(PluginConfigWithInheritanceFactory.class).in(Scopes.SINGLETON);
+
+    DynamicSet.bind(binder(), PluginPushOption.class)
+        .to(SkipValidationPushOption.class);
   }
 }
