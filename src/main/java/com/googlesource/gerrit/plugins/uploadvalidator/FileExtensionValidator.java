@@ -104,7 +104,8 @@ public class FileExtensionValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_BLOCKED_FILE_EXTENSION)) {
+              KEY_BLOCKED_FILE_EXTENSION,
+              receiveEvent.pushOptions)) {
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
               performValidation(

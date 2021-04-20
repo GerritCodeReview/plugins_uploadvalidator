@@ -93,7 +93,8 @@ public class MaxPathLengthValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_MAX_PATH_LENGTH)) {
+              KEY_MAX_PATH_LENGTH,
+              receiveEvent.pushOptions)) {
         int maxPathLength = cfg.getInt(KEY_MAX_PATH_LENGTH, 0);
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =

@@ -99,7 +99,8 @@ public class InvalidFilenameValidator implements CommitValidationListener {
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
               receiveEvent.getRefName(),
-              KEY_INVALID_FILENAME)) {
+              KEY_INVALID_FILENAME,
+              receiveEvent.pushOptions)) {
         try (Repository repo = repoManager.openRepository(receiveEvent.project.getNameKey())) {
           List<CommitValidationMessage> messages =
               performValidation(
