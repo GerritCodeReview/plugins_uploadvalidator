@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c71f9e66_91a9f427",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-20T17:03:21Z",
+      "side": 1,
+      "message": "nit: make clear which users we enforce this on.\n\nin the context of uploadvaldator - or more generally git pushes - we have three users:\n\n- author (as specified in the git commit message)\n- committer (as specified in the git commit message)\n- uploader (the user that has authenticated against gerrit and is pushing the contents). this is the user that is available as CurrentUser.",
+      "range": {
+        "startLine": 14,
+        "startChar": 60,
+        "endLine": 14,
+        "endChar": 65
+      },
+      "revId": "9d0623fe1ce213fcdbd1050710709ff7054087be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "582dad43_ae1ec2c7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-20T17:03:21Z",
+      "side": 1,
+      "message": "nit: either remove the superfluous wrapping () from other conditions here or add it here as well to be consistent",
+      "range": {
+        "startLine": 106,
+        "startChar": 11,
+        "endLine": 106,
+        "endChar": 12
+      },
+      "revId": "9d0623fe1ce213fcdbd1050710709ff7054087be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e70e8346_02954c6e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-20T17:03:21Z",
+      "side": 1,
+      "message": "nit: the method signature already guarantees this, so this check can be removed",
+      "range": {
+        "startLine": 162,
+        "startChar": 44,
+        "endLine": 162,
+        "endChar": 68
+      },
+      "revId": "9d0623fe1ce213fcdbd1050710709ff7054087be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05d4f7ef_48aadf15",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-20T17:03:21Z",
+      "side": 1,
+      "message": "nit: this is unnecessary. user is already of type IdentifiedUser",
+      "range": {
+        "startLine": 166,
+        "startChar": 11,
+        "endLine": 166,
+        "endChar": 34
+      },
+      "revId": "9d0623fe1ce213fcdbd1050710709ff7054087be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98680b9c_1eae0214",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/GroupAwareValidatorConfigTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-20T17:03:21Z",
+      "side": 1,
+      "message": "nit: only used once. please inline",
+      "range": {
+        "startLine": 28,
+        "startChar": 25,
+        "endLine": 28,
+        "endChar": 32
+      },
+      "revId": "9d0623fe1ce213fcdbd1050710709ff7054087be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
