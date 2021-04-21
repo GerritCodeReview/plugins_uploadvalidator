@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "648ffa0f_cf740fa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096638
+      },
+      "writtenOn": "2021-04-21T00:30:57Z",
+      "side": 1,
+      "message": "Ack. I need to wait for https://gerrit-review.googlesource.com/c/plugins/uploadvalidator/+/303889 to be merged, since I depend on src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+      "parentUuid": "4de2b789_e9684918",
+      "revId": "ae286ec7ed54d8b6c4cace277f5f4cbb27675f33",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "87eed778_e9f5c882",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2021-04-20T07:18:27Z",
       "side": 1,
       "message": "[optional] Maybe add a test here too.",
+      "revId": "ae286ec7ed54d8b6c4cace277f5f4cbb27675f33",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e71d800e_ea6aafc0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/SkipValidationTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1096638
+      },
+      "writtenOn": "2021-04-21T00:30:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87eed778_e9f5c882",
       "revId": "ae286ec7ed54d8b6c4cace277f5f4cbb27675f33",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
