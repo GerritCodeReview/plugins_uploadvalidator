@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e67009fb_550f1423",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-04-21T06:48:49Z",
+      "side": 1,
+      "message": "The build failure seems to be legit. InternalGroup has been moved in master [1].\n\n[1] https://gerrit-review.googlesource.com/c/gerrit/+/300983\n",
+      "revId": "69e32a55dc1311e94fac3dda8c3447a115dd49ec",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
