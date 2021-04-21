@@ -315,9 +315,8 @@ following could be configured:
 Permission to skip the rules
 ----------------------------
 
-Some users may be allowed to skip some of the rules on a per project and
-per repository basis by configuring the appropriate "skip" settings in the
-project.config.
+Some users may be allowed to skip some of the rules by configuring the
+appropriate "skip" settings in the project.config.
 
 Skip of the rules is controlled by:
 
@@ -330,6 +329,9 @@ plugin.@PLUGIN@.skipGroup
     Default: nobody is allowed to skip the rules (empty).
 
 NOTE: When skipGroup isn't defined, all the other skip settings are ignored.
+
+NOTE: If skipGroup is the same as group, all users are able to skip validations
+based on other skip rules.
 
 NOTE: For [system groups](../../../Documentation/access-control.html#system_groups)
 and external groups (e.g.
