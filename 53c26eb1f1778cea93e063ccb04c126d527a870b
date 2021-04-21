@@ -16,6 +16,24 @@
       "message": "Please document how skipGrup, group-specific validations and skipViaPushOption work together.",
       "revId": "53c26eb1f1778cea93e063ccb04c126d527a870b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf3da559_3b3d1a15",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1096638
+      },
+      "writtenOn": "2021-04-21T17:45:02Z",
+      "side": 1,
+      "message": "skipViaPushOption is not related to skipGroup (nor group-specific validatons). I clarified that in the documentation.\n\nNote that the only reason why it\u0027s in the chain is because I would have a merge conflict otherwise.",
+      "parentUuid": "eb622eae_3939f5bb",
+      "revId": "53c26eb1f1778cea93e063ccb04c126d527a870b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
