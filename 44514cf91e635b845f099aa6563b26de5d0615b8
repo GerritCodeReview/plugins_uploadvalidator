@@ -16,6 +16,24 @@
       "message": "Please also document how the (existing) skipGroup and the new group-specific validations work together when a user is both in a skipGroup and in a group-specific validation group.",
       "revId": "44514cf91e635b845f099aa6563b26de5d0615b8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0f254e3_f27a782c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1096638
+      },
+      "writtenOn": "2021-04-21T17:45:06Z",
+      "side": 1,
+      "message": "This is no different than any other specific validations. For example, it behaves the same as ref-specific validation vs skipRef. I believe it\u0027s captured well in \"Permission to skip the rules\" section. I added additional note if groups are the same, but let me know if you think we should add more.",
+      "parentUuid": "a785113e_32ce4e9e",
+      "revId": "44514cf91e635b845f099aa6563b26de5d0615b8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
