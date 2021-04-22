@@ -53,6 +53,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db20aebc_a914f9c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-04-22T06:25:12Z",
+      "side": 1,
+      "message": "I think this is resolved now, since the change is targeting master now.",
+      "parentUuid": "648ffa0f_cf740fa2",
+      "revId": "ae286ec7ed54d8b6c4cace277f5f4cbb27675f33",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87eed778_e9f5c882",
