@@ -41,6 +41,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64c97414_b2c4971a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1096638
+      },
+      "writtenOn": "2021-04-22T17:35:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7626e98e_16cfe16e",
+      "range": {
+        "startLine": 162,
+        "startChar": 28,
+        "endLine": 162,
+        "endChar": 40
+      },
+      "revId": "cf79c70587ac35940fee24528fb39b354f905266",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "024d1281_2446243e",
@@ -58,6 +82,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f32856e5_b5717ea6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/GroupAwareValidatorConfigTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096638
+      },
+      "writtenOn": "2021-04-22T17:35:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "024d1281_2446243e",
+      "revId": "cf79c70587ac35940fee24528fb39b354f905266",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46f376ea_ab62b5d9",
@@ -71,6 +113,24 @@
       "writtenOn": "2021-04-22T11:29:33Z",
       "side": 1,
       "message": "unused import",
+      "revId": "cf79c70587ac35940fee24528fb39b354f905266",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b14fa6b2_a19fb3f5",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1096638
+      },
+      "writtenOn": "2021-04-22T17:35:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46f376ea_ab62b5d9",
       "revId": "cf79c70587ac35940fee24528fb39b354f905266",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
