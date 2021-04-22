@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b947436_1a4e9068",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-22T11:46:29Z",
+      "side": 1,
+      "message": "Please format using google-java-format",
+      "revId": "5b447b9ea408c3e0f49f24df8b0eea18a1cbe7de",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a1f433_6f9afd9c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-22T11:46:29Z",
+      "side": 1,
+      "message": "This check is probably much cheaper than other checks which have to evaluate group membership(s). I think it makes sense to move it higher-up and thus\nspeed-up evaluation when the skip via push option is used.",
+      "revId": "5b447b9ea408c3e0f49f24df8b0eea18a1cbe7de",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
