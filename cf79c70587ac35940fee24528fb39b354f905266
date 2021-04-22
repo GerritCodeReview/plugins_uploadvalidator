@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6edd1853_98f527a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-22T11:29:33Z",
+      "side": 1,
+      "message": "The change LGTM except minor details",
+      "revId": "cf79c70587ac35940fee24528fb39b354f905266",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7626e98e_16cfe16e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-22T11:29:33Z",
+      "side": 1,
+      "message": "Move this check up so that we don\u0027t compute the groups list if user is null",
+      "range": {
+        "startLine": 162,
+        "startChar": 28,
+        "endLine": 162,
+        "endChar": 40
+      },
+      "revId": "cf79c70587ac35940fee24528fb39b354f905266",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "024d1281_2446243e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/GroupAwareValidatorConfigTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-22T11:29:33Z",
+      "side": 1,
+      "message": "Please format this file with the google-java-format",
+      "revId": "cf79c70587ac35940fee24528fb39b354f905266",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46f376ea_ab62b5d9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-22T11:29:33Z",
+      "side": 1,
+      "message": "unused import",
+      "revId": "cf79c70587ac35940fee24528fb39b354f905266",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
