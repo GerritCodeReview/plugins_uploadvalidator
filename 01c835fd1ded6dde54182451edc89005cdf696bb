@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86c4cb14_5719c5cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-23T15:23:46Z",
+      "side": 1,
+      "message": "improvement",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 15
+      },
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77cf557a_18129841",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-23T15:23:46Z",
+      "side": 1,
+      "message": "universally",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 10
+      },
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbac54a9_8c9318e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-23T15:23:46Z",
+      "side": 1,
+      "message": "improvements",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 18
+      },
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b7d6e6c_6564541b",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
         "patchSetId": 4
@@ -20,6 +89,47 @@
         "endLine": 96,
         "endChar": 0
       },
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37224496_ec4307bc",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-23T15:23:46Z",
+      "side": 1,
+      "message": "I find the complete code in this test quite hard to follow. If we want to test how upload validation is done against edited lines only then it would be the best if we see the full base version and full new version of the content.\n\nFor example, base version content:\n\n  first line\n  second line\n  third line\n\nnew version content:\n\n  first line\n  modified second line with blocked_keyword\n  third line\n  inserted fourth line with blocked_keyword",
+      "parentUuid": "2b7d6e6c_6564541b",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 0
+      },
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7f7d85b_a1fe8630",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-23T15:23:46Z",
+      "side": 1,
+      "message": "unrelated method rename\n\nalso in several more cases below",
       "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
