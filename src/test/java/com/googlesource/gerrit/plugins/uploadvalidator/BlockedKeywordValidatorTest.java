@@ -17,11 +17,19 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.entities.Patch;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
+import com.google.gerrit.server.patch.PatchList;
+import com.google.gerrit.server.patch.PatchListCache;
+import com.google.gerrit.server.patch.PatchListEntry;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -31,6 +39,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.diff.Edit;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
@@ -72,13 +81,33 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
 
   @Test
   public void testKeywords() throws Exception {
+    PatchListCache patchListCacheMock = mock(PatchListCache.class);
+    PatchList mockPatchList = mock(PatchList.class);
+    when(patchListCacheMock.get(any(), any(Project.NameKey.class))).thenReturn(mockPatchList);
+    PatchListEntry fooTxt = mock(PatchListEntry.class);
+    when(fooTxt.getEdits()).thenReturn(ImmutableList.of(new Edit(0, 0, 0, 1)));
+    when(mockPatchList.get("foo.txt")).thenReturn(fooTxt);
+    PatchListEntry barTxt = mock(PatchListEntry.class);
+    when(barTxt.getEdits()).thenReturn(ImmutableList.of(new Edit(0, 0, 0, 5)));
+    when(mockPatchList.get("bar.txt")).thenReturn(barTxt);
+    PatchListEntry foobarTxt = mock(PatchListEntry.class);
+    when(foobarTxt.getEdits()).thenReturn(ImmutableList.of(new Edit(0, 0, 0, 3)));
+    when(mockPatchList.get("foobar.txt")).thenReturn(foobarTxt);
+
     try (RevWalk rw = new RevWalk(repo)) {
       RevCommit c = makeCommit(rw);
       BlockedKeywordValidator validator =
           new BlockedKeywordValidator(
-              null, new ContentTypeUtil(PATTERN_CACHE), PATTERN_CACHE, null, null, null);
+              null,
+              new ContentTypeUtil(PATTERN_CACHE),
+              PATTERN_CACHE,
+              null,
+              null,
+              patchListCacheMock,
+              null);
       List<CommitValidationMessage> m =
-          validator.performValidation(repo, c, rw, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
+          validator.performValidation(
+              Project.nameKey("project"), repo, c, rw, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
       Set<String> expected =
           ImmutableSet.of(
               "ERROR: blocked keyword(s) found in: foo.txt (Line: 1)"
