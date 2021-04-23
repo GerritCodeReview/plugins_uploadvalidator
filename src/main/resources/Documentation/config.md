@@ -143,7 +143,7 @@ plugin.@PLUGIN@.blockedKeywordPattern
 :    Patterns for blocked keywords.
 
     This check looks for blocked keywords in files. If the check finds an
-    blocked keyword the push will be rejected.
+    blocked keyword in the diff between the pushed commit and it's parent.
 
     To find a keyword it is possible to pass a regular expressions by
     blockedKeywordPattern.
