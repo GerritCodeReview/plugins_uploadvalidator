@@ -230,4 +230,127 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
     push.setPushOptions(ImmutableList.of("uploadvalidator~skip"));
     push.to("refs/heads/master").assertOkStatus();
   }
+
+  @Test
+  public void keywordExistsInFileButNotInDiff() throws Exception {
+    pushFactory
+        .create(
+            admin.newIdent(),
+            clone,
+            "Subject",
+            "file.txt",
+            "" + "blah \n" + "secr3t\n" + "blah" + "")
+        .to("refs/heads/master")
+        .assertOkStatus();
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+    pushFactory
+        .create(
+            admin.newIdent(),
+            clone,
+            "Subject",
+            "file.txt",
+            "" + "blah \n" + "secr3t\n" + "foo" + "")
+        .to("refs/heads/master")
+        .assertOkStatus();
+  }
+
+  @Test
+  public void keywordExistsInNewFile() throws Exception {
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+    pushFactory
+        .create(
+            admin.newIdent(),
+            clone,
+            "Subject",
+            "file.txt",
+            "" + "blah \n" + "secr3t\n" + "foo\n" + "secr3t")
+        .to("refs/heads/master")
+        .assertErrorStatus("blocked keywords");
+  }
+
+  @Test
+  public void keywordExistsInNewAndDiff() throws Exception {
+    pushFactory
+        .create(
+            admin.newIdent(),
+            clone,
+            "Subject",
+            "file.txt",
+            "" + "blah \n" + "secr3t\n" + "blah" + "")
+        .to("refs/heads/master")
+        .assertOkStatus();
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+    pushFactory
+        .create(
+            admin.newIdent(),
+            clone,
+            "Subject",
+            "file.txt",
+            "" + "blah \n" + "secr3t\n" + "blah\n" + "secr3t")
+        .to("refs/heads/master")
+        .assertErrorStatus("blocked keywords");
+  }
+
+  @Test
+  public void keywordExistsInFileAndIsRemoved() throws Exception {
+    pushFactory
+        .create(
+            admin.newIdent(), clone, "Subject", "file.txt", "" + "blah \n" + "secr3t\n" + "blah")
+        .to("refs/heads/master")
+        .assertOkStatus();
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "file.txt", "" + "blah \n" + "blah\n")
+        .to("refs/heads/master")
+        .assertOkStatus();
+  }
+
+  @Test
+  public void keywordExistsInNewAndSameLineIsModified() throws Exception {
+    pushFactory
+        .create(
+            admin.newIdent(),
+            clone,
+            "Subject",
+            "file.txt",
+            "" + "blah \n" + "secr3t\n" + "blah" + "")
+        .to("refs/heads/master")
+        .assertOkStatus();
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+    // This could be further improved using intra-line diffs
+    pushFactory
+        .create(
+            admin.newIdent(),
+            clone,
+            "Subject",
+            "file.txt",
+            "" + "blah \n" + "secr3t foobar\n" + "blah" + "")
+        .to("refs/heads/master")
+        .assertErrorStatus("blocked keywords");
+  }
+
+  @Test
+  public void keywordExistsInOldAndFileIsDeleted() throws Exception {
+    pushFactory
+        .create(
+            admin.newIdent(),
+            clone,
+            "Subject",
+            "file.txt",
+            "" + "blah \n" + "secr3t\n" + "blah" + "")
+        .to("refs/heads/master")
+        .assertOkStatus();
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "foo.txt", "blah")
+        .rmFile("file.txt")
+        .to("refs/heads/master")
+        .assertOkStatus();
+  }
 }
