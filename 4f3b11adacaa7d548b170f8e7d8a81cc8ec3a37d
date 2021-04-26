@@ -16,6 +16,24 @@
       "message": "Removal of this call from here and moving into each test seems like an unrelated refactoring. Do that in own predecessor change?",
       "revId": "4f3b11adacaa7d548b170f8e7d8a81cc8ec3a37d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7854b88_1ef6afa3",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-04-26T08:40:07Z",
+      "side": 0,
+      "message": "+1. Is this needed to permit creating a file with the blocked keyword in the new test? We could move creating file.txt here before pushing the config.",
+      "parentUuid": "49ea4908_7e8c32af",
+      "revId": "4f3b11adacaa7d548b170f8e7d8a81cc8ec3a37d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
