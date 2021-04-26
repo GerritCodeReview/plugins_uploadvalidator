@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f13406d_2faed7e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-04-26T08:40:07Z",
+      "side": 1,
+      "message": "Also state that/if added or modified regions that contain blocked keywords in the \"new\" commit are blocked, but a diff with a deleted keyword isn\u0027t, i.e. we inspect the right hand side diff only.",
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86c4cb14_5719c5cf",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -70,6 +87,23 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c101264_e9056382",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-04-26T08:40:07Z",
+      "side": 1,
+      "message": "I doubled checked that. Begin/end fields are the line indices in JGit.",
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b7d6e6c_6564541b",
@@ -130,6 +164,23 @@
       "writtenOn": "2021-04-23T15:23:46Z",
       "side": 1,
       "message": "unrelated method rename\n\nalso in several more cases below",
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05a91979_4690b5ae",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-04-26T08:40:07Z",
+      "side": 1,
+      "message": "Please also add two more asserts for\n1) modification of the same line of the blocked keyword.\n2) deletion of a region (line) containing the blocked keyword.",
       "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
