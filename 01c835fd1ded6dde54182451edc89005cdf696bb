@@ -333,6 +333,24 @@
       "message": "Please also add two more asserts for\n1) modification of the same line of the blocked keyword.\n2) deletion of a region (line) containing the blocked keyword.",
       "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e86b710f_dbf42fd5",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-27T12:06:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05a91979_4690b5ae",
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
