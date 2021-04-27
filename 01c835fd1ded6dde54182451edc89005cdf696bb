@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22770dba_35a829ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-27T12:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f13406d_2faed7e3",
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86c4cb14_5719c5cf",
@@ -41,6 +59,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29a6b29a_e58cac92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-27T12:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86c4cb14_5719c5cf",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 15
+      },
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77cf557a_18129841",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-04-23T15:23:46Z",
       "side": 1,
       "message": "universally",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 10
+      },
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce396b82_210eec14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-27T12:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77cf557a_18129841",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -89,6 +155,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c120543c_fc86c1b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-27T12:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbac54a9_8c9318e2",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 18
+      },
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7c101264_e9056382",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
         "patchSetId": 4
@@ -100,6 +190,24 @@
       "writtenOn": "2021-04-26T08:40:07Z",
       "side": 1,
       "message": "I doubled checked that. Begin/end fields are the line indices in JGit.",
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b84a4c81_c6d206ad",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-27T12:06:05Z",
+      "side": 1,
+      "message": "Great, thanks!",
+      "parentUuid": "7c101264_e9056382",
       "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -151,6 +259,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c930513_ec5d59a9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidatorTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-27T12:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37224496_ec4307bc",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 0
+      },
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7f7d85b_a1fe8630",
@@ -164,6 +296,24 @@
       "writtenOn": "2021-04-23T15:23:46Z",
       "side": 1,
       "message": "unrelated method rename\n\nalso in several more cases below",
+      "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78042067_8fb70ad5",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2021-04-27T12:06:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7f7d85b_a1fe8630",
       "revId": "01c835fd1ded6dde54182451edc89005cdf696bb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
