@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94054c91_4946decc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-04-27T12:53:36Z",
+      "side": 1,
+      "message": "LGTM - 2 nits.",
+      "revId": "e390cecabf8b78c150c3a95ac3b38d81fc0b4d3c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "992e6263_2ffd7521",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-04-27T12:53:36Z",
+      "side": 1,
+      "message": "Same as below. Do we need to add a uploadvalidator plugin config?",
+      "revId": "e390cecabf8b78c150c3a95ac3b38d81fc0b4d3c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2617a701_b11b8870",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2021-04-27T12:53:36Z",
+      "side": 1,
+      "message": "I assume with UploadValidator enabled, this should be rejected if\n   rejectDuplicatePathnames \u003d true\"\n\n(since a.txt \u003d\u003d A.TXT - also same behaviour in test method #uniqueName)\n\nSince you removed the uploadvalidator config from setup(), should we add that config in this method here to really test the side effect of skipping?",
+      "revId": "e390cecabf8b78c150c3a95ac3b38d81fc0b4d3c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
