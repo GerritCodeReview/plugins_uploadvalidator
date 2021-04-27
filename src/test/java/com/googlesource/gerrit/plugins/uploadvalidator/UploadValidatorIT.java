@@ -36,6 +36,7 @@ import com.google.gerrit.server.group.SystemGroupBackend;
 import com.google.inject.Inject;
 import org.eclipse.jgit.internal.storage.dfs.InMemoryRepository;
 import org.eclipse.jgit.junit.TestRepository;
+import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -49,31 +50,17 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   TestRepository<InMemoryRepository> clone;
 
   void pushConfig(String config) throws Exception {
-    TestRepository<InMemoryRepository> allProjectRepo = cloneProject(allProjects, admin);
-    GitUtil.fetch(allProjectRepo, RefNames.REFS_CONFIG + ":config");
-    allProjectRepo.reset("config");
+    TestRepository<InMemoryRepository> repo = cloneProject(project, admin);
+    GitUtil.fetch(repo, RefNames.REFS_CONFIG + ":config");
+    repo.reset("config");
     PushOneCommit push =
-        pushFactory.create(admin.newIdent(), allProjectRepo, "Subject", "project.config", config);
+        pushFactory.create(admin.newIdent(), repo, "Subject", "project.config", config);
     PushOneCommit.Result res = push.to(RefNames.REFS_CONFIG);
     res.assertOkStatus();
   }
 
   @Before
   public void setup() throws Exception {
-    pushConfig(
-        Joiner.on("\n")
-            .join(
-                "[plugin \"uploadvalidator\"]",
-                "    skipViaPushOption = true",
-                "    group = " + adminGroupUuid(),
-                "    blockedFileExtension = jar",
-                "    blockedFileExtension = .zip",
-                "    blockedKeywordPattern = secr3t",
-                "    invalidFilenamePattern = [%:@]",
-                "    rejectWindowsLineEndings = true",
-                "    maxPathLength = 20",
-                "    rejectDuplicatePathnames = true"));
-
     projectOperations
         .project(allProjects)
         .forUpdate()
@@ -86,20 +73,37 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   }
 
   @Test
-  public void testFileExtension() throws Exception {
+  public void fileExtension() throws Exception {
+    pushConfig(
+        Joiner.on("\n")
+            .join(
+                "[plugin \"uploadvalidator\"]",
+                "    blockedFileExtension = jar",
+                "    blockedFileExtension = .zip"));
+    RevCommit head = getHead(testRepo.getRepository(), "HEAD");
     pushFactory
         .create(admin.newIdent(), clone, "Subject", "file.jar", "content")
         .to("refs/heads/master")
         .assertErrorStatus("blocked file extensions");
 
+    clone.reset(head);
     pushFactory
         .create(admin.newIdent(), clone, "Subject", "file.zip", "content")
         .to("refs/heads/master")
         .assertErrorStatus("blocked file extensions");
+
+    clone.reset(head);
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "file.txt", "content")
+        .to("refs/heads/master")
+        .assertOkStatus();
   }
 
   @Test
-  public void testKeywordInComment() throws Exception {
+  public void keywordInComment() throws Exception {
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+
     PushOneCommit.Result r1 = createChange("Subject", "file.txt", "content");
     DraftInput in = new DraftInput();
     in.message = "the password is secr3t ! ";
@@ -116,7 +120,10 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   }
 
   @Test
-  public void testKeywordInFile() throws Exception {
+  public void keywordInNewFile() throws Exception {
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+
     pushFactory
         .create(admin.newIdent(), clone, "Subject", "file.txt", "blah secr3t blah")
         .to("refs/heads/master")
@@ -124,23 +131,47 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   }
 
   @Test
-  public void testFilenamePattern() throws Exception {
+  public void filenamePattern() throws Exception {
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    invalidFilenamePattern = [%:@]"));
+
+    RevCommit head = getHead(testRepo.getRepository(), "HEAD");
     pushFactory
         .create(admin.newIdent(), clone, "Subject", "f:le.txt", "content")
         .to("refs/heads/master")
         .assertErrorStatus("invalid filename");
+
+    clone.reset(head);
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "file.txt", "content")
+        .to("refs/heads/master")
+        .assertOkStatus();
   }
 
   @Test
-  public void testWindowsLineEndings() throws Exception {
+  public void windowsLineEndings() throws Exception {
+    pushConfig(
+        Joiner.on("\n")
+            .join("[plugin \"uploadvalidator\"]", "    rejectWindowsLineEndings = true"));
+
+    RevCommit head = getHead(testRepo.getRepository(), "HEAD");
     pushFactory
         .create(admin.newIdent(), clone, "Subject", "win.ini", "content\r\nline2\r\n")
         .to("refs/heads/master")
         .assertErrorStatus("Windows line ending");
+
+    clone.reset(head);
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "file.txt", "content\nline2\n")
+        .to("refs/heads/master")
+        .assertOkStatus();
   }
 
   @Test
-  public void testPathLength() throws Exception {
+  public void pathLength() throws Exception {
+    pushConfig(Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    maxPathLength = 20"));
+
+    RevCommit head = getHead(testRepo.getRepository(), "HEAD");
     pushFactory
         .create(
             admin.newIdent(),
@@ -150,10 +181,20 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
             "content\nline2\n")
         .to("refs/heads/master")
         .assertErrorStatus("too long paths");
+
+    clone.reset(head);
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "file.txt", "content\nline2\n")
+        .to("refs/heads/master")
+        .assertOkStatus();
   }
 
   @Test
-  public void testUniqueName() throws Exception {
+  public void uniqueName() throws Exception {
+    pushConfig(
+        Joiner.on("\n")
+            .join("[plugin \"uploadvalidator\"]", "    rejectDuplicatePathnames = true"));
+
     pushFactory
         .create(
             admin.newIdent(),
@@ -165,7 +206,7 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   }
 
   @Test
-  public void testRulesNotEnforcedForNonGroupMembers() throws Exception {
+  public void rulesNotEnforcedForNonGroupMembers() throws Exception {
     TestRepository<InMemoryRepository> userClone =
         GitUtil.cloneProject(project, registerRepoConnection(project, user));
     pushFactory
@@ -179,7 +220,7 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   }
 
   @Test
-  public void testRulesNotEnforcedForSkipPushOption() throws Exception {
+  public void rulesNotEnforcedForSkipPushOption() throws Exception {
     PushOneCommit push =
         pushFactory.create(
             admin.newIdent(),
