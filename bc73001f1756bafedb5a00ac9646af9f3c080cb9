@@ -16,6 +16,69 @@
       "message": "Saša, if you have no concerns with this, I\u0027d appreciate if we can submit it today.",
       "revId": "bc73001f1756bafedb5a00ac9646af9f3c080cb9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "549cdc12_c739d589",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-28T08:57:54Z",
+      "side": 1,
+      "message": "Need to clarify some test names",
+      "revId": "bc73001f1756bafedb5a00ac9646af9f3c080cb9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9828359d_19fd71b8",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-28T08:57:54Z",
+      "side": 1,
+      "message": "InFileAndInDiff?",
+      "range": {
+        "startLine": 288,
+        "startChar": 27,
+        "endLine": 288,
+        "endChar": 39
+      },
+      "revId": "bc73001f1756bafedb5a00ac9646af9f3c080cb9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b56de097_209ad66c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2021-04-28T08:57:54Z",
+      "side": 1,
+      "message": "What do you mean by \"InNew\", I see it is used in several method names and it is definitely not \"new file\"?",
+      "range": {
+        "startLine": 327,
+        "startChar": 27,
+        "endLine": 327,
+        "endChar": 32
+      },
+      "revId": "bc73001f1756bafedb5a00ac9646af9f3c080cb9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
