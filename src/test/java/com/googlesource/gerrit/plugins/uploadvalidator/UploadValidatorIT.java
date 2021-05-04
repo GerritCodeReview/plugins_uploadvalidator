@@ -31,7 +31,11 @@ import com.google.gerrit.entities.RefNames;
 import com.google.gerrit.extensions.api.changes.DraftInput;
 import com.google.gerrit.extensions.api.changes.ReviewInput;
 import com.google.gerrit.extensions.api.changes.ReviewInput.DraftHandling;
+import com.google.gerrit.extensions.client.ChangeStatus;
+import com.google.gerrit.extensions.common.ChangeInput;
+import com.google.gerrit.extensions.common.MergeInput;
 import com.google.gerrit.extensions.restapi.BadRequestException;
+import com.google.gerrit.extensions.restapi.ResourceConflictException;
 import com.google.gerrit.server.group.SystemGroupBackend;
 import com.google.inject.Inject;
 import org.eclipse.jgit.internal.storage.dfs.InMemoryRepository;
@@ -366,5 +370,63 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
         .rmFile("file.txt")
         .to("refs/heads/master")
         .assertOkStatus();
+  }
+
+  @Test
+  public void createChangeSucceedsWhenKeywordDoesNotExistInFileAndDiff() throws Exception {
+    RevCommit head = getHead(testRepo.getRepository(), "HEAD");
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "file.txt", "" + "blah \n")
+        .to("refs/heads/master")
+        .assertOkStatus();
+    clone.reset(head);
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "foo.txt", "" + "blah \n")
+        .to("refs/heads/stable")
+        .assertOkStatus();
+    // Create a change that merges the other branch into master. This defaults back to
+    // full-file validation. If it doesn't, the create change call below would fail with
+    // a MissingObjectException.
+    ChangeInput changeInput = new ChangeInput();
+    changeInput.project = project.get();
+    changeInput.branch = "master";
+    changeInput.subject = "A change";
+    changeInput.status = ChangeStatus.NEW;
+    MergeInput mergeInput = new MergeInput();
+    mergeInput.source = gApi.projects().name(project.get()).branch("stable").get().revision;
+    changeInput.merge = mergeInput;
+    gApi.changes().create(changeInput);
+  }
+
+  @Test
+  public void createChangeWithKeywordInMessageFails() throws Exception {
+    RevCommit head = getHead(testRepo.getRepository(), "HEAD");
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "file.txt", "" + "blah \n")
+        .to("refs/heads/master")
+        .assertOkStatus();
+    clone.reset(head);
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "foo.txt", "" + "blah \n")
+        .to("refs/heads/stable")
+        .assertOkStatus();
+    // Create a change that merges the other branch into master. This defaults back to
+    // full-file validation. If it doesn't, the create change call below would fail with
+    // a MissingObjectException.
+    ChangeInput changeInput = new ChangeInput();
+    changeInput.project = project.get();
+    changeInput.branch = "master";
+    changeInput.subject = "A secr3t change";
+    changeInput.status = ChangeStatus.NEW;
+    MergeInput mergeInput = new MergeInput();
+    mergeInput.source = gApi.projects().name(project.get()).branch("stable").get().revision;
+    changeInput.merge = mergeInput;
+    ResourceConflictException e =
+        assertThrows(ResourceConflictException.class, () -> gApi.changes().create(changeInput));
+    assertThat(e).hasMessageThat().contains("blocked keyword(s) found");
   }
 }
