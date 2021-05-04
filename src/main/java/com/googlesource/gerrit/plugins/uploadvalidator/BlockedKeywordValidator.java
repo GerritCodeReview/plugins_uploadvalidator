@@ -24,6 +24,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.entities.Patch;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.entities.Project.NameKey;
@@ -85,6 +86,8 @@ import org.eclipse.jgit.revwalk.RevWalk;
  * validator classes to run its list of blocked keywords against commit content and comments.
  */
 public class BlockedKeywordValidator implements CommitValidationListener, CommentValidator {
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
   // These keys are used for turning on specific validation elements.
   // i.e. enableSkipValidation = blockedKeyword will enabled skipRef and skipGroup checks
   // i.e. disabledValidation = blockedKeywordComments will disable the comment blocked keyword check
@@ -176,10 +179,7 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
           }
         }
       }
-    } catch (NoSuchProjectException
-        | IOException
-        | ExecutionException
-        | PatchListNotAvailableException e) {
+    } catch (NoSuchProjectException | IOException | ExecutionException e) {
       throw new CommitValidationException("failed to check on blocked keywords", e);
     }
     return Collections.emptyList();
@@ -221,13 +221,25 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
       RevWalk revWalk,
       ImmutableCollection<Pattern> blockedKeywordPatterns,
       PluginConfig cfg)
-      throws IOException, ExecutionException, PatchListNotAvailableException {
+      throws IOException, ExecutionException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     checkCommitMessageForBlockedKeywords(blockedKeywordPatterns, messages, c.getFullMessage());
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
-    PatchList patchList =
-        patchListCache.get(
-            PatchListKey.againstDefaultBase(c, DiffPreferencesInfo.Whitespace.IGNORE_NONE), project);
+    Optional<PatchList> patchList;
+    try {
+      patchList =
+          Optional.of(
+              patchListCache.get(
+                  PatchListKey.againstDefaultBase(c, DiffPreferencesInfo.Whitespace.IGNORE_NONE),
+                  project));
+    } catch (PatchListNotAvailableException e) {
+      // TODO(hiesel): Make changes to Gerrit core to always get a diff here. This entails figuring
+      // out Git object visibility between unflushed ObjectInserters and ObjectReaders created from
+      // the repo.
+      logger.atInfo().withCause(e).log("unable to load patch set");
+      patchList = Optional.empty();
+    }
+
     for (String path : content.keySet()) {
       ObjectLoader ol = revWalk.getObjectReader().open(content.get(path));
       try (InputStream in = ol.openStream()) {
@@ -235,8 +247,12 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
           continue;
         }
       }
-      checkLineDiffForBlockedKeywords(
-          patchList.get(path).getEdits(), blockedKeywordPatterns, messages, path, ol);
+      if (patchList.isPresent()) {
+        checkLineDiffForBlockedKeywords(
+            patchList.get().get(path).getEdits(), blockedKeywordPatterns, messages, path, ol);
+      } else {
+        checkEntireFileForBlockedKeywords(blockedKeywordPatterns, messages, path, ol);
+      }
     }
     return messages;
   }
@@ -284,6 +300,22 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
     for (Edit edit : edits) {
       for (int i = edit.getBeginB(); i < edit.getEndB(); i++) {
         checkLineForBlockedKeywords(blockedKeywordPatterns, messages, path, i + 1, lines.get(i));
+      }
+    }
+  }
+
+  private static void checkEntireFileForBlockedKeywords(
+      ImmutableCollection<Pattern> blockedKeywordPatterns,
+      List<CommitValidationMessage> messages,
+      String path,
+      ObjectLoader ol)
+      throws IOException {
+    try (BufferedReader br =
+        new BufferedReader(new InputStreamReader(ol.openStream(), StandardCharsets.UTF_8))) {
+      int line = 1;
+      for (String l = br.readLine(); l != null; l = br.readLine()) {
+        checkLineForBlockedKeywords(blockedKeywordPatterns, messages, path, line, l);
+        line++;
       }
     }
   }
