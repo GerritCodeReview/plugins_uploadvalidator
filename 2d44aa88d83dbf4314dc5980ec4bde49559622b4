@@ -16,6 +16,24 @@
       "message": "I wonder if we should leave the fallback to full-file checks in there just as a defense-in-depth measure to protect against diff cache failures. WDYT?\n\n-2 b/c I want to vet the core change internally first.",
       "revId": "2d44aa88d83dbf4314dc5980ec4bde49559622b4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5876dbd2_78897f8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2021-05-19T09:30:59Z",
+      "side": 1,
+      "message": "Not sure if we need to keep the fallback. If the diff cache has failures, likely we would fail somewhere else then if we had the fallback here.",
+      "parentUuid": "fa36b755_aa080705",
+      "revId": "2d44aa88d83dbf4314dc5980ec4bde49559622b4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
