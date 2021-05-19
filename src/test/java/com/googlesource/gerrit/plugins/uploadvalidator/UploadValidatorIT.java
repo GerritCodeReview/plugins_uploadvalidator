@@ -401,6 +401,34 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   }
 
   @Test
+  public void createChangeSucceedsWhenKeywordExistsInFileButNotInDiff() throws Exception {
+    RevCommit head = getHead(testRepo.getRepository(), "HEAD");
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "file.txt", "" + "secr3t \n")
+        .to("refs/heads/master")
+        .assertOkStatus();
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]", "    blockedKeywordPattern = secr3t"));
+    clone.reset(head);
+    pushFactory
+        .create(admin.newIdent(), clone, "Subject", "foo.txt", "" + "blah \n")
+        .to("refs/heads/stable")
+        .assertOkStatus();
+    // Create a change that merges the other branch into master. This defaults back to
+    // full-file validation. If it doesn't, the create change call below would fail with
+    // a MissingObjectException.
+    ChangeInput changeInput = new ChangeInput();
+    changeInput.project = project.get();
+    changeInput.branch = "master";
+    changeInput.subject = "A change";
+    changeInput.status = ChangeStatus.NEW;
+    MergeInput mergeInput = new MergeInput();
+    mergeInput.source = gApi.projects().name(project.get()).branch("stable").get().revision;
+    changeInput.merge = mergeInput;
+    gApi.changes().create(changeInput);
+  }
+
+  @Test
   public void createChangeWithKeywordInMessageFails() throws Exception {
     RevCommit head = getHead(testRepo.getRepository(), "HEAD");
     pushConfig(
