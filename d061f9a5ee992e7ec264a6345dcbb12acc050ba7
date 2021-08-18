@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "089bbb06_b5d2f907",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-08-18T16:46:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06bb41cb_6159b812",
+      "range": {
+        "startLine": 11,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 62
+      },
+      "revId": "d061f9a5ee992e7ec264a6345dcbb12acc050ba7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "897df55c_7e26b1b4",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-18T02:09:42Z",
       "side": 1,
       "message": "Why infinite? Can you explain what the loop was?",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 16
+      },
+      "revId": "d061f9a5ee992e7ec264a6345dcbb12acc050ba7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37867cc2_b95e2d83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-08-18T16:46:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "897df55c_7e26b1b4",
       "range": {
         "startLine": 12,
         "startChar": 3,
