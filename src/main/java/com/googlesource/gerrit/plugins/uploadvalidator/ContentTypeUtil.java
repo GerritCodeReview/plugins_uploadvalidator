@@ -24,6 +24,7 @@ import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.ProjectConfigEntry;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
+import com.google.inject.Scopes;
 import com.google.inject.name.Named;
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,7 +42,7 @@ public class ContentTypeUtil {
 
       @Override
       protected void configure() {
-        bind(ContentTypeUtil.class);
+        bind(ContentTypeUtil.class).in(Scopes.SINGLETON);
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_BINARY_TYPES))
             .toInstance(
