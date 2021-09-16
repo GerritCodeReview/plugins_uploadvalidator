@@ -18,6 +18,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -27,9 +28,10 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.entities.Patch;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-import com.google.gerrit.server.patch.PatchList;
-import com.google.gerrit.server.patch.PatchListCache;
-import com.google.gerrit.server.patch.PatchListEntry;
+import com.google.gerrit.server.patch.DiffOperations;
+import com.google.gerrit.server.patch.filediff.Edit;
+import com.google.gerrit.server.patch.filediff.FileDiffOutput;
+import com.google.gerrit.server.patch.filediff.TaggedEdit;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -39,7 +41,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.diff.Edit;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.junit.Test;
@@ -79,16 +80,21 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
 
   @Test
   public void keywords() throws Exception {
-    // Mock the PatchListCache to return a diff for each file in our new commit
-    PatchListCache patchListCacheMock = mock(PatchListCache.class);
-    PatchList mockPatchList = mock(PatchList.class);
-    when(patchListCacheMock.get(any(), any(Project.NameKey.class))).thenReturn(mockPatchList);
+    // Mock DiffOperations to return a diff for each file in our new commit
+    DiffOperations diffOperationsMock = mock(DiffOperations.class);
+    Map<String, FileDiffOutput> mockDiffs = mock(Map.class);
+    when(diffOperationsMock.listModifiedFilesAgainstParent(
+            any(Project.NameKey.class), any(), anyInt()))
+        .thenReturn(mockDiffs);
     for (Map.Entry<String, String> fileContent : FILE_CONTENTS.entrySet()) {
-      PatchListEntry file = mock(PatchListEntry.class);
-      when(file.getEdits())
+      FileDiffOutput file = mock(FileDiffOutput.class);
+      when(file.edits())
           .thenReturn(
-              ImmutableList.of(new Edit(0, 0, 0, numberOfLinesInString(fileContent.getValue()))));
-      when(mockPatchList.get(fileContent.getKey())).thenReturn(file);
+              ImmutableList.of(
+                  TaggedEdit.create(
+                      Edit.create(0, 0, 0, numberOfLinesInString(fileContent.getValue())),
+                      /* dueToRebase = */ false)));
+      when(mockDiffs.get(fileContent.getKey())).thenReturn(file);
     }
 
     try (RevWalk rw = new RevWalk(repo)) {
@@ -100,7 +106,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
               PATTERN_CACHE,
               null,
               null,
-              patchListCacheMock,
+              diffOperationsMock,
               null);
       List<CommitValidationMessage> m =
           validator.performValidation(

@@ -31,7 +31,6 @@ import com.google.gerrit.entities.Project.NameKey;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
-import com.google.gerrit.extensions.client.DiffPreferencesInfo;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.extensions.validators.CommentForValidation;
 import com.google.gerrit.extensions.validators.CommentValidationContext;
@@ -45,10 +44,10 @@ import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.validators.CommitValidationException;
 import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
-import com.google.gerrit.server.patch.PatchList;
-import com.google.gerrit.server.patch.PatchListCache;
-import com.google.gerrit.server.patch.PatchListKey;
-import com.google.gerrit.server.patch.PatchListNotAvailableException;
+import com.google.gerrit.server.patch.DiffNotAvailableException;
+import com.google.gerrit.server.patch.DiffOperations;
+import com.google.gerrit.server.patch.filediff.FileDiffOutput;
+import com.google.gerrit.server.patch.filediff.TaggedEdit;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
@@ -71,6 +70,7 @@ import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import org.eclipse.jgit.diff.Edit;
 import org.eclipse.jgit.diff.RawText;
 import org.eclipse.jgit.lib.ObjectId;
@@ -122,8 +122,8 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
   private final GitRepositoryManager repoManager;
   private final LoadingCache<String, Pattern> patternCache;
   private final ContentTypeUtil contentTypeUtil;
-  private final PatchListCache patchListCache;
   private final ValidatorConfig validatorConfig;
+  private final DiffOperations diffOperations;
 
   @Inject
   BlockedKeywordValidator(
@@ -132,14 +132,14 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
       @Named(CACHE_NAME) LoadingCache<String, Pattern> patternCache,
       PluginConfigFactory cfgFactory,
       GitRepositoryManager repoManager,
-      PatchListCache patchListCache,
+      DiffOperations diffOperations,
       ValidatorConfig validatorConfig) {
     this.pluginName = pluginName;
     this.patternCache = patternCache;
     this.cfgFactory = cfgFactory;
     this.repoManager = repoManager;
     this.contentTypeUtil = contentTypeUtil;
-    this.patchListCache = patchListCache;
+    this.diffOperations = diffOperations;
     this.validatorConfig = validatorConfig;
   }
 
@@ -182,7 +182,7 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
     } catch (NoSuchProjectException
         | IOException
         | ExecutionException
-        | PatchListNotAvailableException e) {
+        | DiffNotAvailableException e) {
       throw new CommitValidationException("failed to check on blocked keywords", e);
     }
     return Collections.emptyList();
@@ -224,14 +224,12 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
       RevWalk revWalk,
       ImmutableCollection<Pattern> blockedKeywordPatterns,
       PluginConfig cfg)
-      throws IOException, ExecutionException, PatchListNotAvailableException {
+      throws IOException, ExecutionException, DiffNotAvailableException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     checkCommitMessageForBlockedKeywords(blockedKeywordPatterns, messages, c.getFullMessage());
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
-    PatchList patchList =
-        patchListCache.get(
-            PatchListKey.againstDefaultBase(c, DiffPreferencesInfo.Whitespace.IGNORE_NONE),
-            project);
+    Map<String, FileDiffOutput> fileDiffs =
+        diffOperations.listModifiedFilesAgainstParent(project, c, /* parentNum = */ 0);
 
     for (String path : content.keySet()) {
       ObjectLoader ol = revWalk.getObjectReader().open(content.get(path));
@@ -241,7 +239,13 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
         }
       }
       checkLineDiffForBlockedKeywords(
-          patchList.get(path).getEdits(), blockedKeywordPatterns, messages, path, ol);
+          fileDiffs.get(path).edits().stream()
+              .map(TaggedEdit::jgitEdit)
+              .collect(Collectors.toList()),
+          blockedKeywordPatterns,
+          messages,
+          path,
+          ol);
     }
     return messages;
   }
