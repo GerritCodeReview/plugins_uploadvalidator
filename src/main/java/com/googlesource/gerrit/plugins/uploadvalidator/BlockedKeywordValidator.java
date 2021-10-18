@@ -238,6 +238,9 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
           continue;
         }
       }
+      if (!fileDiffs.containsKey(path)) {
+        continue;
+      }
       checkLineDiffForBlockedKeywords(
           fileDiffs.get(path).edits().stream()
               .map(TaggedEdit::jgitEdit)

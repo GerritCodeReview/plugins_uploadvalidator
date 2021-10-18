@@ -95,6 +95,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
                       Edit.create(0, 0, 0, numberOfLinesInString(fileContent.getValue())),
                       /* dueToRebase = */ false)));
       when(mockDiffs.get(fileContent.getKey())).thenReturn(file);
+      when(mockDiffs.containsKey(fileContent.getKey())).thenReturn(true);
     }
 
     try (RevWalk rw = new RevWalk(repo)) {
