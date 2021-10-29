@@ -16,7 +16,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.entities.AccountGroup;
-import com.google.gerrit.server.group.InternalGroup;
+import com.google.gerrit.entities.InternalGroup;
 import java.sql.Timestamp;
 import java.util.Objects;
 import java.util.Optional;
