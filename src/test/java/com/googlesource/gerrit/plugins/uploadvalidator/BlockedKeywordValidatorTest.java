@@ -29,6 +29,7 @@ import com.google.gerrit.entities.Patch;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.patch.DiffOperations;
+import com.google.gerrit.server.patch.DiffOptions;
 import com.google.gerrit.server.patch.filediff.Edit;
 import com.google.gerrit.server.patch.filediff.FileDiffOutput;
 import com.google.gerrit.server.patch.filediff.TaggedEdit;
@@ -84,7 +85,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
     DiffOperations diffOperationsMock = mock(DiffOperations.class);
     Map<String, FileDiffOutput> mockDiffs = mock(Map.class);
     when(diffOperationsMock.listModifiedFilesAgainstParent(
-            any(Project.NameKey.class), any(), anyInt()))
+            any(Project.NameKey.class), any(), anyInt(), any(DiffOptions.class)))
         .thenReturn(mockDiffs);
     for (Map.Entry<String, String> fileContent : FILE_CONTENTS.entrySet()) {
       FileDiffOutput file = mock(FileDiffOutput.class);
