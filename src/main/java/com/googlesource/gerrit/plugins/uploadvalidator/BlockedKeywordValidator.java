@@ -46,6 +46,7 @@ import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.patch.DiffNotAvailableException;
 import com.google.gerrit.server.patch.DiffOperations;
+import com.google.gerrit.server.patch.DiffOptions;
 import com.google.gerrit.server.patch.filediff.FileDiffOutput;
 import com.google.gerrit.server.patch.filediff.TaggedEdit;
 import com.google.gerrit.server.project.NoSuchProjectException;
@@ -229,7 +230,8 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
     checkCommitMessageForBlockedKeywords(blockedKeywordPatterns, messages, c.getFullMessage());
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
     Map<String, FileDiffOutput> fileDiffs =
-        diffOperations.listModifiedFilesAgainstParent(project, c, /* parentNum = */ 0);
+        diffOperations.listModifiedFilesAgainstParent(
+            project, c, /* parentNum = */ 0, DiffOptions.DEFAULTS);
 
     for (String path : content.keySet()) {
       ObjectLoader ol = revWalk.getObjectReader().open(content.get(path));
