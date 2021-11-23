@@ -90,6 +90,10 @@ public class CommitUtils {
    * If a TreeWalk entry is found this method calls the onVisit() method of the class
    * TreeWalkVisitor.
    *
+   * <p>We assume that all parents have been validated successfully. If the commit is identical to
+   * one of them, we consider it valid, too, even if e.g. validation rules have since changed or
+   * differ from the ones applicable to the target branch.
+   *
    * @param repo The repository
    * @param c The commit
    * @param visitor A TreeWalkVisitor with the desired action
