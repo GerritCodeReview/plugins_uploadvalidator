@@ -17,7 +17,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.entities.AccountGroup;
 import com.google.gerrit.entities.InternalGroup;
-import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -30,7 +30,7 @@ public class FakeGroupByNameFinder implements ValidatorConfig.GroupByNameFinder 
   }
 
   public FakeGroupByNameFinder(
-      AccountGroup.NameKey name, AccountGroup.Id id, AccountGroup.UUID uuid, Timestamp createdOn) {
+      AccountGroup.NameKey name, AccountGroup.Id id, AccountGroup.UUID uuid, Instant createdOn) {
     onlyGroup =
         Optional.of(
             InternalGroup.builder()

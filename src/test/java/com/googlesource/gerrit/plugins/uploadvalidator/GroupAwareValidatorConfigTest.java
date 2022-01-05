@@ -79,7 +79,7 @@ public class GroupAwareValidatorConfigTest {
                 AccountGroup.nameKey("testGroupName"),
                 AccountGroup.id(1),
                 AccountGroup.uuid("testGroupId"),
-                TimeUtil.nowTs()));
+                TimeUtil.now()));
 
     assertThat(
             validatorConfig.isEnabled(
