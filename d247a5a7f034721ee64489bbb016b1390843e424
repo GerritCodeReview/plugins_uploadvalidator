@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99109cd4_0e42310b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-15T14:50:26Z",
+      "side": 1,
+      "message": "push",
+      "range": {
+        "startLine": 12,
+        "startChar": 33,
+        "endLine": 12,
+        "endChar": 39
+      },
+      "revId": "d247a5a7f034721ee64489bbb016b1390843e424",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d0f263d_373b8884",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-15T14:50:26Z",
+      "side": 1,
+      "message": "Please also add a test (in the ChangeEmailTest) for the new behaviour i.e. assert that the CommitValidationException is thrown when an erroneous regular-expression pattern is configured. ",
+      "revId": "d247a5a7f034721ee64489bbb016b1390843e424",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39082ac0_dc5d9db5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeEmailValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-15T14:50:26Z",
+      "side": 1,
+      "message": "The user will see that a regex is invalid and may report that issue to the project owners but they will not know which regex pattern is invalid, especially now when\nthe PatternSyntaxException is handled here and we prevent the internal server error being logged with the exception message.\n\nWe can do one (or both) of the following:\n* report the invalid regex in this message\n* log the error including the invalid regex error_log\n\nIt may not be wanted to expose email pattern(s) to the end users, so we may keep the user message as-is and log a more detailed message which includes the buggy email pattern.\n\nNote that the object \u0027e\u0027 here already contains the erroneous regular-expression pattern and this can be accessed using e.getPattern()",
+      "revId": "d247a5a7f034721ee64489bbb016b1390843e424",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
