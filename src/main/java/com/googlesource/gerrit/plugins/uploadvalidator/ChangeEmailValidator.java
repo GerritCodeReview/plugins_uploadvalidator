@@ -33,6 +33,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 public class ChangeEmailValidator implements CommitValidationListener {
   public static AbstractModule module() {
@@ -144,8 +145,16 @@ public class ChangeEmailValidator implements CommitValidationListener {
   }
 
   @VisibleForTesting
-  static boolean performValidation(String email, String[] allowedEmailPatterns) {
-    return Arrays.stream(allowedEmailPatterns)
-        .anyMatch(s -> Pattern.matches(s, Strings.nullToEmpty(email)));
+  static boolean performValidation(String email, String[] allowedEmailPatterns)
+      throws CommitValidationException {
+    Boolean valid = false;
+    try {
+      valid =
+          Arrays.stream(allowedEmailPatterns)
+              .anyMatch(s -> Pattern.matches(s, Strings.nullToEmpty(email)));
+    } catch (PatternSyntaxException e) {
+      throw new CommitValidationException("Invalid regex in email pattern configuration.", e);
+    }
+    return valid;
   }
 }
