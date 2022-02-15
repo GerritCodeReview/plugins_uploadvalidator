@@ -15,8 +15,10 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 
+import com.google.gerrit.server.git.validators.CommitValidationException;
 import org.junit.Test;
 
 public class ChangeEmailTest {
@@ -27,6 +29,8 @@ public class ChangeEmailTest {
     ".*google\\.com",
     "tester@gerrit\\..*"
   };
+
+  private static final String[] illegalRegexEmailPatterns = {"*"};
 
   @Test
   public void testEmailValid() throws Exception {
@@ -64,6 +68,15 @@ public class ChangeEmailTest {
   @Test
   public void testEmailEmpty() throws Exception {
     assertThat(ChangeEmailValidator.performValidation("", allowedEmailPatterns)).isFalse();
+  }
+
+  @Test
+  public void testEmailIllegalConfig() throws Exception {
+    assertThrows(
+        CommitValidationException.class,
+        () ->
+            ChangeEmailValidator.performValidation(
+                "emailtester@gerritnet.com", illegalRegexEmailPatterns));
   }
 
   @Test
