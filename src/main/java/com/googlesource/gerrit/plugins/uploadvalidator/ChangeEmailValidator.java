@@ -15,6 +15,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableList;
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.api.projects.ProjectConfigEntryType;
@@ -26,6 +27,7 @@ import com.google.gerrit.server.events.CommitReceivedEvent;
 import com.google.gerrit.server.git.validators.CommitValidationException;
 import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
+import com.google.gerrit.server.git.validators.ValidationMessage;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
@@ -33,6 +35,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+import org.eclipse.jgit.lib.Config;
 
 public class ChangeEmailValidator implements CommitValidationListener {
   public static AbstractModule module() {
@@ -147,5 +151,48 @@ public class ChangeEmailValidator implements CommitValidationListener {
   static boolean performValidation(String email, String[] allowedEmailPatterns) {
     return Arrays.stream(allowedEmailPatterns)
         .anyMatch(s -> Pattern.matches(s, Strings.nullToEmpty(email)));
+  }
+
+  @VisibleForTesting
+  public ImmutableList<CommitValidationMessage> validateConfig(String fileName, Config cfg) {
+
+    ImmutableList.Builder<CommitValidationMessage> validationMessages = ImmutableList.builder();
+    String allowedAuthorEmailPattern =
+        cfg.getString("plugin", pluginName, KEY_ALLOWED_AUTHOR_EMAIL_PATTERN);
+
+    if (allowedAuthorEmailPattern != null && !allowedAuthorEmailPattern.trim().isEmpty()) {
+      try {
+        Pattern.compile(allowedAuthorEmailPattern);
+      } catch (PatternSyntaxException e) {
+        validationMessages.add(
+            new CommitValidationMessage(
+                String.format(
+                    "The value '%s' configured in %s (parameter %s.%s) is invalid.",
+                    allowedAuthorEmailPattern,
+                    fileName,
+                    pluginName,
+                    KEY_ALLOWED_AUTHOR_EMAIL_PATTERN),
+                ValidationMessage.Type.ERROR));
+      }
+    }
+    String allowedCommitterEmailPattern =
+        cfg.getString("plugin", pluginName, KEY_ALLOWED_COMMITTER_EMAIL_PATTERN);
+    if (allowedAuthorEmailPattern != null && !allowedAuthorEmailPattern.trim().isEmpty()) {
+
+      try {
+        Pattern.compile(allowedCommitterEmailPattern);
+      } catch (PatternSyntaxException e) {
+        validationMessages.add(
+            new CommitValidationMessage(
+                String.format(
+                    "The value '%s' configured in %s (parameter %s.%s) is invalid.",
+                    allowedCommitterEmailPattern,
+                    fileName,
+                    pluginName,
+                    KEY_ALLOWED_COMMITTER_EMAIL_PATTERN),
+                ValidationMessage.Type.ERROR));
+      }
+    }
+    return validationMessages.build();
   }
 }
