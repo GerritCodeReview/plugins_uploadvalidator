@@ -24,6 +24,7 @@ public class Module extends AbstractModule {
     install(new PatternCacheModule());
     install(ContentTypeUtil.module());
 
+    install(PluginConfigValidator.module());
     install(FooterValidator.module());
     install(MaxPathLengthValidator.module());
     install(FileExtensionValidator.module());
