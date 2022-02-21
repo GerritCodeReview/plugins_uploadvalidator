@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc2617c6_a6ca93ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-21T17:20:52Z",
+      "side": 1,
+      "message": "We have a convention about writing commit messages for the Gerrit project see [1].\nSpecifically please follow this item from [1]\n* Use the present tense (fix instead of fixed)\n\n[1] https://gerrit-review.googlesource.com/Documentation/dev-crafting-changes.html#commit-message",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 5
+      },
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "102f2ea1_e36c6c69",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-21T17:20:52Z",
+      "side": 1,
+      "message": "the the [plugins \"uploadvalidator\"] subsection of the project.config.",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa97bc11_f0de9190",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-21T17:20:52Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9281ce86_4719b5eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-21T17:20:52Z",
+      "side": 1,
+      "message": "Mention that this is not a limitation of this plugin but a limitation of Gerrit core which needs to be fixed there.",
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "391f8e49_88d07a38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-21T17:20:52Z",
+      "side": 1,
+      "message": "I will continue my review tomorrow, just publishing my comments so far.",
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1a61459_30d38273",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeEmailValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-21T17:20:52Z",
+      "side": 1,
+      "message": "IMHO, the validation of the plugin config belongs to the new validator, not here.\nThis validator validates an email against a (pre)configured regex pattern.\nThe new validator (PluginConfigValidator) is responsible for validating all plugin config options including the email patterns.\n\nBtw, where is this method used from?",
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
