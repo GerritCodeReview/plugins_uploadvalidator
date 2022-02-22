@@ -47,6 +47,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a711ad68_9cff6ba7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-02-22T14:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "102f2ea1_e36c6c69",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "357b0246_3dcb07fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-02-22T14:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc2617c6_a6ca93ca",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 5
+      },
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa97bc11_f0de9190",
@@ -70,6 +118,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50cd2881_979f3990",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-02-22T14:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa97bc11_f0de9190",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9281ce86_4719b5eb",
@@ -83,6 +155,24 @@
       "writtenOn": "2022-02-21T17:20:52Z",
       "side": 1,
       "message": "Mention that this is not a limitation of this plugin but a limitation of Gerrit core which needs to be fixed there.",
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ac8bbe4_b8bd5834",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-02-22T14:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9281ce86_4719b5eb",
       "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
