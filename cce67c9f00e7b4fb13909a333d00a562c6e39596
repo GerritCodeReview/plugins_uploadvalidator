@@ -1,9 +1,12 @@
 {
   "checks": {
     "zuul-check:plugins_uploadvalidator": {
-      "state": "NOT_STARTED",
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/330841,4",
+      "started": "2022-02-22T15:38:07Z",
       "created": "2022-02-22T14:58:37Z",
-      "updated": "2022-02-22T15:37:49Z"
+      "updated": "2022-02-22T15:38:07Z"
     }
   }
 }
