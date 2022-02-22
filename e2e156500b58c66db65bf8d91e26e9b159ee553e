@@ -209,6 +209,24 @@
       "message": "IMHO, the validation of the plugin config belongs to the new validator, not here.\nThis validator validates an email against a (pre)configured regex pattern.\nThe new validator (PluginConfigValidator) is responsible for validating all plugin config options including the email patterns.\n\nBtw, where is this method used from?",
       "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e393f092_8c1b334f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeEmailValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-02-22T15:56:37Z",
+      "side": 1,
+      "message": "Done. It\u0027s been moved and split in PluginConfigValidator to validateRegex and validateInteger.",
+      "parentUuid": "c1a61459_30d38273",
+      "revId": "e2e156500b58c66db65bf8d91e26e9b159ee553e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
