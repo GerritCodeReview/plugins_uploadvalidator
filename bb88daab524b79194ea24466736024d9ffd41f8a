@@ -1,0 +1,284 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d0b54f6_3d71220e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "1. Since this is a constant make it static and final and name it using all uppercase\n\n2. what is the advantage of that, relatively complex regex, over just\n\n  [0-9]+\n\nor (the same written in different way):\n\n  \\\\d+",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "015b0c95_5fc6fd4a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "This exists as String constant in the ProjectConfig class. Import it as static import.",
+      "range": {
+        "startLine": 61,
+        "startChar": 22,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b42d546f_5d31c8d0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "This should rather go into a follow-up change. Adding one new plugin config validation per change is better because it keeps each change concentrated on doing one thing only and the changes are smaller and easier to review.",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87169e24_90ffaba0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "The name should be rather \"validatedInteger\" or just \"value\"",
+      "range": {
+        "startLine": 185,
+        "startChar": 11,
+        "endLine": 185,
+        "endChar": 26
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63fa35ec_2deb4cb0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "This compiles the regular expression every time this line is executed. We can compile it once, at the construction time, and store a pre-compiled Pattern as an instance member. Performance-wise, this would be much better.\n\nOn the other hand, we can avoid using a regex here and use guava\u0027s:\n\n  Ints.tryParse(validateInteger)",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c755870_917bd583",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "Following the naming pattern of the already existing test classes which is \u003cvalidator-class-name\u003eTest.java, example: FileExtensionValidator.java is tested in the FileExtensionValidatorTest.java, this class should be named:\n\n  PluginConfigValidatorTest.java",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 29
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae430711_7945c301",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "1. This is a constant and should therefore be:\n\n  private static final String FILE_NAME \u003d \"project.config\"\n  \n2. The constant name should describe its purpose more precisely:\n\n  private static final String PROJECT_CONFIG \u003d \"project.config\"",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97d4294c_00bdace6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "same as the previous comment",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6789924_c921e26a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "These are all constants which, by convention, should be named ALL_UPPERCASE.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 57
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2a13d22_d1b48d34",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "A best-practice with JUnit tests is to create the object under test in the @Before method. What you do here will indeed work but moving this into the @Before method is probably better as any exception thrown from the setup of the test objects will be handled by JUnit, which is not the case with how the code is written here.\n\nJust check in other *Test.java files for example(s).",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 0
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aec010d_94b8e6e9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "Maybe a better name would be in the form \u003cconfigStatus\u003e_\u003cexpectedOutcome\u003e. Example:\n\n  legalAuthorEmailPattern_noMessages\n  \nIf this proposal is accepted then update also other test method names.",
+      "range": {
+        "startLine": 36,
+        "startChar": 14,
+        "endLine": 36,
+        "endChar": 40
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24eb8e95_3f426345",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "avoid unnecessary local variable, import the KEY_ALLOWED_AUTHOR_EMAIL_PATTERN as static import and use it in the line 38.\n\nSame comment for all other places below",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46b57350_87217206",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "[nit] unnecessary empty line",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c0b7633_64ef4b8c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-02-24T15:35:12Z",
+      "side": 1,
+      "message": "These two methods should rather go into own, follow-up, change. This way we can continue to add validations for other plugin config parameters, one per each change.",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 89,
+        "endChar": 3
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
