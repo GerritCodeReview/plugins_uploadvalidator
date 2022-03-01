@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "474dd0df_a55d27f9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidatorTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-01T12:42:37Z",
+      "side": 1,
+      "message": "We don\u0027t need this variable. Just import PROJECT_CONFIG statically and use it directly at all places where the fileName is used.",
+      "revId": "19268a3e76477989b1ead516eeeb8eb94f34a325",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d74cf9_f4525994",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidatorTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-01T12:42:37Z",
+      "side": 1,
+      "message": "make this also final and make the variable name PLUGIN_NAME as it is a constant.",
+      "revId": "19268a3e76477989b1ead516eeeb8eb94f34a325",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "003d777a_b5b045d1",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidatorTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-01T12:42:37Z",
+      "side": 1,
+      "message": "Use static import instead of having a new constant here",
+      "revId": "19268a3e76477989b1ead516eeeb8eb94f34a325",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d265dc09_3e98ba4a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidatorTest.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-01T12:42:37Z",
+      "side": 1,
+      "message": "came as the previous comment",
+      "revId": "19268a3e76477989b1ead516eeeb8eb94f34a325",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
