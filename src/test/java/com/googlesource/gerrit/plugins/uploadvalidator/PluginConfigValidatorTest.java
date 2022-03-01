@@ -15,6 +15,9 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.googlesource.gerrit.plugins.uploadvalidator.ChangeEmailValidator.KEY_ALLOWED_AUTHOR_EMAIL_PATTERN;
+import static com.googlesource.gerrit.plugins.uploadvalidator.ChangeEmailValidator.KEY_ALLOWED_COMMITTER_EMAIL_PATTERN;
+import static com.googlesource.gerrit.plugins.uploadvalidator.MaxPathLengthValidator.KEY_MAX_PATH_LENGTH;
 
 import com.google.common.collect.ImmutableList;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
@@ -27,13 +30,11 @@ public class PluginConfigValidatorTest {
 
   private static String fileName = ProjectConfig.PROJECT_CONFIG;
   private static String pluginName = "uploadvalidator";
-  private static final String KEY_ALLOWED_AUTHOR_EMAIL_PATTERN =
-      ChangeEmailValidator.KEY_ALLOWED_AUTHOR_EMAIL_PATTERN;
-  private static final String KEY_ALLOWED_COMMITTER_EMAIL_PATTERN =
-      ChangeEmailValidator.KEY_ALLOWED_COMMITTER_EMAIL_PATTERN;
 
   private static final String ILLEGALREGEX = "*";
   private static final String LEGALREGEX = ".*";
+  private static final String LEGALPATHLENGTH = "100";
+  private static final String ILLEGALPATHLENGTH = "10xi";
 
   private PluginConfigValidator configValidator;
   private Config cfg;
@@ -73,6 +74,23 @@ public class PluginConfigValidatorTest {
     cfg.setString("plugin", pluginName, KEY_ALLOWED_COMMITTER_EMAIL_PATTERN, ILLEGALREGEX);
     ImmutableList<CommitValidationMessage> messages =
         configValidator.validateRegex(fileName, cfg, KEY_ALLOWED_COMMITTER_EMAIL_PATTERN);
+    assertThat(messages).isNotEmpty();
+  }
+
+  @Test
+  public void hasLegalMaxPathLength_noMessages() throws Exception {
+    cfg.setString("plugin", pluginName, KEY_MAX_PATH_LENGTH, LEGALPATHLENGTH);
+    ImmutableList<CommitValidationMessage> messages =
+        configValidator.validateInteger(fileName, cfg, KEY_MAX_PATH_LENGTH);
+    assertThat(messages).isEmpty();
+  }
+
+  @Test
+  public void hasIllegalMaxPathLength_messages() throws Exception {
+    cfg.setString("plugin", pluginName, KEY_MAX_PATH_LENGTH, ILLEGALPATHLENGTH);
+
+    ImmutableList<CommitValidationMessage> messages =
+        configValidator.validateInteger(fileName, cfg, KEY_MAX_PATH_LENGTH);
     assertThat(messages).isNotEmpty();
   }
 }
