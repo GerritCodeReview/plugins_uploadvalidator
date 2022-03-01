@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "201e9a25_9aaea0fa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d0b54f6_3d71220e",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "015b0c95_5fc6fd4a",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-02-24T15:35:12Z",
       "side": 1,
       "message": "This exists as String constant in the ProjectConfig class. Import it as static import.",
+      "range": {
+        "startLine": 61,
+        "startChar": 22,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aec4ce5_fca28cd5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "015b0c95_5fc6fd4a",
       "range": {
         "startLine": 61,
         "startChar": 22,
@@ -60,6 +102,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d3f9d1b_9188ff42",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Will do for all future changes, thank you for the review!",
+      "parentUuid": "b42d546f_5d31c8d0",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "87169e24_90ffaba0",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
         "patchSetId": 8
@@ -71,6 +131,30 @@
       "writtenOn": "2022-02-24T15:35:12Z",
       "side": 1,
       "message": "The name should be rather \"validatedInteger\" or just \"value\"",
+      "range": {
+        "startLine": 185,
+        "startChar": 11,
+        "endLine": 185,
+        "endChar": 26
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b28eee4_7928eee7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87169e24_90ffaba0",
       "range": {
         "startLine": 185,
         "startChar": 11,
@@ -98,6 +182,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bc2cab0_d9b7c83d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63fa35ec_2deb4cb0",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c755870_917bd583",
@@ -111,6 +213,30 @@
       "writtenOn": "2022-02-24T15:35:12Z",
       "side": 1,
       "message": "Following the naming pattern of the already existing test classes which is \u003cvalidator-class-name\u003eTest.java, example: FileExtensionValidator.java is tested in the FileExtensionValidatorTest.java, this class should be named:\n\n  PluginConfigValidatorTest.java",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 29
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7c7fbcf_bb450836",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c755870_917bd583",
       "range": {
         "startLine": 24,
         "startChar": 13,
@@ -138,6 +264,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab92d52a_8fa13600",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae430711_7945c301",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97d4294c_00bdace6",
@@ -155,6 +299,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e516f048_23ee4d8a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97d4294c_00bdace6",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6789924_c921e26a",
@@ -168,6 +330,30 @@
       "writtenOn": "2022-02-24T15:35:12Z",
       "side": 1,
       "message": "These are all constants which, by convention, should be named ALL_UPPERCASE.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 57
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54008c53_0afa6f41",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6789924_c921e26a",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -201,6 +387,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e49bf8da_e2ea883b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2a13d22_d1b48d34",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 0
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5aec010d_94b8e6e9",
@@ -214,6 +424,30 @@
       "writtenOn": "2022-02-24T15:35:12Z",
       "side": 1,
       "message": "Maybe a better name would be in the form \u003cconfigStatus\u003e_\u003cexpectedOutcome\u003e. Example:\n\n  legalAuthorEmailPattern_noMessages\n  \nIf this proposal is accepted then update also other test method names.",
+      "range": {
+        "startLine": 36,
+        "startChar": 14,
+        "endLine": 36,
+        "endChar": 40
+      },
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "236ac21f_18bbc2d1",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aec010d_94b8e6e9",
       "range": {
         "startLine": 36,
         "startChar": 14,
@@ -241,6 +475,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e86f091_f4f984d2",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24eb8e95_3f426345",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46b57350_87217206",
@@ -254,6 +506,24 @@
       "writtenOn": "2022-02-24T15:35:12Z",
       "side": 1,
       "message": "[nit] unnecessary empty line",
+      "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22ef3bdf_7496bc96",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeConfigTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T09:16:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46b57350_87217206",
       "revId": "bb88daab524b79194ea24466736024d9ffd41f8a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
