@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.uploadvalidator;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableList;
 import com.google.common.flogger.FluentLogger;
+import com.google.common.primitives.Ints;
 import com.google.gerrit.entities.RefNames;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.registration.DynamicSet;
@@ -134,7 +135,8 @@ public class PluginConfigValidator implements CommitValidationListener {
         validateRegex(fileName, cfg, ChangeEmailValidator.KEY_ALLOWED_AUTHOR_EMAIL_PATTERN));
     validationMessages.addAll(
         validateRegex(fileName, cfg, ChangeEmailValidator.KEY_ALLOWED_COMMITTER_EMAIL_PATTERN));
-    // This is where we can add the validators for the other modules in the plugin.
+    validationMessages.addAll(
+        validateInteger(fileName, cfg, MaxPathLengthValidator.KEY_MAX_PATH_LENGTH));
     return validationMessages.build();
   }
 
@@ -165,5 +167,29 @@ public class PluginConfigValidator implements CommitValidationListener {
       }
     }
     return validationMessages.build();
+  }
+
+  /**
+   * Validates an integer-only field
+   *
+   * @param fileName the name of the config file
+   * @param cfg the project.config to validate
+   * @return list of messages with validation issues, empty list if there are no issues
+   */
+  @VisibleForTesting
+  public ImmutableList<CommitValidationMessage> validateInteger(
+      String fileName, Config cfg, String validatorKey) {
+
+    String value = cfg.getString("plugin", pluginName, validatorKey);
+
+    if (Ints.tryParse(value) == null) {
+      return ImmutableList.of(
+          new CommitValidationMessage(
+              String.format(
+                  "The value '%s' configured in %s (parameter %s.%s) is invalid.",
+                  value, fileName, pluginName, validatorKey),
+              ValidationMessage.Type.ERROR));
+    }
+    return ImmutableList.of();
   }
 }
