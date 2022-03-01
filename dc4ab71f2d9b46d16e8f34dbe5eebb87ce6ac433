@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e89ede7_c72c5571",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-01T15:19:12Z",
+      "side": 1,
+      "message": "The subject should be more specific, maybe:\n\nValidate the maximum path length config parameter",
+      "revId": "dc4ab71f2d9b46d16e8f34dbe5eebb87ce6ac433",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50b0f2f1_23d67663",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidatorTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-01T15:19:12Z",
+      "side": 1,
+      "message": "should be LEGAL_PATH_LENGTH",
+      "range": {
+        "startLine": 33,
+        "startChar": 30,
+        "endLine": 33,
+        "endChar": 45
+      },
+      "revId": "dc4ab71f2d9b46d16e8f34dbe5eebb87ce6ac433",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
