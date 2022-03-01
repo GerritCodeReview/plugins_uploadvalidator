@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f87d5697_66ed9c1d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T15:40:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e34cbf4_58282d93",
+      "revId": "c6513592a3dfe933a356e11146cd76f0083477a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ec1be87_12e93598",
@@ -35,6 +53,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddfd3ec8_4048ceac",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T15:40:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ec1be87_12e93598",
+      "revId": "c6513592a3dfe933a356e11146cd76f0083477a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6438af5f_fc8b4c0f",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-03-01T15:33:43Z",
       "side": 1,
       "message": "and here we return an empty list:\n\n  return ImmuableList.of();",
+      "revId": "c6513592a3dfe933a356e11146cd76f0083477a9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffc47938_917141e9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-01T15:40:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6438af5f_fc8b4c0f",
       "revId": "c6513592a3dfe933a356e11146cd76f0083477a9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
