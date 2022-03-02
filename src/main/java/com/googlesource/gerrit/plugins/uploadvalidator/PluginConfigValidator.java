@@ -151,14 +151,13 @@ public class PluginConfigValidator implements CommitValidationListener {
   public ImmutableList<CommitValidationMessage> validateRegex(
       String fileName, Config cfg, String validatorKey) {
 
-    ImmutableList.Builder<CommitValidationMessage> validationMessages = ImmutableList.builder();
     String pattern = cfg.getString("plugin", pluginName, validatorKey);
 
     if (pattern != null) {
       try {
         Pattern.compile(pattern);
       } catch (PatternSyntaxException e) {
-        validationMessages.add(
+          return ImmutableList.of(
             new CommitValidationMessage(
                 String.format(
                     "The value '%s' configured in %s (parameter %s.%s) is invalid.",
@@ -166,7 +165,7 @@ public class PluginConfigValidator implements CommitValidationListener {
                 ValidationMessage.Type.ERROR));
       }
     }
-    return validationMessages.build();
+    return ImmutableList.of();
   }
 
   /**
