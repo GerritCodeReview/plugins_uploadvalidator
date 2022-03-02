@@ -14,18 +14,16 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.Inject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class PluginConfigWithInheritanceFactory implements ConfigFactory {
-  private static final Logger log =
-      LoggerFactory.getLogger(PluginConfigWithInheritanceFactory.class);
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
   private final PluginConfigFactory pluginConfigFactory;
   private final String pluginName;
 
@@ -40,7 +38,7 @@ public class PluginConfigWithInheritanceFactory implements ConfigFactory {
     try {
       return pluginConfigFactory.getFromProjectConfigWithInheritance(projectName, pluginName);
     } catch (NoSuchProjectException e) {
-      log.warn(projectName.get() + " not found");
+      logger.atWarning().log("%s not found", projectName.get());
       return null;
     }
   }

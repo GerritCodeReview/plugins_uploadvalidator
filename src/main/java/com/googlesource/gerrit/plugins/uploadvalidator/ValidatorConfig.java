@@ -18,6 +18,7 @@ import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
+import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.common.Nullable;
 import com.google.gerrit.entities.AccessSection;
 import com.google.gerrit.entities.AccountGroup;
@@ -39,11 +40,9 @@ import com.google.inject.Provider;
 import java.util.Arrays;
 import java.util.Optional;
 import java.util.regex.Pattern;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class ValidatorConfig {
-  private static final Logger log = LoggerFactory.getLogger(ValidatorConfig.class);
+  private static final FluentLogger logger = FluentLogger.forEnclosingClass();
   private static final String KEY_PROJECT = "project";
   private static final String KEY_REF = "ref";
   private final String pluginName;
@@ -131,11 +130,9 @@ public class ValidatorConfig {
     boolean valid = true;
     for (String refPattern : config.getStringList(refKey)) {
       if (!AccessSection.isValidRefSectionName(refPattern)) {
-        log.error(
-            "Invalid {} name/pattern/regex '{}' in {} project's plugin config",
-            refKey,
-            refPattern,
-            projectName.get());
+        logger.atSevere().log(
+            "Invalid %s name/pattern/regex '%s' in %s project's plugin config",
+            refKey, refPattern, projectName.get());
         valid = false;
       }
     }
@@ -257,7 +254,7 @@ public class ValidatorConfig {
       try {
         return groupQueryProvider.get().byName(groupName);
       } catch (StorageException e) {
-        log.warn(String.format("Cannot lookup group %s by name", groupName.get()), e);
+        logger.atWarning().withCause(e).log("Cannot lookup group %s by name", groupName.get());
       }
       return Optional.empty();
     }
