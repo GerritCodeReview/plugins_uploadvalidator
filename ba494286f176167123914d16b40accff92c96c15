@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dccfdd6c_5664577e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigWithInheritanceFactory.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2022-03-02T14:44:13Z",
+      "side": 1,
+      "message": "With FluentLogger it\u0027s preferred to use placeholders, rather than doing string concatenation:\n\n  logger.atWarning().log(\"%s not found\", projectName.get());",
+      "revId": "ba494286f176167123914d16b40accff92c96c15",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad18098b_43ce49d2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2022-03-02T14:44:13Z",
+      "side": 1,
+      "message": "With FluentLogger you\u0027ll need to use \u0027%s\u0027 as placeholder instead of \u0027{}\u0027.",
+      "range": {
+        "startLine": 134,
+        "startChar": 21,
+        "endLine": 134,
+        "endChar": 23
+      },
+      "revId": "ba494286f176167123914d16b40accff92c96c15",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ede167f_4261b0db",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ValidatorConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2022-03-02T14:44:13Z",
+      "side": 1,
+      "message": "2 things here:\n* There is no need to use String.format with FluentLogger (FluentLogger already knows how to replace \u0027%s\u0027).\n* Exceptions need be passed in via withCause()\n\nSo this should be:\n\n  logger.atWarning().withCause(e).log(\"Cannot lookup group %s by name\", groupName.get());",
+      "revId": "ba494286f176167123914d16b40accff92c96c15",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
