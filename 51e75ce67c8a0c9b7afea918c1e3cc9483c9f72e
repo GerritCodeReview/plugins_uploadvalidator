@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a1f3786_c8bae799",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-07T09:44:46Z",
+      "side": 1,
+      "message": "To be more precise it still returns an (immutable) list but creates it in-place instead of using a builder. The usage of a builder is not necessary in this case as the number of elements in the list is either zero or one.",
+      "revId": "51e75ce67c8a0c9b7afea918c1e3cc9483c9f72e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
