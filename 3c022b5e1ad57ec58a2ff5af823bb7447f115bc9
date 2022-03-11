@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9b35a10_6df0fcd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-11T09:28:29Z",
+      "side": 1,
+      "message": "I needed to update the keys to public in BlockedKeywordValidator so I could reference them, this seemed acceptable since the keys of the other subsections are already public (for instance, in ChangeEmailValidator). I haven\u0027t added new tests because the validation used is identical, but I can if needed.",
+      "revId": "3c022b5e1ad57ec58a2ff5af823bb7447f115bc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
