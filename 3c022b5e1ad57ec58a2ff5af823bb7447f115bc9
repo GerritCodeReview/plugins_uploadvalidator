@@ -33,6 +33,24 @@
       "message": "This is basically all reformatting due to the google-java-format not being applied on this file before your change.\n\nCan you please first format ALL java files in this plugin using google-java-format and upload that as the first change. Then rebase this change on top of the reformatting change?",
       "revId": "3c022b5e1ad57ec58a2ff5af823bb7447f115bc9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24d62f9c_25668fb0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1144862
+      },
+      "writtenOn": "2022-03-11T12:36:30Z",
+      "side": 1,
+      "message": "I just went through and checked, the rest of them are formatted correctly already.",
+      "parentUuid": "327fa3aa_e923b1b5",
+      "revId": "3c022b5e1ad57ec58a2ff5af823bb7447f115bc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
