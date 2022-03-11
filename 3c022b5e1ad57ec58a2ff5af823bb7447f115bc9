@@ -51,6 +51,24 @@
       "parentUuid": "327fa3aa_e923b1b5",
       "revId": "3c022b5e1ad57ec58a2ff5af823bb7447f115bc9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5cffbd8_86633a18",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-11T13:33:59Z",
+      "side": 1,
+      "message": "Nevertheless, please first upload a change which formats this java file using google-java-format (and does nothing else) and then rebase this change on top",
+      "parentUuid": "24d62f9c_25668fb0",
+      "revId": "3c022b5e1ad57ec58a2ff5af823bb7447f115bc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
