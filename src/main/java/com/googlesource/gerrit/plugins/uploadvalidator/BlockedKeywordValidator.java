@@ -84,8 +84,8 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
   // These keys are used for turning on specific validation elements.
   // i.e. enableSkipValidation = blockedKeyword will enabled skipRef and skipGroup checks
   // i.e. disabledValidation = blockedKeywordComments will disable the comment blocked keyword check
-  private static final String KEY_CHECK_BLOCKED_KEYWORD = "blockedKeyword";
-  private static final String KEY_CHECK_COMMENT_BLOCKED_KEYWORD = "blockedKeywordComments";
+  public static final String KEY_CHECK_BLOCKED_KEYWORD = "blockedKeyword";
+  public static final String KEY_CHECK_COMMENT_BLOCKED_KEYWORD = "blockedKeywordComments";
   private static final String KEY_CHECK_BLOCKED_KEYWORD_PATTERN =
       KEY_CHECK_BLOCKED_KEYWORD + "Pattern";
 
