@@ -136,6 +136,16 @@ public class PluginConfigValidator implements CommitValidationListener {
     validationMessages.addAll(
         validateRegex(fileName, cfg, ChangeEmailValidator.KEY_ALLOWED_COMMITTER_EMAIL_PATTERN));
     validationMessages.addAll(
+        validateRegex(fileName, cfg, ContentTypeValidator.KEY_BLOCKED_CONTENT_TYPE));
+    validationMessages.addAll(
+        validateRegex(fileName, cfg, FileExtensionValidator.KEY_BLOCKED_FILE_EXTENSION));
+    validationMessages.addAll(
+        validateRegex(fileName, cfg, BlockedKeywordValidator.KEY_CHECK_BLOCKED_KEYWORD));
+    validationMessages.addAll(
+        validateRegex(fileName, cfg, BlockedKeywordValidator.KEY_CHECK_COMMENT_BLOCKED_KEYWORD));
+    validationMessages.addAll(
+        validateRegex(fileName, cfg, InvalidFilenameValidator.KEY_INVALID_FILENAME));
+    validationMessages.addAll(
         validateInteger(fileName, cfg, MaxPathLengthValidator.KEY_MAX_PATH_LENGTH));
     return validationMessages.build();
   }

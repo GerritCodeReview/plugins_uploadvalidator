@@ -84,8 +84,8 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
   // These keys are used for turning on specific validation elements.
   // i.e. enableSkipValidation = blockedKeyword will enabled skipRef and skipGroup checks
   // i.e. disabledValidation = blockedKeywordComments will disable the comment blocked keyword check
-  private static final String KEY_CHECK_BLOCKED_KEYWORD = "blockedKeyword";
-  private static final String KEY_CHECK_COMMENT_BLOCKED_KEYWORD = "blockedKeywordComments";
+  public static final String KEY_CHECK_BLOCKED_KEYWORD = "blockedKeyword";
+  public static final String KEY_CHECK_COMMENT_BLOCKED_KEYWORD = "blockedKeywordComments";
   private static final String KEY_CHECK_BLOCKED_KEYWORD_PATTERN =
       KEY_CHECK_BLOCKED_KEYWORD + "Pattern";
 
@@ -221,15 +221,18 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
   }
 
   private static Optional<CommentValidationFailure> validateComment(
-      ImmutableMap<String, Pattern>  blockedKeywordPatterns, CommentForValidation comment) {
+      ImmutableMap<String, Pattern> blockedKeywordPatterns, CommentForValidation comment) {
     // Uses HashSet data structure for de-duping found blocked keywords.
-    Set<String> findings = new LinkedHashSet<String>(
-        findBlockedKeywordsInString(blockedKeywordPatterns.values(), comment.getText()));
+    Set<String> findings =
+        new LinkedHashSet<String>(
+            findBlockedKeywordsInString(blockedKeywordPatterns.values(), comment.getText()));
     if (findings.isEmpty()) {
       return Optional.empty();
     }
-    return Optional.of(comment.failValidation(
-        String.format("banned words found in your comment (%s)", Iterables.toString(findings))));
+    return Optional.of(
+        comment.failValidation(
+            String.format(
+                "banned words found in your comment (%s)", Iterables.toString(findings))));
   }
 
   private static void checkCommitMessageForBlockedKeywords(
