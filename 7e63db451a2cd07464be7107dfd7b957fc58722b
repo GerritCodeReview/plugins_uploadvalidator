@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c164bfd_5177f804",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/PluginConfigValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-03-15T15:23:54Z",
+      "side": 1,
+      "message": "The blockedFileExtension is not a regex but just a string, see the documentation [1] and the implementation [2].\n\n[1] https://gerrit.googlesource.com/plugins/uploadvalidator/+/7e63db451a2cd07464be7107dfd7b957fc58722b/src/main/resources/Documentation/config.md\n[2] https://gerrit.googlesource.com/plugins/uploadvalidator/+/7e63db451a2cd07464be7107dfd7b957fc58722b/src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/FileExtensionValidator.java",
+      "revId": "7e63db451a2cd07464be7107dfd7b957fc58722b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
