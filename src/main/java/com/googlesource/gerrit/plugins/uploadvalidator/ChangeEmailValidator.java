@@ -33,8 +33,13 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ChangeEmailValidator implements CommitValidationListener {
+  private static final Logger log = LoggerFactory.getLogger(ValidatorConfig.class);
+
   public static AbstractModule module() {
     return new AbstractModule() {
       @Override
@@ -144,8 +149,14 @@ public class ChangeEmailValidator implements CommitValidationListener {
   }
 
   @VisibleForTesting
-  static boolean performValidation(String email, String[] allowedEmailPatterns) {
-    return Arrays.stream(allowedEmailPatterns)
-        .anyMatch(s -> Pattern.matches(s, Strings.nullToEmpty(email)));
+  static boolean performValidation(String email, String[] allowedEmailPatterns)
+      throws CommitValidationException {
+    try {
+      return Arrays.stream(allowedEmailPatterns)
+          .anyMatch(s -> Pattern.matches(s, Strings.nullToEmpty(email)));
+    } catch (PatternSyntaxException e) {
+      log.error("Invalid regex '{}' in plugin (uploadvalidator) config", e.getPattern());
+      throw new CommitValidationException("Invalid regex in email pattern configuration.", e);
+    }
   }
 }
