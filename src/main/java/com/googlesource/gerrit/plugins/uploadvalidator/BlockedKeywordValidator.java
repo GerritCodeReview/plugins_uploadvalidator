@@ -174,6 +174,7 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
                   receiveEvent.revWalk,
                   blockedKeywordPatterns.values(),
                   cfg);
+
           if (!messages.isEmpty()) {
             throw new CommitValidationException(
                 "includes files containing blocked keywords", messages);
@@ -184,6 +185,7 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
         | IOException
         | ExecutionException
         | DiffNotAvailableException e) {
+      logger.atWarning().withCause(e).log("blocked keywords commit validation failed");
       throw new CommitValidationException("failed to check on blocked keywords", e);
     }
     return Collections.emptyList();
