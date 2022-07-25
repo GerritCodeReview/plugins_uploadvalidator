@@ -19,6 +19,7 @@ import com.google.common.base.Function;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Lists;
+import com.google.common.io.Files;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import java.io.File;
@@ -105,7 +106,8 @@ public class TestUtils {
     AddCommand ac = git.add();
     for (File f : files.keySet()) {
       if (!f.exists()) {
-        FileUtils.touch(f);
+        Files.createParentDirs(f);
+        Files.write(new byte[0], f);
       }
       if (files.get(f) != null) {
         FileUtils.writeByteArrayToFile(f, files.get(f));
