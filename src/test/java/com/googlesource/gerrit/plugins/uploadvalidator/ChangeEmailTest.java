@@ -20,7 +20,7 @@ import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PL
 import org.junit.Test;
 
 public class ChangeEmailTest {
-  private static final String[] allowedEmailPatterns = {
+  private static final String[] emailPatterns = {
     ".*@example\\.com.*",
     "testing\\.com",
     "tester@testing\\.com",
@@ -29,41 +29,29 @@ public class ChangeEmailTest {
   };
 
   @Test
-  public void testEmailValid() throws Exception {
-    assertThat(
-            ChangeEmailValidator.performValidation("tester@example.com.net", allowedEmailPatterns))
-        .isTrue();
-    assertThat(ChangeEmailValidator.performValidation("tester@testing.com", allowedEmailPatterns))
-        .isTrue();
-    assertThat(ChangeEmailValidator.performValidation("tester@google.com", allowedEmailPatterns))
-        .isTrue();
-    assertThat(ChangeEmailValidator.performValidation("tester@gerrit.net", allowedEmailPatterns))
-        .isTrue();
+  public void testEmailMatches() throws Exception {
+    assertThat(ChangeEmailValidator.match("tester@example.com.net", emailPatterns)).isTrue();
+    assertThat(ChangeEmailValidator.match("tester@testing.com", emailPatterns)).isTrue();
+    assertThat(ChangeEmailValidator.match("tester@google.com", emailPatterns)).isTrue();
+    assertThat(ChangeEmailValidator.match("tester@gerrit.net", emailPatterns)).isTrue();
   }
 
   @Test
-  public void testEmailInvalid() throws Exception {
-    assertThat(ChangeEmailValidator.performValidation("tester@example.org", allowedEmailPatterns))
-        .isFalse();
-    assertThat(ChangeEmailValidator.performValidation("test@testing.com", allowedEmailPatterns))
-        .isFalse();
-    assertThat(
-            ChangeEmailValidator.performValidation("tester@google.com.net", allowedEmailPatterns))
-        .isFalse();
-    assertThat(
-            ChangeEmailValidator.performValidation(
-                "emailtester@gerritnet.com", allowedEmailPatterns))
-        .isFalse();
+  public void testEmailDoesNotMatch() throws Exception {
+    assertThat(ChangeEmailValidator.match("tester@example.org", emailPatterns)).isFalse();
+    assertThat(ChangeEmailValidator.match("test@testing.com", emailPatterns)).isFalse();
+    assertThat(ChangeEmailValidator.match("tester@google.com.net", emailPatterns)).isFalse();
+    assertThat(ChangeEmailValidator.match("emailtester@gerritnet.com", emailPatterns)).isFalse();
   }
 
   @Test
-  public void testEmailNull() throws Exception {
-    assertThat(ChangeEmailValidator.performValidation(null, allowedEmailPatterns)).isFalse();
+  public void testEmailNullDoesNotMatch() throws Exception {
+    assertThat(ChangeEmailValidator.match(null, emailPatterns)).isFalse();
   }
 
   @Test
-  public void testEmailEmpty() throws Exception {
-    assertThat(ChangeEmailValidator.performValidation("", allowedEmailPatterns)).isFalse();
+  public void testEmailEmptyDoesNotMatch() throws Exception {
+    assertThat(ChangeEmailValidator.match("", emailPatterns)).isFalse();
   }
 
   @Test

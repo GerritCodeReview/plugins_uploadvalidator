@@ -116,7 +116,7 @@ public class ChangeEmailValidator implements CommitValidationListener {
               receiveEvent.getRefName(),
               KEY_ALLOWED_AUTHOR_EMAIL_PATTERN,
               receiveEvent.pushOptions)) {
-        if (!performValidation(
+        if (!match(
             receiveEvent.commit.getAuthorIdent().getEmailAddress(),
             getAllowedAuthorEmailPatterns(cfg))) {
           throw new CommitValidationException(
@@ -132,7 +132,7 @@ public class ChangeEmailValidator implements CommitValidationListener {
               receiveEvent.getRefName(),
               KEY_ALLOWED_COMMITTER_EMAIL_PATTERN,
               receiveEvent.pushOptions)) {
-        if (!performValidation(
+        if (!match(
             receiveEvent.commit.getCommitterIdent().getEmailAddress(),
             getAllowedCommitterEmailPatterns(cfg))) {
           throw new CommitValidationException(
@@ -148,8 +148,8 @@ public class ChangeEmailValidator implements CommitValidationListener {
   }
 
   @VisibleForTesting
-  static boolean performValidation(String email, String[] allowedEmailPatterns) {
-    return Arrays.stream(allowedEmailPatterns)
+  static boolean match(String email, String[] emailPatterns) {
+    return Arrays.stream(emailPatterns)
         .anyMatch(s -> Pattern.matches(s, Strings.nullToEmpty(email)));
   }
 }
