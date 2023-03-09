@@ -34,35 +34,59 @@ project info screen.
     rejectDuplicatePathnamesLocale = en
     allowedAuthorEmailPattern = .*@example\\.com$
     allowedAuthorEmailPattern = admin@example\\.com
+    rejectedAuthorEmailPattern = .*@old-name\\.com
     allowedCommitterEmailPattern = .*gerrit\\.com
     allowedCommitterEmailPattern =  admin@gerrit\\..*
+    rejectedCommitterEmailPattern = .*@old-name\\.com
 ```
 
 plugin.@PLUGIN@.allowedAuthorEmailPattern
-:    Author Email to Allow.
+:    Author Email to allow.
 
     The check looks for a match based on the described specifics.
     If there are no matches the push will be rejected.
 
-    Note that all email addresses contain the dot character, and if
-    included in the pattern needs to be properly escaped as shown in
-    the examples.
+    Note that since most email addresses contain the dot character, it needs to
+    be properly escaped as part of a pattern to match. See the examples for
+    reference.
 
-    This check is using `java.util.regex.Pattern` which is described
-    [here][1].
+    This check is using [`java.util.regex.Pattern`][1].
+
+plugin.@PLUGIN@.rejectedAuthorEmailPattern
+:    Author Email to reject.
+
+    The check looks for a match based on the described specifics.
+    If there are any matches the push will be rejected.
+
+    Note that since most email addresses contain the dot character, it needs to
+    be properly escaped as part of a pattern to match. See the examples for
+    reference.
+
+    This check is using [`java.util.regex.Pattern`][1].
 
 plugin.@PLUGIN@.allowedCommitterEmailPattern
-:    Committer Email to Allow.
+:    Committer Email to allow.
 
     The check looks for a match based on the described specifics.
     If there are no matches the push will be rejected.
 
-    Note that all email addresses contain the dot character, and if
-    included in the pattern needs to be properly escaped as shown in
-    the examples.
+    Note that since most email addresses contain the dot character, it needs to
+    be properly escaped as part of a pattern to match. See the examples for
+    reference.
 
-    This check is using `java.util.regex.Pattern` which is described
-    [here][1].
+    This check is using [`java.util.regex.Pattern`][1].
+
+plugin.@PLUGIN@.rejectedCommitterEmailPattern
+:    Committer Email to reject.
+
+    The check looks for a match based on the described specifics.
+    If there are any matches the push will be rejected.
+
+    Note that since most email addresses contain the dot character, it needs to
+    be properly escaped as part of a pattern to match. See the examples for
+    reference.
+
+    This check is using [`java.util.regex.Pattern`][1].
 
 plugin.@PLUGIN@.blockedFileExtension
 :    File extension to be blocked.

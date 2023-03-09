@@ -55,15 +55,28 @@ public class ChangeEmailTest {
   }
 
   @Test
-  public void validatorBehaviorWhenAuthorConfigEmpty() {
-    assertThat(ChangeEmailValidator.isAuthorActive(EMPTY_PLUGIN_CONFIG)).isFalse();
+  public void validatorBehaviorWhenAuthorAllowListConfigEmpty() {
+    assertThat(ChangeEmailValidator.isAuthorAllowListActive(EMPTY_PLUGIN_CONFIG)).isFalse();
     assertThat(ChangeEmailValidator.getAllowedAuthorEmailPatterns(EMPTY_PLUGIN_CONFIG)).isEmpty();
   }
 
   @Test
-  public void validatorBehaviorWhenCommitterConfigEmpty() {
-    assertThat(ChangeEmailValidator.isCommitterActive(EMPTY_PLUGIN_CONFIG)).isFalse();
+  public void validatorBehaviorWhenAuthorRejectListConfigEmpty() {
+    assertThat(ChangeEmailValidator.isAuthorRejectListActive(EMPTY_PLUGIN_CONFIG)).isFalse();
+    assertThat(ChangeEmailValidator.getRejectedAuthorEmailPatterns(EMPTY_PLUGIN_CONFIG)).isEmpty();
+  }
+
+  @Test
+  public void validatorBehaviorWhenCommitterAllowListConfigEmpty() {
+    assertThat(ChangeEmailValidator.isCommitterAllowListActive(EMPTY_PLUGIN_CONFIG)).isFalse();
     assertThat(ChangeEmailValidator.getAllowedCommitterEmailPatterns(EMPTY_PLUGIN_CONFIG))
+        .isEmpty();
+  }
+
+  @Test
+  public void validatorBehaviorWhenCommitterRejectListConfigEmpty() {
+    assertThat(ChangeEmailValidator.isCommitterRejectListActive(EMPTY_PLUGIN_CONFIG)).isFalse();
+    assertThat(ChangeEmailValidator.getRejectedCommitterEmailPatterns(EMPTY_PLUGIN_CONFIG))
         .isEmpty();
   }
 }
