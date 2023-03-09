@@ -52,6 +52,17 @@ public class ChangeEmailValidator implements CommitValidationListener {
                     "Commits with author email not matching one of these pattterns will be"
                         + " rejected."));
         bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_REJECTED_AUTHOR_EMAIL_PATTERN))
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Author Email Pattern",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Commits with author email matching one of these pattterns will be"
+                        + " rejected."));
+        bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN))
             .toInstance(
                 new ProjectConfigEntry(
@@ -62,12 +73,25 @@ public class ChangeEmailValidator implements CommitValidationListener {
                     false,
                     "Commits with committer email not matching one of these patterns will be"
                         + " rejected."));
+        bind(ProjectConfigEntry.class)
+            .annotatedWith(Exports.named(KEY_REJECTED_COMMITTER_EMAIL_PATTERN))
+            .toInstance(
+                new ProjectConfigEntry(
+                    "Committer Email Pattern",
+                    null,
+                    ProjectConfigEntryType.ARRAY,
+                    null,
+                    false,
+                    "Commits with committer email matching one of these patterns will be"
+                        + " rejected."));
       }
     };
   }
 
   public static final String KEY_ALLOWED_AUTHOR_EMAIL_PATTERN = "allowedAuthorEmailPattern";
+  public static final String KEY_REJECTED_AUTHOR_EMAIL_PATTERN = "rejectedAuthorEmailPattern";
   public static final String KEY_ALLOWED_COMMITTER_EMAIL_PATTERN = "allowedCommitterEmailPattern";
+  public static final String KEY_REJECTED_COMMITTER_EMAIL_PATTERN = "rejectedCommitterEmailPattern";
   private final String pluginName;
   private final PluginConfigFactory cfgFactory;
   private final ValidatorConfig validatorConfig;
@@ -88,18 +112,38 @@ public class ChangeEmailValidator implements CommitValidationListener {
   }
 
   @VisibleForTesting
+  static String[] getRejectedAuthorEmailPatterns(PluginConfig cfg) {
+    return cfg.getStringList(KEY_REJECTED_AUTHOR_EMAIL_PATTERN);
+  }
+
+  @VisibleForTesting
   static String[] getAllowedCommitterEmailPatterns(PluginConfig cfg) {
     return cfg.getStringList(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN);
   }
 
   @VisibleForTesting
-  static boolean isAuthorActive(PluginConfig cfg) {
+  static String[] getRejectedCommitterEmailPatterns(PluginConfig cfg) {
+    return cfg.getStringList(KEY_REJECTED_COMMITTER_EMAIL_PATTERN);
+  }
+
+  @VisibleForTesting
+  static boolean isAuthorAllowListActive(PluginConfig cfg) {
     return cfg.getStringList(KEY_ALLOWED_AUTHOR_EMAIL_PATTERN).length > 0;
   }
 
   @VisibleForTesting
-  static boolean isCommitterActive(PluginConfig cfg) {
+  static boolean isAuthorRejectListActive(PluginConfig cfg) {
+    return cfg.getStringList(KEY_REJECTED_AUTHOR_EMAIL_PATTERN).length > 0;
+  }
+
+  @VisibleForTesting
+  static boolean isCommitterAllowListActive(PluginConfig cfg) {
     return cfg.getStringList(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN).length > 0;
+  }
+
+  @VisibleForTesting
+  static boolean isCommitterRejectListActive(PluginConfig cfg) {
+    return cfg.getStringList(KEY_REJECTED_COMMITTER_EMAIL_PATTERN).length > 0;
   }
 
   @Override
@@ -109,7 +153,7 @@ public class ChangeEmailValidator implements CommitValidationListener {
       PluginConfig cfg =
           cfgFactory.getFromProjectConfigWithInheritance(
               receiveEvent.project.getNameKey(), pluginName);
-      if (isAuthorActive(cfg)
+      if (isAuthorAllowListActive(cfg)
           && validatorConfig.isEnabled(
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
@@ -125,7 +169,23 @@ public class ChangeEmailValidator implements CommitValidationListener {
                   + "> - is not allowed for this Project.");
         }
       }
-      if (isCommitterActive(cfg)
+      if (isAuthorRejectListActive(cfg)
+          && validatorConfig.isEnabled(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
+              KEY_REJECTED_AUTHOR_EMAIL_PATTERN,
+              receiveEvent.pushOptions)) {
+        if (match(
+            receiveEvent.commit.getAuthorIdent().getEmailAddress(),
+            getRejectedAuthorEmailPatterns(cfg))) {
+          throw new CommitValidationException(
+              "Author Email <"
+                  + receiveEvent.commit.getAuthorIdent().getEmailAddress()
+                  + "> - is not allowed for this Project.");
+        }
+      }
+      if (isCommitterAllowListActive(cfg)
           && validatorConfig.isEnabled(
               receiveEvent.user,
               receiveEvent.getProjectNameKey(),
@@ -135,6 +195,22 @@ public class ChangeEmailValidator implements CommitValidationListener {
         if (!match(
             receiveEvent.commit.getCommitterIdent().getEmailAddress(),
             getAllowedCommitterEmailPatterns(cfg))) {
+          throw new CommitValidationException(
+              "Committer Email <"
+                  + receiveEvent.commit.getCommitterIdent().getEmailAddress()
+                  + "> - is not allowed for this Project.");
+        }
+      }
+      if (isCommitterRejectListActive(cfg)
+          && validatorConfig.isEnabled(
+              receiveEvent.user,
+              receiveEvent.getProjectNameKey(),
+              receiveEvent.getRefName(),
+              KEY_REJECTED_COMMITTER_EMAIL_PATTERN,
+              receiveEvent.pushOptions)) {
+        if (match(
+            receiveEvent.commit.getCommitterIdent().getEmailAddress(),
+            getRejectedCommitterEmailPatterns(cfg))) {
           throw new CommitValidationException(
               "Committer Email <"
                   + receiveEvent.commit.getCommitterIdent().getEmailAddress()
