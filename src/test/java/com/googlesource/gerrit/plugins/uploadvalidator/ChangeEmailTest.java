@@ -25,7 +25,8 @@ public class ChangeEmailTest {
     "testing\\.com",
     "tester@testing\\.com",
     ".*google\\.com",
-    "tester@gerrit\\..*"
+    "tester@gerrit\\..*",
+    "(?!some_).*@someinc\\.com",
   };
 
   @Test
@@ -34,6 +35,10 @@ public class ChangeEmailTest {
     assertThat(ChangeEmailValidator.match("tester@testing.com", emailPatterns)).isTrue();
     assertThat(ChangeEmailValidator.match("tester@google.com", emailPatterns)).isTrue();
     assertThat(ChangeEmailValidator.match("tester@gerrit.net", emailPatterns)).isTrue();
+    assertThat(ChangeEmailValidator.match("user@someinc.com", emailPatterns)).isTrue();
+    assertThat(ChangeEmailValidator.match("some_user@someinc.com", emailPatterns)).isFalse();
+    assertThat(ChangeEmailValidator.match("some_user@something_different.com", emailPatterns))
+        .isFalse();
   }
 
   @Test
