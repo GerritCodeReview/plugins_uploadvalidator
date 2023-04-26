@@ -36,6 +36,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ea37736_ef49a5ff",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/ChangeEmailValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1081064
+      },
+      "writtenOn": "2023-04-26T15:14:45Z",
+      "side": 1,
+      "message": "Hi Matthias! Thus we meet again! :-)\n\nThanks for catching this. I am only mildly familiar with the entire consequences of my changes here :-)\n\nIn fact, the feature is not completely in use either, likely due to an escaping-the-string-correctly issue, which eventually might feedback into this documentation again.",
+      "parentUuid": "28bc0f75_b06f00f6",
+      "revId": "5348a4ff3755a168cc45f89651606d44ec1376a8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1da627fa_3b2fbcf0",
