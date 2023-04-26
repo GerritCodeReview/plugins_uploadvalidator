@@ -44,45 +44,45 @@ public class ChangeEmailValidator implements CommitValidationListener {
             .annotatedWith(Exports.named(KEY_ALLOWED_AUTHOR_EMAIL_PATTERN))
             .toInstance(
                 new ProjectConfigEntry(
-                    "Author Email Pattern",
+                    "Allowed Author Email Pattern",
                     null,
                     ProjectConfigEntryType.ARRAY,
                     null,
                     false,
-                    "Commits with author email not matching one of these pattterns will be"
-                        + " rejected."));
+                    "Only commits with author email matching one of these regex patterns will"
+                        + "  be allowed."));
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_REJECTED_AUTHOR_EMAIL_PATTERN))
             .toInstance(
                 new ProjectConfigEntry(
-                    "Author Email Pattern",
+                    "Rejected Author Email Pattern",
                     null,
                     ProjectConfigEntryType.ARRAY,
                     null,
                     false,
-                    "Commits with author email matching one of these pattterns will be"
+                    "Commits with author email matching one of these regex patterns will be"
                         + " rejected."));
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_ALLOWED_COMMITTER_EMAIL_PATTERN))
             .toInstance(
                 new ProjectConfigEntry(
-                    "Committer Email Pattern",
+                    "Allowed Committer Email Pattern",
                     null,
                     ProjectConfigEntryType.ARRAY,
                     null,
                     false,
-                    "Commits with committer email not matching one of these patterns will be"
-                        + " rejected."));
+                    "Only commits with committer email matching one of these regex patterns will"
+                        + "  be allowed."));
         bind(ProjectConfigEntry.class)
             .annotatedWith(Exports.named(KEY_REJECTED_COMMITTER_EMAIL_PATTERN))
             .toInstance(
                 new ProjectConfigEntry(
-                    "Committer Email Pattern",
+                    "Rejected Committer Email Pattern",
                     null,
                     ProjectConfigEntryType.ARRAY,
                     null,
                     false,
-                    "Commits with committer email matching one of these patterns will be"
+                    "Commits with committer email matching one of these regex patterns will be"
                         + " rejected."));
       }
     };
