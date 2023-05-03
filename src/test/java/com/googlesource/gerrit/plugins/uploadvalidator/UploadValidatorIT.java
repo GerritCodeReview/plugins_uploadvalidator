@@ -24,6 +24,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.gerrit.acceptance.GitUtil;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.PushOneCommit;
+import com.google.gerrit.acceptance.TestAccount;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
 import com.google.gerrit.entities.Permission;
@@ -447,5 +448,61 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
     ResourceConflictException e =
         assertThrows(ResourceConflictException.class, () -> gApi.changes().create(changeInput));
     assertThat(e).hasMessageThat().contains("blocked keyword(s) found");
+  }
+
+  @Test
+  public void blockRejectedAuthor() throws Exception {
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
+                             "    rejectedAuthorEmailPattern = .*@example\\\\.com"));
+
+    TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
+
+    pushFactory
+        .create(user.newIdent(), clone, "Subject", "file.txt", "content")
+        .to("refs/heads/master")
+        .assertErrorStatus("is not allowed for this Project");
+  }
+
+  @Test
+  public void blockRejectedCommitter() throws Exception {
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
+                             "    rejectedCommitterEmailPattern = .*@example\\\\.com"));
+
+    TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
+
+    pushFactory
+        .create(user.newIdent(), clone, "Subject", "file.txt", "content")
+        .to("refs/heads/master")
+        .assertErrorStatus("is not allowed for this Project");
+  }
+
+  @Test
+  public void restrictToAuthor() throws Exception {
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
+                             "    allowedAuthorEmailPattern = .*@other\\\\.com"));
+
+    TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
+
+    pushFactory
+        .create(user.newIdent(), clone, "Subject", "file.txt", "content")
+        .to("refs/heads/master")
+        .assertErrorStatus("is not allowed for this Project");
+  }
+
+  @Test
+  public void restrictToCommitter() throws Exception {
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
+                             "    allowedCommitterEmailPattern = .*@other\\\\.com"));
+
+    TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
+
+    pushFactory
+        .create(user.newIdent(), clone, "Subject", "file.txt", "content")
+        .to("refs/heads/master")
+        .assertErrorStatus("is not allowed for this Project");
   }
 }
