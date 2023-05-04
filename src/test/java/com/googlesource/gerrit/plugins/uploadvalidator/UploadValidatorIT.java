@@ -28,6 +28,7 @@ import com.google.gerrit.acceptance.TestAccount;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
 import com.google.gerrit.entities.Permission;
+import com.google.gerrit.entities.Project.NameKey;
 import com.google.gerrit.entities.RefNames;
 import com.google.gerrit.extensions.api.changes.DraftInput;
 import com.google.gerrit.extensions.api.changes.ReviewInput;
@@ -54,8 +55,9 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
 
   TestRepository<InMemoryRepository> clone;
 
-  void pushConfig(String config) throws Exception {
-    TestRepository<InMemoryRepository> repo = cloneProject(project, admin);
+  void pushConfig(String config, NameKey... projects) throws Exception {
+    NameKey projectToUpdate = projects.length > 0 ? projects[0] : project;
+    TestRepository<InMemoryRepository> repo = cloneProject(projectToUpdate, admin);
     GitUtil.fetch(repo, RefNames.REFS_CONFIG + ":config");
     repo.reset("config");
     PushOneCommit push =
@@ -504,5 +506,45 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
         .create(user.newIdent(), clone, "Subject", "file.txt", "content")
         .to("refs/heads/master")
         .assertErrorStatus("is not allowed for this Project");
+  }
+
+  @Test
+  public void validateProjectConfigInheritence() throws Exception {
+    NameKey childProject = projectOperations.newProject().parent(project).create();
+
+    // push some config to the parent project
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
+                             "    rejectedCommitterEmailPattern = .*@badinc\\\\.com"),
+        project);
+
+    // push some other config to the child project
+    pushConfig(
+        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
+                             "    blockedKeywordPattern = secr3t"),
+        childProject);
+
+    TestRepository<InMemoryRepository> parent = cloneProject(project, admin);
+    TestRepository<InMemoryRepository> child = cloneProject(childProject, admin);
+
+    TestAccount user = accountCreator.create("user", "user@badinc.com", "User Name", null);
+
+    // should be rejected on the parent project
+    pushFactory
+        .create(user.newIdent(), parent, "Subject", "file.txt", "" + "blah \n")
+        .to("refs/heads/master")
+        .assertErrorStatus("is not allowed for this Project");
+
+    // should be rejected on child projects
+    pushFactory
+        .create(user.newIdent(), child, "Subject", "file.txt", "" + "blah \n")
+        .to("refs/heads/master")
+        .assertErrorStatus("is not allowed for this Project");
+
+    // should be rejected on child projects because of the blocked keyword
+    pushFactory
+        .create(admin.newIdent(), child, "Subject", "file.txt", "" + "secr3t \n")
+        .to("refs/heads/master")
+        .assertErrorStatus("includes files containing blocked keywords");
   }
 }
