@@ -46,6 +46,29 @@
       },
       "revId": "61c314328a306a2dde282abf7b16ca3ac6df79a1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59461a20_3edc3b32",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2023-05-04T18:27:44Z",
+      "side": 1,
+      "message": "```suggestion\n    pushConfig(\n        Joiner.on(\"\\n\").join( \"[access]\",\n        \"inheritFrom \u003d \" + project.get(),\n            \"[plugin \\\"uploadvalidator\\\"]\",\n                             \"    blockedKeywordPattern \u003d secr3t\"),\n        childProject);\n```\n\nApparently these 3 lines were the problem (in this test): the call to pushConfig **overwrites** the existing project config, hence removes the inheritance. If you use my suggestion the test will pass.\n\nAccordingly, this is behaving as expected. PTAL.",
+      "range": {
+        "startLine": 522,
+        "startChar": 4,
+        "endLine": 525,
+        "endChar": 22
+      },
+      "revId": "61c314328a306a2dde282abf7b16ca3ac6df79a1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
