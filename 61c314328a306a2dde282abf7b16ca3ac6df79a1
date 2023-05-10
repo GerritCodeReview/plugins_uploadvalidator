@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec3dbdb_5296dc91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1091982
+      },
+      "writtenOn": "2023-05-10T11:00:03Z",
+      "side": 1,
+      "message": "Removing myself. Please feel free to re-add me if anything else I can help with.",
+      "revId": "61c314328a306a2dde282abf7b16ca3ac6df79a1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c7b325d_95ab4faa",
