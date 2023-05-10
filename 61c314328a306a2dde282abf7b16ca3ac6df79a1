@@ -65,6 +65,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3529c399_65b97aea",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1081064
+      },
+      "writtenOn": "2023-05-10T11:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4051c3f3_1411ef24",
+      "range": {
+        "startLine": 513,
+        "startChar": 27,
+        "endLine": 513,
+        "endChar": 82
+      },
+      "revId": "61c314328a306a2dde282abf7b16ca3ac6df79a1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59461a20_3edc3b32",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Nice find, Youssef!\n\nFWIW I\u0027ve added another test to core to make sure inheritance works as intended: https://gerrit-review.git.corp.google.com/c/gerrit/+/372795",
       "parentUuid": "59461a20_3edc3b32",
+      "range": {
+        "startLine": 522,
+        "startChar": 4,
+        "endLine": 525,
+        "endChar": 22
+      },
+      "revId": "61c314328a306a2dde282abf7b16ca3ac6df79a1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "278d7341_954e3e08",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1081064
+      },
+      "writtenOn": "2023-05-10T11:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b9e403f_6532e542",
       "range": {
         "startLine": 522,
         "startChar": 4,
