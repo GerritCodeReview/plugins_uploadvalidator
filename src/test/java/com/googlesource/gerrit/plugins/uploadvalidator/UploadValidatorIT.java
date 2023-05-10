@@ -455,8 +455,10 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   @Test
   public void blockRejectedAuthor() throws Exception {
     pushConfig(
-        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
-                             "    rejectedAuthorEmailPattern = .*@example\\\\.com"));
+        Joiner.on("\n")
+            .join(
+                "[plugin \"uploadvalidator\"]",
+                "    rejectedAuthorEmailPattern = .*@example\\\\.com"));
 
     TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
 
@@ -469,8 +471,10 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   @Test
   public void blockRejectedCommitter() throws Exception {
     pushConfig(
-        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
-                             "    rejectedCommitterEmailPattern = .*@example\\\\.com"));
+        Joiner.on("\n")
+            .join(
+                "[plugin \"uploadvalidator\"]",
+                "    rejectedCommitterEmailPattern = .*@example\\\\.com"));
 
     TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
 
@@ -483,8 +487,10 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   @Test
   public void restrictToAuthor() throws Exception {
     pushConfig(
-        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
-                             "    allowedAuthorEmailPattern = .*@other\\\\.com"));
+        Joiner.on("\n")
+            .join(
+                "[plugin \"uploadvalidator\"]",
+                "    allowedAuthorEmailPattern = .*@other\\\\.com"));
 
     TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
 
@@ -497,8 +503,10 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   @Test
   public void restrictToCommitter() throws Exception {
     pushConfig(
-        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
-                             "    allowedCommitterEmailPattern = .*@other\\\\.com"));
+        Joiner.on("\n")
+            .join(
+                "[plugin \"uploadvalidator\"]",
+                "    allowedCommitterEmailPattern = .*@other\\\\.com"));
 
     TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
 
@@ -514,16 +522,20 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
 
     // push some config to the parent project
     pushConfig(
-        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
-                             "    rejectedCommitterEmailPattern = .*@badinc\\\\.com"),
+        Joiner.on("\n")
+            .join(
+                "[plugin \"uploadvalidator\"]",
+                "    rejectedCommitterEmailPattern = .*@badinc\\\\.com"),
         project);
 
     // push some other config to the child project, in particular set inheritence
     pushConfig(
-        Joiner.on("\n").join("[access]",
-                             "    inheritFrom = " + project.get(),
-                             "[plugin \"uploadvalidator\"]",
-                             "    blockedKeywordPattern = secr3t"),
+        Joiner.on("\n")
+            .join(
+                "[access]",
+                "    inheritFrom = " + project.get(),
+                "[plugin \"uploadvalidator\"]",
+                "    blockedKeywordPattern = secr3t"),
         childProject);
 
     TestRepository<InMemoryRepository> parent = cloneProject(project, admin);
