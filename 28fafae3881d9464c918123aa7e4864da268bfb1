@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "945b1b73_b34a9cc6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2023-05-11T08:20:01Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Common Typos: Common typo found: \"Inheritence\" -- should it be \"Inheritance\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"Inheritence\" -- should it be \"Inheritance\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 512,
+        "startChar": 35,
+        "endLine": 512,
+        "endChar": 46
+      },
+      "revId": "28fafae3881d9464c918123aa7e4864da268bfb1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d41928_14936d86",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/UploadValidatorIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1026112
+      },
+      "writtenOn": "2023-05-11T08:20:01Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Common Typos: Common typo found: \"inheritence\" -- should it be \"inheritance\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"inheritence\" -- should it be \"inheritance\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 521,
+        "startChar": 70,
+        "endLine": 521,
+        "endChar": 81
+      },
+      "revId": "28fafae3881d9464c918123aa7e4864da268bfb1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
