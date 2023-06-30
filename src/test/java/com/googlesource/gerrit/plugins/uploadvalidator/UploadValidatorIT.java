@@ -30,8 +30,6 @@ import com.google.gerrit.acceptance.testsuite.project.ProjectOperations;
 import com.google.gerrit.entities.Permission;
 import com.google.gerrit.entities.RefNames;
 import com.google.gerrit.extensions.api.changes.DraftInput;
-import com.google.gerrit.extensions.api.changes.ReviewInput;
-import com.google.gerrit.extensions.api.changes.ReviewInput.DraftHandling;
 import com.google.gerrit.extensions.client.ChangeStatus;
 import com.google.gerrit.extensions.common.ChangeInput;
 import com.google.gerrit.extensions.common.MergeInput;
@@ -113,14 +111,10 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
     DraftInput in = new DraftInput();
     in.message = "the password is secr3t ! ";
     in.path = "file.txt";
-    gApi.changes().id(r1.getChangeId()).revision("current").createDraft(in);
-
-    ReviewInput reviewIn = new ReviewInput();
-    reviewIn.drafts = DraftHandling.PUBLISH;
     BadRequestException e =
         assertThrows(
             BadRequestException.class,
-            () -> gApi.changes().id(r1.getChangeId()).revision("current").review(reviewIn));
+            () -> gApi.changes().id(r1.getChangeId()).revision("current").createDraft(in));
     assertThat(e.getMessage()).contains("banned words");
   }
 
@@ -453,8 +447,10 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   @Test
   public void blockRejectedAuthor() throws Exception {
     pushConfig(
-        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
-                             "    rejectedAuthorEmailPattern = .*@example\\\\.com"));
+        Joiner.on("\n")
+            .join(
+                "[plugin \"uploadvalidator\"]",
+                "    rejectedAuthorEmailPattern = .*@example\\\\.com"));
 
     TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
 
@@ -467,8 +463,10 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   @Test
   public void blockRejectedCommitter() throws Exception {
     pushConfig(
-        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
-                             "    rejectedCommitterEmailPattern = .*@example\\\\.com"));
+        Joiner.on("\n")
+            .join(
+                "[plugin \"uploadvalidator\"]",
+                "    rejectedCommitterEmailPattern = .*@example\\\\.com"));
 
     TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
 
@@ -481,8 +479,10 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   @Test
   public void restrictToAuthor() throws Exception {
     pushConfig(
-        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
-                             "    allowedAuthorEmailPattern = .*@other\\\\.com"));
+        Joiner.on("\n")
+            .join(
+                "[plugin \"uploadvalidator\"]",
+                "    allowedAuthorEmailPattern = .*@other\\\\.com"));
 
     TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
 
@@ -495,8 +495,10 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
   @Test
   public void restrictToCommitter() throws Exception {
     pushConfig(
-        Joiner.on("\n").join("[plugin \"uploadvalidator\"]",
-                             "    allowedCommitterEmailPattern = .*@other\\\\.com"));
+        Joiner.on("\n")
+            .join(
+                "[plugin \"uploadvalidator\"]",
+                "    allowedCommitterEmailPattern = .*@other\\\\.com"));
 
     TestAccount user = accountCreator.create("user", "user@example.com", "User", null);
 
