@@ -72,7 +72,7 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
         .add(allow(Permission.PUSH).ref("refs/*").group(SystemGroupBackend.REGISTERED_USERS))
         .update();
 
-    clone = GitUtil.cloneProject(project, registerRepoConnection(project, admin));
+    clone = cloneProject(project, admin);
   }
 
   @Test
@@ -213,8 +213,7 @@ public class UploadValidatorIT extends LightweightPluginDaemonTest {
                 "    group = " + adminGroupUuid(),
                 "    rejectDuplicatePathnames = true"));
 
-    TestRepository<InMemoryRepository> userClone =
-        GitUtil.cloneProject(project, registerRepoConnection(project, user));
+    TestRepository<InMemoryRepository> userClone = cloneProject(project, user);
     pushFactory
         .create(
             user.newIdent(),
