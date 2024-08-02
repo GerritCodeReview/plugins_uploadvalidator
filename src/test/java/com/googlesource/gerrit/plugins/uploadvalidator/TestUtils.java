@@ -14,7 +14,6 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.common.base.Charsets;
 import com.google.common.base.Function;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.LoadingCache;
@@ -24,6 +23,7 @@ import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +47,7 @@ public class TestUtils {
   public static final PluginConfig EMPTY_PLUGIN_CONFIG =
       PluginConfig.create("", new Config(), null);
 
-  protected static final byte[] EMPTY_CONTENT = "".getBytes(Charsets.UTF_8);
+  protected static final byte[] EMPTY_CONTENT = "".getBytes(StandardCharsets.UTF_8);
 
   private static final Function<CommitValidationMessage, String> MESSAGE_TRANSFORMER =
       new Function<CommitValidationMessage, String>() {
