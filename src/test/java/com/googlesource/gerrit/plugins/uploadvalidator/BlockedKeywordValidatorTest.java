@@ -18,7 +18,9 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.EMPTY_PLUGIN_CONFIG;
 import static com.googlesource.gerrit.plugins.uploadvalidator.TestUtils.PATTERN_CACHE;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -29,10 +31,11 @@ import com.google.gerrit.entities.Patch;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.patch.DiffOperations;
-import com.google.gerrit.server.patch.DiffOptions;
+import com.google.gerrit.server.patch.DiffOperationsForCommitValidation;
 import com.google.gerrit.server.patch.filediff.Edit;
 import com.google.gerrit.server.patch.filediff.FileDiffOutput;
 import com.google.gerrit.server.patch.filediff.TaggedEdit;
+import com.google.gerrit.server.patch.gitdiff.ModifiedFile;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -82,21 +85,28 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
   @Test
   public void keywords() throws Exception {
     // Mock DiffOperations to return a diff for each file in our new commit
+    DiffOperationsForCommitValidation diffOperationsForCommitValidationMock =
+        mock(DiffOperationsForCommitValidation.class);
     DiffOperations diffOperationsMock = mock(DiffOperations.class);
-    Map<String, FileDiffOutput> mockDiffs = mock(Map.class);
-    when(diffOperationsMock.listModifiedFilesAgainstParent(
-            any(Project.NameKey.class), any(), anyInt(), any(DiffOptions.class)))
-        .thenReturn(mockDiffs);
+    Map<String, ModifiedFile> mockModifiedFiles = mock(Map.class);
+    when(diffOperationsForCommitValidationMock.loadModifiedFilesAgainstParentIfNecessary(
+            any(Project.NameKey.class), any(), anyInt(), anyBoolean()))
+        .thenReturn(mockModifiedFiles);
     for (Map.Entry<String, String> fileContent : FILE_CONTENTS.entrySet()) {
-      FileDiffOutput file = mock(FileDiffOutput.class);
-      when(file.edits())
+      ModifiedFile modifiedFileMock = mock(ModifiedFile.class);
+      when(mockModifiedFiles.get(fileContent.getKey())).thenReturn(modifiedFileMock);
+      when(mockModifiedFiles.containsKey(fileContent.getKey())).thenReturn(true);
+
+      FileDiffOutput fileDiffMock = mock(FileDiffOutput.class);
+      when(fileDiffMock.edits())
           .thenReturn(
               ImmutableList.of(
                   TaggedEdit.create(
                       Edit.create(0, 0, 0, numberOfLinesInString(fileContent.getValue())),
                       /* dueToRebase = */ false)));
-      when(mockDiffs.get(fileContent.getKey())).thenReturn(file);
-      when(mockDiffs.containsKey(fileContent.getKey())).thenReturn(true);
+      when(diffOperationsMock.getModifiedFileAgainstParent(
+              any(Project.NameKey.class), any(), anyInt(), eq(fileContent.getKey()), any()))
+          .thenReturn(fileDiffMock);
     }
 
     try (RevWalk rw = new RevWalk(repo)) {
@@ -112,7 +122,13 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
               null);
       List<CommitValidationMessage> m =
           validator.performValidation(
-              Project.nameKey("project"), repo, c, rw, getPatterns().values(), EMPTY_PLUGIN_CONFIG);
+              Project.nameKey("project"),
+              repo,
+              c,
+              rw,
+              diffOperationsForCommitValidationMock,
+              getPatterns().values(),
+              EMPTY_PLUGIN_CONFIG);
       Set<String> expected =
           ImmutableSet.of(
               "ERROR: blocked keyword(s) found in: foo.txt (Line: 1)"

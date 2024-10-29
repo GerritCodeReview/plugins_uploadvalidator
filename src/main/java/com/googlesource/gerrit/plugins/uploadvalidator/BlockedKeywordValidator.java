@@ -26,6 +26,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.entities.Patch;
+import com.google.gerrit.entities.Patch.ChangeType;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.entities.Project.NameKey;
 import com.google.gerrit.extensions.annotations.Exports;
@@ -46,9 +47,10 @@ import com.google.gerrit.server.git.validators.CommitValidationListener;
 import com.google.gerrit.server.git.validators.CommitValidationMessage;
 import com.google.gerrit.server.patch.DiffNotAvailableException;
 import com.google.gerrit.server.patch.DiffOperations;
-import com.google.gerrit.server.patch.DiffOptions;
+import com.google.gerrit.server.patch.DiffOperationsForCommitValidation;
 import com.google.gerrit.server.patch.filediff.FileDiffOutput;
 import com.google.gerrit.server.patch.filediff.TaggedEdit;
+import com.google.gerrit.server.patch.gitdiff.ModifiedFile;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
@@ -172,6 +174,7 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
                   repo,
                   receiveEvent.commit,
                   receiveEvent.revWalk,
+                  receiveEvent.diffOperations,
                   blockedKeywordPatterns.values(),
                   cfg);
 
@@ -225,15 +228,16 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
       Repository repo,
       RevCommit c,
       RevWalk revWalk,
+      DiffOperationsForCommitValidation diffOperationsForCommitValidation,
       ImmutableCollection<Pattern> blockedKeywordPatterns,
       PluginConfig cfg)
       throws IOException, ExecutionException, DiffNotAvailableException {
     List<CommitValidationMessage> messages = new LinkedList<>();
     checkCommitMessageForBlockedKeywords(blockedKeywordPatterns, messages, c.getFullMessage());
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
-    Map<String, FileDiffOutput> fileDiffs =
-        diffOperations.listModifiedFilesAgainstParent(
-            project, c, /* parentNum = */ 0, DiffOptions.DEFAULTS);
+    Map<String, ModifiedFile> modifiedFiles =
+        diffOperationsForCommitValidation.loadModifiedFilesAgainstParentIfNecessary(
+            project, c, /* parentNum=*/ 0, /* enableRenameDetection= */ true);
 
     for (String path : content.keySet()) {
       ObjectLoader ol = revWalk.getObjectReader().open(content.get(path));
@@ -242,19 +246,29 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
           continue;
         }
       }
-      if (!fileDiffs.containsKey(path)) {
+      if (!modifiedFiles.containsKey(path)) {
+        continue;
+      }
+      FileDiffOutput fileDiff =
+          diffOperations.getModifiedFileAgainstParent(
+              project, c, /* parentNum=*/ 0, path, /* whitespace= */ null);
+      if (allDueToRebase(fileDiff)) {
         continue;
       }
       checkLineDiffForBlockedKeywords(
-          fileDiffs.get(path).edits().stream()
-              .map(TaggedEdit::jgitEdit)
-              .collect(Collectors.toList()),
+          fileDiff.edits().stream().map(TaggedEdit::jgitEdit).collect(Collectors.toList()),
           blockedKeywordPatterns,
           messages,
           path,
           ol);
     }
     return messages;
+  }
+
+  private static boolean allDueToRebase(FileDiffOutput fileDiffOutput) {
+    return fileDiffOutput.allEditsDueToRebase()
+        && !(fileDiffOutput.changeType() == ChangeType.RENAMED
+            || fileDiffOutput.changeType() == ChangeType.COPIED);
   }
 
   private static Optional<CommentValidationFailure> validateComment(
