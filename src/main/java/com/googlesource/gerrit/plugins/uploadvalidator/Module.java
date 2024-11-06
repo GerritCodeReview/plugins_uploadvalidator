@@ -38,6 +38,7 @@ public class Module extends AbstractModule {
     install(ContentTypeValidator.module());
     install(DuplicatePathnameValidator.module());
     install(ValidatorConfig.module());
+    install(OverriddenCommitMessageValidator.module());
 
     bind(ConfigFactory.class).to(PluginConfigWithInheritanceFactory.class).in(Scopes.SINGLETON);
 
