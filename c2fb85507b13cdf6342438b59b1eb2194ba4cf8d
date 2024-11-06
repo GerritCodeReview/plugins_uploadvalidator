@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e45b426e_e2e1f411",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverriddenCommitMessageValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2024-11-06T22:03:09Z",
+      "side": 1,
+      "message": "missing license header",
+      "revId": "c2fb85507b13cdf6342438b59b1eb2194ba4cf8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f37a8f0c_09b8841e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverriddenCommitMessageValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2024-11-06T22:03:09Z",
+      "side": 1,
+      "message": "this code runs on the gerrit server, this means the patchset is already being uploaded hence I\u0027d rename this to e.g. `uploadedPatchsetId` or just `patchsetId`.",
+      "range": {
+        "startLine": 101,
+        "startChar": 8,
+        "endLine": 101,
+        "endChar": 26
+      },
+      "revId": "c2fb85507b13cdf6342438b59b1eb2194ba4cf8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "665d0fa9_706363d1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverriddenCommitMessageValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2024-11-06T22:03:09Z",
+      "side": 1,
+      "message": "rename this, see above",
+      "range": {
+        "startLine": 107,
+        "startChar": 11,
+        "endLine": 107,
+        "endChar": 26
+      },
+      "revId": "c2fb85507b13cdf6342438b59b1eb2194ba4cf8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c82ae4_b0c29878",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverriddenCommitMessageValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2024-11-06T22:03:09Z",
+      "side": 1,
+      "message": "how does this fail? looks like the validator passes",
+      "range": {
+        "startLine": 112,
+        "startChar": 27,
+        "endLine": 112,
+        "endChar": 32
+      },
+      "revId": "c2fb85507b13cdf6342438b59b1eb2194ba4cf8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f622115_f711ebb2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverriddenCommitMessageValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2024-11-06T22:03:09Z",
+      "side": 1,
+      "message": "too",
+      "range": {
+        "startLine": 123,
+        "startChar": 85,
+        "endLine": 123,
+        "endChar": 87
+      },
+      "revId": "c2fb85507b13cdf6342438b59b1eb2194ba4cf8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e0635c3_b4e58cae",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverriddenCommitMessageValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2024-11-06T22:03:09Z",
+      "side": 1,
+      "message": "Can this happen ? If there\u0027s no Change-Id footer Gerrit will generate a Change-Id and this can only be patchset 1. Above you already check that there are at least 2 patchsets for the same change. Hence this check seems unnecessary.",
+      "revId": "c2fb85507b13cdf6342438b59b1eb2194ba4cf8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34d2a5c4_d22d722d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/OverriddenCommitMessageValidator.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2024-11-06T22:03:09Z",
+      "side": 1,
+      "message": "getCommitMessage ?",
+      "range": {
+        "startLine": 181,
+        "startChar": 27,
+        "endLine": 181,
+        "endChar": 48
+      },
+      "revId": "c2fb85507b13cdf6342438b59b1eb2194ba4cf8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a85488a4_12ca2774",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/uploadvalidator/OverriddenCommitMessageValidatorIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2024-11-06T22:03:09Z",
+      "side": 1,
+      "message": "missing license header",
+      "revId": "c2fb85507b13cdf6342438b59b1eb2194ba4cf8d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
