@@ -14,9 +14,9 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
+import com.google.common.io.MoreFiles;
 import java.io.File;
 import java.io.IOException;
-import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.lib.Repository;
 import org.junit.After;
 import org.junit.Before;
@@ -36,7 +36,7 @@ public abstract class ValidatorTestCase {
   public void cleanup() throws IOException {
     repo.close();
     if (repoFolder.exists()) {
-      FileUtils.deleteDirectory(repoFolder);
+      MoreFiles.deleteRecursively(repoFolder.toPath());
     }
   }
 }
