@@ -14,7 +14,7 @@
 
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
-import com.google.gerrit.server.git.receive.PluginPushOption;
+import com.google.gerrit.server.PluginPushOption;
 
 /** Push option that allows to skip the uploadvalidator plugin validation. */
 public final class SkipValidationPushOption implements PluginPushOption {

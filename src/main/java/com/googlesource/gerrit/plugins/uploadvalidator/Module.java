@@ -15,7 +15,7 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.gerrit.extensions.registration.DynamicSet;
-import com.google.gerrit.server.git.receive.PluginPushOption;
+import com.google.gerrit.server.PluginPushOption;
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 
