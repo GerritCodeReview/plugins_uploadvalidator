@@ -77,7 +77,7 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
                     null,
                     ProjectConfigEntryType.BOOLEAN,
                     null,
-                    false,
+                    true,
                     "Pushes of commits that contain duplicate pathnames, or that "
                         + "contain duplicates of existing pathnames will be "
                         + "rejected. Pathnames y and z are considered to be "
@@ -90,7 +90,7 @@ public class DuplicatePathnameValidator implements CommitValidationListener {
                     "en",
                     ProjectConfigEntryType.STRING,
                     getAvailableLocales(),
-                    false,
+                    true,
                     "To avoid problems caused by comparing pathnames with different "
                         + "locales it is possible to use a specific locale. The "
                         + "default is English (en)."));
