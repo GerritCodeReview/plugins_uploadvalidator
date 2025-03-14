@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.uploadvalidator;
 
 import com.google.common.io.MoreFiles;
+import com.google.common.io.RecursiveDeleteOption;
 import java.io.File;
 import java.io.IOException;
 import org.eclipse.jgit.lib.Repository;
@@ -36,7 +37,7 @@ public abstract class ValidatorTestCase {
   public void cleanup() throws IOException {
     repo.close();
     if (repoFolder.exists()) {
-      MoreFiles.deleteRecursively(repoFolder.toPath());
+      MoreFiles.deleteRecursively(repoFolder.toPath(), RecursiveDeleteOption.ALLOW_INSECURE);
     }
   }
 }
