@@ -33,6 +33,24 @@
       "message": "this causes all uploadvalidator tests to fail on MacOS 15.3.2 with this error:\n\n```\n1) keywords(com.googlesource.gerrit.plugins.uploadvalidator.BlockedKeywordValidatorTest)\ncom.google.common.io.InsecureRecursiveDeleteException: /xxxx/.cache/bazel/4b335b4bd849ade8aaf372fec070b504/sandbox/darwin-sandbox/618/execroot/gerrit/_tmp/95eb85e27f3f74cc0fe9f59d82c5a643/Git14340613437917312854: unable to guarantee security of recursive delete\n\tat com.google.common.io.MoreFiles.checkAllowsInsecure(MoreFiles.java:752)\n\tat com.google.common.io.MoreFiles.deleteRecursively(MoreFiles.java:544)\n\tat com.googlesource.gerrit.plugins.uploadvalidator.ValidatorTestCase.cleanup(ValidatorTestCase.java:39)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)\n\tat org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\n\tat org.junit.runners.Suite.runChild(Suite.java:128)\n\tat org.junit.runners.Suite.runChild(Suite.java:27)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\n\tat com.google.testing.junit.runner.internal.junit4.CancellableRequestFactory$CancellableRunner.run(CancellableRequestFactory.java:108)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:115)\n\tat com.google.testing.junit.runner.junit4.JUnit4Runner.run(JUnit4Runner.java:116)\n\tat com.google.testing.junit.runner.BazelTestRunner.runTestsInSuite(BazelTestRunner.java:145)\n\tat com.google.testing.junit.runner.BazelTestRunner.main(BazelTestRunner.java:76)\n```",
       "revId": "c849db89d32bdc8c5a0f5c123201ad74f1006934",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6ac00d8_1656d9e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2025-03-14T10:17:53Z",
+      "side": 1,
+      "message": "fixed in I087ee9fd73bf28b1221c999a31769a959d9a3d56",
+      "parentUuid": "e49bf9e0_145bee7b",
+      "revId": "c849db89d32bdc8c5a0f5c123201ad74f1006934",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ],
   "submitRequirementResults": [
