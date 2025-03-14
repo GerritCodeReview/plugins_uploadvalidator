@@ -94,7 +94,7 @@ public class BlockedKeywordValidatorTest extends ValidatorTestCase {
               ImmutableList.of(
                   TaggedEdit.create(
                       Edit.create(0, 0, 0, numberOfLinesInString(fileContent.getValue())),
-                      /* dueToRebase = */ false)));
+                      /* dueToRebase= */ false)));
       when(mockDiffs.get(fileContent.getKey())).thenReturn(file);
       when(mockDiffs.containsKey(fileContent.getKey())).thenReturn(true);
     }

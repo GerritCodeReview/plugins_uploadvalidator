@@ -233,7 +233,7 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
     Map<String, ObjectId> content = CommitUtils.getChangedContent(repo, c, revWalk);
     Map<String, FileDiffOutput> fileDiffs =
         diffOperations.listModifiedFilesAgainstParent(
-            project, c, /* parentNum = */ 0, DiffOptions.DEFAULTS);
+            project, c, /* parentNum= */ 0, DiffOptions.DEFAULTS);
 
     for (String path : content.keySet()) {
       ObjectLoader ol = revWalk.getObjectReader().open(content.get(path));
