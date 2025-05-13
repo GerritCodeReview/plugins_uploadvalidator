@@ -8,8 +8,8 @@ def external_plugin_deps():
     )
     maven_jar(
         name = "mime-types",
-        artifact = "org.overviewproject:mime-types:0.1.3",
-        sha1 = "63ebd860cdad2f8a5fec89ae3238970607d943a3",
+        artifact = "org.overviewproject:mime-types:2.0.0",
+        sha1 = "af05afd015df62cc6b949792e59dff97e403fcea",
     )
     maven_jar(
         name = "juniversalchardet",
