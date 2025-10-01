@@ -1,12 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_uploadvalidator": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/440723,1",
+      "state": "FAILED",
+      "message": "Change failed",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/0244864f81e04a8aaf8a415899dbd540",
       "started": "2025-10-01T15:05:33Z",
+      "finished": "2025-10-01T15:05:36Z",
       "created": "2024-10-29T15:39:53Z",
-      "updated": "2025-10-01T15:05:34Z"
+      "updated": "2025-10-01T15:05:37Z"
     }
   }
 }
