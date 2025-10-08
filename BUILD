@@ -18,6 +18,7 @@ gerrit_plugin(
 
 TEST_DEPS = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
     "@commons-io//jar",
+    "@juniversalchardet//jar",
     "@mime-types//jar",
     ":uploadvalidator__plugin",
 ]
@@ -41,7 +42,8 @@ junit_tests(
     name = "uploadvalidator_tests",
     testonly = 1,
     srcs = glob(
-        ["src/test/java/**/*Test.java"]),
+        ["src/test/java/**/*Test.java"],
+    ),
     tags = ["uploadvalidator"],
     deps = TEST_DEPS + [
         ":testutils",
@@ -52,7 +54,8 @@ junit_tests(
     name = "uploadvalidator_integration_tests",
     testonly = 1,
     srcs = glob(
-        ["src/test/java/**/*IT.java"]),
+        ["src/test/java/**/*IT.java"],
+    ),
     tags = ["uploadvalidator"],
     deps = TEST_DEPS + [
         ":testutils",
