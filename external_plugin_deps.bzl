@@ -11,3 +11,8 @@ def external_plugin_deps():
         artifact = "org.overviewproject:mime-types:0.1.3",
         sha1 = "63ebd860cdad2f8a5fec89ae3238970607d943a3",
     )
+    maven_jar(
+        name = "juniversalchardet",
+        artifact = "com.github.albfernandez:juniversalchardet:2.5.0",
+        sha1 = "423123a1ddfe458d07948bc09cfa0170037a9e3d",
+    )
