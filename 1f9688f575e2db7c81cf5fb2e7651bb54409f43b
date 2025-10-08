@@ -16,6 +16,24 @@
       "message": "This is not enough, we need to include this library into the plugin jar, which means we need to add this dependency to the `gerrit_plugin.deps`",
       "revId": "1f9688f575e2db7c81cf5fb2e7651bb54409f43b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa3fe3c0_7e4e8e2f",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2025-10-08T11:53:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40da5bc2_12ebcc5c",
+      "revId": "1f9688f575e2db7c81cf5fb2e7651bb54409f43b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
