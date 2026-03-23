@@ -18,7 +18,6 @@ gerrit_plugin(
 )
 
 TEST_DEPS = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
-    "@commons-io//jar",
     "@mime-types//jar",
     "@juniversalchardet//jar",
     ":uploadvalidator__plugin",
