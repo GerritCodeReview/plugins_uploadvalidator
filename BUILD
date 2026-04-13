@@ -1,6 +1,12 @@
+load(
+    "@com_googlesource_gerrit_bazlets//:gerrit_plugin.bzl",
+    "gerrit_acceptance_framework",
+    "gerrit_api",
+    "gerrit_plugin",
+    "gerrit_plugin_dependency_tests",
+    "gerrit_plugin_tests",
+)
 load("@rules_java//java:defs.bzl", "java_library")
-load("//tools/bzl:junit.bzl", "junit_tests")
-load("//tools/bzl:plugin.bzl", "PLUGIN_DEPS", "PLUGIN_TEST_DEPS", "gerrit_plugin")
 
 gerrit_plugin(
     name = "uploadvalidator",
@@ -12,14 +18,12 @@ gerrit_plugin(
     ],
     resources = glob(["src/main/resources/**/*"]),
     deps = [
-        "@juniversalchardet//jar",
-        "@mime-types//jar",
+        "@uploadvalidator_plugin_deps//:org_overviewproject_mime_types",
     ],
 )
 
-TEST_DEPS = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
-    "@mime-types//jar",
-    "@juniversalchardet//jar",
+TEST_DEPS = [
+    "@uploadvalidator_plugin_deps//:org_overviewproject_mime_types",
     ":uploadvalidator__plugin",
 ]
 
@@ -35,10 +39,12 @@ java_library(
         ["src/test/java/**/*.java"],
         exclude = TEST_SRCS,
     ),
-    deps = TEST_DEPS,
+    deps = TEST_DEPS +
+           gerrit_api() +
+           gerrit_acceptance_framework(),
 )
 
-junit_tests(
+gerrit_plugin_tests(
     name = "uploadvalidator_tests",
     testonly = 1,
     srcs = glob(
@@ -50,7 +56,7 @@ junit_tests(
     ],
 )
 
-junit_tests(
+gerrit_plugin_tests(
     name = "uploadvalidator_integration_tests",
     testonly = 1,
     srcs = glob(
@@ -70,3 +76,5 @@ java_library(
         ":testutils",
     ],
 )
+
+gerrit_plugin_dependency_tests(plugin = "uploadvalidator")
