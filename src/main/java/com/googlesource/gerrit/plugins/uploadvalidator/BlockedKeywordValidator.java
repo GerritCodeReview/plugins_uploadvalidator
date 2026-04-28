@@ -97,6 +97,10 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
   private static final String KEY_CHECK_BLOCKED_KEYWORD_PATTERN =
       KEY_CHECK_BLOCKED_KEYWORD + "Pattern";
 
+  //Config option for additional message to be appended when blocked keyword is found.
+  private static final String KEY_CHECK_BLOCKED_OPTIONAL_MESSAGE = "optionalMessage";
+
+
   public static AbstractModule module() {
     return new AbstractModule() {
       @Override
@@ -176,8 +180,11 @@ public class BlockedKeywordValidator implements CommitValidationListener, Commen
                   cfg);
 
           if (!messages.isEmpty()) {
+              String optionalMessage = cfg.getString(KEY_CHECK_BLOCKED_OPTIONAL_MESSAGE);
+              optionalMessage = optionalMessage == null ? "" : " " + optionalMessage;
+
             throw new CommitValidationException(
-                "includes files containing blocked keywords", messages);
+                "includes files containing blocked keywords." + optionalMessage, messages);
           }
         }
       }

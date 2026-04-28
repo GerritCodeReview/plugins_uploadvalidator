@@ -38,6 +38,7 @@ project info screen.
     allowedCommitterEmailPattern = .*gerrit\\.com
     allowedCommitterEmailPattern =  admin@gerrit\\..*
     rejectedCommitterEmailPattern = .*@old-name\\.com
+    optionalMessage = yourMessage
 ```
 
 plugin.@PLUGIN@.allowedAuthorEmailPattern
@@ -451,3 +452,12 @@ plugin.@PLUGIN@.skipViaPushOption
     other skip rules.
 
     Default: false
+
+
+plugin.@PLUGIN@.optionalMessage
+:   Additional message to be shown to user when blockedKeywords are found
+
+    The message is appended and printed as the final part of the message that
+    returns found Keywords.
+
+    Default: No message
