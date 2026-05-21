@@ -86,12 +86,8 @@ public class MimeTypeDetectionTest extends ValidatorTestCase {
     content = "Hello,World";
     files.add(new FileContent("foo.csv", content.getBytes(StandardCharsets.UTF_8), "text/csv"));
 
-    // See https://issues.gerritcodereview.com/issues/495458797 and the inaccurate content-based
-    // type
-    // detection of the com.github.albfernandez:juniversalchardet:2.0.0 included in Gerrit v3.12.
-    // TODO: To be enabled again in the merge-up to stable-3.13 onwards
-    //    content = "hello=world";
-    //    files.add(new FileContent("foo", content.getBytes(StandardCharsets.UTF_8), "text/plain"));
+    content = "hello=world";
+    files.add(new FileContent("foo", content.getBytes(StandardCharsets.UTF_8), "text/plain"));
 
     files.add(new FileContent("foo.pdf", TEST_PDF, "application/pdf"));
     return files;
