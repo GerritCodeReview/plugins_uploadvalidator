@@ -3,7 +3,7 @@
     "zuul-check:plugins_uploadvalidator": {
       "state": "NOT_STARTED",
       "created": "2026-05-21T17:42:56Z",
-      "updated": "2026-06-26T12:07:53Z"
+      "updated": "2026-06-26T12:08:07Z"
     }
   }
 }
