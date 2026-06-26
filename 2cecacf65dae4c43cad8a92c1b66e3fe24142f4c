@@ -48,6 +48,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "287c1230_95f69317",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4930712
+      },
+      "writtenOn": "2026-06-26T11:06:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73cc24b5_406c286d",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 21
+      },
+      "revId": "2cecacf65dae4c43cad8a92c1b66e3fe24142f4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f0a2d3a_e4c57149",
@@ -61,6 +85,30 @@
       "writtenOn": "2026-06-23T12:00:17Z",
       "side": 1,
       "message": "Not sure how picky we are about formatting, but:\n```suggestion\n  // Config option for additional message to be appended when blocked keyword is found.\n  private static final String KEY_CHECK_BLOCKED_OPTIONAL_MESSAGE \u003d \"optionalMessage\";\n```",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 0
+      },
+      "revId": "2cecacf65dae4c43cad8a92c1b66e3fe24142f4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0afa6076_227f1c0e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 4930712
+      },
+      "writtenOn": "2026-06-26T11:06:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f0a2d3a_e4c57149",
       "range": {
         "startLine": 100,
         "startChar": 0,
@@ -88,6 +136,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "865e33ac_1ca84ecc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/uploadvalidator/BlockedKeywordValidator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 4930712
+      },
+      "writtenOn": "2026-06-26T11:06:19Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "756b38f8_56863f48",
+      "revId": "2cecacf65dae4c43cad8a92c1b66e3fe24142f4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d546907_0d1dbe3a",
@@ -101,6 +167,24 @@
       "writtenOn": "2026-06-23T12:00:17Z",
       "side": 1,
       "message": "Perhaps we shouldn\u0027t include the \"optionalness\" of the configuration key in its name and instead describe what it does. How about `rejectionMessage`?\n\n(Note missing newline at EOF.)",
+      "revId": "2cecacf65dae4c43cad8a92c1b66e3fe24142f4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb824423_8c791414",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 4930712
+      },
+      "writtenOn": "2026-06-26T11:06:19Z",
+      "side": 1,
+      "message": "Used that name. I think it describes better what it is. The line is also added.",
+      "parentUuid": "8d546907_0d1dbe3a",
       "revId": "2cecacf65dae4c43cad8a92c1b66e3fe24142f4c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }

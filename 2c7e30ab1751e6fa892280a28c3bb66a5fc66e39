@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1b53a96_f47c5b5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4930712
+      },
+      "writtenOn": "2026-06-26T11:06:19Z",
+      "side": 1,
+      "message": "The comments from Bäck and Åkerman are fixed",
+      "revId": "2c7e30ab1751e6fa892280a28c3bb66a5fc66e39",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
