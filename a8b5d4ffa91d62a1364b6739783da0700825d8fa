@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f486f899_a1c981f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2026-06-29T12:22:33Z",
+      "side": 1,
+      "message": "- zuul verification is currently broken, hence removed its vote\n- verified successfully locally",
+      "revId": "a8b5d4ffa91d62a1364b6739783da0700825d8fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
